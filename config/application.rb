@@ -11,6 +11,9 @@ module ZeroCalorie
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # slimをデフォに設定
+    config.generators.template_engine = :slim
+
     # TimeZoneの設定
     config.i18n.available_locales = %i[ja]
     config.i18n.default_locale = :ja
