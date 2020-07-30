@@ -30,7 +30,7 @@ module ZeroCalorie
         view_specs: false,
         routing_specs: false,
         helper_specs: false,
-        controller_specs: false,
+        controller_specs: false
     end
 
     # Settings in config/environments/* take precedence over those specified here.
