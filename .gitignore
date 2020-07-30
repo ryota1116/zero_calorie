@@ -30,3 +30,9 @@
 
 # /vendor/bundle配下のフォルダをGit管理対象外に
 /vendor/bundle
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
