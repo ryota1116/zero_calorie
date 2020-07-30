@@ -1,0 +1,31 @@
+# auto-correctせず、自分で修正する
+Style/BlockDelimiters:
+  AutoCorrect: false
+  Exclude:
+    # specファイルはauto-correctするかも
+    # - "spec/**/*"
+
+
+# rubocop関連のgemをrequireする
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+## 全体に適応する項目を定義(自動生成されるものはチェック対象から除外する)
+AllCops:
+  TargetRubyVersion: 2.7.1
+	TargetRailsVersion: 6.0
+	Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+		- 'node_modules/**/*'
+
+Rails:
+  Enabled: true
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
