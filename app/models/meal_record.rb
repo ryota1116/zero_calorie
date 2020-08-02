@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class MealRecord < ApplicationRecord
+  has_many_attached :meal_pictures
 end
