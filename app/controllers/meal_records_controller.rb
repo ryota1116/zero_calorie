@@ -11,17 +11,19 @@ class MealRecordsController < ApplicationController
   def create
     # リクエストの処理を書く
 
-    # @meal_record = MealRecord.new(meal_record_params)
+    @meal_record = MealRecord.new(meal_record_params)
 
-    # @meal_record.save
+    @meal_record.save
+    
+    binding.pry
 
-    image_path = "/Users/funesakisuke/workspace/app/zero_calorie/app/assets/images/gyouza0347.jpeg"
+    # image_path = "/Users/funesakisuke/workspace/app/zero_calorie/app/assets/images/gyouza0347.jpeg"
     # クライアントを初期化することにより、特定のバージョンの Vision API を使用できる
     image_annotator = Google::Cloud::Vision.image_annotator
 
     response = image_annotator.label_detection(
-      # image: @meal_record.meal_picture.blob.filename.to_json,
-      image: image_path,
+      image: @meal_record.meal_picture.original_filename,
+      # image: image_path,
       max_results: 15 # optional, defaults to 10
     )
 
@@ -31,7 +33,7 @@ class MealRecordsController < ApplicationController
     response.responses.each do |res|
       res.label_annotations.each { |label| @json_string << label.description }
       # res.label_annotations.each do |label|
-        # puts @json_string
+        puts @json_string
       # end
     end
 
