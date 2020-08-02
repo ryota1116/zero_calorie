@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'google-cloud-vision'
+gem "google-cloud-storage", "~> 1.8", require: false
 
 # UI/UX
 gem 'rails-i18n'
