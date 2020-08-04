@@ -42,11 +42,9 @@ class MealRecordsController < ApplicationController
     response.responses.each do |res|
       res.label_annotations.each { |label| @json_string << label.description }
       # res.label_annotations.each do |label|
-        puts @json_string
+        # puts @json_string
       # end
     end
-
-    redirect_to meal_records_path
   end
 
   def show
