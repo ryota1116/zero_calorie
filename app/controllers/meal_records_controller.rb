@@ -14,13 +14,27 @@ class MealRecordsController < ApplicationController
     @meal_record = MealRecord.new(meal_record_params)
     @meal_record.save
 
+    image_path = "/Users/funesakisuke/workspace/app/zero_calorie/app/assets/images/gyouza0347.jpeg"
+
     # クライアントを初期化
     image_annotator = Google::Cloud::Vision.image_annotator
 
-    response = image_annotator.label_detection(
-      image: @meal_record.meal_picture.open { |file| file.path },
-      max_results: 15
-    )
+    # file = @meal_record.meal_picture.open do |file|
+    #   file
+    # end
+
+    # response = image_annotator.label_detection(
+    #   image: image_path,
+    #   max_results: 15
+    # )
+
+    response = @meal_record.meal_picture.open do |file|
+
+      image_annotator.label_detection(
+          image: file,
+          max_results: 15
+      )
+    end
 
     @json_string = []
 
