@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Food.create!([
+  { name: "アイスクリーム",
+    calorie: 0,
+    calorie_theory: "アイスは冷たいからカロリーゼロ。むしろ0度を下回ればカロリーが消費される説もある。",
+    labels: ["Food", "Ice cream", "Frozen dessert", "Dish", "Dondurma", "Cuisine", "Vanilla ice cream", "Ingredient", "Sorbet", "Gelato", "Dessert", "Frozen yogurt", "Cream", "Vanilla", "Dairy"]
+  }
+])

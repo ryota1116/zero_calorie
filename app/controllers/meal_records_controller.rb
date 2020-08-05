@@ -14,19 +14,8 @@ class MealRecordsController < ApplicationController
     @meal_record = MealRecord.new(meal_record_params)
     @meal_record.save
 
-    image_path = "/Users/funesakisuke/workspace/app/zero_calorie/app/assets/images/gyouza0347.jpeg"
-
     # クライアントを初期化
     image_annotator = Google::Cloud::Vision.image_annotator
-
-    # file = @meal_record.meal_picture.open do |file|
-    #   file
-    # end
-
-    # response = image_annotator.label_detection(
-    #   image: image_path,
-    #   max_results: 15
-    # )
 
     response = @meal_record.meal_picture.open do |file|
 
@@ -41,10 +30,14 @@ class MealRecordsController < ApplicationController
     # ラベル検出をリクエストしてレスポンスを処理する
     response.responses.each do |res|
       res.label_annotations.each { |label| @json_string << label.description }
-      # res.label_annotations.each do |label|
-        # puts @json_string
-      # end
     end
+
+    @labels = []
+
+    @json_string.each do |label|
+      @labels << Food.search_by_label(label)
+    end
+    # @food_lists = Food.search_by_label(@json_string)
   end
 
   def show

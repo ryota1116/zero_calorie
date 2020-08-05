@@ -1,5 +1,6 @@
 h1 MealRecords#new
 
+/ = form_with model: @meal_record, local: true  do |form|
 = form_with model: @meal_record, local: true  do |form|
   / = form.file_field :meal_pictures, multiple: true
   = form.file_field :meal_picture
