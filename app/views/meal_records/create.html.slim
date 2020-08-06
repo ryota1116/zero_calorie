@@ -1,5 +1,4 @@
-li = @json_string
-
 h2 検索結果
-/ li = @food_lists.name
-/ li = @food_lists.calorie_theory
+- @food_lists.each do |food|
+  h3 = food.name
+  p = food.calorie_theory

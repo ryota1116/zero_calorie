@@ -21,22 +21,31 @@ class MealRecordsController < ApplicationController
 
       image_annotator.label_detection(
           image: file,
-          max_results: 15
+          max_results: 10
       )
     end
 
     @json_string = []
+    # @labels = []
 
     # ラベル検出をリクエストしてレスポンスを処理する
     response.responses.each do |res|
       res.label_annotations.each { |label| @json_string << label.description }
+      # res.label_annotations.each do |label|
+      #   puts label.description
+      #   @labels << Food.search_by_label(label)
+      # end
     end
 
-    @labels = []
-
-    @json_string.each do |label|
-      @labels << Food.search_by_label(label)
+    @food_lists = []
+    @json_string.each do |json|
+      @food_lists = Food.search_by_label(json)
     end
+    # @food_lists = Food.where("name like a")
+
+    # @json_string.each do |label|
+    #   @labels << Food.search_by_label(label)
+    # end
     # @food_lists = Food.search_by_label(@json_string)
   end
 
