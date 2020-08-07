@@ -11,8 +11,8 @@
 #  updated_at     :datetime         not null
 #
 class Food < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
-  validates :calorie, presence: true, numericality: { only_integer: true, equal_to: 0 }
+  validates :name, presence: { case_sensitive: true }, uniqueness: { case_sensitive: true }
+  validates :calorie, presence: { case_sensitive: true }, numericality: { only_integer: { case_sensitive: true }, equal_to: 0 }
 
   scope :search_by_label, -> (label) { where("labels like ?", "%#{label}%") }
 end
