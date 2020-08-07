@@ -9,6 +9,7 @@
 #
 class MealRecord < ApplicationRecord
   has_one_attached :meal_picture
+  validates :datetime, presence: true
 
   def fetch_food_labels
     # クライアントを初期化
