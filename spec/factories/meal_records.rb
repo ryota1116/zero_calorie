@@ -3,7 +3,7 @@
 # Table name: meal_records
 #
 #  id         :bigint           not null, primary key
-#  meal_time  :datetime
+#  meal_time  :datetime         not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_123950) do
   end
 
   create_table "meal_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.datetime "meal_time"
+    t.datetime "meal_time", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
