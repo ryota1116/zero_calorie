@@ -27,9 +27,6 @@ class FoodsController < ApplicationController
     # ラベル検出をリクエストしてレスポンスを処理する
     response.responses.each do |res|
       res.label_annotations.each { |label| food_labels << label.description }
-      # res.label_annotations.each do |label|
-      #   @labels << Food.search_by_label(label)
-      # end
     end
 
     @food_lists = []
