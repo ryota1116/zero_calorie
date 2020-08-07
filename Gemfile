@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'google-cloud-vision'
+gem "google-cloud-storage", "~> 1.8", require: false
+
 # UI/UX
 gem 'rails-i18n'
 # RailsでSEOの設定を行うGem
@@ -46,11 +49,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # RSpecを高速化
   gem 'spring-commands-rspec'
-
   # テストコード
   gem 'factory_bot_rails'
   gem 'rspec-rails'
-
   # コード解析
   gem 'brakeman', :require => false
   gem 'bullet'
@@ -58,7 +59,6 @@ group :development do
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rails_best_practices'
-
   # デバッガー
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -66,6 +66,11 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
+  # Table/Schema
+  # 各モデルのスキーマ情報をファイルの先頭もしくは末尾にコメントとして書き出してくれるGem
+  gem 'annotate'
+  # resetしても、スキーマファイルのコメントを残してくれる
+  gem 'migration_comments'
 end
 
 group :test do
