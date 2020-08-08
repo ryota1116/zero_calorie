@@ -12,9 +12,17 @@
 #
 FactoryBot.define do
   factory :food do
-    name { "MyString" }
-    keywords { "" }
-    calorie { 1 }
-    calorie_theory { "MyText" }
+    sequence(:name) { |n| "name-#{n}" }
+    calorie { 0 }
+    sequence(:calorie_theory) { |n| "calorie_theory-#{n}" }
+    labels { "" }
+
+    trait :icecream do
+      name { 'アイスクリーム' }
+      calorie { 0 }
+      calorie_theory { 'アイスクリームはカロリーゼロ。冷たくすることでカロリーが全部飛ぶ。むしろ0度を下回っているから、食べれば食べるほどカロリーが消費される。' }
+      labels { ["Food", "Ice cream", "Frozen dessert", "Dish", "Dondurma", "Cuisine", "Vanilla ice cream", "Ingredient", "Sorbet", "Gelato", "Dessert", "Frozen yogurt", "Cream", "Vanilla", "Dairy"] }
+    end
+
   end
 end
