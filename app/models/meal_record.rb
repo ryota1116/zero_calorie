@@ -9,7 +9,7 @@
 #
 class MealRecord < ApplicationRecord
   has_one_attached :meal_picture
-  validates :datetime, presence: { case_sensitive: true }
+  validates :meal_time, presence: { case_sensitive: true }
 
   def fetch_food_labels
     # クライアントを初期化

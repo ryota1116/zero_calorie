@@ -9,10 +9,10 @@
 #
 FactoryBot.define do
   factory :meal_record do
-    meal_time { "2020-08-02 16:59:24" }
+    meal_time { DateTime.current }
 
     trait :yesterday do
-      meal_time { DateTime.now.ago(1.days) }
+      meal_time { DateTime.current.ago(1.day) }
     end
   end
 end

@@ -15,6 +15,7 @@ require 'rails_helper'
 RSpec.describe Food, type: :model do
   describe 'Foodモデル' do
     let(:food) { create(:food) }
+
     it 'calorie、nameがあれば有効であること' do
       expect(food).to be_valid
     end
