@@ -6,15 +6,6 @@
 #  meal_time  :datetime         not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  food_id    :bigint           not null
-#
-# Indexes
-#
-#  index_meal_records_on_food_id  (food_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (food_id => foods.id)
 #
 FactoryBot.define do
   factory :meal_record do

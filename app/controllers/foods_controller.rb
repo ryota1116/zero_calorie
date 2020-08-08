@@ -34,11 +34,12 @@ class FoodsController < ApplicationController
     food_labels.each do |food_label|
       @food_lists = Food.search_by_label(food_label)
     end
+    
   end
 
   private
 
   def meal_record_params
-    params.require(:meal_record).permit(:meal_picture)
+    params.require(:meal_record).permit(:meal_picture, :meal_time)
   end
 end
