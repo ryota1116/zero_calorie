@@ -36,6 +36,7 @@ gem 'rails-i18n'
 # RailsでSEOの設定を行うGem
 # gem 'meta-tags'
 gem 'slim-rails'
+gem 'html2slim'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
