@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'meal_records#index'
   # resources :foods, only: [:create]
   resources :foods, only: [:create, :index] do
     collection do

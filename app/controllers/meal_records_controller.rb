@@ -21,6 +21,6 @@ class MealRecordsController < ApplicationController
   private
 
   def meal_record_params
-    params.require(:meal_record).permit(:meal_picture, :meal_time)
+    params.require(:meal_record).permit(:meal_time, :meal_picture)
   end
 end
