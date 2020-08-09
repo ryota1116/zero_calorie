@@ -1,0 +1,8 @@
+header
+  div
+    = link_to  'サービス名'
+    / 画像検索ボタン
+    検索フォーム
+    = render template: 'foods/_search_by_image', locals: { meal_record: MealRecord.new }
+    = link_to  '新規登録', ''
+    = link_to  'ログイン', ''
