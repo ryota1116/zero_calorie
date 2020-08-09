@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # resources :foods, only: [:create]
   resources :foods, only: [:create, :index] do
     collection do
-      post 'search_result'
+      get 'search_form'
+      post 'search_picture'
     end
   end
   resources :meal_records, only: [:new, :create, :show, :index]

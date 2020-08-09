@@ -5,7 +5,11 @@ class FoodsController < ApplicationController
   def index
   end
 
-  def search_result
+  def search_form
+    @food_lists = Food.search_form(params[:name])
+  end
+
+  def search_picture
     # リクエストの処理を書く
 
     @meal_record = MealRecord.new(meal_record_params)
@@ -43,7 +47,6 @@ class FoodsController < ApplicationController
     food_labels.each do |food_label|
       @food_lists = Food.search_by_label(food_label)
     end
-    
   end
 
   private
