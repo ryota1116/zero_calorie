@@ -1,7 +1,8 @@
 h1 食べたものを記録
 
 = form_with url: search_result_foods_path, model: meal_record, local: true  do |f|
-  / = form.file_field :meal_pictures, multiple: true
+  / = f.file_field :meal_pictures, multiple: true
   = f.file_field :meal_picture
+  = f.datetime_field :meal_time
   <br>
   = f.submit '画像で検索'

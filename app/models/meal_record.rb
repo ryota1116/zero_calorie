@@ -8,6 +8,8 @@
 #  updated_at :datetime         not null
 #
 class MealRecord < ApplicationRecord
+  belongs_to :food, optional: true
+
   has_one_attached :meal_picture
   validates :meal_time, presence: { case_sensitive: true }
 

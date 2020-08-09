@@ -14,13 +14,22 @@ class FoodsController < ApplicationController
     # クライアントを初期化
     image_annotator = Google::Cloud::Vision.image_annotator
 
+    # TODO: 画像を２枚以上渡された場合などの例外処理
     response = @meal_record.meal_picture.open do |file|
-
       image_annotator.label_detection(
           image: file,
           max_results: 10
       )
     end
+
+    # @meal_record.meal_pictures.each do |meal_picture|
+    #   response = meal_picture.open do |file|
+    #     image_annotator.label_detection(
+    #         image: file,
+    #         max_results: 10
+    #     )
+    #   end
+    # end
 
     food_labels = []
 
@@ -34,11 +43,12 @@ class FoodsController < ApplicationController
     food_labels.each do |food_label|
       @food_lists = Food.search_by_label(food_label)
     end
+    
   end
 
   private
 
   def meal_record_params
-    params.require(:meal_record).permit(:meal_picture)
+    params.require(:meal_record).permit(:meal_time, :meal_picture)
   end
 end
