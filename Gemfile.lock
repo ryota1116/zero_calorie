@@ -179,6 +179,9 @@ GEM
     grpc (1.30.2)
       google-protobuf (~> 3.12)
       googleapis-common-protos-types (~> 1.0)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     httpclient (2.8.3)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
@@ -332,6 +335,11 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -345,6 +353,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    semantic-ui-sass (2.4.2.0)
+      sass (>= 3.2)
     sexp_processor (4.15.0)
     signet (0.14.0)
       addressable (~> 2.3)
@@ -420,6 +430,7 @@ DEPENDENCIES
   factory_bot_rails
   google-cloud-storage (~> 1.8)
   google-cloud-vision
+  html2slim
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -439,6 +450,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (>= 6)
   selenium-webdriver
+  semantic-ui-sass
   slim-rails
   spring
   spring-commands-rspec

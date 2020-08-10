@@ -1,8 +1,16 @@
-h1 食べたものを記録
-
-= form_with url: search_result_foods_path, model: meal_record, local: true  do |f|
+= form_with url: search_picture_foods_path, model: meal_record, local: true  do |f|
   / = f.file_field :meal_pictures, multiple: true
   = f.file_field :meal_picture
   = f.datetime_field :meal_time
   <br>
-  = f.submit '画像で検索'
+  / = f.submit '画像で検索'
+
+javascript:
+  $(function () {
+    $('input[type=file]').on('change', function (e) {
+      console.log(e.target.files);
+      if (e.target.files[0].size > 0) {
+        $(this).parents('form').submit();
+      }
+    });
+  });

@@ -1,0 +1,15 @@
+header
+  .ui.secondary.menu
+    .item
+      = link_to 'サービス名'
+    / 画像検索ボタン
+    .item
+      = render template: 'foods/_search_form'
+    .right.menu
+      .item
+        .ui.icon.input
+          = render template: 'foods/_search_by_image', locals: { meal_record: MealRecord.new }
+      .ui.item
+        = link_to '新規登録', ''
+      .ui.item
+        = link_to 'ログイン', ''
