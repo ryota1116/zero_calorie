@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user_sessions/new'
+  get 'user_sessions/create'
+  get 'user_sessions/destroy'
   root to: 'meal_records#index'
   # resources :foods, only: [:create]
   resources :foods, only: [:create, :index] do
@@ -9,5 +12,8 @@ Rails.application.routes.draw do
   end
   resources :meal_records, only: [:new, :create, :show, :index]
   resources :users, only: [:new, :create]
+  get '/login', to: 'user_sessions#new', as: :login
+  post '/login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy', as: :logout
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
