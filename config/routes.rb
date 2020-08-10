@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'meal_records#index'
+  root to: 'top_pages#top'
   # resources :foods, only: [:create]
   resources :foods, only: [:create, :index] do
     collection do
@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     end
   end
   resources :meal_records, only: [:new, :create, :show, :index]
+  resources :users, only: [:new, :create]
+  get '/login', to: 'user_sessions#new', as: :login
+  post '/login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy', as: :logout
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

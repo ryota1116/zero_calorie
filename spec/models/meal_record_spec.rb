@@ -10,7 +10,7 @@
 require 'rails_helper'
 
 RSpec.describe MealRecord, type: :model do
-  describe 'MealRecord' do
+  describe 'MealRecordモデル' do
     let(:meal_record) { create(:meal_record) }
 
     it 'meal_timeが無ければ無効であること' do
