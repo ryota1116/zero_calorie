@@ -10,6 +10,6 @@ header
         .ui.icon.input
           = render template: 'foods/_search_by_image', locals: { meal_record: MealRecord.new }
       .ui.item
-        = link_to 'ユーザー'
+        = link_to '新規登録', new_user_path
       .ui.item
-        = link_to 'ログアウト', logout_path, method: :delete
+        = link_to 'ログイン', login_path

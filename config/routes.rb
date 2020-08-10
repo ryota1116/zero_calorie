@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'user_sessions/new'
-  get 'user_sessions/create'
-  get 'user_sessions/destroy'
-  root to: 'meal_records#index'
+  root to: 'top_pages#top'
   # resources :foods, only: [:create]
   resources :foods, only: [:create, :index] do
     collection do
