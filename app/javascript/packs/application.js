@@ -13,6 +13,7 @@ require("channels")
 // 追加
 require("jquery")
 require("jquery/submit_food_image")
+// require("semantic-ui-sass")
 
 import 'bootstrap';
 import '../stylesheets/application';
