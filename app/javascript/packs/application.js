@@ -3,10 +3,16 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+// このファイルは、このディレクトリにある他のファイルとともに、Webpackによって自動的にコンパイルされます。実際のアプリケーションロジックをapp/javascript内の関連する構造に配置し、これらのパックファイルのみを使用してそのコードを参照することで、コンパイルされます。
+
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+// 追加
+require("jquery")
+require("jquery/submit_food_image")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
