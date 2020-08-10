@@ -1,8 +1,15 @@
 header
-  div
-    = link_to  'サービス名'
+  .ui.secondary.menu
+    .item
+      = link_to 'サービス名'
     / 画像検索ボタン
-    = render template: 'foods/_search_form'
-    = render template: 'foods/_search_by_image', locals: { meal_record: MealRecord.new }
-    = link_to  '新規登録', ''
-    = link_to  'ログイン', ''
+    .item
+      = render template: 'foods/_search_form'
+    .right.menu
+      .item
+        .ui.icon.input
+          = render template: 'foods/_search_by_image', locals: { meal_record: MealRecord.new }
+      .ui.item
+        = link_to '新規登録', ''
+      .ui.item
+        = link_to 'ログイン', ''
