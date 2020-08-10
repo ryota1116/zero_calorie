@@ -1,9 +1,10 @@
 h1 Login
-= form_with url: login_path, method: :post do |f|
-  = f.label :email
-  = f.text_field :email
-
-  = f.label :password
-  = f.password_field :password
-
-  = f.submit "Login"
+= form_with url: login_path, method: :post, class: 'ui form', local: true do |f|
+  .field
+    = f.label :email
+    = f.text_field :email, placeholder: 'メールアドレス'
+  .field
+    = f.label :password
+    = f.password_field :password, placeholder: 'パスワード'
+  .ui.button
+    = f.submit "ログイン"

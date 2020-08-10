@@ -1,6 +1,6 @@
 h1 New user
 
-= form_with model: @user, local: true do |f|
+= form_with model: @user, class: 'ui form', local: true do |f|
   - if @user.errors.any?
     #error_explanation
       h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
@@ -10,15 +10,15 @@ h1 New user
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, placeholder: '名前'
   .field
     = f.label :email
-    = f.text_field :email
+    = f.text_field :email, placeholder: 'メールアドレス'
   .field
     = f.label :password
-    = f.password_field :password
+    = f.password_field :password, placeholder: '3文字以上'
   .field
     = f.label :password_confirmation
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, placeholder: '3文字以上'
   .actions
     = f.submit
