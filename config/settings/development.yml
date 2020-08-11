@@ -1,0 +1,4 @@
+facebook:
+  key: <%= Rails.application.credentials.facebook_key %>
+  secret: <%= Rails.application.credentials.facebook_secret %>
+  callback_url: "https://localhost:3000/oauth/callback?provider=facebook"
