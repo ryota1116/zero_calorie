@@ -79,7 +79,7 @@ RSpec.configure do |config|
   config.formatter = :documentation
 
   # OmniAuthが呼ばれた時に、実際のAPIを叩く通信を行わず、テストモードに入る
-  # OmniAuth.config.test_mode = true
-  # config.include OmniauthMacros
+  OmniAuth.config.test_mode = true
+  config.include OmniauthMacros
   config.include LoginMacros
 end
