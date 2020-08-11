@@ -22,7 +22,3 @@ h1 New user
     = f.password_field :password_confirmation, placeholder: '3文字以上'
   .actions
     = f.submit
-  .field
-    = link_to auth_at_provider_path(provider: :facebook) do
-      i class='facebook square icon'
-        | 'Facebookでログイン'

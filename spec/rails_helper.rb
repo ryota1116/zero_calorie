@@ -77,9 +77,4 @@ RSpec.configure do |config|
   config.color = true
   # Rspecが実行結果を出力する時のフォーマットを指定して見やすくする (Default: :progress)
   config.formatter = :documentation
-
-  # OmniAuthが呼ばれた時に、実際のAPIを叩く通信を行わず、テストモードに入る
-  OmniAuth.config.test_mode = true
-  config.include OmniauthMacros
-  config.include LoginMacros
 end

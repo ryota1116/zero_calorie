@@ -17,9 +17,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :mealrecords, dependent: :destroy
-  has_many :authentications, :dependent => :destroy
-  accepts_nested_attributes_for :authentications
+  has_many :mealrecords
 
   validates :email, uniqueness: { case_sensitive: true }, presence: true
   validates :name, presence: true, length: { maximum: 255 }
