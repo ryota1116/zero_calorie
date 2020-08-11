@@ -55,6 +55,7 @@ group :development, :test do
   # テストコード
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rubocop-rspec', require: false
   # コード解析
   gem 'brakeman', :require => false
   gem 'bullet'
