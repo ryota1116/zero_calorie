@@ -25,9 +25,6 @@
 /public/assets
 .byebug_history
 
-# Ignore master key for decrypting credentials and more.
-/config/master.key
-
 # /vendor/bundle配下のフォルダをGit管理対象外に
 /vendor/bundle
 /public/packs
@@ -36,3 +33,8 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+# SSL証明書
+/config/certs/*
