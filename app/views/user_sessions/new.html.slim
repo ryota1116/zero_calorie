@@ -8,3 +8,8 @@ h1 Login
     = f.password_field :password, placeholder: 'パスワード'
   .ui.button
     = f.submit "ログイン"
+  .field
+    = link_to auth_at_provider_path(provider: :facebook) do
+      i class='facebook square icon'
+        | 'Facebookでログイン'
+
