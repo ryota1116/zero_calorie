@@ -1,3 +1,28 @@
+# TODO: ConfigのGemで定数使うと`bundle rspec`で以下のエラーが出た。
+# An error occurred while loading ./spec/models/authentication_spec.rb.
+# Failure/Error: require File.expand_path('../config/environment', __dir__)
+
+# NoMethodError:
+#   undefined method `callback_url' for nil:NilClass
+# ./config/initializers/sorcery.rb:125:in `block in <main>'
+# ./vendor/bundle/ruby/2.7.0/gems/sorcery-0.15.0/lib/sorcery/controller/config.rb:61:in `configure!'
+# ./vendor/bundle/ruby/2.7.0/gems/sorcery-0.15.0/lib/sorcery/controller.rb:18:in `included'
+# ./vendor/bundle/ruby/2.7.0/gems/sorcery-0.15.0/lib/sorcery/engine.rb:16:in `include'
+# ./vendor/bundle/ruby/2.7.0/gems/sorcery-0.15.0/lib/sorcery/engine.rb:16:in `block in <class:Engine>'
+# ./vendor/bundle/ruby/2.7.0/gems/railties-6.0.3.2/lib/rails/initializable.rb:32:in `instance_exec'
+# ./vendor/bundle/ruby/2.7.0/gems/railties-6.0.3.2/lib/rails/initializable.rb:32:in `run'
+# ./vendor/bundle/ruby/2.7.0/gems/railties-6.0.3.2/lib/rails/initializable.rb:61:in `block in run_initializers'
+# ./vendor/bundle/ruby/2.7.0/gems/railties-6.0.3.2/lib/rails/initializable.rb:60:in `run_initializers'
+# ./vendor/bundle/ruby/2.7.0/gems/railties-6.0.3.2/lib/rails/application.rb:363:in `initialize!'
+# ./config/environment.rb:5:in `<top (required)>'
+# ./spec/rails_helper.rb:4:in `require'
+# ./spec/rails_helper.rb:4:in `<top (required)>'
+# ./spec/models/authentication_spec.rb:1:in `require'
+# ./spec/models/authentication_spec.rb:1:in `<top (required)>'
+
+# An error occurred while loading ./spec/models/food_spec.rb.
+# Failure/Error: require File.expand_path('../config/environment', __dir__)
+
 facebook:
   key: <%= Rails.application.credentials.facebook_key %>
   secret: <%= Rails.application.credentials.facebook_secret %>

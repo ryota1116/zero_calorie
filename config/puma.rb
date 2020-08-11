@@ -15,12 +15,10 @@ port        ENV.fetch("PORT") { 3000 }
 #
 # https通信
 # chromeではなくsafariで開くこと
-# if Rails.env.development?
-#   ssl_bind "0.0.0.0", "3000", {
-#     cert: "config/certs/localhost.pem",
-#     key:  "config/certs/localhost-key.pem"
-#   }
-# end
+# ssl_bind "0.0.0.0", "3000", {
+#   cert: "config/certs/localhost.pem",
+#   key:  "config/certs/localhost-key.pem"
+# }
 
 # Specifies the `environment` that Puma will run in.
 #
