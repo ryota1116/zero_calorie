@@ -1,5 +1,7 @@
-- @food_lists.each do |food|
-  h3 = food.name
-  p = food.calorie_theory
-/ - @meal_record.meal_pictures.each do |meal_picture|
-/ = image_tag @meal_record.meal_picture
+.ui.relaxed.divided.list
+  - @food_lists.each do |food|
+    .item
+      = link_to food.name, ''
+      / p = food.calorie_theory
+  / - @meal_record.meal_pictures.each do |meal_picture|
+  / = image_tag @meal_record.meal_picture

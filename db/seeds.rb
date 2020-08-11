@@ -11,5 +11,15 @@ Food.create!([
     calorie: 0,
     calorie_theory: "アイスクリームはカロリーゼロ。冷たくすることでカロリーが全部飛ぶ。むしろ0度を下回っているから、食べれば食べるほどカロリーが消費される。",
     labels: ["Food", "Ice cream", "Frozen dessert", "Dish", "Dondurma", "Cuisine", "Vanilla ice cream", "Ingredient", "Sorbet", "Gelato", "Dessert", "Frozen yogurt", "Cream", "Vanilla", "Dairy"]
+  },
+  {
+    name: "アイスコーヒー",
+    calorie: 0,
+    calorie_theory: "コーヒーを抽出している時に、カロリーがゼロの成分だけ抽出されている。"
+  },
+  {
+    name: "白ごはん",
+    calorie: 0,
+    calorie_theory: "白い食べ物はカロリーが白紙に戻るからカロリーゼロ。"
   }
 ])
