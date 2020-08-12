@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   # resources :foods, only: [:create]
   resources :foods, only: [:create, :index] do
+    resources :meal_records, only: [:new, :create, :show, :index], shallow: true
     collection do
       get 'search_form'
       post 'search_picture'
     end
   end
-  resources :meal_records, only: [:new, :create, :show, :index]
   resources :users, only: [:new, :create]
   get '/login', to: 'user_sessions#new', as: :login
   post '/login', to: 'user_sessions#create'

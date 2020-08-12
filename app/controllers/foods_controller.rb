@@ -44,6 +44,8 @@ class FoodsController < ApplicationController
 
     @food_lists = []
 
+    # TODO: メソッドにする
+    # 画像でFoodテーブルを検索
     food_labels.each do |food_label|
       @food_lists = Food.search_by_label(food_label)
     end

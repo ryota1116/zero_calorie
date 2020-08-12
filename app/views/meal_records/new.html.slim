@@ -1,1 +1,14 @@
 h1 食事記録
+.ui.relaxed.divided.list
+  .item
+    = @meal_record.food.name
+  .item
+    = @meal_record.food.calorie
+  .item
+    = @meal_record.food.calorie_theory
+div
+  = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
+    .field
+      = f.datetime_field :meal_time
+    .actions
+      = f.button '記録する'
