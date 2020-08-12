@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_154257) do
+ActiveRecord::Schema.define(version: 2020_08_12_123158) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -52,10 +52,17 @@ ActiveRecord::Schema.define(version: 2020_08_11_154257) do
   end
 
   create_table "meal_pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "meal_record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["meal_record_id"], name: "index_meal_pictures_on_meal_record_id"
+  end
+
+  create_table "meal_record_meal_pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "meal_record_id", null: false
+    t.bigint "meal_picture_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meal_picture_id"], name: "index_meal_record_meal_pictures_on_meal_picture_id"
+    t.index ["meal_record_id"], name: "index_meal_record_meal_pictures_on_meal_record_id"
   end
 
   create_table "meal_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -77,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_154257) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "meal_pictures", "meal_records"
+  add_foreign_key "meal_record_meal_pictures", "meal_pictures"
+  add_foreign_key "meal_record_meal_pictures", "meal_records"
   add_foreign_key "meal_records", "users"
 end
