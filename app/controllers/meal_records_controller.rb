@@ -5,7 +5,6 @@ class MealRecordsController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def new
-    @meal_record = MealRecord.new
   end
 
   def create
@@ -20,7 +19,7 @@ class MealRecordsController < ApplicationController
 
   private
 
-  def meal_record_params
-    params.require(:meal_record).permit(:meal_time, :meal_picture)
-  end
+  # def meal_record_params
+  #   params.require(:meal_record).permit(:meal_time, :meal_picture)
+  # end
 end

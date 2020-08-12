@@ -12,21 +12,21 @@ class FoodsController < ApplicationController
   def search_picture
     # リクエストの処理を書く
 
-    @meal_record = MealRecord.new(meal_record_params)
-    @meal_record.save
+    @meal_picture = MealPicture.new(meal_picture_params)
+    @meal_picture.save
 
     # クライアントを初期化
     image_annotator = Google::Cloud::Vision.image_annotator
 
     # TODO: 画像を２枚以上渡された場合などの例外処理
-    response = @meal_record.meal_picture.open do |file|
+    response = @meal_picture.picture.open do |file|
       image_annotator.label_detection(
           image: file,
           max_results: 10
       )
     end
 
-    # @meal_record.meal_pictures.each do |meal_picture|
+    # @meal_picture.meal_pictures.each do |meal_picture|
     #   response = meal_picture.open do |file|
     #     image_annotator.label_detection(
     #         image: file,
@@ -51,7 +51,7 @@ class FoodsController < ApplicationController
 
   private
 
-  def meal_record_params
-    params.require(:meal_record).permit(:meal_time, :meal_picture)
+  def meal_picture_params
+    params.require(:meal_picture).permit(:picture)
   end
 end
