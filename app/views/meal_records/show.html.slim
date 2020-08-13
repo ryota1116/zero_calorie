@@ -1,2 +1,7 @@
-h1 MealRecords#show
-p Find me in app/views/meal_records/show.html.slim
+h1 食事記録詳細
+h2 class="ui header"
+  = @meal_record.food.name
+h2 class="ui header"
+  = "#{@meal_record.food.calorie}カロリー"
+h2 class="ui header"
+  = @meal_record.food.calorie_theory

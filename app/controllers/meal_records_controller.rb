@@ -11,22 +11,19 @@ class MealRecordsController < ApplicationController
   end
 
   def create
-    
-    binding.pry
-    
     @meal_record = current_user.meal_records.build(meal_record_params)
     @meal_record.food_id = params[:food_id]
 
     if @meal_record.save
       # redirect_to meal_record_path
-      redirect_to root_path
+      redirect_to @meal_record
     else
       render :new
     end
   end
 
   def show
-    # @meal_record = MealRecord.find(params[:board_id])
+    @meal_record = MealRecord.find(params[:id])
   end
 
   def index
