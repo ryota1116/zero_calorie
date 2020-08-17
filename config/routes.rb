@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       post 'search_picture'
     end
   end
+  resources :meal_records, only: [:index]
   resources :users, only: [:new, :create]
   get '/login', to: 'user_sessions#new', as: :login
   post '/login', to: 'user_sessions#create'

@@ -31,6 +31,8 @@ class MealRecord < ApplicationRecord
   has_many :meal_record_meal_pictures, dependent: :destroy
   has_many :meal_pictures, through: :meal_record_meal_pictures
 
+  accepts_nested_attributes_for :meal_record_meal_pictures
+
   validates :meal_time, presence: true
 
   # TODO: foodsコントローラのロジックをMealRecordモデルに移す

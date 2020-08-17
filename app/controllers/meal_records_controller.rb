@@ -5,9 +5,9 @@ class MealRecordsController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def new
-    # current_user
-    # food
     @meal_record = MealRecord.new(food_id: params[:food_id])
+
+    # @meal_record.meal_record_meal_pictures.build(meal_picture_id: params[:meal_picture_id])
   end
 
   def create
@@ -15,7 +15,6 @@ class MealRecordsController < ApplicationController
     @meal_record.food_id = params[:food_id]
 
     if @meal_record.save
-      # redirect_to meal_record_path
       redirect_to @meal_record
     else
       render :new
@@ -27,12 +26,15 @@ class MealRecordsController < ApplicationController
   end
 
   def index
-    # @meal_record = MealRecord.all
+    @meal_records = MealRecord.all
   end
 
   private
 
   def meal_record_params
-    params.require(:meal_record).permit(:meal_time)
+    params.require(:meal_record).permit(
+      :meal_time,
+      meal_record_meal_pictures_attributes: [:id]
+    )
   end
 end

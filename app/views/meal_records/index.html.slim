@@ -1,11 +1,15 @@
-/ div class="ui inverted segment"
-/   button class="ui inverted button"
-/     | Standard
-
-/ button class="ui primary button"
-/   | Follow
 h1
   | 食事記録の一覧
 
 h2
-  | 食事記録
+  .ui.four.column.grid
+    - @meal_records.each do |meal_record|
+      .row
+        .column
+          = meal_record.food.name
+        .column
+          = meal_record.food.calorie
+        / .item
+          / = meal_record
+
+  / = link_to food.name, new_food_meal_record_path(food)
