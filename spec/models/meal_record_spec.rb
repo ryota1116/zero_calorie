@@ -24,8 +24,22 @@ RSpec.describe MealRecord, type: :model do
   describe 'MealRecordモデル' do
     let(:meal_record) { create(:meal_record) }
 
+    it 'meal_time、food_id、user_idがあれば有効であること' do
+      expect(meal_record).to be_valid
+    end
+
     it 'meal_timeが無ければ無効であること' do
       meal_record.meal_time = nil
+      expect(meal_record).to be_invalid
+    end
+
+    it 'food_idが無ければ無効であること' do
+      meal_record.food_id = nil
+      expect(meal_record).to be_invalid
+    end
+
+    it 'user_idが無ければ無効であること' do
+      meal_record.user_id = nil
       expect(meal_record).to be_invalid
     end
   end
