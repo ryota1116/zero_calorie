@@ -1,7 +1,7 @@
 .ui.relaxed.divided.list
   - @food_lists.each do |food|
     .item
-      = link_to food.name, new_food_meal_record_path(food, meal_picture_id: @meal_picture.id)
+      = link_to food.name, new_food_meal_record_path(food)
 
   / - @meal_record.meal_pictures.each do |meal_picture|
   / = image_tag @meal_record.meal_picture

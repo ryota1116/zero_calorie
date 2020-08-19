@@ -12,7 +12,7 @@ class MealRecordsController < ApplicationController
 
   def create
     @meal_record = current_user.meal_records.build(meal_record_params)
-    @meal_record.food_id = params[:food_id]
+    
 
     if @meal_record.save
       redirect_to @meal_record
@@ -32,9 +32,6 @@ class MealRecordsController < ApplicationController
   private
 
   def meal_record_params
-    params.require(:meal_record).permit(
-      :meal_time,
-      meal_record_meal_pictures_attributes: [:id]
-    )
+    params.require(:meal_record).permit(:meal_time)
   end
 end

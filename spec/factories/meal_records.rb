@@ -16,7 +16,6 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (food_id => foods.id)
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do

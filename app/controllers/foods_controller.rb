@@ -13,41 +13,43 @@ class FoodsController < ApplicationController
     # リクエストの処理を書く
 
     @meal_picture = MealPicture.new(meal_picture_params)
-    @meal_picture.save
+    if @meal_picture.save
 
-    # クライアントを初期化
-    image_annotator = Google::Cloud::Vision.image_annotator
+      # クライアントを初期化
+      image_annotator = Google::Cloud::Vision.image_annotator
 
-    # TODO: 画像を２枚以上渡された場合などの例外処理
-    response = @meal_picture.picture.open do |file|
-      image_annotator.label_detection(
-          image: file,
-          max_results: 10
-      )
-    end
+      # TODO: 画像を２枚以上渡された場合などの例外処理
+      response = @meal_picture.picture.open do |file|
+        image_annotator.label_detection(
+            image: file,
+            max_results: 10
+        )
+      end
 
-    # @meal_picture.meal_pictures.each do |meal_picture|
-    #   response = meal_picture.open do |file|
-    #     image_annotator.label_detection(
-    #         image: file,
-    #         max_results: 10
-    #     )
-    #   end
-    # end
+      # @meal_picture.meal_pictures.each do |meal_picture|
+      #   response = meal_picture.open do |file|
+      #     image_annotator.label_detection(
+      #         image: file,
+      #         max_results: 10
+      #     )
+      #   end
+      # end
 
-    food_labels = []
+      food_labels = []
 
-    # ラベル検出をリクエストしてレスポンスを処理する
-    response.responses.each do |res|
-      res.label_annotations.each { |label| food_labels << label.description }
-    end
+      # ラベル検出をリクエストしてレスポンスを処理する
+      response.responses.each do |res|
+        res.label_annotations.each { |label| food_labels << label.description }
+      end
 
-    @food_lists = []
+      @food_lists = []
 
-    # TODO: メソッドにする
-    # 画像でFoodテーブルを検索
-    food_labels.each do |food_label|
-      @food_lists = Food.search_by_label(food_label)
+      # TODO: メソッドにする
+      # 画像でFoodテーブルを検索
+      food_labels.each do |food_label|
+        @food_lists = Food.search_by_label(food_label)
+      end
+
     end
   end
 

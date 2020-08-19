@@ -16,7 +16,6 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (food_id => foods.id)
 #  fk_rails_...  (user_id => users.id)
 #
 
@@ -25,13 +24,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class MealRecord < ApplicationRecord
-  # belongs_to :food, optional: true
   belongs_to :user
   belongs_to :food
-  has_many :meal_record_meal_pictures, dependent: :destroy
-  has_many :meal_pictures, through: :meal_record_meal_pictures
-
-  accepts_nested_attributes_for :meal_record_meal_pictures
 
   validates :meal_time, presence: true
 

@@ -56,15 +56,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_160417) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "meal_record_meal_pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "meal_record_id", null: false
-    t.bigint "meal_picture_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["meal_picture_id"], name: "index_meal_record_meal_pictures_on_meal_picture_id"
-    t.index ["meal_record_id"], name: "index_meal_record_meal_pictures_on_meal_record_id"
-  end
-
   create_table "meal_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "meal_time", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -86,8 +77,5 @@ ActiveRecord::Schema.define(version: 2020_08_12_160417) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "meal_record_meal_pictures", "meal_pictures"
-  add_foreign_key "meal_record_meal_pictures", "meal_records"
-  add_foreign_key "meal_records", "foods"
   add_foreign_key "meal_records", "users"
 end
