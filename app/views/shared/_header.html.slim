@@ -1,15 +1,47 @@
+/ header
+/   .ui.secondary.menu
+/     .item
+/       = link_to 'サービス名'
+/     / 画像検索ボタン
+/     .item
+/       = render template: 'foods/_search_form'
+/     .right.menu
+/       .item
+/         .ui.icon.input
+/           = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+/       .ui.item
+/         = link_to 'ユーザー'
+/       .ui.item
+/         = link_to 'ログアウト', logout_path, method: :delete
+
 header
   .ui.secondary.menu
-    .item
-      = link_to 'サービス名'
-    / 画像検索ボタン
-    .item
-      = render template: 'foods/_search_form'
+    .left.menu
+      .item
+        = link_to 'サービス名'
+      / 画像検索ボタン
+      .item
+        = render template: 'foods/_search_form'
     .right.menu
       .item
-        .ui.icon.input
-          = render template: 'foods/_search_by_image', locals: { meal_record: MealRecord.new }
+        = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
       .ui.item
         = link_to 'ユーザー'
       .ui.item
         = link_to 'ログアウト', logout_path, method: :delete
+
+/ header
+/   .ui.fixed.secondary.menu.pointing.siteHeader
+/     .ui.container
+/       .left.menu
+/         = link_to 'サービス名'
+/         / 画像検索ボタン
+/         .item
+/           = render template: 'foods/_search_form'
+/       .right.menu
+/         .item
+/           = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+/         .ui.item
+/           = link_to 'ユーザー'
+/         .ui.item
+/           = link_to 'ログアウト', logout_path, method: :delete

@@ -10,48 +10,27 @@ class FoodsController < ApplicationController
   end
 
   def search_picture
-    # リクエストの処理を書く
+    @meal_picture = MealPicture.new(meal_picture_params)
 
-    @meal_record = MealRecord.new(meal_record_params)
-    @meal_record.save
+    if @meal_picture.save
+      # セッションにデータを入れる
+      session[:meal_picture_id] = @meal_picture.id
 
-    # クライアントを初期化
-    image_annotator = Google::Cloud::Vision.image_annotator
+      food_labels = @meal_picture.fetch_food_labels
 
-    # TODO: 画像を２枚以上渡された場合などの例外処理
-    response = @meal_record.meal_picture.open do |file|
-      image_annotator.label_detection(
-          image: file,
-          max_results: 10
-      )
-    end
+      @food_lists = []
 
-    # @meal_record.meal_pictures.each do |meal_picture|
-    #   response = meal_picture.open do |file|
-    #     image_annotator.label_detection(
-    #         image: file,
-    #         max_results: 10
-    #     )
-    #   end
-    # end
+      # TODO: メソッドにする
+      food_labels.each do |food_label|
+        @food_lists = Food.search_by_label(food_label)
+      end
 
-    food_labels = []
-
-    # ラベル検出をリクエストしてレスポンスを処理する
-    response.responses.each do |res|
-      res.label_annotations.each { |label| food_labels << label.description }
-    end
-
-    @food_lists = []
-
-    food_labels.each do |food_label|
-      @food_lists = Food.search_by_label(food_label)
     end
   end
 
   private
 
-  def meal_record_params
-    params.require(:meal_record).permit(:meal_time, :meal_picture)
+  def meal_picture_params
+    params.require(:meal_picture).permit(:search_picture)
   end
 end
