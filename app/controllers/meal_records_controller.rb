@@ -6,15 +6,15 @@ class MealRecordsController < ApplicationController
 
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
-
-    # @meal_record.meal_record_meal_pictures.build(meal_picture_id: params[:meal_picture_id])
   end
 
   def create
     @meal_record = current_user.meal_records.build(meal_record_params)
-    
+    @meal_record.food_id = params[:food_id]
+    @meal_record.meal_record_picture = ActiveStorage::Blob.find(session[:meal_picture_id])
 
     if @meal_record.save
+      session[:meal_picture_id] = nil
       redirect_to @meal_record
     else
       render :new

@@ -27,6 +27,8 @@ class MealRecord < ApplicationRecord
   belongs_to :user
   belongs_to :food
 
+  has_one_attached :meal_record_picture
+
   validates :meal_time, presence: true
 
   # TODO: foodsコントローラのロジックをMealRecordモデルに移す

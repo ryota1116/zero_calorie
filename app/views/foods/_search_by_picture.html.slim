@@ -1,6 +1,6 @@
 = form_with url: search_picture_foods_path, model: meal_picture, local: true  do |f|
   / = f.file_field :meal_pictures, multiple: true
-  = f.file_field :picture
+  = f.file_field :search_picture
   <br>
   / = f.submit '画像で検索'
 

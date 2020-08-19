@@ -7,13 +7,8 @@ h1 食事記録
   .item
     = @meal_record.food.calorie_theory
 div
-  - binding.pry
   = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
     .field
       = f.datetime_field :meal_time
-
-      = f.fields_for :@meal_record_meal_pictures do |s|
-        = s.text_field :id
-        = s.text_field :meal_picture_id
     .actions
       = f.button '記録する'

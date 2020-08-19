@@ -15,11 +15,14 @@ class FoodsController < ApplicationController
     @meal_picture = MealPicture.new(meal_picture_params)
     if @meal_picture.save
 
+      # セッションにデータを入れる
+      session[:meal_picture_id] = @meal_picture.id
+
       # クライアントを初期化
       image_annotator = Google::Cloud::Vision.image_annotator
 
-      # TODO: 画像を２枚以上渡された場合などの例外処理
-      response = @meal_picture.picture.open do |file|
+      # TODO: 画像を２枚以上渡された場合などの例外処理はどうする
+      response = @meal_picture.search_picture.open do |file|
         image_annotator.label_detection(
             image: file,
             max_results: 10
@@ -56,6 +59,6 @@ class FoodsController < ApplicationController
   private
 
   def meal_picture_params
-    params.require(:meal_picture).permit(:picture)
+    params.require(:meal_picture).permit(:search_picture)
   end
 end
