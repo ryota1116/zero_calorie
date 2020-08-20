@@ -14,9 +14,17 @@ class MealPicture < ApplicationRecord
 
   def fetch_food_labels
     # クライアントを初期化
-    # export Rails.root.join('gcp_key.json').to_s
+
     image_annotator = Google::Cloud::Vision.image_annotator
-    # image_annotator = Google::Cloud::Vision.image_annotator.new(credentials: Rails.application.credentials.gcs[:cloud])
+    # GOOGLE_APPLICATION_CREDENTIALS = Rails.application.credentials.gcs[:cloud]
+
+    # image_annotator = Google::Cloud::Vision.image_annotator.new(
+    #   credentials: JSON.parse(ENV.fetch('GOOGLE_APPLICATION_CREDENTIALS'))
+    # )
+
+    # image_annotator = Google::Cloud::Vision.image_annotator.new(
+    #   credentials: JSON.parse(File.open(Rails.root.join('gcp_key.json')))
+    # )
 
     # TODO: 画像を２枚以上渡された場合などの例外処理はどうする
     response = self.search_picture.open do |file|

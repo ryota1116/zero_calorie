@@ -38,3 +38,5 @@ yarn-debug.log*
 /config/master.key
 # SSL証明書
 /config/certs/*
+
+/.env

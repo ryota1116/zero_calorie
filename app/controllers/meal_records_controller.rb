@@ -11,7 +11,10 @@ class MealRecordsController < ApplicationController
   def create
     @meal_record = current_user.meal_records.build(meal_record_params)
     @meal_record.food_id = params[:food_id]
-    @meal_record.meal_record_picture = ActiveStorage::Blob.find(session[:meal_picture_id])
+
+    if session[:meal_picture_id]
+      @meal_record.meal_record_picture = ActiveStorage::Blob.find(session[:meal_picture_id])
+    end
 
     if @meal_record.save
       session[:meal_picture_id] = nil
@@ -26,7 +29,7 @@ class MealRecordsController < ApplicationController
   end
 
   def index
-    @meal_records = MealRecord.all
+    @meal_records = current_user.meal_records.all
   end
 
   private

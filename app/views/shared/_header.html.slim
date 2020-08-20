@@ -15,9 +15,9 @@
 /         = link_to 'ログアウト', logout_path, method: :delete
 
 header
-  .ui.menu
+  .ui.secondary.menu
     .item
-      = link_to 'サービス名', root_path, class: 'ui primary button circular'
+      = link_to 'サービス名', meal_records_path, class: 'ui primary button circular'
     / 画像検索ボタン
     .item
       = render template: 'foods/_search_form'

@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# be rails db:seed
+
 Food.create!([
   { name: "アイスクリーム",
     calorie: 0,

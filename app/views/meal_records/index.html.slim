@@ -4,6 +4,7 @@ h1
 h2
   .ui.four.column.grid
     - @meal_records.each do |meal_record|
+      - binding.pry
       .row
         .column
           = meal_record.food.name

@@ -5,5 +5,8 @@ h2 class="ui header"
   = "#{@meal_record.food.calorie}カロリー"
 h2 class="ui header"
   = @meal_record.food.calorie_theory
-
-= image_tag @meal_record.meal_record_picture
+- if @meal_record.meal_record_picture.present?
+  = image_tag @meal_record.meal_record_picture
+- else
+  h4 画像がありません
+  = link_to '画像を登録する'
