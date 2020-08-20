@@ -1,16 +1,20 @@
 h1
-  | 食事記録の一覧
+  | #{current_user.name}の食事記録
 
-h2
-  .ui.four.column.grid
-    - @meal_records.each do |meal_record|
-      - binding.pry
-      .row
-        .column
-          = meal_record.food.name
-        .column
+table class="ui very basic collapsing celled table"
+  thead
+    tr
+      th 食事時間
+      th 食べたもの
+      th カロリー
+  - @meal_records.each do |meal_record|
+    tbody
+      tr
+        td
+          = meal_record.meal_time
+        td
+          = link_to meal_record.food.name, meal_record_path(meal_record)
+        td
           = meal_record.food.calorie
-        / .item
-          / = meal_record
 
-  / = link_to food.name, new_food_meal_record_path(food)
+

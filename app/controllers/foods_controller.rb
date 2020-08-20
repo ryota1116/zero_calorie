@@ -1,8 +1,6 @@
 class FoodsController < ApplicationController
-  def create
-  end
 
-  def index
+  def create
   end
 
   def search_form

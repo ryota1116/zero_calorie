@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   # resources :foods, only: [:create]
-  resources :foods, only: [:create, :index] do
+  resources :foods, only: [:create, :index, :show] do
     resources :meal_records, only: [:new, :create, :show], shallow: true
     collection do
       get 'search_form'

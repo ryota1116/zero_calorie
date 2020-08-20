@@ -4,6 +4,14 @@ class MealRecordsController < ApplicationController
 
   include Rails.application.routes.url_helpers
 
+  def show
+    @meal_record = MealRecord.find(params[:id])
+  end
+
+  def index
+    @meal_records = current_user.meal_records.all
+  end
+
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
   end
@@ -22,14 +30,6 @@ class MealRecordsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @meal_record = MealRecord.find(params[:id])
-  end
-
-  def index
-    @meal_records = current_user.meal_records.all
   end
 
   private
