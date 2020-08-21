@@ -9,6 +9,7 @@ class MealRecordsController < ApplicationController
   end
 
   def index
+    # @search_params = 
     @meal_records = current_user.meal_records.all
   end
 

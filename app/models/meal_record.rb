@@ -33,5 +33,28 @@ class MealRecord < ApplicationRecord
   validates :meal_time, presence: true
 
   # 日、週、月
-  # scope :search_by_meal_time, ->
+  # scope :meal_time, -> (day) { where('? <= meal_time', day) }
+  def self.meal_time_from_date(day)
+    where("? <= meal_time",  day.beginning_of_day)
+  end
+
+  def self.meal_time_to_date(day)
+    where("? >= meal_time",  day.end_of_day)
+  end
+
+  def self.meal_time_from_week(day)
+    where("? <= meal_time",  day.beginning_of_week)
+  end
+
+  def self.meal_time_to_week(day)
+    where("? >= meal_time",  day.end_of_week)
+  end
+
+  def self.meal_time_from_date(month)
+    where("? <= meal_time",  day.beginning_of_month)
+  end
+
+  def self.meal_time_to_date(month)
+    where("? >= meal_time",  day.end_of_month)
+  end
 end

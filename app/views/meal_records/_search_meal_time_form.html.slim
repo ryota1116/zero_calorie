@@ -1,15 +1,55 @@
 / Semantic_UI_DatePicker
 / https://github.com/jonatandahora/semantic-datepicker-rails
 
+/ 日、週、月を選択するボタン
+.day
+  button type='button' class='ui button' id='check-day'
+    | 日
+.week
+  button type='button' class='ui button' id='check-week'
+    | 週
+.month
+  button type='button' class='ui button' id='check-month'
+    | 月
+
 .ui.calendar id="chalendar-1"
   .ui.input.left.icon
-    = form_with url: meal_records_path, local: true do |f|
+
+    = form_with scope: :search, url: meal_records_path, id: 'day', method: :get, local: true do |f|
       / i class="calendar icon"
-      = f.date_field :meal_time, placeholder: "日付"
-      / = f.week_field :meal_time, placeholder: "日付"
-      / = f.month_field :meal_time, placeholder: "日付"
+      = f.date_field :meal_time, id: 'day'
       = f.submit '検索する'
 
+    = form_with scope: :search, url: meal_records_path, id: 'week', method: :get, local: true do |f|
+      / i class="calendar icon"
+      = f.week_field :meal_time, id: 'week'
+      = f.submit '検索する'
+
+    = form_with scope: :search, url: meal_records_path, id: 'month', method: :get, local: true do |f|
+      / i class="calendar icon"
+      = f.month_field :meal_time, id: 'month'
+      = f.submit '検索する'
+
+javascript:
+  $(function () {
+    $('.day').on('click', () => {
+      $("#day").show();
+      $("#week").hide();
+      $("#month").hide();
+    });
+
+    $('.week').on('click', () => {
+      $("#day").hide();
+      $("#week").show();
+      $("#month").hide();
+    });
+
+    $('.month').on('click', () => {
+      $("#day").hide();
+      $("#week").hide();
+      $("#month").show();
+    });
+  });
 
 / .ui.calendar id="chalendar-1"
 /   .ui.input.left.icon
