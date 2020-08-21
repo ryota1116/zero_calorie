@@ -1,14 +1,46 @@
-h1 食事記録
-.ui.relaxed.divided.list
-  .item
-    = @meal_record.food.name
-  .item
-    = "#{@meal_record.food.calorie}カロリー"
-  .item
-    = @meal_record.food.calorie_theory
-div
-  = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
-    .field
-      = f.datetime_field :meal_time
-    .actions
-      = f.button '記録する'
+.ui.container
+  .ui.segment
+    .ui.centered.grid
+      .twelve.wide.column
+        .ui.text.container
+          = @meal_record.food.name
+      .twelve.wide.column
+        .ui.text.container
+          = "#{@meal_record.food.calorie}kcal"
+      .twelve.wide.column
+        .ui.text.container
+          = @meal_record.food.calorie_theory
+      .twelve.wide.column
+        .ui.text.container
+          .ui.form
+            = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
+              .label
+                = f.label :meal_time
+              .field
+                = f.datetime_field :meal_time
+              .label
+                = f.label :search_picture
+              .field
+                = f.file_field :search_picture
+                - if @meal_record.meal_record_picture.attached?
+                  = image_tag @meal_record.meal_record_picture
+              .actions
+                = f.button '記録する'
+
+  / .ui.relaxed.divided.list
+  /   .item
+  /     = @meal_record.food.name
+  /   .item
+  /     = "#{@meal_record.food.calorie}カロリー"
+  /   .item
+  /     = @meal_record.food.calorie_theory
+  /   .item
+  /     = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
+  /       .field
+  /         = f.datetime_field :meal_time
+  /       - if @meal_record.meal_record_picture.present?
+  /         = image_tag @meal_record.meal_record_picture
+  /       - else
+  /         h4 画像を貼る用意
+  /       .actions
+  /         = f.button '記録する'

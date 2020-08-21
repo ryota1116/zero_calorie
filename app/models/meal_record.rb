@@ -32,4 +32,6 @@ class MealRecord < ApplicationRecord
 
   validates :meal_time, presence: true
 
+  # 日、週、月
+  # scope :search_by_meal_time, ->
 end

@@ -1,20 +1,31 @@
-h1
-  | #{current_user.name}の食事記録
+.ui.container
+  .ui.center.aligned.grid
+    .twelve.wide.column
+      h1
+        | #{current_user.name}の食事記録
+    .twelve.wide.column
+      h2
+        | 今日の摂取カロリー
+      h2
+        | 0 kacl
 
-table class="ui very basic collapsing celled table"
-  thead
-    tr
-      th 食事時間
-      th 食べたもの
-      th カロリー
-  - @meal_records.each do |meal_record|
-    tbody
-      tr
-        td
-          = meal_record.meal_time
-        td
-          = link_to meal_record.food.name, meal_record_path(meal_record)
-        td
-          = meal_record.food.calorie
+  == render 'search_meal_time_form', meal_records: @meal_records
 
+  .ui.segment
+    .ui.centered.grid
+      table class="ui large table"
+        thead
+          tr
+            th 食事時間
+            th 食べたもの
+            th カロリー
+        - @meal_records.each do |meal_record|
+          tbody
+            tr
+              td
+                = meal_record.meal_time
+              td
+                = link_to meal_record.food.name, meal_record_path(meal_record)
+              td
+                = "#{meal_record.food.calorie} kcal"
 

@@ -1,0 +1,23 @@
+/ Semantic_UI_DatePicker
+/ https://github.com/jonatandahora/semantic-datepicker-rails
+
+.ui.calendar id="chalendar-1"
+  .ui.input.left.icon
+    = form_with url: meal_records_path, local: true do |f|
+      / i class="calendar icon"
+      = f.date_field :meal_time, placeholder: "日付"
+      / = f.week_field :meal_time, placeholder: "日付"
+      / = f.month_field :meal_time, placeholder: "日付"
+      = f.submit '検索する'
+
+
+/ .ui.calendar id="chalendar-1"
+/   .ui.input.left.icon
+/     = form_with scope: :search, url: meal_records_path
+/     i class="calendar icon"
+/     input type="text" placeholder="Date/Time"
+
+/ .field.ui.calendar.required
+/   .ui.input.left.icon
+/     i class="calendar icon"
+/     input type="text" name="date" placeholder="日付"
