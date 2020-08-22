@@ -42,10 +42,18 @@
 /       i class="calendar icon"
 /       = f.text_field :meal_time, placeholder:"Date/Time"
 /       = f.submit '検索する'
-
-== render 'search_date', id: 'day'
-== render 'search_week', id: 'week'
-== render 'search_month', id: 'month'
+#day
+  = form_with scope: :date, url: meal_records_path, method: :get, local: true do |f|
+    = f.date_field :meal_time
+    = f.submit '検索する'
+#week style="display: none"
+  = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
+    = f.week_field :meal_time
+    = f.submit '検索する'
+#month style="display: none"
+  = form_with scope: :month, url: meal_records_path, method: :get, local: true do |f|
+    = f.month_field :meal_time
+    = f.submit '検索する'
 
 
 javascript:
