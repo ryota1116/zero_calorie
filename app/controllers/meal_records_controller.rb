@@ -9,8 +9,17 @@ class MealRecordsController < ApplicationController
   end
 
   def index
-    # @search_params = 
-    @meal_records = current_user.meal_records.all
+    
+    # binding.pry
+    
+    
+
+    @meal_records = search_params
+
+    # @week_params = week_params
+    # if @week_params.present?
+    #   MealRecord.search(@week_params)
+    # end
   end
 
   def new
@@ -37,5 +46,29 @@ class MealRecordsController < ApplicationController
 
   def meal_record_params
     params.require(:meal_record).permit(:meal_time)
+  end
+
+  def search_params
+    if date_params.present?
+      meal_records = current_user.meal_records.search_date(date_params)
+    elsif week_params.present?
+      meal_records = current_user.meal_records.search_week(week_params)
+    elsif month_params.present?
+      meal_records = current_user.meal_records.search_month(month_params)
+    else
+      meal_records = current_user.meal_records
+    end
+  end
+
+  def date_params
+    params.fetch(:date, {}).permit(:meal_time)
+  end
+
+  def week_params
+    params.fetch(:week, {}).permit(:meal_time)
+  end
+
+  def month_params
+    params.fetch(:month, {}).permit(:meal_time)
   end
 end

@@ -1,34 +1,51 @@
 / Semantic_UI_DatePicker
 / https://github.com/jonatandahora/semantic-datepicker-rails
 
-/ 日、週、月を選択するボタン
-.day
-  button type='button' class='ui button' id='check-day'
-    | 日
-.week
-  button type='button' class='ui button' id='check-week'
-    | 週
-.month
-  button type='button' class='ui button' id='check-month'
-    | 月
-
 .ui.calendar id="chalendar-1"
   .ui.input.left.icon
 
-    = form_with scope: :search, url: meal_records_path, id: 'day', method: :get, local: true do |f|
-      / i class="calendar icon"
-      = f.date_field :meal_time, id: 'day'
-      = f.submit '検索する'
+/ .calendar-modal
+/   i class="calendar alternate outline icon"
 
-    = form_with scope: :search, url: meal_records_path, id: 'week', method: :get, local: true do |f|
-      / i class="calendar icon"
-      = f.week_field :meal_time, id: 'week'
-      = f.submit '検索する'
+/   .ui.modal style="display: none"
+/     .header
+/       | 食事記録を検索
+/     / 日、週、月を選択するボタン
+/     .day
+/       button type='button' class='ui button' id='check-day'
+/         | 日
+/     .week
+/       button type='button' class='ui button' id='check-week'
+/         | 週
+/     .month
+/       button type='button' class='ui button' id='check-month'
+/         | 月
 
-    = form_with scope: :search, url: meal_records_path, id: 'month', method: :get, local: true do |f|
-      / i class="calendar icon"
-      = f.month_field :meal_time, id: 'month'
-      = f.submit '検索する'
+.ui.large.buttons
+  .day
+    button type='button' class='ui olive button' id='check-day'
+      | 日
+  .or
+  .week
+    button type='button' class='ui olive button' id='check-week'
+      | 週
+  .or
+  .month
+    button type='button' class='ui olive button' id='check-month'
+      | 月
+
+/ = form_with scope: :search, url: meal_records_path, id: 'day', method: :get, local: true do |f|
+/   / i class="calendar icon"
+/   .ui.calendar id='calendar1'
+/     .ui.input.left.icon
+/       i class="calendar icon"
+/       = f.text_field :meal_time, placeholder:"Date/Time"
+/       = f.submit '検索する'
+
+== render 'search_date', id: 'day'
+== render 'search_week', id: 'week'
+== render 'search_month', id: 'month'
+
 
 javascript:
   $(function () {
@@ -50,6 +67,12 @@ javascript:
       $("#month").show();
     });
   });
+
+  $('.calendar-modal').on('click', () => {
+    $('.ui.modal').modal('show');
+  });
+
+
 
 / .ui.calendar id="chalendar-1"
 /   .ui.input.left.icon

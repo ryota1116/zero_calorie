@@ -17,16 +17,16 @@
 header
   .ui.secondary.menu
     .item
-      = link_to 'サービス名', meal_records_path, class: 'ui primary button circular'
+      = link_to 'サービス名', meal_records_path, class: 'ui olive button circular'
     / 画像検索ボタン
     .item
       = render template: 'foods/_search_form'
     .item
       = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
     .ui.item
-      = link_to 'ユーザー', logout_path, class: 'ui primary button circular'
+      = link_to 'ユーザー', logout_path, class: 'ui olive button circular'
     .ui.item
-      = link_to 'ログアウト', logout_path, method: :delete, class: 'ui primary button circular'
+      = link_to 'ログアウト', logout_path, method: :delete, class: 'ui olive button circular'
 
 / header
 /   .ui.fixed.secondary.menu.pointing.siteHeader
