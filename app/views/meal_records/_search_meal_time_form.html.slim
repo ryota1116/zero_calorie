@@ -21,18 +21,19 @@
 /       button type='button' class='ui button' id='check-month'
 /         | 月
 
-.ui.large.buttons
+.ui.large.buttons id='meal-time-buttons'
   .day
-    button type='button' class='ui olive button' id='check-day'
+    button type='button' class='meal-time-button ui button olive' id='check-day'
       | 日
   .or
   .week
-    button type='button' class='ui olive button' id='check-week'
+    button type='button' class='meal-time-button ui button' id='check-week'
       | 週
   .or
   .month
-    button type='button' class='ui olive button' id='check-month'
+    button type='button' class='meal-time-button ui button' id='check-month'
       | 月
+| で検索
 
 / = form_with scope: :search, url: meal_records_path, id: 'day', method: :get, local: true do |f|
 /   / i class="calendar icon"
@@ -49,19 +50,19 @@
 
 javascript:
   $(function () {
-    $('.day').on('click', () => {
+    $('#check-day').on('click', () => {
       $("#day").show();
       $("#week").hide();
       $("#month").hide();
     });
 
-    $('.week').on('click', () => {
+    $('#check-week').on('click', () => {
       $("#day").hide();
       $("#week").show();
       $("#month").hide();
     });
 
-    $('.month').on('click', () => {
+    $('#check-month').on('click', () => {
       $("#day").hide();
       $("#week").hide();
       $("#month").show();
@@ -72,6 +73,18 @@ javascript:
     $('.ui.modal').modal('show');
   });
 
+  // id='meal-time-buttons'レベルのコンテナを取得
+  var header = document.getElementById('meal-time-buttons');
+  // headerコンテナ内のclass='meal-time-button'を持つ要素を取得
+  var btns = header.getElementsByClassName("meal-time-button");
+
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("meal-time-button ui button olive");
+    current[0].className = current[0].className.replace(" olive", "");
+    this.className += " olive";
+    });
+  }
 
 
 / .ui.calendar id="chalendar-1"
