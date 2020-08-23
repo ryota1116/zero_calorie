@@ -62,6 +62,8 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.1)
+    autoprefixer-rails (9.8.6.2)
+      execjs
     aws-eventstream (1.1.0)
     aws-partitions (1.353.0)
     aws-sdk-core (3.104.3)
@@ -88,6 +90,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.7)
       msgpack (~> 1.0)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     brakeman (4.8.2)
     builder (3.2.4)
     bullet (6.1.0)
@@ -120,6 +125,7 @@ GEM
       railties (>= 3.2)
     erubi (1.9.0)
     erubis (2.7.0)
+    execjs (2.7.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
@@ -442,6 +448,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.2)
+  bootstrap-sass
   brakeman
   bullet
   byebug

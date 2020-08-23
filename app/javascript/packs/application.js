@@ -15,6 +15,8 @@ require("jquery")
 require("jquery/submit_food_image")
 require("packs/meal_time_form")
 // require("semantic-ui-sass")
+require("moment/locale/ja")
+require("tempusdominus-bootstrap-4")
 
 import 'bootstrap';
 import '../stylesheets/application';

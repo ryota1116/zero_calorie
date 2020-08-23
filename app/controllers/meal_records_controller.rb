@@ -9,6 +9,9 @@ class MealRecordsController < ApplicationController
   end
 
   def index
+    
+    binding.pry
+    
     # TODO: Fatコントローラ解消
     @meal_records = search_params
     # @search_time = search_time
@@ -39,11 +42,11 @@ class MealRecordsController < ApplicationController
   end
 
   def search_params
-    meal_records = if date_params.present?
+    meal_records = if date_params[:meal_time].present?
                      current_user.meal_records.search_date(date_params)
-                   elsif week_params.present?
+                   elsif week_params[:meal_time].present?
                      current_user.meal_records.search_week(week_params)
-                   elsif month_params.present?
+                   elsif month_params[:meal_time].present?
                      current_user.meal_records.search_month(month_params)
                    else
                      current_user.meal_records

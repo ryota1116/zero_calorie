@@ -34,6 +34,8 @@ gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'google-cloud-vision'
 
 # UI/UX
+gem 'bootstrap-sass'
+
 # semantic UI Framework
 gem 'semantic-ui-sass'
 # 国際化

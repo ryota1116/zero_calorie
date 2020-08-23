@@ -43,9 +43,19 @@
 /       = f.text_field :meal_time, placeholder:"Date/Time"
 /       = f.submit '検索する'
 #day
+  .container
   = form_with scope: :date, url: meal_records_path, method: :get, local: true do |f|
-    = f.date_field :meal_time
-    = f.submit '検索する'
+    .row
+      .col-sm-6
+        .form-group
+          .input-group.date id="datetimepicker4" data-target-input="nearest"
+            = f.text_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+              / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+            .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+              .input-group-text
+                i class="calendar alternate icon"
+        .form-group
+          = f.submit '検索する'
 #week style="display: none"
   = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
     = f.week_field :meal_time
@@ -93,6 +103,12 @@ javascript:
     this.className += " olive";
     });
   }
+
+  $(function () {
+    $('#datetimepicker4').datetimepicker({
+        format: 'L'
+    });
+  });
 
 
 / .ui.calendar id="chalendar-1"

@@ -8,8 +8,10 @@
     "@rails/webpacker": "^5.2.1",
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
+    "moment": "^2.27.0",
     "popper.js": "^1.16.1",
     "semantic-ui-calendar": "0.0.8",
+    "tempusdominus-bootstrap-4": "^5.1.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
