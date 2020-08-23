@@ -4,12 +4,11 @@
       h1
         | #{current_user.name}の食事記録
     .twelve.wide.column
-      h2
-        | 今日の摂取カロリー
+      / h2
+        - if 
+        | #{}の摂取カロリー
       h2
         | 0 kacl
-
-
 
   == render 'search_meal_time_form', meal_records: @meal_records
 
@@ -30,13 +29,3 @@
                 = link_to meal_record.food.name, meal_record_path(meal_record)
               td
                 = "#{meal_record.food.calorie} kcal"
-
-
-
-    // document.getElementById('#week').style.display = "none";
-    // document.getElementById('#month').style.display = "none";
-  
-
-  // function entryChange1() {
-
-  // $(document).on("click", '.day') {

@@ -8,6 +8,5 @@
 #
 FactoryBot.define do
   factory :meal_picture do
-    
   end
 end

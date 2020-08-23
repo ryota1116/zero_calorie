@@ -1,21 +1,5 @@
-/ header
-/   .ui.secondary.menu
-/     .item
-/       = link_to 'サービス名'
-/     / 画像検索ボタン
-/     .item
-/       = render template: 'foods/_search_form'
-/     .right.menu
-/       .item
-/         .ui.icon.input
-/           = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-/       .ui.item
-/         = link_to 'ユーザー'
-/       .ui.item
-/         = link_to 'ログアウト', logout_path, method: :delete
-
 header
-  .ui.secondary.menu
+  .ui.secondary.menu.segment.inverted
     .item
       = link_to 'サービス名', meal_records_path, class: 'ui olive button circular'
     / 画像検索ボタン

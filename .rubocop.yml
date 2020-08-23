@@ -13,14 +13,14 @@ require:
 
 ## 全体に適応する項目を定義(自動生成されるものはチェック対象から除外する)
 AllCops:
-  TargetRubyVersion: 2.7.1
-	TargetRailsVersion: 6.0
-	Exclude:
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 6.0
+  Exclude:
     - 'vendor/**/*'
     - 'bin/**/*'
     - 'db/**/*'
     - 'tmp/**/*'
-		- 'node_modules/**/*'
+    - 'node_modules/**/*'
 
 Rails:
   Enabled: true
@@ -28,4 +28,3 @@ Rails:
 # 日本語のコメントを許可する
 Style/AsciiComments:
   Enabled: false
-

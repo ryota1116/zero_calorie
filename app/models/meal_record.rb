@@ -35,15 +35,15 @@ class MealRecord < ApplicationRecord
   # 日、週、月
   class << self
     def meal_time_date(day)
-      where("? <= meal_time and meal_time <= ?",  day.beginning_of_day, day.end_of_day) if day.present?
+      where('? <= meal_time and meal_time <= ?',  day.beginning_of_day, day.end_of_day) if day.present?
     end
 
     def meal_time_week(day)
-      where("? <= meal_time and meal_time <= ?",  day.beginning_of_week, day.end_of_week) if day.present?
+      where('? <= meal_time and meal_time <= ?',  day.beginning_of_week, day.end_of_week) if day.present?
     end
 
     def meal_time_month(day)
-      where("? <= meal_time and meal_time <= ?",  day.beginning_of_month, day.end_of_month) if day.present?
+      where('? <= meal_time and meal_time <= ?',  day.beginning_of_month, day.end_of_month) if day.present?
     end
 
     def search_date(params)
@@ -64,21 +64,23 @@ class MealRecord < ApplicationRecord
       meal_time_month(Date.parse(params[:meal_time]))
     end
 
-    def search_meal_time(day)
-      if params[:date].present?
-        time = params[:date][:meal_time]
-        meal_record = self.meal_time_date(time)
-      end
+    # def search_meal_time(day)
+    #   if params[:date].present?
+    #     time = params[:date][:meal_time]
+    #     # meal_record = self.meal_time_date(time)
+    #     meal_record = self.meal_time_date(Date.parse(params[:date][:meal_time]))
+    #   end
 
-      if params[:week].present?
-        meal_record = self.meal_time_week(params[:week][:meal_time])
-      end
+    #   if params[:week].present?
+    #     time = params[:week][:meal_time]
+    #     # meal_record = self.meal_time_week(params[:week][:meal_time])
+    #     meal_record = self.meal_time_week(Date.parse(params[:week][:meal_time]))
+    #   end
 
-      if params[:month].present?
-        meal_record = self.meal_time_month(params[:month][:meal_time])
-      end
-    end
-
+    #   if params[:month].present?
+    #     time = params[:month][:meal_time]
+    #     meal_record = self.meal_time_month(Date.parse(params[:month][:meal_time]))
+    #   end
+    # end
   end
-
 end

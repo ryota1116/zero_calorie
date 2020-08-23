@@ -27,10 +27,10 @@ class MealPicture < ApplicationRecord
     # )
 
     # TODO: 画像を２枚以上渡された場合などの例外処理はどうする
-    response = self.search_picture.open do |file|
+    response = search_picture.open do |file|
       image_annotator.label_detection(
-          image: file,
-          max_results: 10
+        image: file,
+        max_results: 10
       )
     end
 
@@ -50,6 +50,6 @@ class MealPicture < ApplicationRecord
       res.label_annotations.each { |label| food_labels << label.description }
     end
 
-    return food_labels
+    food_labels
   end
 end

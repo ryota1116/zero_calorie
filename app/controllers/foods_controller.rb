@@ -1,7 +1,5 @@
 class FoodsController < ApplicationController
-
-  def create
-  end
+  def create; end
 
   def search_form
     @food_lists = Food.search_form(params[:name])
