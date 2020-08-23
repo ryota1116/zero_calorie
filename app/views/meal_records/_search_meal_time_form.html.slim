@@ -55,16 +55,35 @@
               .input-group-text
                 i class="calendar alternate icon"
         .form-group
-          = f.submit '検索する'
+          = f.submit '検索する', class: 'ui olive button circular'
 #week style="display: none"
+  .container
   = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
-    = f.week_field :meal_time
-    = f.submit '検索する'
+    .row
+      .col-sm-6
+        .form-group
+          .input-group.date id="datetimepicker4" data-target-input="nearest"
+            = f.week_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+              / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+            .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+              .input-group-text
+                i class="calendar alternate icon"
+        .form-group
+          = f.submit '検索する', class: 'ui olive button circular'
 #month style="display: none"
+  .container
   = form_with scope: :month, url: meal_records_path, method: :get, local: true do |f|
-    = f.month_field :meal_time
-    = f.submit '検索する'
-
+    .row
+      .col-sm-6
+        .form-group
+          .input-group.date id="datetimepicker11" data-target-input="nearest"
+            = f.text_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker11" }, placeholder: '年/月'
+              / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker11"
+            .input-group-append data-target="#datetimepicker11" data-toggle="datetimepicker"
+              .input-group-text
+                i class="calendar alternate icon"
+        .form-group
+          = f.submit '検索する', class: 'ui olive button circular'
 
 javascript:
   $(function () {
@@ -106,7 +125,14 @@ javascript:
 
   $(function () {
     $('#datetimepicker4').datetimepicker({
-        format: 'L'
+      format: 'L'
+    });
+  });
+
+  $(function () {
+    $('#datetimepicker11').datetimepicker({
+        viewMode: 'years',
+        format: 'MM/YYYY'
     });
   });
 

@@ -9,9 +9,6 @@ class MealRecordsController < ApplicationController
   end
 
   def index
-    
-    binding.pry
-    
     # TODO: Fatコントローラ解消
     @meal_records = search_params
     # @search_time = search_time
