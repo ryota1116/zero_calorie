@@ -1,0 +1,44 @@
+ja:
+  defaults: # 汎用的なもの
+    register: 登録
+    login: ログイン
+    logout: ログアウト
+    please_login: ログインしてください
+    search_word: 検索ワード
+    edit: 編集
+    destroy: 削除
+    update: '更新する'
+    unspecified: '指定なし'
+    email: メールアドレス
+    message:
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
+      updated: '%{item}を更新しました'
+      not_updated: '%{item}を更新できませんでした'
+      deleted: '%{item}を削除しました'
+      delete_confirm: 削除しますか？
+      not_admin: 権限がありません
+    facebook:
+      login: Facebookログイン
+      success: Facebookでログインしました
+      failed: Facebookでログインできませんでした
+  users: # 以下、特定のviewに関するもの
+    new:
+      title: ユーザー登録
+      submit: 登録する
+      login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました
+      failed: ユーザー登録に失敗しました
+  user_sessions:
+    new:
+      title: ログイン
+      password: パスワード
+      email: メールアドレス
+      sign_up: 登録ページへ
+      forgot_password?: パスワードをお忘れの方はこちら
+    create:
+      succcessfully_logged_in: ログインしました
+      login_failed: ログインに失敗しました
+    destroy:
+      succcessfully_logged_out: ログアウトしました
