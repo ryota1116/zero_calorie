@@ -7,8 +7,6 @@ class MealRecordsController < ApplicationController
 
   def show; end
 
-  def show; end
-
   def index
     # TODO: Fatコントローラ解消
     @meal_records = search_params
