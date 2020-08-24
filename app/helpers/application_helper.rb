@@ -8,4 +8,12 @@ module ApplicationHelper
 
     page_title.empty? ? base_title : page_title + ' | ' + base_title
   end
+
+  def flash_class(level)
+    case level
+    when "success" then "ui success message"
+    when "danger" then "ui error message"
+    when "notice" then "ui blue message"
+    end
+  end
 end

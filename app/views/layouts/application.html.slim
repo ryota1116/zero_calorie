@@ -16,5 +16,8 @@ html
     - else
       == render 'shared/before_login_header'
 
-    = yield
-    = render 'shared/footer'
+    == render "shared/flash_message"
+
+    == yield
+
+    == render 'shared/footer'
