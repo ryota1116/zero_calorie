@@ -1,28 +1,33 @@
-h1 New user
+- content_for(:title, t('.title'))
+.ui.container
+  .ui.row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t '.title'
+      = form_with model: @user, class: 'ui form', local: true do |f|
+        - if @user.errors.any?
+          #error_explanation
+            h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+            ul
+              - @user.errors.full_messages.each do |message|
+                li = message
 
-= form_with model: @user, class: 'ui form', local: true do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      ul
-        - @user.errors.full_messages.each do |message|
-          li = message
+        .field
+          = f.label :name, User.human_attribute_name(:name)
+          = f.text_field :name, placeholder: '名前'
+        .field
+          = f.label :email, User.human_attribute_name(:email)
+          = f.text_field :email, placeholder: 'メールアドレス'
+        .field
+          = f.label :password, User.human_attribute_name(:password)
+          = f.password_field :password, placeholder: '3文字以上'
+        .field
+          = f.label :password_confirmation, User.human_attribute_name(:password_confirmation)
+          = f.password_field :password_confirmation, placeholder: '3文字以上'
+        .actions
+          = f.submit t('defaults.register'), class: 'ui button'
 
-  .field
-    = f.label :name
-    = f.text_field :name, placeholder: '名前'
-  .field
-    = f.label :email
-    = f.text_field :email, placeholder: 'メールアドレス'
-  .field
-    = f.label :password
-    = f.password_field :password, placeholder: '3文字以上'
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, placeholder: '3文字以上'
-  .actions
-    = f.submit
-  .field
-    = link_to auth_at_provider_path(provider: :facebook) do
-      i class='facebook square icon'
-        | 'Facebookでログイン'
+      .field
+        = link_to auth_at_provider_path(provider: :facebook), class: 'ui facebook button' do
+          i class='facebook icon'
+          = t 'defaults.facebook.login'

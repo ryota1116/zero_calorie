@@ -1,15 +1,20 @@
-h1 Login
-= form_with url: login_path, method: :post, class: 'ui form', local: true do |f|
-  .field
-    = f.label :email
-    = f.text_field :email, placeholder: 'メールアドレス'
-  .field
-    = f.label :password
-    = f.password_field :password, placeholder: 'パスワード'
-  .ui.button
-    = f.submit "ログイン"
-  .field
-    = link_to auth_at_provider_path(provider: :facebook) do
-      i class='facebook square icon'
-        | 'Facebookでログイン'
+- content_for(:title, t('.title'))
+.ui.container
+  .ui.row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t '.title'
+      = form_with url: login_path, method: :post, class: 'ui form', local: true do |f|
+        .field
+          = f.label :email, User.human_attribute_name(:email)
+          = f.text_field :email, placeholder: 'メールアドレス'
+        .field
+          = f.label :password, User.human_attribute_name(:password)
+          = f.password_field :password, placeholder: 'パスワード'
+        .actions
+          = f.submit t('defaults.login'), class: 'ui button'
+      .field
+        = link_to auth_at_provider_path(provider: :facebook), class: 'ui facebook button' do
+          i class='facebook icon'
+          = t 'defaults.facebook.login'
 

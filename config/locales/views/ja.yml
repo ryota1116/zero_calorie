@@ -19,7 +19,7 @@ ja:
       delete_confirm: 削除しますか？
       not_admin: 権限がありません
     facebook:
-      login: Facebookログイン
+      login: Facebookでログイン
       success: Facebookでログインしました
       failed: Facebookでログインできませんでした
   users: # 以下、特定のviewに関するもの
