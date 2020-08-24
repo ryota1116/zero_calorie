@@ -16,12 +16,13 @@ class Food < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: true }
   validates :calorie, presence: true, numericality: { only_integer: true, equal_to: 0 }
 
-  scope :search_by_form, -> (food_name) { where("name like ?", "%#{food_name}%")}
-  scope :search_by_label, -> (label) { where("labels like ?", "%#{label}%") }
+  scope :search_by_form, ->(food_name) { where('name like ?', "%#{food_name}%") }
+  scope :search_by_label, ->(label) { where('labels like ?', "%#{label}%") }
 
   # 文字列でFoodテーブルを検索
   def self.search_form(food_name)
     return Food.all unless food_name
+
     Food.search_by_form(food_name)
   end
 end

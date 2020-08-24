@@ -1,0 +1,21 @@
+.top-wrapper {
+  background-image: url("../images/caby.jpg");
+  height: calc(100vh - 134px);
+  position: relative;
+  background-position: center;
+
+  .top-inner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: black;
+
+    @media screen and (max-width: 767px) {
+      font-size: 2.0rem;
+    }
+  }
+}

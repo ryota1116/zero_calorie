@@ -16,13 +16,14 @@
 #
 # Foreign Keys
 #
+#  fk_rails_...  (food_id => foods.id)
 #  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
   factory :meal_record do
     meal_time { DateTime.current }
     association :user, factory: :user
-    association :food, factory: [:food, :icecream]
+    association :food, factory: %i[food icecream]
 
     trait :yesterday do
       meal_time { DateTime.current.ago(1.day) }

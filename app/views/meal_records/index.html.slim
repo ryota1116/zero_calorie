@@ -1,15 +1,45 @@
-h1
-  | 食事記録の一覧
+.ui.container
+  .ui.center.aligned.grid
+    .twelve.wide.column
+      h1
+        | #{current_user.name}の食事記録
+    .twelve.wide.column
+      / h2
+        - if 
+        | #{}の摂取カロリー
+      h2
+        | 0 kacl
 
-h2
-  .ui.four.column.grid
-    - @meal_records.each do |meal_record|
-      .row
-        .column
-          = meal_record.food.name
-        .column
-          = meal_record.food.calorie
-        / .item
-          / = meal_record
+  == render 'search_meal_time_form', meal_records: @meal_records
 
-  / = link_to food.name, new_food_meal_record_path(food)
+  .ui.segment
+    .ui.centered.grid
+      table class="ui large table"
+        thead
+          tr
+            th 食事時間
+            th 食べたもの
+            th カロリー
+        - @meal_records.each do |meal_record|
+          tbody
+            tr
+              td
+                = meal_record.meal_time
+              td
+                = link_to meal_record.food.name, meal_record_path(meal_record)
+              td
+                = "#{meal_record.food.calorie} kcal"
+              td
+                = link_to '編集', edit_meal_record_path(meal_record)
+              td
+                = link_to '削除', meal_record_path(meal_record), method: :delete, data: { confirm: "本当に削除しますか？" }
+
+/ .container
+/   .row
+/     .col-sm-6
+/       .form-group
+/         .input-group.date id="datetimepicker4" data-target-input="nearest"
+/           input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+/           .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+/             .input-group-text
+/               i class="fa fa-calendar"

@@ -17,7 +17,7 @@ class OauthsController < ApplicationController
         reset_session # protect from session fixation attack
         auto_login(@user)
         redirect_to root_path, notice: "#{provider.titleize}でログインしました"
-      rescue
+      rescue StandardError
         redirect_to root_path, alert: "#{provider.titleize}でログアウトしました"
       end
     end

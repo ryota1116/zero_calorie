@@ -30,39 +30,43 @@ gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
+gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'google-cloud-vision'
-gem "google-cloud-storage", "~> 1.8", require: false
 
 # UI/UX
+gem 'bootstrap-sass'
+
 # semantic UI Framework
 gem 'semantic-ui-sass'
 # 国際化
 gem 'rails-i18n'
 # RailsでSEOの設定を行うGem
 # gem 'meta-tags'
-gem 'slim-rails'
 gem 'html2slim'
+gem 'slim-rails'
+# 環境変数
+gem 'dotenv-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # RSpecを高速化
   gem 'spring-commands-rspec'
   # テストコード
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'rubocop-rspec', require: false
   # コード解析
-  gem 'brakeman', :require => false
+  gem 'brakeman', require: false
   gem 'bullet'
+  gem 'rails_best_practices'
   gem 'reek'
   gem 'rubocop'
   gem 'rubocop-rails'
-  gem 'rails_best_practices'
   # デバッガー
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -78,8 +82,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
@@ -91,4 +95,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
