@@ -1,0 +1,22 @@
+h1 食事記録の編集
+
+h2
+  = @meal_record.food.name
+h2
+  = @meal_record.food.calorie
+h2
+  = @meal_record.food.calorie_theory
+
+= form_with model: @meal_record, class: 'ui form', local: true do |f|
+  - if @meal_record.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@meal_record.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @meal_record.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :meal_time
+    = f.date_field :meal_time, placeholder: '食べた時間'
+  .actions
+    = f.submit
