@@ -1,12 +1,11 @@
 class MealRecordsController < ApplicationController
+  before_action :set_meal_record, only: %i[show edit update destroy]
   skip_before_action :verify_authenticity_token
   # https://qiita.com/nishina555/items/4ffaf5cc57a384b66230
 
   include Rails.application.routes.url_helpers
 
-  def show
-    @meal_record = MealRecord.find(params[:id])
-  end
+  def show; end
 
   def index
     # TODO: Fatコントローラ解消
@@ -32,7 +31,16 @@ class MealRecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @meal_record.destroy!
+    redirect_to meal_records_path
+  end
+
   private
+
+  def set_meal_record
+    @meal_record = MealRecord.find(params[:id])
+  end
 
   def meal_record_params
     params.require(:meal_record).permit(:meal_time)
