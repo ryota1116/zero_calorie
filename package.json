@@ -11,6 +11,7 @@
     "moment": "^2.27.0",
     "popper.js": "^1.16.1",
     "semantic-ui-calendar": "0.0.8",
+    "semantic-ui-sass": "^2.4.2",
     "tempusdominus-bootstrap-4": "^5.1.2",
     "turbolinks": "^5.2.0"
   },

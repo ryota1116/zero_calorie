@@ -6444,6 +6444,11 @@ semantic-ui-calendar@0.0.8:
   resolved "https://registry.yarnpkg.com/semantic-ui-calendar/-/semantic-ui-calendar-0.0.8.tgz#ae16504e4d8016cac5ba9a00ad8ccd4a430de3ef"
   integrity sha1-rhZQTk2AFsrFupoArYzNSkMN4+8=
 
+semantic-ui-sass@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/semantic-ui-sass/-/semantic-ui-sass-2.4.2.tgz#ac1151ecf2c1b3d41fe55e4e4db5144a5d90cfec"
+  integrity sha512-UgDCDHqc36kBWjHqVOhYcm12Dewiro6SY80OUBUuSXEKRVn6Uph47OGB+JnGzblRbcmUNdNedGSAwZg8Pk6sDQ==
+
 "semver@2 || 3 || 4 || 5", semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
