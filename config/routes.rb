@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
   # resources :foods, only: [:create]
   resources :foods, only: %i[create index show] do
-    resources :meal_records, only: %i[new create show], shallow: true
+    resources :meal_records, only: %i[new create show edit update destroy], shallow: true
     collection do
       get 'search_form'
       post 'search_picture'

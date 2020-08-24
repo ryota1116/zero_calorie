@@ -30,6 +30,8 @@
                 = link_to meal_record.food.name, meal_record_path(meal_record)
               td
                 = "#{meal_record.food.calorie} kcal"
+              td
+                = link_to '削除', meal_record_path(meal_record), method: :delete, data: { confirm: "本当に削除しますか？" }
 
 / .container
 /   .row
