@@ -33,6 +33,16 @@ class MealRecordsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @meal_record.update(meal_record_params)
+      redirect_to meal_record_path(@meal_record)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @meal_record.destroy!
     redirect_to meal_records_path
