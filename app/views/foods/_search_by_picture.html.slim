@@ -1,17 +1,8 @@
-= form_with url: search_picture_foods_path, model: meal_picture, local: true  do |f|
+/ = form_with url: search_picture_foods_path, model: meal_picture, local: true  do |f|
   / = f.file_field :meal_pictures, multiple: true
   / = f.file_field :search_picture
-  label
-    suppan class='ui'
-      | 画像で検索
+label
+  = form_with url: search_picture_foods_path, model: meal_picture, id:'search_by_picture', local: true  do |f|
+    suppan
+      = t('.search_by_picture')
       = f.file_field :search_picture, style: 'display:none'
-
-javascript:
-  $(function () {
-    $('input[type=file]').on('change', function (e) {
-      console.log(e.target.files);
-      if (e.target.files[0].size > 0) {
-        $(this).parents('form').submit();
-      }
-    });
-  });
