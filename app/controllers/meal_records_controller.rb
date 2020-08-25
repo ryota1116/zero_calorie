@@ -9,7 +9,7 @@ class MealRecordsController < ApplicationController
 
   def index
     # TODO: Fatコントローラ解消
-    @meal_records = search_params
+    @meal_records = search_params.order(meal_time: :desc)
     # @search_time = search_time
   end
 
@@ -69,7 +69,7 @@ class MealRecordsController < ApplicationController
                    elsif month_params[:meal_time].present?
                      current_user.meal_records.search_month(month_params)
                    else
-                     current_user.meal_records
+                     current_user.meal_records.includes(:food)
                    end
   end
 
