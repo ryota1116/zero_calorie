@@ -8,7 +8,7 @@ class OauthsController < ApplicationController
   def callback
     provider = params[:provider]
     if @user = login_from(provider)
-      redirect_to root_path, notice: "#{provider.titleize}でログインしました"
+      redirect_to root_path, success: t('defaults.facebook.success')
     else
       begin
         @user = create_from(provider)
@@ -16,9 +16,9 @@ class OauthsController < ApplicationController
 
         reset_session # protect from session fixation attack
         auto_login(@user)
-        redirect_to root_path, notice: "#{provider.titleize}でログインしました"
+        redirect_to root_path, success: t('defaults.facebook.success')
       rescue StandardError
-        redirect_to root_path, alert: "#{provider.titleize}でログアウトしました"
+        redirect_to root_path, danger: t('defaults.facebook.failed')
       end
     end
   end
