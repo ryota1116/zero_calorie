@@ -15,11 +15,15 @@ class MealRecordsController < ApplicationController
 
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
+    # TODO: @meal_record.meal_record_pictureをフォームに渡すには？
+    # @meal_record.meal_record_picture = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
+    # session[:meal_picture_id] = nil
   end
 
   def create
     @meal_record = current_user.meal_records.build(meal_record_params)
     @meal_record.food_id = params[:food_id]
+
     @meal_record.meal_record_picture = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
 
     if @meal_record.save
@@ -54,7 +58,7 @@ class MealRecordsController < ApplicationController
   end
 
   def meal_record_params
-    params.require(:meal_record).permit(:meal_time)
+    params.require(:meal_record).permit(:meal_time, :meal_record_picture)
   end
 
   def search_params

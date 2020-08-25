@@ -24,11 +24,13 @@
               .field
                 = f.datetime_field :meal_time
               .label
-                = f.label :search_picture
-              .field
-                = f.file_field :search_picture
+                = f.label :meal_record_picture
+              / .field
+                = f.file_field :meal_record_picture
                 - if @meal_record.meal_record_picture.attached?
                   = image_tag @meal_record.meal_record_picture
+                - else
+                  | 画像がありません
               .actions
                 = f.button t('.submit')
 

@@ -9,7 +9,7 @@
 .ui.container.mt-2
     .ui.centered
       h1
-        | 検索結果
+        = t('.title')
       - if @food_lists.present?
         table class="ui fixed basic table"
           thead
@@ -24,7 +24,7 @@
             tbody
               tr
                 td
-                  = link_to food.name, new_food_meal_record_path(food)
+                  = link_to food.name, new_food_meal_record_path(food, meal_picture: @meal_picture.search_picture)
                 td
                   = food.calorie
                 td
