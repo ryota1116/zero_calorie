@@ -62,3 +62,8 @@ ja:
       title: 食事記録の詳細
       no_picture: 画像がありません
       post_picture: 画像を登録する
+  foods:
+    search_form:
+      title: 検索結果
+      no_search_result_message: 該当する検索結果が見つかりませんでした。検索条件を変更するか、新しく食べ物の登録をお願いします。
+      register: 食べ物を登録する
