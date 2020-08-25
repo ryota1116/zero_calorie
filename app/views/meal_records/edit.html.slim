@@ -30,6 +30,5 @@
                 - if @meal_record.meal_record_picture.attached?
                   = image_tag @meal_record.meal_record_picture
               .actions
-                = f.button t('defaults.update'), class: 'ui button'
-              .actions
-                = link_to t('defaults.back'), meal_records_path, class: 'ui button'
+                = f.button t('defaults.update'), class: 'ui large button'
+                = link_to t('defaults.back'), meal_records_path, class: 'ui large button'
