@@ -9,6 +9,6 @@ header
       .item
         = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
       .item
-        = link_to '新規登録', new_user_path
+        = link_to t('defaults.sign_up'), new_user_path
       .item
-        = link_to 'ログインする', login_path
+        = link_to t('defaults.login'), login_path

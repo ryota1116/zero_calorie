@@ -9,9 +9,9 @@ header
       .item
         = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
       .item
-        = link_to 'ユーザー', logout_path
+        = link_to t('defaults.profile'), meal_records_path
       .item
-        = link_to 'ログアウト', logout_path, method: :delete
+        = link_to t('defaults.logout'), logout_path, method: :delete
 
 
 / header

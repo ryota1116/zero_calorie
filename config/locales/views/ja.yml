@@ -1,9 +1,11 @@
 ja:
   defaults: # defaults
     register: 登録
+    sign_up: 新規登録
     login: ログイン
     logout: ログアウト
     please_login: ログインしてください
+    profile: プロフィール
     search_word: 検索ワード
     edit: 編集
     destroy: 削除
