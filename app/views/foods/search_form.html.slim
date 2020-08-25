@@ -12,7 +12,7 @@
               th
                 = t(Food.human_attribute_name(:calorie))
               th
-                = t(Food.human_attribute_name(:calorie_theory))
+                t(Food.human_attribute_name(:calorie_theory))
           - @food_lists.each do |food|
             tbody
               tr
@@ -25,4 +25,4 @@
       - else
         p
           = t('.no_search_result_message')
-        = link_to t('.register')
+        = link_to t('.register'), new_food_path(food_name: @search_word)
