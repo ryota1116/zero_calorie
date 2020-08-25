@@ -14,7 +14,7 @@ require("channels")
 require("jquery")
 require("jquery/submit_food_image")
 require("packs/meal_time_form")
-require("packs/flash_message")
+require("packs/close_message")
 // require("semantic-ui-sass")
 // datetimepicker用
 require("moment/locale/ja")

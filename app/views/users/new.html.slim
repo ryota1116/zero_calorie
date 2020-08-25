@@ -5,20 +5,7 @@
       h1
         = t '.title'
       = form_with model: @user, class: 'ui form', local: true do |f|
-        / - if @user.errors.any?
-        /   .ui.error.message
-        /     .header
-        /       = pluralize(@user.errors.count, "error")
-        /     ul
-        /       - @user.errors.full_messages.each do |message|
-        /         li = message
-
-        / - if @user.errors.any?
-        /   #error_explanation
-        /     h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-        /     ul
-        /       - @user.errors.full_messages.each do |message|
-        /         li = message
+        = render 'shared/error_messages', object: f.object
         .field
           = f.label :name, User.human_attribute_name(:name)
           = f.text_field :name, placeholder: '名前'

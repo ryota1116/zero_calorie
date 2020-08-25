@@ -1,9 +1,10 @@
 - content_for(:title, t('.title'))
-h1
-  = t('.title')
-.ui.container
+.ui.container.mt-2
   .ui.segment
     .ui.centered.grid
+      .twelve.wide.column
+        h1
+          = t('.title')
       .twelve.wide.column
         .ui.text.container
           = @meal_record.food.name
@@ -17,6 +18,7 @@ h1
         .ui.text.container
           .ui.form
             = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
+              = render 'shared/error_messages', object: f.object
               .label
                 = f.label :meal_time
               .field
