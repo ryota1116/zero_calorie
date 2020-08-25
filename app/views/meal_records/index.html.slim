@@ -1,14 +1,15 @@
+- content_for(:title, t('.title'))
 .ui.container
   .ui.center.aligned.grid
     .twelve.wide.column
       h1
-        | #{current_user.name}の食事記録
+        | #{current_user.name}の#{t('.meal_record')}
     .twelve.wide.column
       / h2
         - if 
         | #{}の摂取カロリー
       h2
-        | 0 kacl
+        | 0 kcal
 
   == render 'search_meal_time_form', meal_records: @meal_records
 
@@ -17,9 +18,12 @@
       table class="ui large table"
         thead
           tr
-            th 食事時間
-            th 食べたもの
-            th カロリー
+            th
+              = t('.meal_time')
+            th
+              = t('.food_name')
+            th
+              = t('.calorie')
         - @meal_records.each do |meal_record|
           tbody
             tr
@@ -30,9 +34,9 @@
               td
                 = "#{meal_record.food.calorie} kcal"
               td
-                = link_to '編集', edit_meal_record_path(meal_record)
+                = link_to t('defaults.edit'), edit_meal_record_path(meal_record)
               td
-                = link_to '削除', meal_record_path(meal_record), method: :delete, data: { confirm: "本当に削除しますか？" }
+                = link_to t('defaults.destroy'), meal_record_path(meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
 
 / .container
 /   .row

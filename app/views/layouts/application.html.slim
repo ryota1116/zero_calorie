@@ -2,18 +2,22 @@ doctype html
 html
   head
     title
-      | ZeroCalorie
+      = page_title(yield(:title))
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     / pack_tagがwebpacker
+    = stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload"
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+
     - if logged_in?
       == render 'shared/header'
     - else
       == render 'shared/before_login_header'
-    = yield
-    = render 'shared/footer'
+
+    == render "shared/flash_message"
+
+    == yield
+
+    == render 'shared/footer'

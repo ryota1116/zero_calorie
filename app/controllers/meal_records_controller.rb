@@ -20,13 +20,13 @@ class MealRecordsController < ApplicationController
   def create
     @meal_record = current_user.meal_records.build(meal_record_params)
     @meal_record.food_id = params[:food_id]
-
     @meal_record.meal_record_picture = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
 
     if @meal_record.save
       session[:meal_picture_id] = nil
-      redirect_to @meal_record
+      redirect_to @meal_record, success: t('defaults.message.created', item: MealRecord.model_name.human )
     else
+      flash.now[:danger] = t('defaults.message.not_created', item: MealRecord.model_name.human )
       render :new
     end
   end
@@ -35,15 +35,16 @@ class MealRecordsController < ApplicationController
 
   def update
     if @meal_record.update(meal_record_params)
-      redirect_to meal_record_path(@meal_record)
+      redirect_to meal_record_path(@meal_record), success: t('defaults.message.updated', item: MealRecord.model_name.human )
     else
+      flash.now[:danger] = t('defaults.message.not_updated', item: MealRecord.model_name.human )
       render :edit
     end
   end
 
   def destroy
     @meal_record.destroy!
-    redirect_to meal_records_path
+    redirect_to meal_records_path, success: t('defaults.message.deleted', item: MealRecord.model_name.human )
   end
 
   private

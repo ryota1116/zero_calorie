@@ -1,14 +1,14 @@
 header
-  .ui.secondary.menu
-    .item
-      = link_to 'サービス名', class: 'ui olive button circular'
-    / 画像検索ボタン
-    .item
-      = render template: 'foods/_search_form'
-    .item
-      .ui.icon.input
+  .ui.secondary.menu.inverted.olive
+    .ui.grid.container
+      .item
+        = link_to 'サービス名'
+      / 画像検索ボタン
+      .item
+        = render template: 'foods/_search_form'
+      .item
         = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-    .ui.item
-      = link_to '新規登録', new_user_path, class: 'ui olive button circular'
-    .ui.item
-      = link_to 'ログインする', login_path, class: 'ui olive button circular'
+      .item
+        = link_to t('defaults.sign_up'), new_user_path
+      .item
+        = link_to t('defaults.login'), login_path

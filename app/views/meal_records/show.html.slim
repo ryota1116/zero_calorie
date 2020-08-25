@@ -1,13 +1,39 @@
-h1 食事記録詳細
-h2 class="ui header"
-  = @meal_record.food.name
-h2 class="ui header"
-  = "#{@meal_record.food.calorie}カロリー"
-h2 class="ui header"
-  = @meal_record.food.calorie_theory
-- if @meal_record.meal_record_picture.present?
-  = image_tag @meal_record.meal_record_picture
-- else
-  / TODO: 画像登録ページ
-  h4 画像がありません
-  = link_to '画像を登録する'
+- content_for(:title, t('.title'))
+h1
+  = t('.title')
+.ui.container
+  .ui.segment
+    .ui.centered.grid
+      .sixteen.wide.column
+        .ui.text.container
+          = @meal_record.food.name
+      .sixteen.wide.column
+        .ui.text.container
+          = "#{@meal_record.food.calorie} kcal"
+      .sixteen.wide.column
+        .ui.text.container
+          = @meal_record.food.calorie_theory
+      .sixteen.wide.column
+        .ui.text.container
+          - if @meal_record.meal_record_picture.present?
+            = image_tag @meal_record.meal_record_picture
+          - else
+            / TODO: 画像登録ページ
+            p
+              = t('.no_picture')
+            = link_to t('.post_picture')
+
+/ - content_for(:title, t('.title'))
+/ h1 食事記録詳細
+/ h2 class="ui header"
+/   = @meal_record.food.name
+/ h2 class="ui header"
+/   = "#{@meal_record.food.calorie}カロリー"
+/ h2 class="ui header"
+/   = @meal_record.food.calorie_theory
+/ - if @meal_record.meal_record_picture.present?
+/   = image_tag @meal_record.meal_record_picture
+/ - else
+/   / TODO: 画像登録ページ
+/   h4 画像がありません
+/   = link_to '画像を登録する'

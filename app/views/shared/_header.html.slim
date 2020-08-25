@@ -1,16 +1,32 @@
 header
-  .ui.secondary.menu.segment.inverted
-    .item
-      = link_to 'サービス名', meal_records_path, class: 'ui olive button circular'
-    / 画像検索ボタン
-    .item
-      = render template: 'foods/_search_form'
-    .item
-      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-    .ui.item
-      = link_to 'ユーザー', logout_path, class: 'ui olive button circular'
-    .ui.item
-      = link_to 'ログアウト', logout_path, method: :delete, class: 'ui olive button circular'
+  .ui.secondary.menu.inverted.olive
+    .ui.grid.container
+      .item
+        = link_to 'サービス名', meal_records_path
+      / 画像検索ボタン
+      .item
+        = render template: 'foods/_search_form'
+      .item
+        = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+      .item
+        = link_to t('defaults.profile'), meal_records_path
+      .item
+        = link_to t('defaults.logout'), logout_path, method: :delete
+
+
+/ header
+/   .ui.secondary.menu.segment.inverted.olive
+/     .item
+/       = link_to 'サービス名', meal_records_path, class: 'ui button circular'
+/     / 画像検索ボタン
+/     .item
+/       = render template: 'foods/_search_form'
+/     .item
+/       = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+/     .ui.item
+/       = link_to 'ユーザー', logout_path, class: 'ui button circular'
+/     .ui.item
+/       = link_to 'ログアウト', logout_path, method: :delete, class: 'ui button circular'
 
 / header
 /   .ui.fixed.secondary.menu.pointing.siteHeader
