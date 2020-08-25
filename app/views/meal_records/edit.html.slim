@@ -1,24 +1,34 @@
-h1 食事記録の編集
+- content_for(:title, t('.title'))
+h1
+  = t('.title')
 
-h2
-  = @meal_record.food.name
-h2
-  = @meal_record.food.calorie
-h2
-  = @meal_record.food.calorie_theory
-
-= form_with model: @meal_record, class: 'ui form', local: true do |f|
-  - if @meal_record.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@meal_record.errors.count, "error")} prohibited this user from being saved:"
-      ul
-        - @meal_record.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :meal_time
-    = f.date_field :meal_time, placeholder: '食べた時間'
-  .actions
-    = f.submit
-  .actions
-    = link_to "戻る", meal_records_path, class: 'ui button'
+.ui.container
+  .ui.segment
+    .ui.centered.grid
+      .twelve.wide.column
+        .ui.text.container
+          = @meal_record.food.name
+      .twelve.wide.column
+        .ui.text.container
+          = "#{@meal_record.food.calorie} kcal"
+      .twelve.wide.column
+        .ui.text.container
+          = @meal_record.food.calorie_theory
+      .twelve.wide.column
+        .ui.text.container
+          .ui.form
+            = form_with model: @meal_record, class: 'ui form', local: true do |f|
+              .label
+                = f.label :meal_time
+              .field
+                = f.datetime_field :meal_time
+              .label
+                = f.label :meal_record_picture
+              .field
+                = f.file_field :meal_record_picture
+                - if @meal_record.meal_record_picture.attached?
+                  = image_tag @meal_record.meal_record_picture
+              .actions
+                = f.button t('defaults.update'), class: 'ui button'
+              .actions
+                = link_to t('defaults.back'), meal_records_path, class: 'ui button'

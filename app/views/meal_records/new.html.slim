@@ -1,3 +1,6 @@
+- content_for(:title, t('.title'))
+h1
+  = t('.title')
 .ui.container
   .ui.segment
     .ui.centered.grid
@@ -25,7 +28,7 @@
                 - if @meal_record.meal_record_picture.attached?
                   = image_tag @meal_record.meal_record_picture
               .actions
-                = f.button '記録する'
+                = f.button t('.submit')
 
   / .ui.relaxed.divided.list
   /   .item
