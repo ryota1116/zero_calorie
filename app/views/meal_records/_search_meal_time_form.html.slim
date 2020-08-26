@@ -49,7 +49,7 @@
       .col-sm-6
         .form-group
           .input-group.date id="datetimepicker4" data-target-input="nearest"
-            = f.text_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+            = f.text_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
               / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
             .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
               .input-group-text
@@ -63,7 +63,7 @@
       .col-sm-6
         .form-group
           .input-group.date id="datetimepicker4" data-target-input="nearest"
-            = f.week_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+            = f.week_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
               / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
             .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
               .input-group-text
@@ -77,7 +77,7 @@
       .col-sm-6
         .form-group
           .input-group.date id="datetimepicker11" data-target-input="nearest"
-            = f.text_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker11" }, placeholder: '年/月'
+            = f.text_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker11" }, placeholder: '年/月'
               / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker11"
             .input-group-append data-target="#datetimepicker11" data-toggle="datetimepicker"
               .input-group-text
