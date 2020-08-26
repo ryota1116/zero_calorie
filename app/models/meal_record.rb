@@ -32,8 +32,8 @@ class MealRecord < ApplicationRecord
 
   validates :meal_time, presence: true
 
-  # 日、週、月
   class << self
+    # 日、週、月でscopeするクラスメソッド
     def meal_time_date(day)
       where('? <= meal_time and meal_time <= ?',  day.beginning_of_day, day.end_of_day) if day.present?
     end
@@ -46,41 +46,30 @@ class MealRecord < ApplicationRecord
       where('? <= meal_time and meal_time <= ?',  day.beginning_of_month, day.end_of_month) if day.present?
     end
 
-    def search_date(params)
-      return if params.blank?
-
-      meal_time_date(Date.parse(params[:meal_time]))
+    # 検索フォームに入力されたパラメータを取得
+    def search_params(params)
+      search_params = if params.keys.include?("date")
+                       params[:date][:meal_time]
+                     elsif params.keys.include?("week")
+                       params[:week][:meal_time]
+                     elsif params.keys.include?("month")
+                       params[:month][:meal_time]
+                     else
+                       nil
+                     end
     end
 
-    def search_week(params)
-      return if params.blank?
-
-      meal_time_week(Date.parse(params[:meal_time]))
+    # 検索結果を返す
+    def search_meal_records(params, search_params)
+      record = if params.keys.include?("date")
+                 meal_time_date(Date.parse(search_params))
+               elsif params.keys.include?("week")
+                 meal_time_week(Date.parse(search_params))
+               elsif params.keys.include?("month")
+                 meal_time_month(Date.parse(search_params))
+               else
+                 includes(:food)
+               end
     end
-
-    def search_month(params)
-      return if params.blank?
-
-      meal_time_month(Date.parse(params[:meal_time]))
-    end
-
-    # def search_meal_time(day)
-    #   if params[:date].present?
-    #     time = params[:date][:meal_time]
-    #     # meal_record = self.meal_time_date(time)
-    #     meal_record = self.meal_time_date(Date.parse(params[:date][:meal_time]))
-    #   end
-
-    #   if params[:week].present?
-    #     time = params[:week][:meal_time]
-    #     # meal_record = self.meal_time_week(params[:week][:meal_time])
-    #     meal_record = self.meal_time_week(Date.parse(params[:week][:meal_time]))
-    #   end
-
-    #   if params[:month].present?
-    #     time = params[:month][:meal_time]
-    #     meal_record = self.meal_time_month(Date.parse(params[:month][:meal_time]))
-    #   end
-    # end
   end
 end
