@@ -55,7 +55,7 @@
               .input-group-text
                 i class="calendar alternate icon"
         .form-group
-          = f.submit '検索する', class: 'ui olive button circular'
+          = f.submit t('defaults.search'), class: 'ui olive button circular'
 #week style="display: none"
   .container
   = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
@@ -69,7 +69,7 @@
               .input-group-text
                 i class="calendar alternate icon"
         .form-group
-          = f.submit '検索する', class: 'ui olive button circular'
+          = f.submit t('defaults.search'), class: 'ui olive button circular'
 #month style="display: none"
   .container
   = form_with scope: :month, url: meal_records_path, method: :get, local: true do |f|
@@ -83,7 +83,7 @@
               .input-group-text
                 i class="calendar alternate icon"
         .form-group
-          = f.submit '検索する', class: 'ui olive button circular'
+          = f.submit t('defaults.search'), class: 'ui olive button circular'
 
 javascript:
 

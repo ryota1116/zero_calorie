@@ -7,6 +7,7 @@ ja:
     please_login: ログインしてください
     profile: プロフィール
     search_word: 検索ワード
+    search: 検索する
     edit: 編集
     destroy: 削除
     update: 更新する
@@ -52,6 +53,7 @@ ja:
       meal_time: 食事時間
       food_name: 食べたもの
       calorie: カロリー
+      search: 検索する
     new:
       title: 食事記録の登録
       submit: 登録する
