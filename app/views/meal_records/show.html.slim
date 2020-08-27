@@ -18,10 +18,14 @@ h1
           - if @meal_record.meal_record_picture.present?
             = image_tag @meal_record.meal_record_picture
           - else
-            / TODO: 画像登録ページ
             p
               = t('.no_picture')
-            = link_to t('.post_picture')
+      .sixteen.wide.column
+        .ui.text.container
+          = link_to t('defaults.edit'), edit_meal_record_path(@meal_record)
+      .sixteen.wide.column
+        .ui.text.container
+          = link_to t('defaults.destroy'), meal_record_path(@meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
 
 / - content_for(:title, t('.title'))
 / h1 食事記録詳細

@@ -28,9 +28,10 @@
               .field
                 = f.file_field :meal_record_picture
                 - if @meal_record.meal_record_picture.attached?
-                  = image_tag @meal_record.meal_record_picture
+                  = image_tag @meal_record.meal_record_picture, class: "ui fluid image"
                 - else
-                  | 画像がありません
+                  = t('.no_picture')
+                  = link_to t('.post_picture')
               .actions
                 = f.button t('defaults.update'), class: 'ui large button'
                 = link_to t('defaults.back'), meal_records_path, class: 'ui large button'

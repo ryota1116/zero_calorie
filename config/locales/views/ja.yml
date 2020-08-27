@@ -60,10 +60,11 @@ ja:
     edit:
       title: 食事記録の編集
       meal_time: 食事時間
+      no_picture: 画像がありません
+      post_picture: 画像を登録する
     show:
       title: 食事記録の詳細
       no_picture: 画像がありません
-      post_picture: 画像を登録する
   foods:
     new:
       title: 食べ物のデータ登録
