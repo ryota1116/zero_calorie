@@ -28,7 +28,7 @@ class MealRecord < ApplicationRecord
   belongs_to :user
   belongs_to :food
 
-  has_one_attached :meal_record_picture
+  has_many_attached :meal_record_pictures
 
   validates :meal_time, presence: true
 

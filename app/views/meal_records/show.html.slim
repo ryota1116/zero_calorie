@@ -15,8 +15,9 @@ h1
           = @meal_record.food.calorie_theory
       .sixteen.wide.column
         .ui.text.container
-          - if @meal_record.meal_record_picture.present?
-            = image_tag @meal_record.meal_record_picture
+          - if @meal_record.meal_record_pictures.attached?
+            - @meal_record.meal_record_pictures.each do |picture|
+              = image_tag picture, class: "ui fluid image"
           - else
             p
               = t('.no_picture')
@@ -35,8 +36,8 @@ h1
 /   = "#{@meal_record.food.calorie}カロリー"
 / h2 class="ui header"
 /   = @meal_record.food.calorie_theory
-/ - if @meal_record.meal_record_picture.present?
-/   = image_tag @meal_record.meal_record_picture
+/ - if @meal_record.meal_record_pictures.present?
+/   = image_tag @meal_record.meal_record_pictures
 / - else
 /   / TODO: 画像登録ページ
 /   h4 画像がありません

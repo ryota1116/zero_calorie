@@ -24,13 +24,13 @@
               .field
                 = f.datetime_field :meal_time
               .label
-                = f.label :meal_record_picture
-              / .field
-                = f.file_field :meal_record_picture
-                - if @meal_record.meal_record_picture.attached?
-                  = image_tag @meal_record.meal_record_picture
-                - else
-                  | 画像がありません
+                = f.label :meal_record_pictures
+              .field
+                = f.file_field :meal_record_pictures, multiple: true
+                / - if @meal_record.meal_record_pictures.attached?
+                /   = image_tag @meal_record.meal_record_pictures
+                / - else
+                /   | 画像がありません
               .actions
                 = f.button t('.submit')
 
@@ -45,8 +45,8 @@
   /     = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
   /       .field
   /         = f.datetime_field :meal_time
-  /       - if @meal_record.meal_record_picture.present?
-  /         = image_tag @meal_record.meal_record_picture
+  /       - if @meal_record.meal_record_pictures.present?
+  /         = image_tag @meal_record.meal_record_pictures
   /       - else
   /         h4 画像を貼る用意
   /       .actions
