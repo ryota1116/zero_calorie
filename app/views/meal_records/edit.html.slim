@@ -24,11 +24,15 @@
               .field
                 = f.datetime_field :meal_time
               .label
-                = f.label :meal_record_picture
+                = f.label :meal_record_pictures
               .field
-                = f.file_field :meal_record_picture
-                - if @meal_record.meal_record_picture.attached?
-                  = image_tag @meal_record.meal_record_picture, class: "ui fluid image"
+                = f.file_field :meal_record_pictures, multiple: true
+                - if @meal_record.meal_record_pictures.attached?
+                  / TODO: パーシャルにしたい
+                  - @meal_record.meal_record_pictures.each do |picture|
+                    div id="meal-record-picture-#{picture.id}"
+                      = image_tag picture, class: "ui fluid image"
+                      = link_to '削除', picture_attachment_path(picture.id), class: 'btn btn-danger', id: picture.id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
                 - else
                   = t('.no_picture')
                   = link_to t('.post_picture')
