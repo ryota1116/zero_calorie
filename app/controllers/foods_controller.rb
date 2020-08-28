@@ -21,6 +21,7 @@ class FoodsController < ApplicationController
 
   def search_picture
     @meal_picture = MealPicture.new(meal_picture_params)
+    # @meal_picture_params = meal_picture_params[:search_picture]
 
     if @meal_picture.save
       # セッションにデータを入れる
@@ -30,7 +31,7 @@ class FoodsController < ApplicationController
 
       @food_lists = []
 
-      # TODO: メソッドにする
+      # TODO:メソッドにする
       food_labels.each do |food_label|
         @food_lists = Food.search_by_label(food_label)
       end

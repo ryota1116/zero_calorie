@@ -14,16 +14,17 @@ class MealRecordsController < ApplicationController
 
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
-    # TODO: @meal_record.meal_record_picturesをフォームに渡すには？
-    # @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
-    # session[:meal_picture_id] = nil
+    # @meal_record.meal_record_pictures = params[:meal_picture_params]
+    @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
   end
 
   def create
     @meal_record = current_user.meal_records.build(meal_record_params)
     @meal_record.food_id = params[:food_id]
 
-    @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
+    # ActiveStorage::Blob.find(session[:meal_picture_id])
+    #<ActiveRecord::RecordNotFound: Couldn't find ActiveStorage::Blob with 'id'=11>
+    # @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
 
     if @meal_record.save
       session[:meal_picture_id] = nil

@@ -24,7 +24,8 @@
             tbody
               tr
                 td
-                  = link_to food.name, new_food_meal_record_path(food, meal_picture: @meal_picture.search_picture)
+                  = link_to food.name, new_food_meal_record_path(food)
+                  / = link_to food.name, new_food_meal_record_path(food, meal_picture_params: @meal_picture_params)
                 td
                   = food.calorie
                 td

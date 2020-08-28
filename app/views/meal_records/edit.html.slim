@@ -28,7 +28,7 @@
               .field
                 = f.file_field :meal_record_pictures, multiple: true
                 - if @meal_record.meal_record_pictures.attached?
-                  / TODO: パーシャルにしたい
+                  //TODO : パーシャルにしたい
                   - @meal_record.meal_record_pictures.each do |picture|
                     div id="meal-record-picture-#{picture.id}"
                       = image_tag picture, class: "ui fluid image"

@@ -27,6 +27,9 @@
                 = f.label :meal_record_pictures
               .field
                 = f.file_field :meal_record_pictures, multiple: true
+              .field
+                - @meal_record.meal_record_pictures.each do |picture|
+                  = image_tag picture, class: "ui fluid image"
                 / - if @meal_record.meal_record_pictures.attached?
                 /   = image_tag @meal_record.meal_record_pictures
                 / - else
