@@ -50,5 +50,20 @@ RSpec.describe Food, type: :model do
       other_food = build(:food, name: food.name + 'と別のname')
       expect(other_food).to be_valid
     end
+
+    describe "scope" do
+      describe 'search_by_form' do
+        let(:food_ice_cream) { create(:food, :ice_cream, name: 'アイスクリーム') }
+        subject { Food.search_by_form('アイス') }
+        it { is_expected.to include food_ice_cream }
+      end
+
+      describe "search_by_label" do
+        let(:food_ice_cream) { create(:food, :ice_cream, name: 'アイスクリーム') }
+        subject { Food.search_by_label('Ice cream') }
+        it { is_expected.to include food_ice_cream }
+      end
+    end
+
   end
 end

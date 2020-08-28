@@ -43,5 +43,34 @@ RSpec.describe MealRecord, type: :model do
       meal_record.user_id = nil
       expect(meal_record).to be_invalid
     end
+
+    describe "def search_params(params)" do
+      context 'paramsのkeyにdateが含まれる場合' do
+        
+      end
+
+      context 'paramsのkeyにweekが含まれる場合' do
+        
+      end
+
+      context 'paramsのkeyにmonthが含まれる場合' do
+        
+      end
+    end
+
+    describe "def search_meal_records(params, search_params)" do
+      context 'meal_timeのparamsが昨日の場合' do
+        
+      end
+
+      context 'meal_timeのparamsが先週1週間の場合' do
+        
+      end
+
+      context 'meal_timeのparamsが先月1ヶ月間の場合' do
+        
+      end
+    end
+    
   end
 end

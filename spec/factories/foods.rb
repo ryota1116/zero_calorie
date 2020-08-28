@@ -17,7 +17,7 @@ FactoryBot.define do
     sequence(:calorie_theory) { |n| "calorie_theory-#{n}" }
     labels { '' }
 
-    trait :icecream do
+    trait :ice_cream do
       name { 'アイスクリーム' }
       calorie { 0 }
       calorie_theory { 'アイスクリームはカロリーゼロ。冷たくすることでカロリーが全部飛ぶ。むしろ0度を下回っているから、食べれば食べるほどカロリーが消費される。' }
