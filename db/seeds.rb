@@ -7,6 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # be rails db:seed
+User.create!([
+  { name: "りょうた",
+    email: "user@example.com",
+    password: "0000",
+    password_confirmation: "0000"
+  },
+])
 
 Food.create!([
   { name: "アイスクリーム",
@@ -24,4 +31,12 @@ Food.create!([
     calorie: 0,
     calorie_theory: "白い食べ物はカロリーが白紙に戻るからカロリーゼロ。"
   }
+])
+
+MealRecord.create!([
+  {
+    meal_time: Date.current,
+    food_id: 1,
+    user_id: 1
+  },
 ])

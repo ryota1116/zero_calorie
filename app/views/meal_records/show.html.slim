@@ -15,13 +15,18 @@ h1
           = @meal_record.food.calorie_theory
       .sixteen.wide.column
         .ui.text.container
-          - if @meal_record.meal_record_picture.present?
-            = image_tag @meal_record.meal_record_picture
+          - if @meal_record.meal_record_pictures.attached?
+            - @meal_record.meal_record_pictures.each do |picture|
+              = image_tag picture, class: "ui fluid image"
           - else
-            / TODO: 画像登録ページ
             p
               = t('.no_picture')
-            = link_to t('.post_picture')
+      .sixteen.wide.column
+        .ui.text.container
+          = link_to t('defaults.edit'), edit_meal_record_path(@meal_record)
+      .sixteen.wide.column
+        .ui.text.container
+          = link_to t('defaults.destroy'), meal_record_path(@meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
 
 / - content_for(:title, t('.title'))
 / h1 食事記録詳細
@@ -31,9 +36,9 @@ h1
 /   = "#{@meal_record.food.calorie}カロリー"
 / h2 class="ui header"
 /   = @meal_record.food.calorie_theory
-/ - if @meal_record.meal_record_picture.present?
-/   = image_tag @meal_record.meal_record_picture
+/ - if @meal_record.meal_record_pictures.present?
+/   = image_tag @meal_record.meal_record_pictures
 / - else
-/   / TODO: 画像登録ページ
+/   // TODO: 画像登録ページ
 /   h4 画像がありません
 /   = link_to '画像を登録する'

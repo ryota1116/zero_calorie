@@ -1,5 +1,28 @@
-.ui.relaxed.divided.list
-  - @food_lists.each do |food|
-    .item
-      = link_to food.name, new_food_meal_record_path(food)
-      / p = food.calorie_theory
+- content_for(:title, "「#{@search_word}」の#{t('.title')}")
+.ui.container.mt-2
+    .ui.centered
+      h1
+        | 「#{@search_word}」の#{t('.title')}
+      - if @food_lists.present?
+        table class="ui fixed basic table"
+          thead
+            tr
+              th
+                = t(Food.human_attribute_name(:name))
+              th
+                = t(Food.human_attribute_name(:calorie))
+              th
+                = t(Food.human_attribute_name(:calorie_theory))
+          - @food_lists.each do |food|
+            tbody
+              tr
+                td
+                  = link_to food.name, new_food_meal_record_path(food)
+                td
+                  = food.calorie
+                td
+                  = food.calorie_theory
+      - else
+        p
+          = t('.no_search_result_message')
+        = link_to t('.register'), new_food_path(food_name: @search_word)

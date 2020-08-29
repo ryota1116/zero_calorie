@@ -8,19 +8,23 @@ class MealRecordsController < ApplicationController
   def show; end
 
   def index
-    # TODO: Fatコントローラ解消
-    @meal_records = search_params
-    # @search_time = search_time
+    @search_params = MealRecord.search_params(params)
+    @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :asc)
   end
 
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
+    # @meal_record.meal_record_pictures = params[:meal_picture_params]
+    @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
   end
 
   def create
     @meal_record = current_user.meal_records.build(meal_record_params)
     @meal_record.food_id = params[:food_id]
-    @meal_record.meal_record_picture = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
+
+    # ActiveStorage::Blob.find(session[:meal_picture_id])
+    #<ActiveRecord::RecordNotFound: Couldn't find ActiveStorage::Blob with 'id'=11>
+    # @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
 
     if @meal_record.save
       session[:meal_picture_id] = nil
@@ -54,43 +58,6 @@ class MealRecordsController < ApplicationController
   end
 
   def meal_record_params
-    params.require(:meal_record).permit(:meal_time)
-  end
-
-  def search_params
-    meal_records = if date_params[:meal_time].present?
-                     current_user.meal_records.search_date(date_params)
-                   elsif week_params[:meal_time].present?
-                     current_user.meal_records.search_week(week_params)
-                   elsif month_params[:meal_time].present?
-                     current_user.meal_records.search_month(month_params)
-                   else
-                     current_user.meal_records
-                   end
-  end
-
-  # def search_time
-  #   if date_params.present?
-  #     meal_records = Date.parse(date_params[:meal_time]).strftime("%Y年%m月%d日")
-  #   elsif week_params.present?
-  #     meal_records = Date.parse(week_params[:meal_time]).beginning_of_week.strftime("%Y年%m月%d日")
-  #     meal_records = Date.parse(week_params[:meal_time]).end_of_week.strftime("%Y年%m月%d日")
-  #   elsif month_params.present?
-  #     meal_records = month_params[:meal_time]
-  #   else
-  #     meal_records = ''
-  #   end
-  # end
-
-  def date_params
-    params.fetch(:date, {}).permit(:meal_time)
-  end
-
-  def week_params
-    params.fetch(:week, {}).permit(:meal_time)
-  end
-
-  def month_params
-    params.fetch(:month, {}).permit(:meal_time)
+    params.require(:meal_record).permit(:meal_time, meal_record_pictures: [])
   end
 end

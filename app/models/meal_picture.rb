@@ -26,7 +26,6 @@ class MealPicture < ApplicationRecord
     #   credentials: JSON.parse(File.open(Rails.root.join('gcp_key.json')))
     # )
 
-    # TODO: 画像を２枚以上渡された場合などの例外処理はどうする
     response = search_picture.open do |file|
       image_annotator.label_detection(
         image: file,

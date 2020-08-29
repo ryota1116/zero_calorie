@@ -16,7 +16,7 @@ ja:
         created_at: 作成日時
       meal_record:
         meal_time: 食事時間
-        meal_record_picture: 写真
+        meal_record_pictures: 写真
       food:
         name: 食べ物の名前
         calorie: カロリー

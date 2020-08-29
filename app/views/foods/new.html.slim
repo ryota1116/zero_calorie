@@ -1,0 +1,28 @@
+- content_for(:title, t('.title'))
+.ui.container.mt-2
+  .ui.segment
+    .ui.centered.grid
+      .ui.text.container
+        h1
+          = t('.title')
+      .twelve.wide.column
+        .ui.text.container
+          .ui.form
+            = form_with model: @food, class: 'ui form', local: true do |f|
+              = render 'shared/error_messages', object: f.object
+              .label
+                = f.label :name
+              .field
+                = f.text_field :name
+              .label
+                = f.label :calorie
+              //TODO : 全角入力を半角に変換する
+              .field
+                = f.text_field :calorie
+              .label
+                = f.label :calorie_theory
+                | （任意）
+              .field
+                = f.text_field :calorie_theory
+              .actions
+                = f.button t('.submit')
