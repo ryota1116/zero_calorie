@@ -28,12 +28,15 @@
               .field
                 = f.file_field :meal_record_pictures, multiple: true
               .field
-                - @meal_record.meal_record_pictures.each do |picture|
-                  = image_tag picture, class: "ui fluid image"
-                / - if @meal_record.meal_record_pictures.attached?
-                /   = image_tag @meal_record.meal_record_pictures
-                / - else
-                /   | 画像がありません
+                = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
+              .field
+                // TODO: 画像添付時にプレビューを表示したい
+                // TODO: ajaxで削除ボタンも
+                - if @meal_record.meal_record_pictures.attached?
+                  - @meal_record.meal_record_pictures.each do |picture|
+                    = image_tag picture, class: "ui fluid image"
+                - else
+                  | 画像がありません
               .actions
                 = f.button t('.submit')
 

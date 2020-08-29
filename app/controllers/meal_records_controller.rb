@@ -14,7 +14,6 @@ class MealRecordsController < ApplicationController
 
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
-    # @meal_record.meal_record_pictures = params[:meal_picture_params]
     @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
   end
 
@@ -22,12 +21,15 @@ class MealRecordsController < ApplicationController
     @meal_record = current_user.meal_records.build(meal_record_params)
     @meal_record.food_id = params[:food_id]
 
-    # ActiveStorage::Blob.find(session[:meal_picture_id])
-    #<ActiveRecord::RecordNotFound: Couldn't find ActiveStorage::Blob with 'id'=11>
-    # @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
-
     if @meal_record.save
-      session[:meal_picture_id] = nil
+      # filenameを動的にする
+      # TODO: 以下name検索でエラーになる
+      if session[:meal_picture_id].present?
+        MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
+          @meal_record.meal_record_pictures.attach(io: file, filename: "#{SecureRandom.hex(8)}.jpg")
+        end
+        # session[:meal_picture_id] = nil
+      end
       redirect_to @meal_record, success: t('defaults.message.created', item: MealRecord.model_name.human )
     else
       flash.now[:danger] = t('defaults.message.not_created', item: MealRecord.model_name.human )

@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :set_empty_session_of_meal_picture_id, only: %i[search_form search_picture]
 
   def new
     @food = Food.new(name: params[:food_name])
@@ -46,5 +47,9 @@ class FoodsController < ApplicationController
 
   def meal_picture_params
     params.require(:meal_picture).permit(:search_picture)
+  end
+
+  def set_empty_session_of_meal_picture_id
+    session[:meal_picture_id] = nil
   end
 end
