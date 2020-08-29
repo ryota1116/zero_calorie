@@ -23,7 +23,7 @@ FactoryBot.define do
   factory :meal_record do
     meal_time { DateTime.current }
     association :user, factory: :user
-    association :food, factory: %i[food icecream]
+    association :food, factory: %i[food ice_cream]
 
     trait :yesterday do
       meal_time { DateTime.current.ago(1.day) }
