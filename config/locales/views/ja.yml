@@ -78,3 +78,16 @@ ja:
       title: 検索結果
       no_search_result_message: 該当する検索結果が見つかりませんでした。検索条件を変更するか、新しく食べ物の登録をお願いします。
       register: 食べ物を登録する
+  food_genres:
+    index:
+      title: 食べ物のジャンル一覧
+      genre_name: ジャンル名
+      calorie: カロリー
+      search: 検索する
+    new:
+      title: 食べ物のジャンル作成
+      submit: 登録する
+    edit:
+      title: 食べ物のジャンル編集
+    show:
+      title: 食べ物のジャンル詳細
