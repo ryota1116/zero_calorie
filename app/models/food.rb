@@ -12,6 +12,8 @@
 #
 class Food < ApplicationRecord
   has_many :meal_records
+  has_many :food_food_genres, dependent: :destroy
+  has_many :food_genres, through: :food_food_genres
 
   validates :name, presence: true, uniqueness: { case_sensitive: true }
   validates :calorie, presence: true, numericality: { only_integer: true, equal_to: 0 }
