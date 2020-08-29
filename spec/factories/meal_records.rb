@@ -28,5 +28,13 @@ FactoryBot.define do
     trait :yesterday do
       meal_time { DateTime.current.ago(1.day) }
     end
+
+    trait :two_week_ago do
+      meal_time { Date.current.ago(2.week) }
+    end
+
+    trait :one_month_ago do
+      meal_time { Date.current.ago(1.month) }
+    end
   end
 end

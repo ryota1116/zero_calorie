@@ -14,7 +14,11 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   describe 'Foodモデル' do
+    # とりあえずlet!にしないこと
     let(:food) { create(:food) }
+    let(:ice_cream) { create(:food, :ice_cream, name: 'アイスクリーム') }
+    let(:ice_coffee) { create(:food, :ice_coffee, name: 'アイスコーヒー ') }
+    let(:rice) { create(:food, :rice, name: '白ごはん') }
 
     it 'calorie、nameがあれば有効であること' do
       expect(food).to be_valid
@@ -50,5 +54,40 @@ RSpec.describe Food, type: :model do
       other_food = build(:food, name: food.name + 'と別のname')
       expect(other_food).to be_valid
     end
+
+    describe "scope" do
+      describe ':search_by_form' do
+        context "アイスと検索した場合" do
+          it "アイスという文字列を含むFoodのデータを返す" do
+            expect(Food.search_by_form('アイス')).to contain_exactly(ice_cream, ice_coffee)
+          end
+        end
+      end
+
+      describe ":search_by_label" do
+        context "ice creamというラベルを引数に設定した場合" do
+          it "ice creamというラベルを持つFoodのデータを返す" do
+            expect(Food.search_by_label('Ice cream')).to contain_exactly(ice_cream)
+          end
+        end
+      end
+    end
+
+    describe "クラスメソッド" do
+      describe "def self.search_form(food_name)" do
+        context "空文字で検索した場合" do
+          it "Foodテーブルの全データを返す" do
+            expect(Food.search_form('')).to contain_exactly(ice_cream, ice_coffee, rice)
+          end
+        end
+        context "アイスと検索した場合" do
+          it "アイスという文字列を含むFoodのデータを返す" do
+            expect(Food.search_form('アイス')).to contain_exactly(ice_cream, ice_coffee)
+            expect(Food.search_form('アイス')).not_to include rice
+          end
+        end
+      end
+    end
+
   end
 end
