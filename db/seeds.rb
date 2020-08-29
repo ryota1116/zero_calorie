@@ -33,6 +33,25 @@ Food.create!([
   }
 ])
 
+FoodGenre.create!([
+  {
+    genre_name: "アイス",
+    calorie: 0,
+    calorie_theory: "アイスはカロリーゼロ。冷たくすることでカロリーが全部飛ぶから、何を食べても安心。",
+  },
+])
+
+FoodFoodGenre.create!([
+  {
+    food_id: 1,
+    food_genre_id: 1
+  },
+])
+
+# 3.times do |i|
+#   Article.create(user_id: User.find(i+1).id, title: "Star Wars #{i+1}")
+# end
+
 MealRecord.create!([
   {
     meal_time: Date.current,
