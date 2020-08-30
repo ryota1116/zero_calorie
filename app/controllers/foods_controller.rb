@@ -3,17 +3,11 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new(name: params[:food_name])
-    @food_genres = FoodGenre.all
-    # @food = FoodNewForm.new
   end
 
   def create
-    
-    binding.pry
-    
     @food = Food.new(food_params)
-    @food_genre = FoodGenre.find(params[:food][:food_genre_id])
-    @food.select_food_genre(@food_genre)
+
     if @food.save
       redirect_to new_food_meal_record_path(@food), success: t('defaults.message.created', item: Food.model_name.human )
     else
@@ -49,7 +43,8 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :calorie, :calorie_theory, :food_genre_id)
+    params.require(:food).permit(:name, :calorie, :calorie_theory, { food_genre_id: [] } )
+    # params.require(:food).permit(:name, :calorie, :calorie_theory, :food_genre_id)
   end
 
   # def food_genre_params
