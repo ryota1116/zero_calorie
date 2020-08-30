@@ -57,14 +57,27 @@ ja:
     new:
       title: 食事記録の登録
       submit: 登録する
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
     edit:
       title: 食事記録の編集
       meal_time: 食事時間
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
       no_picture: 画像がありません
       post_picture: 画像を登録する
     show:
       title: 食事記録の詳細
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
       no_picture: 画像がありません
+      back_to_meal_records: 食事記録一覧に戻る
   foods:
     new:
       title: 食べ物のデータ登録
@@ -87,6 +100,10 @@ ja:
     new:
       title: 食べ物のジャンル作成
       submit: 登録する
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
     edit:
       title: 食べ物のジャンル編集
     show:
