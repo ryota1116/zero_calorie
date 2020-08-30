@@ -27,4 +27,12 @@ class Food < ApplicationRecord
 
     Food.search_by_form(food_name)
   end
+
+  def select_food_genre(genre)
+    food_genres << genre
+  end
+
+  # def unselect_food_genre(genre)
+  #   food_genres.destroy(genre)
+  # end
 end
