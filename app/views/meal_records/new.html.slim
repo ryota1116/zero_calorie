@@ -5,15 +5,39 @@
       .twelve.wide.column
         h1
           = t('.title')
-      .twelve.wide.column
-        .ui.text.container
-          = @meal_record.food.name
-      .twelve.wide.column
-        .ui.text.container
-          = "#{@meal_record.food.calorie}kcal"
-      .twelve.wide.column
-        .ui.text.container
-          = @meal_record.food.calorie_theory
+    .twelve.wide.column
+      table class="ui definition table"
+        tbody
+          tr
+            td
+              = t('.food_name')
+            td
+              = @meal_record.food.name
+          tr
+            td
+              = t('.calorie')
+            td
+              = "#{@meal_record.food.calorie} kcal"
+          tr
+            td
+              | #{t('.food_name')}の#{t('.calorie_theory')}
+            td
+              - if @meal_record.food.calorie_theory.present?
+                = "#{@meal_record.food.calorie_theory}"
+              - else
+                | #{@meal_record.food.name}のカロリー理論は登録されていません
+          - @meal_record.food.food_genres.each do |food_genre|
+            tr
+              td
+                = t('.food_genre_name')
+              td
+                = food_genre.genre_name
+            tr
+              td
+                | #{food_genre.genre_name}の#{t('.calorie_theory')}
+              td
+                = food_genre.calorie_theory
+
       .twelve.wide.column
         .ui.text.container
           .ui.form
