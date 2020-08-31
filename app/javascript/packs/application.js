@@ -17,10 +17,12 @@ require("packs/meal_time_form")
 require("packs/close_message")
 require("packs/search_by_picture_input")
 require("packs/search_meal_time_form")
+require("packs/meal_record_pictures_preview")
 // require("semantic-ui-sass")
 // datetimepicker用
 require("moment/locale/ja")
 require("tempusdominus-bootstrap-4")
+// = require activestorage
 
 import 'bootstrap';
 import '../stylesheets/application';
