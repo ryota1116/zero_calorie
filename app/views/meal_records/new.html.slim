@@ -47,37 +47,26 @@
                 = f.label :meal_time
               .field
                 = f.datetime_field :meal_time
-              .label
-                = f.label :meal_record_pictures
-              .field
-                = f.file_field :meal_record_pictures, multiple: true
-              .field
-                = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
-              .field
-                // TODO: 画像添付時にプレビューを表示したい
-                // TODO: ajaxで削除ボタンも
-                - if @meal_record.meal_record_pictures.attached?
-                  - @meal_record.meal_record_pictures.each do |picture|
-                    = image_tag picture, class: "ui fluid image"
-                - else
-                  | 画像がありません
+              #item_images
+                .label
+                  = f.label :meal_record_pictures
+                .field
+                  = f.file_field :meal_record_pictures, multiple: true
+                  / , direct_upload: true
+                  = f.hidden_field :meal_record_pictures_cache
+                .field
+                  = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
+                .field
+                  / - @meal_record.meal_record_pictures.each do |picture|
+                  /   = image_tag picture, class: "ui fluid image", id: 'preview'
+                  #image_preview
+                    - if @meal_record.meal_record_pictures.attached?
+                      - @meal_record.meal_record_pictures.each do |picture|
+                        = image_tag picture.variant(resize: "150x150"), class: "ui fluid image"
+                  / - else
+                    | 画像がありません
               .actions
                 = f.button t('.submit')
 
-  / .ui.relaxed.divided.list
-  /   .item
-  /     = @meal_record.food.name
-  /   .item
-  /     = "#{@meal_record.food.calorie}カロリー"
-  /   .item
-  /     = @meal_record.food.calorie_theory
-  /   .item
-  /     = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
-  /       .field
-  /         = f.datetime_field :meal_time
-  /       - if @meal_record.meal_record_pictures.present?
-  /         = image_tag @meal_record.meal_record_pictures
-  /       - else
-  /         h4 画像を貼る用意
-  /       .actions
-  /         = f.button '記録する'
+                // TODO: 画像添付時にプレビューを表示したい
+                // TODO: ajaxで削除ボタンも
