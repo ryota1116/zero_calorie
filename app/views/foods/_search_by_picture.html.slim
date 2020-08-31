@@ -2,7 +2,7 @@
   / = f.file_field :meal_pictures, multiple: true
   / = f.file_field :search_picture
 label
-  = form_with url: search_picture_foods_path, model: meal_picture, id:'search_by_picture', local: true  do |f|
+  = form_with url: search_picture_foods_path, model: meal_picture, local: true  do |f|
     suppan
       = t('.search_by_picture')
       = f.file_field :search_picture, style: 'display:none'
