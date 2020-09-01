@@ -4,7 +4,9 @@
       h1
         | 「#{@search_word}」の#{t('.title')}
       - if @food_lists.present?
-        table class="ui fixed basic table"
+        // TODO: fixed basicならカロリー理論全文見える
+        / table class="ui fixed basic table"
+        table class="ui fixed single line table"
           thead
             tr
               th

@@ -15,6 +15,12 @@ class MealRecordsController < ApplicationController
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
     @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
+
+    # if session[:meal_picture_id]
+    #   MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
+    #     @meal_record.meal_record_pictures = file
+    #   end
+    # end
   end
 
   def create
