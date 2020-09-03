@@ -35,16 +35,16 @@ h1
                 | #{food_genre.genre_name}の#{t('.calorie_theory')}
               td
                 = food_genre.calorie_theory
-            tr
-              td
-                | 写真
-              td
-                - if @meal_record.meal_record_pictures.attached?
-                  - @meal_record.meal_record_pictures.each do |picture|
-                    = image_tag picture, class: "ui fluid image"
-                - else
-                  p
-                    = t('.no_picture')
+          tr
+            td
+              | 写真
+            td
+              - if @meal_record.meal_record_pictures.attached?
+                - @meal_record.meal_record_pictures.each do |picture|
+                  = image_tag picture, class: "ui fluid image"
+              - else
+                p
+                  = t('.no_picture')
       .sixteen.wide.column
         / .ui.button
         /   = link_to t('defaults.edit'), edit_meal_record_path(@meal_record)

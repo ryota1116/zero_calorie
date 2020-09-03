@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       resources :picture_attachments, only: %i[destroy], module: 'meal_records'
     end
     collection do
-      get 'search_form'
-      post 'search_picture'
+      get 'search_form_result'
+      post 'search_picture_result'
     end
   end
   resources :food_genres

@@ -28,13 +28,13 @@ class MealRecordsController < ApplicationController
     @meal_record.food_id = params[:food_id]
 
     if @meal_record.save
-      # filenameを動的にする
       # TODO: 以下name検索でエラーになる
       if session[:meal_picture_id].present?
         MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
           @meal_record.meal_record_pictures.attach(io: file, filename: "#{SecureRandom.hex(8)}.jpg")
         end
-        # session[:meal_picture_id] = nil
+
+        session[:meal_picture_id] = nil
       end
       redirect_to @meal_record, success: t('defaults.message.created', item: MealRecord.model_name.human )
     else
