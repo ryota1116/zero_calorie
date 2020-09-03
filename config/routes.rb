@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   post 'oauth/callback' => 'oauths#callback'
   get 'oauth/callback' => 'oauths#callback' # for use with Github, Facebook
   get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
-  # resources :foods, only: [:create]
+  resources :users, only: %i[new create]
+  get '/login', to: 'user_sessions#new', as: :login
+  post '/login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy', as: :logout
+
   resources :foods, only: %i[new create] do
     resources :meal_records, only: %i[new create show edit update destroy], shallow: true do
       resources :picture_attachments, only: %i[destroy], module: 'meal_records'
@@ -14,10 +18,4 @@ Rails.application.routes.draw do
     end
   end
   resources :food_genres
-  resources :meal_records, only: [:index]
-  resources :users, only: %i[new create]
-  get '/login', to: 'user_sessions#new', as: :login
-  post '/login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy', as: :logout
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

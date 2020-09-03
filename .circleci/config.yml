@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      
+
+
+  rubocop:
+    docker:
+      - image: 2.6.6-node-browsers-legacy
+        environment:
+          - BUNDLER_VERSION: 2.1
+

@@ -6,7 +6,7 @@ class FoodGenresController < ApplicationController
   end
 
   def show
-    # index, showはcurrent_useeじゃなくていい。authorizeとか使う？
+    # index, showはcurrent_userの必要はない。authorizeとか使う？
     @food_genre = FoodGenre.find(params[:id])
   end
 
