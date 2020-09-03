@@ -48,24 +48,22 @@ class MealRecord < ApplicationRecord
 
     # 検索フォームに入力されたパラメータを取得
     def search_params(params)
-      search_params = if params.keys.include?("date")
-                       params[:date][:meal_time]
-                     elsif params.keys.include?("week")
-                       params[:week][:meal_time]
-                     elsif params.keys.include?("month")
-                       params[:month][:meal_time]
-                     else
-                       nil
-                     end
+      search_params = if params.keys.include?('date')
+                        params[:date][:meal_time]
+                      elsif params.keys.include?('week')
+                        params[:week][:meal_time]
+                      elsif params.keys.include?('month')
+                        params[:month][:meal_time]
+                      end
     end
 
     # 検索結果を返す
     def search_meal_records(params, search_params)
-      record = if params.keys.include?("date") && params[:date][:meal_time].present?
+      record = if params.keys.include?('date') && params[:date][:meal_time].present?
                  meal_time_date(Date.parse(search_params))
-               elsif params.keys.include?("week") && params[:week][:meal_time].present?
+               elsif params.keys.include?('week') && params[:week][:meal_time].present?
                  meal_time_week(Date.parse(search_params))
-               elsif params.keys.include?("month") && params[:month][:meal_time].present?
+               elsif params.keys.include?('month') && params[:month][:meal_time].present?
                  meal_time_month(Date.parse(search_params))
                else
                  includes(:food)

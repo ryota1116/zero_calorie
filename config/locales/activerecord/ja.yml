@@ -21,3 +21,7 @@ ja:
         name: 食べ物の名前
         calorie: カロリー
         calorie_theory: カロリー理論
+      food_genre:
+        genre_name: ジャンル名
+        calorie: カロリー
+        calorie_theory: カロリー理論

@@ -8,12 +8,22 @@
       .twelve.wide.column
         .ui.text.container
           .ui.form
-            = form_with model: @food, class: 'ui form', local: true do |f|
+            = form_with model: @food, url: foods_path, class: 'ui form', local: true do |f|
               = render 'shared/error_messages', object: f.object
               .label
                 = f.label :name
               .field
                 = f.text_field :name
+              / .label
+              /   = f.label :food_genre_id
+              / .field
+              /   // TODO:ページネーション付きのセレクトボックスにしたい
+              /   // TODO:選択したらajaxでカロリー理論表示とか
+              /   = f.collection_check_boxes :food_genre_ids, FoodGenre.all, :id, :genre_name, include_hidden: false do |genre|
+              /     = genre.label { genre.check_box + genre.text }
+
+              /   = f.collection_select :food_genre_id, FoodGenre.all, :id, :genre_name, { include_blank: "----"}, multiple: true, include_hidden: false do |genre|
+              /     = genre.label { genre.check_box + genre.text }
               .label
                 = f.label :calorie
               //TODO : 全角入力を半角に変換する

@@ -1,0 +1,11 @@
+- content_for(:title, "「#{@search_word}」の#{t('.title')}")
+.ui.container.mt-2
+    .ui.centered
+      h1
+        | 「#{@search_word}」の#{t('.title')}
+      - if @food_lists.present?
+        == render 'search_result', food_lists: @food_lists
+      - else
+        p
+          = t('.no_search_result_message')
+        = link_to t('.register'), new_food_path(food_name: @search_word)

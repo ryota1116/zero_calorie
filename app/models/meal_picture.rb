@@ -13,18 +13,10 @@ class MealPicture < ApplicationRecord
   has_one_attached :search_picture
 
   def fetch_food_labels
-    # クライアントを初期化
-
+    # 認証して、クライアントを初期化
+    # ENV["GOOGLE_APPLICATION_CREDENTIALS"] = Rails.root.join('gcp_key.json').to_s
+    Google::Cloud::Vision.configure { |vision| vision.credentials = Rails.root.join('gcp_key.json').to_s }
     image_annotator = Google::Cloud::Vision.image_annotator
-    # GOOGLE_APPLICATION_CREDENTIALS = Rails.application.credentials.gcs[:cloud]
-
-    # image_annotator = Google::Cloud::Vision.image_annotator.new(
-    #   credentials: JSON.parse(ENV.fetch('GOOGLE_APPLICATION_CREDENTIALS'))
-    # )
-
-    # image_annotator = Google::Cloud::Vision.image_annotator.new(
-    #   credentials: JSON.parse(File.open(Rails.root.join('gcp_key.json')))
-    # )
 
     response = search_picture.open do |file|
       image_annotator.label_detection(
@@ -32,15 +24,6 @@ class MealPicture < ApplicationRecord
         max_results: 10
       )
     end
-
-    # @meal_picture.meal_pictures.each do |meal_picture|
-    #   response = meal_picture.open do |file|
-    #     image_annotator.label_detection(
-    #         image: file,
-    #         max_results: 10
-    #     )
-    #   end
-    # end
 
     food_labels = []
 

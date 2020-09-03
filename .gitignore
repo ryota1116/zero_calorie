@@ -38,5 +38,9 @@ yarn-debug.log*
 /config/master.key
 # SSL証明書
 /config/certs/*
-
+# GCPキーのjsonファイル
+/gcp_key.json
+# 環境変数
 /.env
+
+/circleci/config.yml

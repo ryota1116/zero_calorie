@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers-legacy
+        environment:
+          - BUNDLER_VERSION: 2.1
+          - RAILS_ENV: 'test'
+      - image: circleci/mysql:5.7
+        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+        - MYSQL_ROOT_HOST: '%'
+
+
+  rubocop:
+    docker:
+      - image: 2.6.6-node-browsers-legacy
+        environment:
+          - BUNDLER_VERSION: 2.1
+

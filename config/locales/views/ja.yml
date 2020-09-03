@@ -57,24 +57,54 @@ ja:
     new:
       title: 食事記録の登録
       submit: 登録する
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
     edit:
       title: 食事記録の編集
       meal_time: 食事時間
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
       no_picture: 画像がありません
       post_picture: 画像を登録する
     show:
       title: 食事記録の詳細
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
       no_picture: 画像がありません
+      back_to_meal_records: 食事記録一覧に戻る
   foods:
     new:
       title: 食べ物のデータ登録
-    search_form:
+    search_form_result:
       title: 検索結果
       no_search_result_message: 該当する検索結果が見つかりませんでした。検索条件を変更するか、新しく食べ物の登録をお願いします。
       register: 食べ物を登録する
     search_by_picture:
       search_by_picture: 画像で検索
-    search_picture:
+    search_picture_result:
       title: 検索結果
       no_search_result_message: 該当する検索結果が見つかりませんでした。検索条件を変更するか、新しく食べ物の登録をお願いします。
       register: 食べ物を登録する
+  food_genres:
+    index:
+      title: 食べ物のジャンル一覧
+      genre_name: ジャンル名
+      calorie: カロリー
+      search: 検索する
+    new:
+      title: 食べ物のジャンル作成
+      submit: 登録する
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
+    edit:
+      title: 食べ物のジャンル編集
+    show:
+      title: 食べ物のジャンル詳細

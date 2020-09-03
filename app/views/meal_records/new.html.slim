@@ -6,51 +6,56 @@
         h1
           = t('.title')
       .twelve.wide.column
-        .ui.text.container
-          = @meal_record.food.name
-      .twelve.wide.column
-        .ui.text.container
-          = "#{@meal_record.food.calorie}kcal"
-      .twelve.wide.column
-        .ui.text.container
-          = @meal_record.food.calorie_theory
-      .twelve.wide.column
-        .ui.text.container
-          .ui.form
-            = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
-              = render 'shared/error_messages', object: f.object
-              .label
-                = f.label :meal_time
-              .field
-                = f.datetime_field :meal_time
-              .label
-                = f.label :meal_record_pictures
-              .field
-                = f.file_field :meal_record_pictures, multiple: true
-              .field
-                - @meal_record.meal_record_pictures.each do |picture|
-                  = image_tag picture, class: "ui fluid image"
-                / - if @meal_record.meal_record_pictures.attached?
-                /   = image_tag @meal_record.meal_record_pictures
-                / - else
-                /   | 画像がありません
-              .actions
-                = f.button t('.submit')
-
-  / .ui.relaxed.divided.list
-  /   .item
-  /     = @meal_record.food.name
-  /   .item
-  /     = "#{@meal_record.food.calorie}カロリー"
-  /   .item
-  /     = @meal_record.food.calorie_theory
-  /   .item
-  /     = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
-  /       .field
-  /         = f.datetime_field :meal_time
-  /       - if @meal_record.meal_record_pictures.present?
-  /         = image_tag @meal_record.meal_record_pictures
-  /       - else
-  /         h4 画像を貼る用意
-  /       .actions
-  /         = f.button '記録する'
+        = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
+          = render 'shared/error_messages', object: f.object
+          table class="ui definition table"
+            tbody
+              tr
+                td
+                  = t('.food_name')
+                td
+                  = @meal_record.food.name
+              tr
+                td
+                  = t('.calorie')
+                td
+                  = "#{@meal_record.food.calorie} kcal"
+              tr
+                td
+                  | #{t('.food_name')}の#{t('.calorie_theory')}
+                td
+                  - if @meal_record.food.calorie_theory.present?
+                    = "#{@meal_record.food.calorie_theory}"
+                  - else
+                    | #{@meal_record.food.name}のカロリー理論は登録されていません
+              - @meal_record.food.food_genres.each do |food_genre|
+                tr
+                  td
+                    = t('.food_genre_name')
+                  td
+                    = food_genre.genre_name
+                tr
+                  td
+                    | #{food_genre.genre_name}の#{t('.calorie_theory')}
+                  td
+                    = food_genre.calorie_theory
+              tr
+                td
+                  = f.label :meal_time
+                td
+                  = f.datetime_field :meal_time
+              #item_images
+                tr
+                  td
+                    = f.label :meal_record_pictures
+                    = f.file_field :meal_record_pictures, multiple: true
+                  .field
+                    = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
+                  td
+                    #image_preview
+                      // TODO: 画像サイズを調整
+                      - if @meal_record.meal_record_pictures.attached?
+                        - @meal_record.meal_record_pictures.each do |picture|
+                          = image_tag picture.variant(resize: "150x150"), class: "ui fluid image"
+          .actions
+            = f.button t('.submit'), class: 'ui large button'

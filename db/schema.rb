@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_160417) do
+ActiveRecord::Schema.define(version: 2020_08_29_141400) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,26 @@ ActiveRecord::Schema.define(version: 2020_08_12_160417) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
+  create_table "food_food_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "food_id", null: false
+    t.bigint "food_genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_genre_id"], name: "index_food_food_genres_on_food_genre_id"
+    t.index ["food_id", "food_genre_id"], name: "index_food_food_genres_on_food_id_and_food_genre_id", unique: true
+    t.index ["food_id"], name: "index_food_food_genres_on_food_id"
+  end
+
+  create_table "food_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "genre_name", null: false
+    t.integer "calorie", null: false
+    t.text "calorie_theory", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_food_genres_on_user_id"
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -73,10 +93,14 @@ ActiveRecord::Schema.define(version: 2020_08_12_160417) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "food_food_genres", "food_genres"
+  add_foreign_key "food_food_genres", "foods"
+  add_foreign_key "food_genres", "users"
   add_foreign_key "meal_records", "foods"
   add_foreign_key "meal_records", "users"
 end
