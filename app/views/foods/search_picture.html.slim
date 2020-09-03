@@ -1,35 +1,10 @@
-/ .ui.relaxed.divided.list
-/   - @food_lists.each do |food|
-/     .item
-/       = link_to food.name, new_food_meal_record_path(food)
-  / - @meal_record.meal_pictures.each do |meal_picture|
-  / = image_tag @meal_record.meal_picture
-
 - content_for(:title, t('.title'))
 .ui.container.mt-2
     .ui.centered
       h1
         = t('.title')
       - if @food_lists.present?
-        table class="ui fixed single line table"
-          thead
-            tr
-              th
-                = t(Food.human_attribute_name(:name))
-              th
-                = t(Food.human_attribute_name(:calorie))
-              th
-                = t(Food.human_attribute_name(:calorie_theory))
-          - @food_lists.each do |food|
-            tbody
-              tr
-                td
-                  = link_to food.name, new_food_meal_record_path(food)
-                  / = link_to food.name, new_food_meal_record_path(food, meal_picture_params: @meal_picture_params)
-                td
-                  = food.calorie
-                td
-                  = food.calorie_theory
+        == render 'search_result', food_lists: @food_lists
       - else
         p
           = t('.no_search_result_message')
