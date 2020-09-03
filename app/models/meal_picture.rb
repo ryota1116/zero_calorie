@@ -13,32 +13,10 @@ class MealPicture < ApplicationRecord
   has_one_attached :search_picture
 
   def fetch_food_labels
-    # クライアントを初期化
-
-    # image_annotator = Google::Cloud::Vision.image_annotator
-    # GOOGLE_APPLICATION_CREDENTIALS = Rails.application.credentials.gcs[:cloud]
-
-    # image_annotator = Google::Cloud::Vision.image_annotator.new(
-    #   credentials: JSON.parse(ENV.fetch('GOOGLE_APPLICATION_CREDENTIALS'))
-    # )
-
-    # image_annotator = Google::Cloud::Vision.image_annotator.new(
-    #   credentials: JSON.parse(File.open(Rails.root.join('gcp_key.json')))
-    # )
-
-    image_annotator = Google::Cloud::Vision.image_annotator.new(
-      type: Rails.application.credentials.dig(:gcs, :cloud, :project_id),
-      project_id: Rails.application.credentials.dig(:gcs, :cloud, :project_id),
-      private_key_id: Rails.application.credentials.dig(:gcs, :cloud, :private_key_id),
-      private_key: Rails.application.credentials.dig(:gcs, :cloud, :private_key),
-      client_email: Rails.application.credentials.dig(:gcs, :cloud, :client_email),
-      client_id: Rails.application.credentials.dig(:gcs, :cloud, :client_id),
-      auth_uri: Rails.application.credentials.dig(:gcs, :cloud, :auth_uri),
-      token_uri: Rails.application.credentials.dig(:gcs, :cloud, :token_uri),
-      auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-      client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/zero-calorie%40zero-calorie-app.iam.gserviceaccount.com"
-    )
-
+    # 認証して、クライアントを初期化
+    # ENV["GOOGLE_APPLICATION_CREDENTIALS"] = Rails.root.join('gcp_key.json').to_s
+    Google::Cloud::Vision.configure { |vision| vision.credentials = Rails.root.join('gcp_key.json').to_s }
+    image_annotator = Google::Cloud::Vision.image_annotator
 
     response = search_picture.open do |file|
       image_annotator.label_detection(
@@ -46,15 +24,6 @@ class MealPicture < ApplicationRecord
         max_results: 10
       )
     end
-
-    # @meal_picture.meal_pictures.each do |meal_picture|
-    #   response = meal_picture.open do |file|
-    #     image_annotator.label_detection(
-    #         image: file,
-    #         max_results: 10
-    #     )
-    #   end
-    # end
 
     food_labels = []
 

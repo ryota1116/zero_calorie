@@ -1,12 +1,12 @@
 {
   "type": "service_account",
-  "project_id": "Rails.application.credentials.dig(:gcs, :cloud, :project_id)",
-  "private_key_id": "Rails.application.credentials.dig(:gcs, :cloud, :private_key_id)",
-  "private_key": "Rails.application.credentials.dig(:gcs, :cloud, :private_key)",
-  "client_email": "Rails.application.credentials.dig(:gcs, :cloud, :client_email)",
-  "client_id": "Rails.application.credentials.dig(:gcs, :cloud, :client_id)",
-  "auth_uri": "Rails.application.credentials.dig(:gcs, :cloud, :auth_uri)",
-  "token_uri": "Rails.application.credentials.dig(:gcs, :cloud, :token_uri)",
+  "project_id": "zero-calorie-app",
+  "private_key_id": "2563cb4dadff32eb4ca4d2c6fab3a9a52cecd858",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDQ6Qw2Qqj/AWKB\nXottgyoDFqthWuGgAnQgvUdoVDRjUZZ/VZJDqF1SE0aTgx1Ou6Kxu2b2/kn6K/f5\nXyOZvohif9C/tZa/Ilf60rWz0PaY4OGWl86ctlznU9T5BP2EEJDHTUfzwl1h4FLd\nOTRsAvy/M7pmo1kWtNx4LJIQMRtOOhaGzAGijEmPQnt0q7ziogEYFI4W1gYl8rRI\njphjYAhQzR/BziF4bjP7I2t7uFhC2Z8RugpR/jGExNKOdmit4tbsdRFUrmUXNIQ0\nbPT5xVDKS3y/mVhBgqlXPg8EeaXHtvMc5dVcp6+xgStWHOOD1XtObD07oKb8EYVS\nsxvqdBCZAgMBAAECggEAATA/jQl5C6ZW3fSLPNlrrO59QBsJFeTIWK1VptQfziws\ne9dL8zhAe6iMv2cWDMNy1qmsbshIjx9JPwZvCJS1vZW2Os5OKBKKceyunZzD4l/D\nzhxZT7lBMwxeNaJ1Ihdes3uO5rtFgQ/fziQMASH34nXpYA8a1nm7QrBs46GxOD3d\nY/YLFhr6BA7Kpa7ZvXYpeTmAg1dfgyUflPhKp+WQV/+9I/YOccUNXz2tnyLX9t02\n5FHEhJL54GPRsIn0Q/eIICxByrt5SMyzzMyNC7JyY4ViGbbhzE4EFHxMePSrDc0g\nkDRfdeQDavBy2vYvgoSrSr3kZNyEG3i1iyW3QLwygQKBgQDvITN+Ckea01fab/vC\n3cNe8Dg99jVVlaLSNUnij5V7gvn8eUxwsQ5ISYG2lAdH4PgaVnn3H0UrPGmag6oS\nd9lI7w5xzf9zjbrrKL2RqgnudrsBnjXqjrPQvAgyUoRozMsEqNeMsHOe7j3qs0bV\nNbZTZEF7ryn2cb8+Y1G7s/Q4oQKBgQDfphIEAfd3qk+JsLDUnK7XrTLlAXbKh2g3\nnJFMTLeAoV2gr3seL/lmg7UG2z3ekrzzfDMGt+8S2TdYTAtMTx/OgeMoLG/9mCHe\ngliip6BRTA21UBdutvDp4rQd+sJOZVcGX0WPGb1LgKLzOPO3E7/YGPXoDhIBOnRe\nm6ltLZt8+QKBgBfVc1BoreJcljELYEh32fUodDKYy5AQLf5NmWOfdAKvd0MWw+un\negjyap9L+b3MSm41mEptL3OzvcLMxLK6h0mhqgrlwUQ/KBYwJVTTYdIGu3TZ0/3g\n40M2uoppdxEK+GEqgvFe1OdOT5WI8NJnXBjLsUsmlkQd6jXJqGfQ89KBAoGAVfH6\n4GFlGS5wzGgDPGFN64Iamdi7Ls9kZGKdj6W3qw3X7iUhehNTk2qvyYe9OehIBoXH\nEiDjFeo1k4/9k4Cgp3pQsiKJkvnAokKTD0a9nCBO8EtsBdb1s9uz/gVcYEYfcEpy\nb7Cjhv1TIYbUWZmUUtYcweWOU7yD9ct6C4PISfkCgYB8EFCv6tn1b6wKkwQptUqQ\nYZBfm2Pzn2JeeQEv9D2kc4R+EY70sJJfeLihV6r/t2EQXIxZVGkSdOZR755a33ic\ns3mVVHuxFQmiq9wZw2WVscYpJgtD6WGqAnY9VpH0ImV59X+gFVgFCv2G+M9HBH7S\na+cr3NsBlh+4qO1fIT4PnA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "zero-calorie@zero-calorie-app.iam.gserviceaccount.com",
+  "client_id": "104939166566137944859",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/zero-calorie%40zero-calorie-app.iam.gserviceaccount.com"
 }

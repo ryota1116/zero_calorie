@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  require "google/cloud/storage"
+  # require "google/cloud/vision"
 
   before_action :set_empty_session_of_meal_picture_id, only: %i[search_form search_picture]
 
@@ -18,47 +18,23 @@ class FoodsController < ApplicationController
     end
   end
 
-  def search_form
+  def search_form_result
     @search_word = params[:name]
     @food_lists = Food.search_form(params[:name])
   end
 
-  def search_picture
+  def search_picture_result
     @meal_picture = MealPicture.new(meal_picture_params)
 
     if @meal_picture.save
       # セッションにデータを入れる
       session[:meal_picture_id] = @meal_picture.id
 
-      # 一時的にコメントアウト
-      # food_labels = @meal_picture.fetch_food_labels
-
-      # 追加
-      ENV["GOOGLE_APPLICATION_CREDENTIALS"] = Rails.root.join('gcp_key.json').to_s
-      # ENV["GOOGLE_APPLICATION_CREDENTIALS"] = JSON.parse(Rails.application.credentials.dig(:gcs, :cloud).to_json)
-      # ENV["GOOGLE_APPLICATION_CREDENTIALS"] = Rails.application.credentials.dig(:gcs, :cloud).to_s
-      # ENV["GOOGLE_APPLICATION_CREDENTIALS"] = Rails.application.credentials.dig(:gcs, :cloud)
-
-      image_annotator = Google::Cloud::Vision.image_annotator
-
-      response = @meal_picture.search_picture.open do |file|
-        image_annotator.label_detection(
-          image: file,
-          max_results: 10
-        )
-      end
-
-      food_labels = []
-
-      # ラベル検出をリクエストしてレスポンスを処理する
-      response.responses.each do |res|
-        res.label_annotations.each { |label| food_labels << label.description }
-      end
-      # まで
+      food_labels = @meal_picture.fetch_food_labels
 
       @food_lists = []
 
-      # TODO:メソッドにする
+      # TODO:メソッドにしたい
       food_labels.each do |food_label|
         @food_lists = Food.search_by_label(food_label)
       end
