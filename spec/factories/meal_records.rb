@@ -30,7 +30,7 @@ FactoryBot.define do
     end
 
     trait :two_week_ago do
-      meal_time { Date.current.ago(2.week) }
+      meal_time { Date.current.ago(2.weeks) }
     end
 
     trait :one_month_ago do

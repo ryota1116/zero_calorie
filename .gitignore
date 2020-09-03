@@ -42,3 +42,5 @@ yarn-debug.log*
 /gcp_key.json
 # 環境変数
 /.env
+
+/circleci/config.yml

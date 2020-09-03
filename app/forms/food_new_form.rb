@@ -10,8 +10,6 @@ class FoodNewForm
   # validates :name, presence: true, uniqueness: { case_sensitive: true }
   # validates :calorie, presence: true, numericality: { only_integer: true, equal_to: 0 }
 
-
-
   def select_food_genre(genre)
     food_genres << genre
   end

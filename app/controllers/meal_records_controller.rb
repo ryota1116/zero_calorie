@@ -36,9 +36,9 @@ class MealRecordsController < ApplicationController
 
         session[:meal_picture_id] = nil
       end
-      redirect_to @meal_record, success: t('defaults.message.created', item: MealRecord.model_name.human )
+      redirect_to @meal_record, success: t('defaults.message.created', item: MealRecord.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_created', item: MealRecord.model_name.human )
+      flash.now[:danger] = t('defaults.message.not_created', item: MealRecord.model_name.human)
       render :new
     end
   end
@@ -47,16 +47,16 @@ class MealRecordsController < ApplicationController
 
   def update
     if @meal_record.update(meal_record_params)
-      redirect_to meal_record_path(@meal_record), success: t('defaults.message.updated', item: MealRecord.model_name.human )
+      redirect_to meal_record_path(@meal_record), success: t('defaults.message.updated', item: MealRecord.model_name.human)
     else
-      flash.now[:danger] = t('defaults.message.not_updated', item: MealRecord.model_name.human )
+      flash.now[:danger] = t('defaults.message.not_updated', item: MealRecord.model_name.human)
       render :edit
     end
   end
 
   def destroy
     @meal_record.destroy!
-    redirect_to meal_records_path, success: t('defaults.message.deleted', item: MealRecord.model_name.human )
+    redirect_to meal_records_path, success: t('defaults.message.deleted', item: MealRecord.model_name.human)
   end
 
   private

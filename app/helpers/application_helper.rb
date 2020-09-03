@@ -11,9 +11,9 @@ module ApplicationHelper
 
   def flash_class(level)
     case level
-    when "success" then "ui success message"
-    when "danger" then "ui error message"
-    when "notice" then "ui blue message"
+    when 'success' then 'ui success message'
+    when 'danger' then 'ui error message'
+    when 'notice' then 'ui blue message'
     end
   end
 end

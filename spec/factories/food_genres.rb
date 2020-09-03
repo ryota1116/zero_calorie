@@ -20,8 +20,8 @@
 #
 FactoryBot.define do
   factory :food_genre do
-    genre_name { "MyString" }
+    genre_name { 'MyString' }
     calorie { 1 }
-    calorie_theory { "MyText" }
+    calorie_theory { 'MyText' }
   end
 end
