@@ -17,5 +17,6 @@ Rails.application.routes.draw do
       post 'search_picture_result'
     end
   end
+  resources :meal_records, only: %i[index]
   resources :food_genres
 end
