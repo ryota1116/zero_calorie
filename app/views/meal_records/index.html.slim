@@ -11,32 +11,38 @@
       h2
         | 0 kcal
 
-  == render 'search_meal_time_form', meal_records: @meal_records
+  - if @meal_records.present?
+    == render 'search_meal_time_form', meal_records: @meal_records
 
-  table class="ui single line table"
-    thead
-      tr
-        th
-          = t('.food_name')
-        th
-          = t('.calorie')
-        th
-          = t('.meal_time')
-        th
-        th
-    - @meal_records.each do |meal_record|
-      tbody
+    table class="ui single line table"
+      thead
         tr
-          td
-            = link_to meal_record.food.name, meal_record_path(meal_record)
-          td
-            = "#{meal_record.food.calorie} kcal"
-          td
-            = l meal_record.meal_time
-          td
-            = link_to t('defaults.edit'), edit_meal_record_path(meal_record)
-          td
-            = link_to t('defaults.destroy'), meal_record_path(meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
+          th
+            = t('.food_name')
+          th
+            = t('.calorie')
+          th
+            = t('.meal_time')
+          th
+          th
+      - @meal_records.each do |meal_record|
+        tbody
+          tr
+            td
+              = link_to meal_record.food.name, meal_record_path(meal_record)
+            td
+              = "#{meal_record.food.calorie} kcal"
+            td
+              = l meal_record.meal_time
+            td
+              = link_to t('defaults.edit'), edit_meal_record_path(meal_record)
+            td
+              = link_to t('defaults.destroy'), meal_record_path(meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
+    = paginate(@meal_records)
+
+  - else
+    h4 style="text-align: center"
+      | 食事記録がありません。食べたものを記録してみよう！
 
 / .container
 /   .row
