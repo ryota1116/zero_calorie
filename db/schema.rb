@@ -56,10 +56,8 @@ ActiveRecord::Schema.define(version: 2020_08_29_141400) do
     t.string "genre_name", null: false
     t.integer "calorie", null: false
     t.text "calorie_theory", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_food_genres_on_user_id"
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -100,7 +98,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_141400) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "food_food_genres", "food_genres"
   add_foreign_key "food_food_genres", "foods"
-  add_foreign_key "food_genres", "users"
   add_foreign_key "meal_records", "foods"
   add_foreign_key "meal_records", "users"
 end

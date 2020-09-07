@@ -9,7 +9,7 @@ class MealRecordsController < ApplicationController
 
   def index
     @search_params = MealRecord.search_params(params)
-    @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :asc)
+    @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :asc).page(params[:page]).per(10)
   end
 
   def new
@@ -21,6 +21,9 @@ class MealRecordsController < ApplicationController
     #     @meal_record.meal_record_pictures = file
     #   end
     # end
+
+    # TODO: gazoを配列で消す
+    # @meal_record.meal_record_pictures[0] = nil
   end
 
   def create

@@ -1,14 +1,10 @@
 header
-  .ui.secondary.menu.inverted.olive
-    .ui.grid.container
-      .item
-        = link_to 'サービス名', meal_records_path
+  .ui.inverted.segment.olive
+    .ui.inverted.secondary.menu
+      = link_to 'サービス名', meal_records_path, class: 'item'
       / 画像検索ボタン
-      .item
-        = render template: 'foods/_search_form'
-      .item id='search_by_picture'
+      = render template: 'foods/_search_form', class: 'item'
+      #search_by_picture class='item'
         = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-      .item
-        = link_to t('defaults.profile'), meal_records_path
-      .item
-        = link_to t('defaults.logout'), logout_path, method: :delete
+      = link_to t('defaults.profile'), meal_records_path, class: 'item'
+      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
