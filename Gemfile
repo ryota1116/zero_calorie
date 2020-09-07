@@ -35,11 +35,12 @@ gem 'google-cloud-vision'
 
 # UI/UX
 gem 'bootstrap-sass'
-
 # semantic UI Framework
 gem 'semantic-ui-sass'
 # 国際化
 gem 'rails-i18n'
+# ページネーション
+gem 'kaminari'
 # RailsでSEOの設定を行うGem
 # gem 'meta-tags'
 gem 'html2slim'
