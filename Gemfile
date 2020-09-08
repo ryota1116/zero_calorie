@@ -29,7 +29,7 @@ gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
-
+# GCP
 gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'google-cloud-vision'
 
@@ -47,6 +47,9 @@ gem 'html2slim'
 gem 'slim-rails'
 # 環境変数
 gem 'dotenv-rails'
+# slack通知
+gem 'slack-notifier'
+gem 'exception_notification'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
