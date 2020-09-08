@@ -56,34 +56,43 @@ jobs:
       - image: circleci/ruby:2.7.1-node-browsers-legacy
         environment:
           # BUNDLER_VERSION: 2.1
+          # test環境で立ち上げる
           RAILS_ENV: 'test'
           MYSQL_ROOT_HOST: 127.0.0.1
-
       - image: circleci/mysql:5.7.29
         environment:
           MYSQL_USER: root
           MYSQL_DATABASE: zero_calorie_test
 
+    # 実行ディレクトリを設定する。デフォルトは ~/project
     working_directory: ~/zero_calorie
 
     steps:
+      # CI環境上のworking_directoryの値の場所にGitリポジトリをコピーする
       - checkout
 
       - run:
         name: Which bundler?
         command: bundle -v
 
+      # Restore bundle cache(キャッシュが save_cache されていればリストアする(あれば速くなる))
       - restore_cache:
+        # リストアするキャッシュを複数指定する
         keys:
+          # {{ checksum "<ファイル名>" }}: ファイルのハッシュ値
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
 
+      # パッケージなどのファイルをキャッシュする
       - save_cache:
+        # キャッシュするファイルを指定する
         paths:
           - ./vendor/bundle
+        # キャッシュの名前を設定する
         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - run: bundle exec rails db:create
@@ -101,5 +110,5 @@ workflows:
     jobs:
       - rubocop
       - rspec:
-          requires:
-            - rubocop
+        requires:
+          - rubocop
