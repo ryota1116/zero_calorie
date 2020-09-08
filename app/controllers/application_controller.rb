@@ -2,6 +2,22 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   before_action :require_login
 
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from StandardError, with: :error500
+
+  def render_404
+    render file: Rails.root.join('public/404.html').to_s, status: :not_found, layout: false, content_type: 'text/html'
+  end
+
+  def render_500(error)
+    logger.error("エラークラス: #{error.class}")
+    logger.error("エラーメッセージ : #{error.message}")
+    logger.error('バックトレース -------------')
+    logger.error(error.backtrace.("\n"))
+    logger.error('-------------')
+    render file: Rails.root.join('public/500.html').to_s, status: :internal_server_error, layout: false, content_type: 'text/html'
+  end
+
   private
 
   def not_authenticated
