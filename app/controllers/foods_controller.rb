@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   # require "google/cloud/vision"
 
-  before_action :set_empty_session_of_meal_picture_id, only: %i[search_form search_picture]
+  before_action :set_empty_session_of_meal_picture_id, only: %i[search_form_result search_picture_result]
 
   def new
     @food = Food.new(name: params[:food_name])

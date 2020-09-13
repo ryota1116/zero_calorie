@@ -81,6 +81,7 @@ ja:
   foods:
     new:
       title: 食べ物のデータ登録
+      submit: 登録する
     search_form_result:
       title: 検索結果
       no_search_result_message: 該当する検索結果が見つかりませんでした。検索条件を変更するか、新しく食べ物の登録をお願いします。

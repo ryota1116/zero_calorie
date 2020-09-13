@@ -22,7 +22,7 @@
                   = "#{@meal_record.food.calorie} kcal"
               tr
                 td
-                  | #{t('.food_name')}の#{t('.calorie_theory')}
+                  | #{t('.calorie_theory')}
                 td
                   - if @meal_record.food.calorie_theory.present?
                     = "#{@meal_record.food.calorie_theory}"
@@ -48,14 +48,19 @@
                 tr
                   td
                     = f.label :meal_record_pictures
-                    = f.file_field :meal_record_pictures, multiple: true
+                      | 写真を追加する
+                      br
+                      i class='images icon'
+                      = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
                   .field
                     = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
-                  td
+                  td class="ui fluid image"
                     #image_preview
                       // TODO: 画像サイズを調整
                       - if @meal_record.meal_record_pictures.attached?
                         - @meal_record.meal_record_pictures.each do |picture|
-                          = image_tag picture.variant(resize: "150x150"), class: "ui fluid image"
+                          div id="meal-record-picture-#{picture.blob_id}"
+                            = image_tag picture, id="picpic-#{picture.blob_id}"
+                            = link_to '削除', picture_attachment_path(picture.blob_id), class: 'btn btn-danger', id: picture.blob_id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
           .actions
             = f.button t('.submit'), class: 'ui large button'

@@ -1,5 +1,4 @@
 ## 対応するissue(複数のPRで1つのissueに対応するケースも)
-# 
 close #
 fix #
 
