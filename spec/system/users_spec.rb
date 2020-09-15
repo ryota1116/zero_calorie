@@ -12,16 +12,16 @@ RSpec.describe 'Users', type: :system do
         click_link '新規登録'
       end
 
-      context '新しくサインアップした場合' do
+      context '新しくサインアップした時' do
         xit 'ユーザー数が増えること' do
           expect(
             click_link('Facebookでログイン')
           ).to change(User, :count).by(1)
-          expect(page).to have_http_status(:ok)
+          # expect(page).to have_http_status(:ok)
         end
       end
 
-      context '認証済のアカウントでログインした場合' do
+      context '認証済のアカウントでログインした時' do
         xit 'ユーザー数が増えないこと' do
           click_link 'Facebookでログイン'
           click_link 'ログアウト'

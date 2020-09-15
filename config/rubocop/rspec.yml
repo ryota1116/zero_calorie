@@ -1,0 +1,63 @@
+# 自動生成されるものはチェック対象から除外する
+AllCops:
+  Exclude:
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "db/schema.rb"
+
+Layout/ClassStructure:
+  Enabled: true
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+# 桁揃えが綺麗にならないことが多いので migration は除外
+Layout/ExtraSpacing:
+  Exclude:
+    - "db/migrate/*.rb"
+
+# * 同名のメソッドがある場合にローカル変数に `_` を付ける
+# * 一時変数として `_` を付けるというテクニック
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+#################### Style #################################
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
+# do .. end から更にメソッドチェーンすると見づらいのでauto-correct せず、自分で修正する
+# spec 内は見た目が綺麗になるので許可
+Style/BlockDelimiters:
+  AutoCorrect: false
+  Exclude:
+    - "spec/**/*_spec.rb"
+
+# 明示的に else で nil を返すのは分かりやすいので許可する
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/GuardClause:
+  MinBodyLength: 5
+
+# https://qiita.com/QUANON/items/65a420e35af455aad74c
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+# Start context description with 'when', 'with', or 'without'を無視
+RSpec/ContextWording:
+  Enabled: false
+
+# ネストをデフォルトの3から4へ
+RSpec/NestedGroups:
+  Max: 5
+
+# RuboCop | Style/MethodLengthを15行まで許可(コメントはカウント外)
+# https://qiita.com/tbpgr/items/46af4c0f5be30c5c6ccc
+MethodLength:
+  Max: 15
+
+Rails/FilePath:
+  Enabled: false

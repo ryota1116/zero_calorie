@@ -23,21 +23,22 @@ class FoodsController < ApplicationController
     @food_lists = Food.search_form(params[:name])
   end
 
+  # vision apiのレスポンスを返す
   def search_picture_result
     @meal_picture = MealPicture.new(meal_picture_params)
 
-    if @meal_picture.save
-      # セッションにデータを入れる
-      session[:meal_picture_id] = @meal_picture.id
+    return unless @meal_picture.save
 
-      food_labels = @meal_picture.fetch_food_labels
+    # セッションにデータを入れる
+    session[:meal_picture_id] = @meal_picture.id
 
-      @food_lists = []
+    food_labels = @meal_picture.fetch_food_labels
+    @food_lists = []
 
-      # TODO: メソッドにしたい
-      food_labels.each do |food_label|
-        @food_lists = Food.search_by_label(food_label)
-      end
+    # labelでFoodを検索
+    # TODO: メソッドにしたい
+    food_labels.each do |food_label|
+      @food_lists = Food.search_by_label(food_label)
     end
   end
 

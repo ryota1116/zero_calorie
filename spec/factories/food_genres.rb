@@ -9,6 +9,10 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_food_genres_on_genre_name  (genre_name) UNIQUE
+#
 FactoryBot.define do
   factory :food_genre do
     genre_name { 'MyString' }

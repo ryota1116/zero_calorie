@@ -10,8 +10,12 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_foods_on_name  (name) UNIQUE
+#
 class Food < ApplicationRecord
-  has_many :meal_records
+  has_many :meal_records, dependent: :destroy
   has_many :food_food_genres, dependent: :destroy
   has_many :food_genres, through: :food_food_genres
 

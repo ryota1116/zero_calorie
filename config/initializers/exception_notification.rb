@@ -1,7 +1,5 @@
 require 'exception_notification/rails'
 
-
-
 ExceptionNotification.configure do |config|
   # 本番環境以外では通知しないようにする
   config.ignore_if do

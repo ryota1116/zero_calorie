@@ -48,8 +48,8 @@ gem 'slim-rails'
 # 環境変数
 gem 'dotenv-rails'
 # slack通知
-gem 'slack-notifier'
 gem 'exception_notification'
+gem 'slack-notifier'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     logger.error("エラークラス: #{error.class}")
     logger.error("エラーメッセージ : #{error.message}")
     logger.error('バックトレース -------------')
-    logger.error(error.backtrace.("\n"))
+    logger.error(error.backtrace.call("\n"))
     logger.error('-------------')
     render file: Rails.root.join('public/500.html').to_s, status: :internal_server_error, layout: false, content_type: 'text/html'
   end

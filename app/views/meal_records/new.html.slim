@@ -60,7 +60,7 @@
                       - if @meal_record.meal_record_pictures.attached?
                         - @meal_record.meal_record_pictures.each do |picture|
                           div id="meal-record-picture-#{picture.blob_id}"
-                            = image_tag picture, id="picpic-#{picture.blob_id}"
+                            = image_tag picture, id: "picpic-#{picture.blob_id}"
                             = link_to '削除', picture_attachment_path(picture.blob_id), class: 'btn btn-danger', id: picture.blob_id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
           .actions
             = f.button t('.submit'), class: 'ui large button'

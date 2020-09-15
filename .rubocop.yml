@@ -2,29 +2,92 @@
 Style/BlockDelimiters:
   AutoCorrect: false
   Exclude:
-    # specファイルはauto-correctするかも
-    # - "spec/**/*"
-
+    # specファイルはauto-correct
+    - "spec/**/*"
 
 # rubocop関連のgemをrequireする
 require:
   - rubocop-rails
   - rubocop-rspec
 
+inherit_from:
+  # - config/rubocop/rubocop.yml
+  # - config/rubocop/rails.yml
+  - config/rubocop/rspec.yml
+
 ## 全体に適応する項目を定義(自動生成されるものはチェック対象から除外する)
 AllCops:
   TargetRubyVersion: 2.7
   TargetRailsVersion: 6.0
   Exclude:
+    - 'db/**/*'
     - 'vendor/**/*'
     - 'bin/**/*'
-    - 'db/**/*'
     - 'tmp/**/*'
     - 'node_modules/**/*'
+    - "config/initializers/*"
 
 Rails:
   Enabled: true
 
+Rails/Delegate:
+  Enabled: false
+
+## `and return` の形式を利用できるようにします。基本的には、&& と || を使います。
+Style/AndOr:
+  Enabled: false
+
 # 日本語のコメントを許可する
 Style/AsciiComments:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+LineLength:
+  Max: 150
+
+# missing top-level class documentation commentの除外設定
+Documentation:
+  Enabled: false
+
+# RuboCop | Style/ClassAndModuleChildren EnforcedStyle
+# https://qiita.com/tbpgr/items/61b9da235701df919ae5
+# ClassAndModuleChildren:
+#   EnforcedStyle: compact
+
+#################### Metrics ###############################
+
+# AbcSizeチェック
+# Metrics/AbcSize: Assignment Branch Condition size for method is too high.
+Metrics/AbcSize:
+  Max: 30
+
+# Gemfile, Guardfile は DSL 的で基本的に複雑にはならないので除外
+# rake, rspec, environments, routes は巨大な block 不可避なので除外
+# TODO: ExcludedMethods の精査
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "Gemfile"
+    - "Guardfile"
+    - "config/environments/*.rb"
+    - "config/routes.rb"
+    - "config/routes/**/*.rb"
+    - "*.gemspec"
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# CyclomaticComplexity:
+#   Max: 10
+
+# Line is too long を無視
+Metrics/LineLength:
+  Enabled: false
+
+# Use nested module/class definitions instead of compact style. を無視
+Style/ClassAndModuleChildren:
   Enabled: false

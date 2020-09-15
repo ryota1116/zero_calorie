@@ -71,4 +71,12 @@ class MealRecordsController < ApplicationController
   def meal_record_params
     params.require(:meal_record).permit(:meal_time, meal_record_pictures: [])
   end
+
+  # def attach_meal_picture
+  #   MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
+  #     meal_record_pictures.attach(io: file, filename: "#{SecureRandom.hex(8)}.jpg")
+  #   end
+
+  #   session[:meal_picture_id] = nil
+  # end
 end
