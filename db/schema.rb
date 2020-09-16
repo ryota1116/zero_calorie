@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_141400) do
     t.text "calorie_theory", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_name"], name: "index_food_genres_on_genre_name", unique: true
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_141400) do
     t.text "calorie_theory"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_foods_on_name", unique: true
   end
 
   create_table "meal_pictures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

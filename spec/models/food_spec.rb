@@ -10,6 +10,10 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_foods_on_name  (name) UNIQUE
+#
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
@@ -59,7 +63,7 @@ RSpec.describe Food, type: :model do
       describe ':search_by_form' do
         context 'アイスと検索した場合' do
           it 'アイスという文字列を含むFoodのデータを返す' do
-            expect(Food.search_by_form('アイス')).to contain_exactly(ice_cream, ice_coffee)
+            expect(described_class.search_by_form('アイス')).to contain_exactly(ice_cream, ice_coffee)
           end
         end
       end
@@ -67,7 +71,7 @@ RSpec.describe Food, type: :model do
       describe ':search_by_label' do
         context 'ice creamというラベルを引数に設定した場合' do
           it 'ice creamというラベルを持つFoodのデータを返す' do
-            expect(Food.search_by_label('Ice cream')).to contain_exactly(ice_cream)
+            expect(described_class.search_by_label('Ice cream')).to contain_exactly(ice_cream)
           end
         end
       end
@@ -77,14 +81,21 @@ RSpec.describe Food, type: :model do
       describe 'def self.search_form(food_name)' do
         context '空文字で検索した場合' do
           it 'Foodテーブルの全データを返す' do
-            expect(Food.search_form('')).to contain_exactly(ice_cream, ice_coffee, rice)
+            expect(described_class.search_form('')).to contain_exactly(ice_cream, ice_coffee, rice)
           end
         end
 
         context 'アイスと検索した場合' do
-          it 'アイスという文字列を含むFoodのデータを返す' do
-            expect(Food.search_form('アイス')).to contain_exactly(ice_cream, ice_coffee)
-            expect(Food.search_form('アイス')).not_to include rice
+          it 'nameがアイスクリームのFoodデータを返す' do
+            expect(described_class.search_form('アイス')).to contain_exactly(ice_cream)
+          end
+
+          it 'nameがアイスコーヒーのFoodデータを返す' do
+            expect(described_class.search_form('アイス')).to contain_exactly(ice_coffee)
+          end
+
+          it 'nameが白ごはんのFoodデータを返さない' do
+            expect(described_class.search_form('アイス')).not_to include rice
           end
         end
       end

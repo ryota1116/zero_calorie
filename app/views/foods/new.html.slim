@@ -28,11 +28,11 @@
                 = f.label :calorie
               //TODO : 全角入力を半角に変換する
               .field
-                = f.text_field :calorie
+                = f.text_field :calorie, placeholder: 'kcal'
               .label
                 = f.label :calorie_theory
                 | （任意）
               .field
                 = f.text_field :calorie_theory
               .actions
-                = f.button t('.submit')
+                = f.button t('.submit'), class: 'ui button'

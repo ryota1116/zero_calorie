@@ -48,8 +48,8 @@ gem 'slim-rails'
 # 環境変数
 gem 'dotenv-rails'
 # slack通知
-gem 'slack-notifier'
 gem 'exception_notification'
+gem 'slack-notifier'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -96,6 +96,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  # https://blog.takeru08ma.com/2019/08/20/post-616/
+  gem 'codecov', require: false
+  # https://qiita.com/tetsuya/items/83e18713928d0b4bcc41
+  gem 'rspec_junit_formatter'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

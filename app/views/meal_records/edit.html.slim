@@ -39,25 +39,28 @@
                     | #{food_genre.genre_name}の#{t('.calorie_theory')}
                   td
                     = food_genre.calorie_theory
-                tr
-                  td
-                    = f.label :meal_time
-                  td
-                    = f.datetime_field :meal_time
-                tr
-                  td
-                    = f.label :meal_record_pictures
-                    = f.file_field :meal_record_pictures, multiple: true
-                  td
-                    - if @meal_record.meal_record_pictures.attached?
-                      //TODO : パーシャルにしたいかも
-                      //TODO : 画像のプレビュー表示
-                      - @meal_record.meal_record_pictures.each do |picture|
-                        div id="meal-record-picture-#{picture.id}"
-                          = image_tag picture, class: "ui fluid image"
-                          = link_to '削除', picture_attachment_path(picture.id), class: 'btn btn-danger', id: picture.id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
-                    - else
-                      = t('.no_picture')
+              tr
+                td
+                  = f.label :meal_time
+                td
+                  = f.datetime_field :meal_time
+              tr
+                td
+                  = f.label :meal_record_pictures
+                    | 写真を選択
+                    br
+                    i class='images icon'
+                    = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
+                td
+                  - if @meal_record.meal_record_pictures.attached?
+                    //TODO : パーシャルにしたいかも
+                    //TODO : 画像のプレビュー表示
+                    - @meal_record.meal_record_pictures.each do |picture|
+                      div id="meal-record-picture-#{picture.id}"
+                        = image_tag picture, class: "ui fluid image"
+                        = link_to '削除', picture_attachment_path(picture.id), class: 'btn btn-danger', id: picture.id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
+                  - else
+                    = t('.no_picture')
 
           .actions
             = f.button t('defaults.update'), class: 'ui large button'

@@ -10,6 +10,10 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_foods_on_name  (name) UNIQUE
+#
 FactoryBot.define do
   factory :food do
     sequence(:name) { |n| "name-#{n}" }

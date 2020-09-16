@@ -48,26 +48,31 @@ class MealRecord < ApplicationRecord
 
     # 検索フォームに入力されたパラメータを取得
     def search_params(params)
-      search_params = if params.keys.include?('date')
-                        params[:date][:meal_time]
-                      elsif params.keys.include?('week')
-                        params[:week][:meal_time]
-                      elsif params.keys.include?('month')
-                        params[:month][:meal_time]
-                      end
+      search_form_params = if params.keys.include?('date')
+                             params[:date][:meal_time]
+                           elsif params.keys.include?('week')
+                             params[:week][:meal_time]
+                           elsif params.keys.include?('month')
+                             params[:month][:meal_time]
+                           end
+
+      search_form_params
     end
 
     # 検索結果を返す
+    # Metrics/PerceivedComplexity: Perceived complexity for search_meal_records is too high. [8/7]
     def search_meal_records(params, search_params)
-      record = if params.keys.include?('date') && params[:date][:meal_time].present?
-                 meal_time_date(Date.parse(search_params))
-               elsif params.keys.include?('week') && params[:week][:meal_time].present?
-                 meal_time_week(Date.parse(search_params))
-               elsif params.keys.include?('month') && params[:month][:meal_time].present?
-                 meal_time_month(Date.parse(search_params))
-               else
-                 includes(:food)
-               end
+      search_meal_record = if params.keys.include?('date') && params[:date][:meal_time].present?
+                             meal_time_date(Date.parse(search_params))
+                           # elsif params.keys.include?('week') && params[:week][:meal_time].present?
+                           # meal_time_week(Date.parse(search_params))
+                           elsif params.keys.include?('month') && params[:month][:meal_time].present?
+                             meal_time_month(Date.parse(search_params))
+                           else
+                             includes(:food)
+                           end
+
+      search_meal_record
     end
   end
 end

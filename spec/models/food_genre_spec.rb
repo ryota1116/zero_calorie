@@ -9,6 +9,10 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_food_genres_on_genre_name  (genre_name) UNIQUE
+#
 require 'rails_helper'
 
 RSpec.describe FoodGenre, type: :model do
