@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
 jobs:
   rubocop:
     docker:
@@ -62,8 +64,17 @@ jobs:
       - run: bundle exec rake db:schema:load
       # Rspec
       - run:
-          name: Rspec
-          command: bundle exec rspec
+          name: # RSpec を並列実行
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - store_test_results:
+          path: test_results
+      - codecov/upload:
+          file: test_results/rspec.xml
 
 workflows:
   version: 2
