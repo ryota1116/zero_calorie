@@ -31,7 +31,7 @@ jobs:
 
   rspec:
     docker:
-      - image: circleci/ruby:2.6.0-node-browsers-legacy
+      - image: circleci/ruby:2.7.1-node-browsers-legacy
         environment:
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
