@@ -1,7 +1,9 @@
 require './db/seeds/user'
+
 Dir[File.expand_path('../seeds/food', __FILE__) << '/*.rb'].each do |file|
   require file
 end
+
 require './db/seeds/meal_record'
 
 # Food.create!([
