@@ -33,12 +33,12 @@ jobs:
     docker:
       - image: circleci/ruby:2.7.1-node-browsers-legacy
         environment:
-          RAILS_ENV: test
-          POSTGRES_HOST: 127.0.0.1
+          RAILS_ENV: 'test'
+          MYSQL_ROOT_HOST: 127.0.0.1
       - image: circleci/mysql:5.7.29
         environment:
-          POSTGRES_USER: mysql
-          POSTGRES_DB: app_test
+          MYSQL_USER: root
+          MYSQL_DATABASE: zero_calorie_test
     working_directory: ~/zero_calorie
     steps:
       - checkout
