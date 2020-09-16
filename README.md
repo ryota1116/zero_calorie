@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/ryota1116/zero_calorie/branch/develop/graph/badge.svg)](https://codecov.io/gh/ryota1116/zero_calorie)
+
 # カロリーゼロ(アプリ名未定)
 
 ## サービス概要
