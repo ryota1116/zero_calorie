@@ -98,6 +98,8 @@ group :test do
   gem 'webdrivers'
   # https://blog.takeru08ma.com/2019/08/20/post-616/
   gem 'codecov', require: false
+  # https://qiita.com/tetsuya/items/83e18713928d0b4bcc41
+  gem "rspec_junit_formatter"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -64,7 +64,7 @@ jobs:
       - run: bundle exec rake db:schema:load
       # Rspec
       - run:
-          name: # RSpec を並列実行
+          name: # RSpecを並列実行
           command: |
             bundle exec rspec --profile 10 \
                               --format RspecJunitFormatter \
