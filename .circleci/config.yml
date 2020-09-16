@@ -52,7 +52,7 @@ jobs:
           name: bundler install
           command: |
             gem install bundler
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: bundle install
       - run: yarn install
       - save_cache:
           paths:
