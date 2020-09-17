@@ -1,66 +1,63 @@
 - content_for(:title, t('.title'))
 .ui.container.mt-2
-  .ui.segment
-    .ui.centered.grid
-      .twelve.wide.column
-        h1
-          = t('.title')
-      .twelve.wide.column
-        = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
-          = render 'shared/error_messages', object: f.object
-          table class="ui definition table"
-            tbody
-              tr
-                td
-                  = t('.food_name')
-                td
-                  = @meal_record.food.name
-              tr
-                td
-                  = t('.calorie')
-                td
-                  = "#{@meal_record.food.calorie} kcal"
-              tr
-                td
-                  | #{t('.calorie_theory')}
-                td
-                  - if @meal_record.food.calorie_theory.present?
-                    = "#{@meal_record.food.calorie_theory}"
-                  - else
-                    | #{@meal_record.food.name}のカロリー理論は登録されていません
-              - @meal_record.food.food_genres.each do |food_genre|
-                tr
-                  td
-                    = t('.food_genre_name')
-                  td
-                    = food_genre.genre_name
-                tr
-                  td
-                    | #{food_genre.genre_name}の#{t('.calorie_theory')}
-                  td
-                    = food_genre.calorie_theory
-              tr
-                td
-                  = f.label :meal_time
-                td
-                  = f.datetime_field :meal_time
-              #item_images
-                tr
-                  td
-                    = f.label :meal_record_pictures
-                      | 写真を追加する
-                      br
-                      i class='images icon'
-                      = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
-                  .field
-                    = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
-                  td class="ui fluid image"
-                    #image_preview
-                      // TODO: 画像サイズを調整
-                      - if @meal_record.meal_record_pictures.attached?
-                        - @meal_record.meal_record_pictures.each do |picture|
-                          div id="meal-record-picture-#{picture.blob_id}"
-                            = image_tag picture, id: "picpic-#{picture.blob_id}"
-                            = link_to '削除', picture_attachment_path(picture.blob_id), class: 'btn btn-danger', id: picture.blob_id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
-          .actions
-            = f.button t('.submit'), class: 'ui large button'
+  .ui.container
+    h1
+      = t('.title')
+    = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
+      = render 'shared/error_messages', object: f.object
+      table class="ui definition table"
+        tbody
+          tr
+            td
+              = t('.food_name')
+            td
+              = @meal_record.food.name
+          tr
+            td
+              = t('.calorie')
+            td
+              = "#{@meal_record.food.calorie} kcal"
+          tr
+            td
+              | #{t('.calorie_theory')}
+            td
+              - if @meal_record.food.calorie_theory.present?
+                = "#{@meal_record.food.calorie_theory}"
+              - else
+                | #{@meal_record.food.name}のカロリー理論は登録されていません
+          - @meal_record.food.food_genres.each do |food_genre|
+            tr
+              td
+                = t('.food_genre_name')
+              td
+                = food_genre.genre_name
+            tr
+              td
+                | #{food_genre.genre_name}の#{t('.calorie_theory')}
+              td
+                = food_genre.calorie_theory
+          tr
+            td
+              = f.label :meal_time
+            td
+              = f.datetime_field :meal_time
+          #item_images
+            tr
+              td
+                = f.label :meal_record_pictures
+                  | 写真を追加する
+                  br
+                  i class='images icon'
+                  = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
+              .field
+                = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
+              td class="ui fluid image"
+                #image_preview
+                  // TODO: 画像サイズを調整
+                  - if @meal_record.meal_record_pictures.attached?
+                    - @meal_record.meal_record_pictures.each do |picture|
+                      div id="meal-record-picture-#{picture.blob_id}"
+                        = image_tag picture, id: "picpic-#{picture.blob_id}"
+                        = link_to '削除', picture_attachment_path(picture.blob_id), class: 'btn btn-danger', id: picture.blob_id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
+      .actions
+        = f.button t('.submit'), class: 'ui large button'
