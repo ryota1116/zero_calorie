@@ -7,7 +7,7 @@
 
     .ui.large.buttons id='meal-time-buttons'
       .day
-        button type='button' class='meal-time-button ui button olive' id='check-day'
+        button type='button' class='meal-time-button ui button' style="background-color:#194999; color: white" id='check-day'
           | 日
       .or
       .week
@@ -32,7 +32,7 @@
                     .input-group-text
                       i class="calendar alternate icon"
           .form-group
-            = f.submit t('defaults.search'), class: 'ui olive button circular'
+            = f.submit t('defaults.search'), class: 'ui button circular', style: "background-color:#194999; color: white"
       #week style="display: none"
         .container
         = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
@@ -46,7 +46,7 @@
                     .input-group-text
                       i class="calendar alternate icon"
           .form-group
-            = f.submit t('defaults.search'), class: 'ui olive button circular'
+            = f.submit t('defaults.search'), class: 'ui button circular', style: "background-color:#194999; color: white"
       #month style="display: none"
         .container
         = form_with scope: :month, url: meal_records_path, method: :get, local: true do |f|
@@ -60,7 +60,7 @@
                     .input-group-text
                       i class="calendar alternate icon"
           .form-group
-            = f.submit t('defaults.search'), class: 'ui olive button circular'
+            = f.submit t('defaults.search'), class: 'ui button circular', style: "background-color:#194999; color: white"
 
 javascript:
   $(function () {

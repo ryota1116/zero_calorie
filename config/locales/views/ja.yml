@@ -75,6 +75,7 @@ ja:
       food_name: 食べ物
       calorie: カロリー
       calorie_theory: カロリー理論
+      meal_time: 食事時間
       food_genre_name: ジャンル
       no_picture: 画像がありません
       back_to_meal_records: 食事記録一覧に戻る

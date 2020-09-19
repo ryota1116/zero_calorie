@@ -1,12 +1,12 @@
 - content_for(:title, t('.title'))
 .ui.container
   .ui.center.aligned.basic.segment
-    h1
+    h2
       | #{current_user.name}の#{t('.meal_record')}
     / h2
       -
       | 今日の摂取カロリー(draper？で)
-    h2
+    h3
       | 0 kcal
 
   - if @meal_records.present?
