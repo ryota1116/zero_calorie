@@ -1,93 +1,83 @@
 FoodGenre.create!([
   {
-    id: "1"
-    genre_name: "お酒／アルコール",
+    genre_name: "揚げ物",
     calorie: 0,
-    calorie_theory: "お酒はカロリーゼロ。結局全て吐き出すのだから。",
+    calorie_theory: "揚げ物はカロリーゼロ",
   },
 ])
 
 Food.create!([
   {
-    name: "日本酒",
+    name: "コロッケ",
     calorie: 0,
     calorie_theory: "",
     labels: []
   },
   {
-    name: "赤ワイン",
+    name: "メンチカツ",
     calorie: 0,
     calorie_theory: "",
     labels: []
   },
   {
-    name: "白ワイン",
-    calorie: 0,
-    labels: []
-  },
-  {
-    name: "焼酎",
-    calorie: 0,
-    labels: []
-  },
-  {
-    name: "芋焼酎",
+    name: "唐揚げ",
     calorie: 0,
     calorie_theory: "",
     labels: []
   },
   {
-    name: "麦焼酎",
-    calorie: 0,
-    labels: []
-  },
-  {
-    name: "ビール",
-    calorie: 0,
-    labels: []
-  },
-  {
-    name: "ハイボール",
+    name: "かき揚げ",
     calorie: 0,
     calorie_theory: "",
     labels: []
   },
   {
-    name: "サワー",
+    name: "春巻き",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
-    name: "スパークリングワイン、",
+    name: "油淋鶏",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
-    name: "ホッピー",
+    name: "ナゲット",
     calorie: 0,
+    calorie_theory: "",
+    labels: []
+  },
+  {
+    name: "天ぷら",
+    calorie: 0,
+    calorie_theory: "",
+    labels: []
+  },
+  {
+    name: "フリッター",
+    calorie: 0,
+    calorie_theory: "",
+    labels: []
+  },
+  {
+    name: "チキンナゲット",
+    calorie: 0,
+    calorie_theory: "",
+    labels: []
+  },
+  {
+    name: "フライドポテト",
+    calorie: 0,
+    calorie_theory: "",
     labels: [],
-    calorie_theory: "ホッピーハッピーカロリーゼロ！",
   },
 ])
 
-FoodFoodGenre.create!([
-  {
-    food_genre_id: 1,
-    food_id: 1
-  },
-])
-
-
-フリッター
-コロッケ
-メンチカツ
-〇〇揚げ
-かき揚げ
-から揚げ
-春巻き
-油淋鶏
-ナゲット
-天ぷら
-チキン南蛮
-フライドポテト
-〇〇フライ
+# FoodFoodGenre.create!([
+#   {
+#     food_genre_id: 1,
+#     food_id: 1
+#   },
+# ])

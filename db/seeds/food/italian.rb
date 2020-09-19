@@ -1,7 +1,6 @@
 # ジュース
 FoodGenre.create!([
   {
-    id: "1"
     genre_name: "イタリアン",
     calorie: 0,
     calorie_theory: "",
@@ -24,11 +23,13 @@ Food.create!([
   {
     name: "ピラフ",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
     name: "マルゲリータ",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
@@ -40,18 +41,20 @@ Food.create!([
   {
     name: "ペペロンチーノ",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
     name: "チーズ",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
 ])
 
-FoodFoodGenre.create!([
-  {
-    food_genre_id: 1,
-    food_id: 1
-  },
-])
+# FoodFoodGenre.create!([
+#   {
+#     food_genre_id: 1,
+#     food_id: 1
+#   },
+# ])

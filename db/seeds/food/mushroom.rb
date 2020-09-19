@@ -1,7 +1,6 @@
 
 FoodGenre.create!([
   {
-    id: "1"
     genre_name: "きのこ類",
     calorie: 0,
     calorie_theory: "",
@@ -24,11 +23,13 @@ Food.create!([
   {
     name: "キクラゲ",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
     name: "しいたけ",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
@@ -46,23 +47,26 @@ Food.create!([
   {
     name: "舞茸",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
     name: "マッシュルーム",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
   {
     name: "松茸",
     calorie: 0,
+    calorie_theory: "",
     labels: []
   },
 ])
 
-FoodFoodGenre.create!([
-  {
-    food_genre_id: 1,
-    food_id: 1
-  },
-])
+# FoodFoodGenre.create!([
+#   {
+#     food_genre_id: 1,
+#     food_id: 1
+#   },
+# ])
