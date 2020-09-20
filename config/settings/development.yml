@@ -1,0 +1,2 @@
+TWITTER_CALLBACK_DEVELOPMENT: 'http://0.0.0.0:3000/oauth/callback?provider=twitter'
+FACEBOOK_CALLBACK_DEVELOPMENT: 'https://localhost:3000/oauth/callback?provider=facebook'

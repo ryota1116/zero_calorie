@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'active_decorator'
 
 # Authentication
 gem 'sorcery'
@@ -45,8 +46,8 @@ gem 'kaminari'
 # gem 'meta-tags'
 gem 'html2slim'
 gem 'slim-rails'
-# 環境変数
-gem 'dotenv-rails'
+# 定数管理
+gem 'config'
 # slack通知
 gem 'exception_notification'
 gem 'slack-notifier'

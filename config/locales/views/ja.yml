@@ -26,6 +26,10 @@ ja:
       login: Facebookでログイン
       success: Facebookでログインしました
       failed: Facebookでログインできませんでした
+    twitter:
+      login: Twitterでログイン
+      success: Twitterでログインしました
+      failed: Twitterでログインできませんでした
   users: # 以下、特定のviewに関するもの
     new:
       title: ユーザー登録
