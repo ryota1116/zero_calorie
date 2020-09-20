@@ -30,7 +30,7 @@ class FoodsController < ApplicationController
     return unless @meal_picture.save
 
     # セッションにデータを入れる
-    session[:meal_picture_id] = @meal_picture.id
+    session[:meal_picture_id] = @meal_picture.search_picture.id
 
     food_labels = @meal_picture.fetch_food_labels
     @food_lists = []

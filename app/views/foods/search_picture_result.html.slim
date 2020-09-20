@@ -1,7 +1,7 @@
 - content_for(:title, t('.title'))
 .ui.container.mt-2
     .ui.centered
-      h1
+      h3
         = t('.title')
       - if @food_lists.present?
         == render 'search_result', food_lists: @food_lists
