@@ -22,7 +22,7 @@
               = "#{@meal_record.food.calorie} kcal"
           tr
             td
-              | #{t('.food_name')}の#{t('.calorie_theory')}
+              | #{@meal_record.food.name}の#{t('.calorie_theory')}
             td
               - if @meal_record.food.calorie_theory.present?
                 = "#{@meal_record.food.calorie_theory}"

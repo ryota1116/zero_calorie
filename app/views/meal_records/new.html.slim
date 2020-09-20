@@ -1,6 +1,6 @@
 - content_for(:title, t('.title'))
 .ui.container.mt-2
-  .ui.container
+  .ui.basic.segment
     = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
       = render 'shared/error_messages', object: f.object
       table class="ui table"
@@ -22,7 +22,7 @@
               = "#{@meal_record.food.calorie} kcal"
           tr
             td
-              | #{t('.calorie_theory')}
+              | #{@meal_record.food.name}の#{t('.calorie_theory')}
             td
               - if @meal_record.food.calorie_theory.present?
                 = "#{@meal_record.food.calorie_theory}"
@@ -41,16 +41,15 @@
                 = food_genre.calorie_theory
           tr
             td
-              = f.label :meal_time
+              = f.label :meal_time, class: "ui basic button"
             td
               = f.datetime_field :meal_time
           #item_images
             tr
               td
-                = f.label :meal_record_pictures
-                  | 写真を追加する
-                  br
+                = f.label :meal_record_pictures, class: "ui basic button"
                   i class='images icon'
+                  | 写真を追加
                   = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
               .field
                 = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
@@ -63,4 +62,4 @@
                         = image_tag picture, id: "picpic-#{picture.blob_id}"
                         / = link_to '削除', picture_attachment_path(picture.blob_id), class: 'btn btn-danger', id: picture.blob_id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
       .actions
-        = f.button t('.submit'), class: 'ui button'
+        = f.button t('.submit'), class: 'ui basic button'

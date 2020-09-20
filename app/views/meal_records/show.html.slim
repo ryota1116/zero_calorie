@@ -48,7 +48,7 @@
           td
             - if @meal_record.meal_record_pictures.attached?
               - @meal_record.meal_record_pictures.each do |picture|
-                = image_tag picture
+                = image_tag picture, class: "ui fluid image"
             - else
               p
                 = t('.no_picture')
@@ -61,5 +61,5 @@
       .ui.red.button
         = t('defaults.destroy')
     = link_to meal_records_path do
-      .ui.button
+      .ui.basic.button
         = t('.back_to_meal_records')
