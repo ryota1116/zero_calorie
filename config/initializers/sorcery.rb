@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  config.external_providers = [:facebook]
+  config.external_providers = [:facebook, :twitter]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -115,16 +115,34 @@ Rails.application.config.sorcery.configure do |config|
   # Twitter will not accept any requests nor redirect uri containing localhost,
   # Make sure you use 0.0.0.0:3000 to access your app in development
   #
-  # config.twitter.key = ""
-  # config.twitter.secret = ""
-  # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  # config.twitter.user_info_mapping = {:email => "screen_name"}
+  config.twitter.key = Rails.application.credentials.dig(:twitter_key)
+  config.twitter.secret = Rails.application.credentials.dig(:twitter_secret_key)
+  config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  case Rails.env
+  when "production"
+      config.twitter.callback_url = Settings.TWITTER_CALLBACK
+  when "development"
+      config.twitter.callback_url = Settings.TWITTER_CALLBACK_DEVELOPMENT
+  end
+  config.twitter.user_info_mapping = {
+    email: 'screen_name',
+    name: 'name',
+  }
   #
   config.facebook.key = Rails.application.credentials.dig(:facebook_key)
   config.facebook.secret = Rails.application.credentials.dig(:facebook_secret)
   config.facebook.callback_url = 'https://localhost:3000/oauth/callback?provider=facebook'
+  case Rails.env
+  when "production"
+      config.twitter.callback_url = Settings.FACEBOOK_CALLBACK
+  when "development"
+      config.twitter.callback_url = Settings.FACEBOOK_CALLBACK_DEVELOPMENT
+  end
   config.facebook.user_info_path = 'me?fields=email,first_name'
-  config.facebook.user_info_mapping = { email: 'email', name: 'first_name' }
+  config.facebook.user_info_mapping = {
+    email: 'email',
+    name: 'first_name'
+  }
   config.facebook.access_permissions = ['email']
   config.facebook.display = 'page'
   config.facebook.api_version = 'v2.3'
