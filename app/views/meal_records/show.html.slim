@@ -1,59 +1,65 @@
 - content_for(:title, t('.title'))
-h1
-  = t('.title')
-.ui.container
-  .ui.segment
-    .ui.centered.grid
-      table class="ui definition table"
-        tbody
+.ui.container.mt-2
+  .ui.basic.segment
+    table class="ui table" id='meal_record_show'
+      thead
+        tr
+          th colspan="8"
+            h4
+              = t('.title')
+      tbody
+        tr
+          td
+            = t('.food_name')
+          td
+            = @meal_record.food.name
+        tr
+          td
+            = t('.calorie')
+          td
+            = "#{@meal_record.food.calorie} kcal"
+        tr
+          td
+            | #{@meal_record.food.name}の#{t('.calorie_theory')}
+          td
+            - if @meal_record.food.calorie_theory.present?
+              = "#{@meal_record.food.calorie_theory}"
+            - else
+              | #{@meal_record.food.name}のカロリー理論は登録されていません
+        - @meal_record.food.food_genres.each do |food_genre|
           tr
             td
-              = t('.food_name')
+              = t('.food_genre_name')
             td
-              = @meal_record.food.name
+              = food_genre.genre_name
           tr
             td
-              = t('.calorie')
+              | #{food_genre.genre_name}の#{t('.calorie_theory')}
             td
-              = "#{@meal_record.food.calorie} kcal"
-          tr
-            td
-              | #{t('.food_name')}の#{t('.calorie_theory')}
-            td
-              - if @meal_record.food.calorie_theory.present?
-                = "#{@meal_record.food.calorie_theory}"
-              - else
-                | #{@meal_record.food.name}のカロリー理論は登録されていません
-          - @meal_record.food.food_genres.each do |food_genre|
-            tr
-              td
-                = t('.food_genre_name')
-              td
-                = food_genre.genre_name
-            tr
-              td
-                | #{food_genre.genre_name}の#{t('.calorie_theory')}
-              td
-                = food_genre.calorie_theory
-          tr
-            td
-              | 写真
-            td
-              - if @meal_record.meal_record_pictures.attached?
-                - @meal_record.meal_record_pictures.each do |picture|
-                  = image_tag picture, class: "ui fluid image"
-              - else
-                p
-                  = t('.no_picture')
-      .sixteen.wide.column
-        / .ui.button
-        /   = link_to t('defaults.edit'), edit_meal_record_path(@meal_record)
-        = link_to edit_meal_record_path(@meal_record) do
-          .ui.olive.button
-            = t('defaults.edit')
-        = link_to meal_record_path(@meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') } do
-          .ui.red.button
-            = t('defaults.destroy')
-        = link_to meal_records_path do
-          .ui.button
-            = t('.back_to_meal_records')
+              = food_genre.calorie_theory
+        tr
+          td
+            = t('.meal_time')
+          td
+            = l @meal_record.meal_time
+        tr
+          td
+            | 写真
+          td
+            - if @meal_record.meal_record_pictures.attached?
+              - @meal_record.meal_record_pictures.each do |picture|
+                = image_tag picture, class: "ui fluid image"
+            - else
+              p
+                = t('.no_picture')
+      / .ui.button
+      /   = link_to t('defaults.edit'), edit_meal_record_path(@meal_record)
+    = link_to edit_meal_record_path(@meal_record) do
+      .ui.olive.button
+        = t('defaults.edit')
+    = link_to meal_record_path(@meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') } do
+      .ui.red.button
+        = t('defaults.destroy')
+    = link_to meal_records_path do
+      .ui.basic.button
+        = t('.back_to_meal_records')

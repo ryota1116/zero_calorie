@@ -1,10 +1,20 @@
 header
-  .ui.inverted.segment.olive
-    .ui.inverted.secondary.menu
+  / .ui.inverted.segment.olive
+  /   .ui.inverted.five.item.secondary.menu
+  /     = link_to 'サービス名', root_path, class: 'item'
+  /     / 画像検索ボタン
+  /     = render template: 'foods/_search_form', class: 'item'
+  /     #search_by_picture class='item'
+  /       = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+  /     = link_to t('defaults.sign_up'), new_user_path, class: 'item'
+  /     = link_to t('defaults.login'), login_path, class: 'item'
+  .ui.secondary.menu
+    .ui.container
       = link_to 'サービス名', root_path, class: 'item'
       / 画像検索ボタン
       = render template: 'foods/_search_form', class: 'item'
-      #search_by_picture class='item'
-        = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-      = link_to t('defaults.sign_up'), new_user_path, class: 'item'
-      = link_to t('defaults.login'), login_path, class: 'item'
+      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+      .right.menu
+        = link_to t('defaults.sign_up'), new_user_path, class: 'item'
+        = link_to t('defaults.login'), login_path, class: 'item'
+

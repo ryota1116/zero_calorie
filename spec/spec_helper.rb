@@ -14,6 +14,26 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  # codecov を実行するためのコード
+  require 'simplecov'
+
+  # save to CircleCI's artifacts directory if we're on CircleCI
+  if ENV['CIRCLE_ARTIFACTS']
+    dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
+    SimpleCov.coverage_dir(dir)
+  end
+
+  SimpleCov.start do
+    # カバレッジ解析対象ファイルから除外
+    add_filter '/config/'
+    add_filter '/spec/'
+    add_filter '/app/helpers/application_helper.rb'
+    add_filter '/app/'
+  end
+
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -91,11 +111,4 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
-
-  # codecov を実行するためのコード
-  require 'simplecov'
-  SimpleCov.start
-
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end

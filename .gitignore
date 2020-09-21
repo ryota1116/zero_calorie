@@ -44,3 +44,8 @@ yarn-debug.log*
 /.env
 
 /circleci/config.yml
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+coverage

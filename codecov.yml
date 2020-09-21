@@ -1,0 +1,4 @@
+ignore:
+  - "app/config/"  # ignore folders and all its contents
+  # - "test_*.rb"       # wildcards accepted
+  # - "**/*.py"         # glob accepted

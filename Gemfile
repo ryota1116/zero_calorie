@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'active_decorator'
 
 # Authentication
 gem 'sorcery'
@@ -45,8 +46,8 @@ gem 'kaminari'
 # gem 'meta-tags'
 gem 'html2slim'
 gem 'slim-rails'
-# 環境変数
-gem 'dotenv-rails'
+# 定数管理
+gem 'config'
 # slack通知
 gem 'exception_notification'
 gem 'slack-notifier'
@@ -98,6 +99,8 @@ group :test do
   gem 'webdrivers'
   # https://blog.takeru08ma.com/2019/08/20/post-616/
   gem 'codecov', require: false
+
+  gem 'simplecov', require: false
   # https://qiita.com/tetsuya/items/83e18713928d0b4bcc41
   gem 'rspec_junit_formatter'
 end

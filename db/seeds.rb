@@ -1,24 +1,20 @@
 require './db/seeds/user'
 
-Dir[File.expand_path('../seeds/food', __FILE__) << '/*.rb'].each do |file|
-  require file
-end
+# ファイルを一つ一つ指定しないと入らなかった
+require './db/seeds/food/alcohol'
+require './db/seeds/food/donburi'
+require './db/seeds/food/flied'
+require './db/seeds/food/ice'
+require './db/seeds/food/italian'
+require './db/seeds/food/juice'
+require './db/seeds/food/mushroom'
+require './db/seeds/food/nabemono'
+require './db/seeds/food/noodle'
+require './db/seeds/food/seafood'
+require './db/seeds/food/vegitable'
+# Dir[File.expand_path('./db/seeds/food', __FILE__) << '/*.rb'].each do |file|
+#   require file
+# end
+# Dir[File.expand_path(Rails.root.join('db/seeds/food'), __FILE__) << '/*.rb']
 
 require './db/seeds/meal_record'
-
-# Food.create!([
-#   {
-#     name: "アイスコーヒー",
-#     calorie: 0,
-#     calorie_theory: "コーヒーを抽出している時、ゼロカロリーの成分だけが抽出されている。"
-#   },
-#   {
-#     name: "白ごはん",
-#     calorie: 0,
-#     calorie_theory: "白い食べ物はカロリーが白紙に戻るからカロリーゼロ。"
-#   }
-# ])
-
-# 3.times do |i|
-#   Article.create(user_id: User.find(i+1).id, title: "Star Wars #{i+1}")
-# end

@@ -9,6 +9,7 @@ html
     / pack_tagがwebpacker
     = stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload"
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
 
     - if logged_in?
@@ -18,6 +19,7 @@ html
 
     == render "shared/flash_message"
 
-    == yield
+    #app
+      == yield
 
     == render 'shared/footer'

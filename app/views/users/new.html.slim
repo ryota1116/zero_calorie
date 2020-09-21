@@ -20,8 +20,10 @@
           = f.password_field :password_confirmation, placeholder: '3文字以上'
         .actions
           = f.submit t('defaults.register'), class: 'ui button'
-
       .field
         = link_to auth_at_provider_path(provider: :facebook), class: 'ui facebook button' do
           i class='facebook icon'
           = t 'defaults.facebook.login'
+        = link_to auth_at_provider_path(provider: :twitter), class: 'ui twitter button' do
+          i class='twitter icon'
+          = t 'defaults.twitter.login'
