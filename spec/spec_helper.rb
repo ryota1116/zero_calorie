@@ -28,6 +28,7 @@ RSpec.configure do |config|
     add_filter '/config/'
     add_filter '/spec/'
     add_filter '/app/helpers/application_helper.rb'
+    add_filter '/app/'
   end
 
   require 'codecov'

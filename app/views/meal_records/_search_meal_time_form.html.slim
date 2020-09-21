@@ -7,15 +7,15 @@
 
     .ui.large.buttons id='meal-time-buttons'
       .day
-        button type='button' class='meal-time-button ui button' style="background-color:#194999; color: white" id='check-day'
+        button type='button' class='meal-time-button ui button basic secondary' id='check-day'
           | 日
       .or
       .week
-        button type='button' class='meal-time-button ui button' id='check-week'
+        button type='button' class='meal-time-button ui button basic' id='check-week'
           | 週
       .or
       .month
-        button type='button' class='meal-time-button ui button' id='check-month'
+        button type='button' class='meal-time-button ui button basic' id='check-month'
           | 月
 
   .ui.center.aligned.basic.segment
@@ -32,7 +32,7 @@
                     .input-group-text
                       i class="calendar alternate icon"
           .form-group
-            = f.submit t('defaults.search'), class: 'ui button circular', style: "background-color:#194999; color: white"
+            = f.submit t('defaults.search'), class: 'ui basic button'
       #week style="display: none"
         .container
         = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
@@ -46,7 +46,7 @@
                     .input-group-text
                       i class="calendar alternate icon"
           .form-group
-            = f.submit t('defaults.search'), class: 'ui button circular', style: "background-color:#194999; color: white"
+            = f.submit t('defaults.search'), class: 'ui basic button'
       #month style="display: none"
         .container
         = form_with scope: :month, url: meal_records_path, method: :get, local: true do |f|
@@ -60,33 +60,10 @@
                     .input-group-text
                       i class="calendar alternate icon"
           .form-group
-            = f.submit t('defaults.search'), class: 'ui button circular', style: "background-color:#194999; color: white"
+            = f.submit t('defaults.search'), class: 'ui basic button'
 
 javascript:
-  $(function () {
-    $('#check-day').on('click', () => {
-      $("#day").show();
-      $("#week").hide();
-      $("#month").hide();
-    });
-
-    $('#check-week').on('click', () => {
-      $("#day").hide();
-      $("#week").show();
-      $("#month").hide();
-    });
-
-    $('#check-month').on('click', () => {
-      $("#day").hide();
-      $("#week").hide();
-      $("#month").show();
-    });
-  });
-
-  $('.calendar-modal').on('click', () => {
-    $('.ui.modal').modal('show');
-  });
-
+  // ボタンのアクティブを切り替え
   // id='meal-time-buttons'レベルのコンテナを取得
   var header = document.getElementById('meal-time-buttons');
   // headerコンテナ内のclass='meal-time-button'を持つ要素を取得
@@ -94,19 +71,8 @@ javascript:
 
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("meal-time-button ui button olive");
-    current[0].className = current[0].className.replace(" olive", "");
-    this.className += " olive";
+    var current = document.getElementsByClassName("meal-time-button ui button secondary");
+    current[0].className = current[0].className.replace(" secondary", "");
+    this.className += " secondary";
     });
   }
-
-/ .ui.calendar id="chalendar-1"
-/   .ui.input.left.icon
-/     = form_with scope: :search, url: meal_records_path
-/     i class="calendar icon"
-/     input type="text" placeholder="Date/Time"
-
-/ .field.ui.calendar.required
-/   .ui.input.left.icon
-/     i class="calendar icon"
-/     input type="text" name="date" placeholder="日付"

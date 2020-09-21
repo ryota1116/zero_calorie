@@ -11,25 +11,25 @@ Food.create!([
     name: "日本酒",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["sake"]
   },
   {
     name: "赤ワイン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["wine"]
   },
   {
     name: "白ワイン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["wine"]
   },
   {
     name: "焼酎",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["shochu"]
   },
   {
     name: "芋焼酎",

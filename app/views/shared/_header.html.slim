@@ -1,10 +1,62 @@
 header
-  .ui.inverted.segment.olive
-    .ui.inverted.secondary.menu
-      = link_to 'サービス名', meal_records_path, class: 'item'
-      / 画像検索ボタン
-      = render template: 'foods/_search_form', class: 'item'
-      #search_by_picture class='item'
-        = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+  / .ui.inverted.segment.olive
+  /   .ui.inverted.secondary.olive.menu
+  / .ui.inverted.segment.olive
+  /   .ui.inverted.five.item.secondary.olive.menu
+
+  / .ui.fixed.secondary.menu.pointing.siteHeader
+  /   .ui.container
+  /     .left.menu
+  /       .item
+  /         = link_to 'サービス名', meal_records_path
+  /     / 画像検索ボタン
+  /     .right.menu
+  /       .item
+  /         = render template: 'foods/_search_form', class:"ui centered"
+  /       #search_by_picture class='item'
+  /         = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+  /       .item
+  /         = link_to t('defaults.profile'), meal_records_path
+  /       .item
+  /         = link_to t('defaults.logout'), logout_path, method: :delete
+
+
+  / .ui.inverted.secondary.menu
+  / nav.navbar.navbar-expand-lg.navigation.navbar-dark
+    = link_to 'サービス名', meal_records_path, class: 'item'
+    / 画像検索ボタン
+    = render template: 'foods/_search_form', class: 'item'
+    .item id="search_by_picture"
+      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }, class:'vertical-middle'
+    .right.menu
       = link_to t('defaults.profile'), meal_records_path, class: 'item'
       = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+  .ui.secondary.menu
+    .ui.container
+      = link_to 'サービス名', meal_records_path, class: 'item'
+      / 画像検索ボタン
+      = render template: 'foods/_search_form'
+      / .item id="search_by_picture"
+      /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+      .right.menu
+        = link_to t('defaults.profile'), meal_records_path, class: 'item'
+        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+/ .ui.inverted.large.borderless.fixed.fluid.menu.column.olive
+  = link_to 'サービス名', meal_records_path, class:"header item"
+  .item
+    = render template: 'foods/_search_form', class:"ui centered"
+  .item id="search_by_picture"
+    = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+  .right.menu
+    .ui.dropdown.item
+      .header
+        h4
+          | MENU
+      .menu
+        .item
+          = link_to t('defaults.profile'), meal_records_path
+        .item
+          = link_to t('defaults.logout'), logout_path, method: :delete
