@@ -25,8 +25,8 @@ RSpec.configure do |config|
 
   SimpleCov.start do
     # カバレッジ解析対象ファイルから除外
-    add_filter "/config/"
-    add_filter "/spec/"
+    add_filter '/config/'
+    add_filter '/spec/'
   end
 
   require 'codecov'
