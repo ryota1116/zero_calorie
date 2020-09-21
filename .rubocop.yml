@@ -70,7 +70,7 @@ Metrics/BlockLength:
   Exclude:
     - "Rakefile"
     - "**/*.rake"
-    - "spec/**/*.rb"
+    - "spec/**/*"
     - "Gemfile"
     - "Guardfile"
     - "config/environments/*.rb"
@@ -91,3 +91,29 @@ Metrics/LineLength:
 # Use nested module/class definitions instead of compact style. を無視
 Style/ClassAndModuleChildren:
   Enabled: false
+
+#################### Rubocop ###############################
+# itブロック内のexpectの許容数を1→3に変更
+RSpec/MultipleExpectations:
+  Max: 3
+# itブロック内の行数
+RSpec/ExampleLength:
+  Max: 10
+
+# RSpec/NestedGroups:
+#   Enabled: false
+
+# RSpec/ContextWording:
+#   Enabled: false
+
+# RSpec/ExampleWording:
+#   Enabled: false
+
+# RSpec/MessageChain:
+#   Enabled: false
+
+# RSpec/NamedSubject:
+#   Enabled: false
+
+# RSpec/MultipleExpectations:
+#   Enabled: false

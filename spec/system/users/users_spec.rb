@@ -2,28 +2,24 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   describe 'UserSystem' do
-    context '入力情報正常系' do
-      it 'ユーザーが新規作成できること' do
-        visit new_user_path
-        fill_in '名前', with: 'テストユーザー'
-        fill_in 'メールアドレス', with: 'example@example.com'
-        fill_in 'パスワード', with: '12345678'
-        fill_in 'パスワード確認', with: '12345678'
-        click_button '登録'
-        expect(current_path).to eq login_path
-        expect(page).to have_content('ユーザー登録が完了しました'), 'フラッシュメッセージ「ユーザー登録が完了しました」が表示されていません'
-      end
+    it 'ユーザーが新規作成できること' do
+      visit new_user_path
+      fill_in '名前', with: 'テストユーザー'
+      fill_in 'メールアドレス', with: 'example@example.com'
+      fill_in 'パスワード', with: '12345678'
+      fill_in 'パスワード確認', with: '12345678'
+      click_button '登録'
+      expect(page).to have_current_path login_path
+      expect(page).to have_content('ユーザー登録が完了しました'), 'フラッシュメッセージ「ユーザー登録が完了しました」が表示されていません'
     end
 
-    context '入力情報異常系' do
-      it 'ユーザーが新規作成できない' do
-        visit new_user_path
-        fill_in 'メールアドレス', with: 'example@example.com'
-        click_button '登録'
-        expect(current_path).to eq '/users'
-        expect(page).to have_content '名前を入力してください'
-        expect(page).to have_content('ユーザー登録に失敗しました'), 'フラッシュメッセージ「ユーザー登録に失敗しました」が表示されていません'
-      end
+    it 'ユーザーが新規作成できない' do
+      visit new_user_path
+      fill_in 'メールアドレス', with: 'example@example.com'
+      click_button '登録'
+      expect(page).to have_current_path '/users'
+      expect(page).to have_content '名前を入力してください'
+      expect(page).to have_content('ユーザー登録に失敗しました'), 'フラッシュメッセージ「ユーザー登録に失敗しました」が表示されていません'
     end
 
     describe 'Facebookログイン' do
