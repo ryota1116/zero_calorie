@@ -14,19 +14,18 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  # spec/spec_helper.rbの最上部でsimplecovを起動
+  # codecov を実行するためのコード
   require 'simplecov'
-
-  # - カバレッジが90%未満の場合、non-zero exit する（CircleCI上の場合、ジョブが失敗する）
-  SimpleCov.minimum_coverage 90
-  # - カバレッジが80%未満のファイルがあった場合、non-zero exit する（CircleCI上の場合、ジョブが失敗する）
-  SimpleCov.minimum_coverage_by_file 80
-
-  SimpleCov.start 'rails' do      # << "Rails" プリセットを使用して SimpleCov を起動
-    add_filter '/spec/'           # /spec/ が含まれるファイルは除外する
-    add_filter do |source_file|
-    source_file.lines.count < 5   # 行数が 5行未満のファイルは除外する
+  # save to CircleCI's artifacts directory if we're on CircleCI
+  if ENV['CIRCLE_ARTIFACTS']
+    dir = File.join(ENV['CIRCLE_ARTIFACTS'], "coverage")
+    SimpleCov.coverage_dir(dir)
   end
+
+  SimpleCov.start
+
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -105,7 +104,4 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
-
-  # require 'codecov'
-  # SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
