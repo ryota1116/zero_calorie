@@ -27,6 +27,7 @@ RSpec.configure do |config|
     # カバレッジ解析対象ファイルから除外
     add_filter '/config/'
     add_filter '/spec/'
+    add_filter '/app/helpers/application_helper.rb'
   end
 
   require 'codecov'
