@@ -16,13 +16,18 @@
 RSpec.configure do |config|
   # codecov を実行するためのコード
   require 'simplecov'
-  # save to CircleCI's artifacts directory if we're on CircleCI
-  # if ENV['CIRCLE_ARTIFACTS']
-  #   dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
-  #   SimpleCov.coverage_dir(dir)
-  # end
 
-  SimpleCov.start
+  # save to CircleCI's artifacts directory if we're on CircleCI
+  if ENV['CIRCLE_ARTIFACTS']
+    dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
+    SimpleCov.coverage_dir(dir)
+  end
+
+  SimpleCov.start do
+    # カバレッジ解析対象ファイルから除外
+    add_filter "/config/"
+    add_filter "/spec/"
+  end
 
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
