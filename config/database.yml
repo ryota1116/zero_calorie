@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: zero_calorie_production
-  username: zero_calorie
-  password: <%= ENV['ZERO_CALORIE_DATABASE_PASSWORD'] %>
+  username: <%= Rails.application.credentials.dig(:database, :username) %>
+  password: <%= Rails.application.credentials.dig(:database, :password) %>
+  host: <%= Rails.application.credentials.dig(:database, :host) %>
