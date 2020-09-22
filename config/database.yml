@@ -51,6 +51,13 @@ test:
 production:
   <<: *default
   database: zero_calorie_production
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
   username: <%= Rails.application.credentials.dig(:database, :username) %>
   password: <%= Rails.application.credentials.dig(:database, :password) %>
   host: <%= Rails.application.credentials.dig(:database, :host) %>
+  pool: 5
+  timeout: 5000
+  socket: /tmp/mysql.sock
