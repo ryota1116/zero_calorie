@@ -17,6 +17,8 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # JSON形式のデータを簡単に作成する事が出来るgem
 gem 'jbuilder', '~> 2.7'
+# capistranoでdeployのエラーに対応
+gem 'mini_racer', platforms: :ruby
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -89,6 +91,14 @@ end
 group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
+  gem 'capistrano'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-nginx'
 end
 
 group :test do
