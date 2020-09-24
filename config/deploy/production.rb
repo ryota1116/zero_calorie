@@ -20,9 +20,9 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, 'ryota@52.196.201.38'
-role :web, 'ryota@52.196.201.38'
-role :db, 'ryota@52.196.201.38'
+role :app, 'ryota@54.248.24.26'
+role :web, 'ryota@54.248.24.26'
+role :db, 'ryota@54.248.24.26'
 
 
 
