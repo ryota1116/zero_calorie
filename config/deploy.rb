@@ -29,8 +29,8 @@ namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
     on roles(:app) do
-      execute "mkdir /var/www/azero_calorie/shared/tmp/sockets -p"
-      execute "mkdir /var/www/azero_calorie/shared/tmp/pids -p"
+      execute "mkdir /var/www/zero_calorie/shared/tmp/sockets -p"
+      execute "mkdir /var/www/zero_calorie/shared/tmp/pids -p"
     end
   end
 
