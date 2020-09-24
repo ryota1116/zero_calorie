@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/capistrano-plugins/capistrano-ssh-doctor.git
+  revision: 0e5de7c1c4d987c16adeaea296f0e863b9cbec6f
+  specs:
+    capistrano-ssh-doctor (1.0.0)
+      capistrano (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -288,6 +295,7 @@ GEM
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
     kwalify (0.7.2)
+    libv8 (8.4.255.0)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -306,6 +314,8 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    mini_racer (0.3.1)
+      libv8 (~> 8.4.255)
     minitest (5.14.2)
     msgpack (1.3.3)
     multi_json (1.15.0)
@@ -555,6 +565,7 @@ DEPENDENCIES
   capistrano-nginx
   capistrano-rails
   capistrano-rbenv
+  capistrano-ssh-doctor!
   capistrano3-puma
   capybara (>= 2.15)
   codecov
@@ -570,6 +581,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.2)
   migration_comments
+  mini_racer
   mysql2 (>= 0.4.4)
   pry
   pry-byebug
