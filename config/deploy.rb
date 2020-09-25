@@ -12,7 +12,7 @@ set :user, 'ryota'
 # デプロイ先のディレクトリ
 set :deploy_to, "/var/www/zero_calorie"
 # linked_filesやlinked_dirsに設定したものに対してはシンボリックリンクが張られる
-set :linked_files, %w[config/credentials/production.key config/database.yml]
+set :linked_files, %w[config/master.key config/credentials/production.key config/database.yml]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle]
 # append :linked_files, 'config/credentials/production.key'
 
