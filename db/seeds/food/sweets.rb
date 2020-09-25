@@ -11,13 +11,13 @@ Food.create!([
     name: "コーヒーゼリー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Gelatin dessert", "Gelatin"]
   },
   {
     name: "プリン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Flan", "Caramel", "Panna cotta"]
   },
   {
     name: "タピオカ",
@@ -29,7 +29,7 @@ Food.create!([
     name: "サンドイッチ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sandwich"]
   },
   {
     name: "ベーグル",
@@ -47,25 +47,25 @@ Food.create!([
     name: "チョコレート",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Chocolate", "Chocolate bar", "Chocolate letter", "Chocolate cake"]
   },
   {
     name: "チョコケーキ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Chocolate cake", "Chocolate", "Chocolate brownie"]
   },
   {
     name: "ショートケーキ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Cake", "Whipped cream"]
   },
   {
     name: "モンブラン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mont blanc"]
   },
   {
     name: "フルーツケーキ",
@@ -77,7 +77,7 @@ Food.create!([
     name: "パフェ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sundae", "Frozen dessert"]
   },
   {
     name: "クッキー",
@@ -89,19 +89,19 @@ Food.create!([
     name: "ドーナツ",
     calorie: 0,
     calorie_theory: "真ん中に丸い穴があるからカロリーゼロ",
-    labels: []
+    labels: ["Doughnut", "Cider doughnut", "Bagel"]
   },
   {
     name: "シュークリーム",
     calorie: 0,
     calorie_theory: "シュークリームは空気のかたまりのようなもの。",
-    labels: []
+    labels: ["Gougère"]
   },
   {
     name: "ゼリー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Gelatin dessert", "Gelatin", "Blancmange"]
   },
   {
     name: "ジェラート",
@@ -113,13 +113,7 @@ Food.create!([
     name: "カステラ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
-  },
-  {
-    name: "抹茶アイス",
-    calorie: 0,
-    calorie_theory: "抹茶が入っている食べ物は食べ物をクルクル回せばカロリーがゼロになる。そのためのお作法。",
-    labels: []
+    labels: ["Castella",]
   },
   {
     name: "パンケーキ",
@@ -214,10 +208,6 @@ FoodFoodGenre.create!([
   {
     food_genre_id: FoodGenre.find_by(genre_name: "スイーツ").id,
     food_id: Food.find_by(name: "カステラ").id
-  },
-  {
-    food_genre_id: FoodGenre.find_by(genre_name: "スイーツ").id,
-    food_id: Food.find_by(name: "抹茶アイス").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "スイーツ").id,

@@ -30,7 +30,7 @@ Food.create!([
     name: "すき焼き",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sukiyaki", "Jeongol"]
   },
   {
     name: "しゃぶしゃぶ",
@@ -60,7 +60,7 @@ Food.create!([
     name: "おでん",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Oden", "Nabemono", "Hot pot"]
   },
   {
     name: "寄せ鍋",

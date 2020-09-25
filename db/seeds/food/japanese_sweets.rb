@@ -85,6 +85,12 @@ Food.create!([
     calorie_theory: "",
     labels: []
   },
+  {
+    name: "抹茶アイス",
+    calorie: 0,
+    calorie_theory: "抹茶が入っている食べ物は食べ物をクルクル回せばカロリーがゼロになる。そのためのお作法。",
+    labels: ["Pistachio ice cream"]
+  },
 ])
 
 FoodFoodGenre.create!([
@@ -140,5 +146,9 @@ FoodFoodGenre.create!([
   {
     food_genre_id: FoodGenre.find_by(genre_name: "和菓子").id,
     food_id: Food.find_by(name: "フルーツ大福").id
+  },
+  {
+    food_genre_id: FoodGenre.find_by(genre_name: "和菓子").id,
+    food_id: Food.find_by(name: "抹茶アイス").id
   },
 ])

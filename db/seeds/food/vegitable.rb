@@ -17,13 +17,13 @@ Food.create!([
     name: "トマト",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Tomato"]
   },
   {
     name: "ピーマン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Pimiento"]
   },
   {
     name: "パプリカ",
@@ -47,7 +47,7 @@ Food.create!([
     name: "きゅうり",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Cucumber"]
   },
   {
     name: "ゴーヤ",
@@ -77,7 +77,7 @@ Food.create!([
     name: "キャベツ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Cabbage", "Iceburg lettuce", "Savoy cabbage", "wild cabbage"]
   },
   {
     name: "シュンギク",
@@ -101,13 +101,13 @@ Food.create!([
     name: "ちんげん菜",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Choy sum", "Chinese cabbage", "Komatsuna"]
   },
   {
     name: "白菜",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Leaf vegetable", "Iceburg lettuce", "Cabbage"]
   },
   {
     name: "パセリ",
@@ -119,7 +119,7 @@ Food.create!([
     name: "ほうれん草",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Spinach", "Leaf vegetable"]
   },
   {
     name: "水菜",
@@ -131,7 +131,7 @@ Food.create!([
     name: "レタス",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Leaf vegetable", "Lettuce", "Iceburg lettuce", "Romaine lettuce"]
   },
   {
     name: "カブ",
@@ -161,7 +161,7 @@ Food.create!([
     name: "タマネギ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Pearl onion", "Onion", "Yellow onion", "Red onion"]
   },
   {
     name: "ニラ",
@@ -179,7 +179,7 @@ Food.create!([
     name: "ネギ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Welsh onion"]
   },
   {
     name: "ラッキョウ",
@@ -191,25 +191,25 @@ Food.create!([
     name: "アスパラガス",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Asparagus"]
   },
   {
     name: "たけのこ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bamboo shoot"]
   },
   {
     name: "大根",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Radish", "Daikon"]
   },
   {
     name: "ゴボウ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Horseradish"]
   },
   {
     name: "ショウガ",
@@ -218,10 +218,10 @@ Food.create!([
     labels: []
   },
   {
-    name: "人参",
+    name: "人参(にんじん)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Carrot"]
   },
   {
     name: "蓮根",
@@ -233,7 +233,7 @@ Food.create!([
     name: "ブロッコリー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Broccoli", "Broccoflower"]
   },
   {
     name: "カリフラワー、
@@ -258,7 +258,7 @@ Food.create!([
     name: "さつまいも",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sweet potato"]
   },
   {
     name: "里芋",
@@ -270,13 +270,13 @@ Food.create!([
     name: "じゃがいも",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Potato"]
   },
   {
     name: "長芋",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Daikon"]
   },
   {
     name: "山芋",
@@ -285,10 +285,10 @@ Food.create!([
     labels: []
   },
   {
-    name: "モヤシ",
+    name: "もやし",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bean sprouts"]
   },
   {
     name: "カイワレ大根",
@@ -443,7 +443,7 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,
-    food_id: Food.find_by(name: "人参").id
+    food_id: Food.find_by(name: "人参(にんじん)").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,
@@ -487,7 +487,7 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,
-    food_id: Food.find_by(name: "モヤシ").id
+    food_id: Food.find_by(name: "もやし").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,

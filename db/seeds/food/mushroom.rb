@@ -18,7 +18,7 @@ Food.create!([
     name: "エリンギ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Pleurotus eryngii"]
   },
   {
     name: "きくらげ",
@@ -30,7 +30,7 @@ Food.create!([
     name: "しいたけ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Shiitake", "Mushroom", "Champignon mushroom"]
   },
   {
     name: "しめじ",

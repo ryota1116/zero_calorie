@@ -51,10 +51,3 @@ Food.create!([
     labels: ["Limburger cheese", "Processed cheese", "Cheese"]
   },
 ])
-
-# FoodFoodGenre.create!([
-#   {
-#     food_genre_id: 1,
-#     food_id: 1
-#   },
-# ])

@@ -11,7 +11,7 @@ Food.create!([
     name: "紅芋タルト",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Baked goods"]
   },
   {
     name: "紫芋タルト",
@@ -89,7 +89,7 @@ Food.create!([
     name: "サーターアンダギー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sata andagi", "Pommes dauphine",]
   },
 ])
 
