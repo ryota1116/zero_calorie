@@ -63,16 +63,4 @@
       .ui.basic.button
         = t('.back_to_meal_records')
     // TODO: textをfoodとfood_genreで切り替える
-    a id="tweet-share" href="https://twitter.com/intent/tweet?hashtags=zerorie,ゼロリー&url=https://zerorie.com&text=#{@meal_record.food.name}はカロリーゼロ。#{@meal_record.food.calorie_theory}&lang=ja"
-      | Twitterにシェアする
-
-/ javascript:
-/   function tweetShareLink() {
-/     const tw_contents = `猫を見つけるまでのミス数は${KeyUpCount}回でした`
-/     const tw_hashtag = ['cat_meow_miaow', 'にゃんにゃん', 'web1week']
-/     const url = 'https://ryota1116.github.io/cat_meow_miaow/'
-/     const tw_url = `https://twitter.com/intent/tweet?hashtags=${tw_hashtag}&url=${url}&text=${tw_contents}&lang=ja`
-
-/     const target = document.getElementById("tweet-share")
-/     target.href = tw_url
-/   };
+    == render 'shared/tweet_share', meal_recod: @meal_record
