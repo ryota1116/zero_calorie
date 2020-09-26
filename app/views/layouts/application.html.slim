@@ -1,8 +1,10 @@
 doctype html
 html
   head
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
     title
       = page_title(yield(:title))
+    / TODO: metaタグは別ファイルに切り出す
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -10,6 +12,21 @@ html
     = stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload"
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    / meta property="og:title" content="Zerorie / 猫ちゃんどこだ" /
+    / meta property="og:description" content="ページに隠れた猫を探せ" /
+    / meta property="og:url" content="https://ryota1116.github.io/cat_meow_miaow/" /
+    / meta property="og:image" content="https://ryota1116.github.io/cat_meow_miaow/image/tweet_ogp.jpg" /
+
+    / meta name="twitter:card" content="summary_large_image" /
+    / meta name="twitter:site" content="@ryota_chocolat" /
+    / meta name="twitter:title" content="Zerorie / 猫ちゃんどこだ" /
+    / meta name="twitter:description" content="ページに隠れた猫を探せ" /
+    / meta property="twitter:url" content="https://ryota1116.github.io/cat_meow_miaow/" /
+    / meta name="twitter:image" content="https://ryota1116.github.io/cat_meow_miaow/image/tweet_ogp.jpg" /
+
+    = favicon_pack_tag "zerorie_logo/favicon.png"
+
   body
 
     - if logged_in?
