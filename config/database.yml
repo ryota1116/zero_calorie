@@ -12,6 +12,8 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
@@ -51,13 +53,9 @@ test:
 production:
   <<: *default
   database: zero_calorie_production
-  adapter: mysql2
-  encoding: utf8mb4
-  charset: utf8mb4
-  collation: utf8mb4_general_ci
   username: <%= Rails.application.credentials.dig(:database, :username) %>
   password: <%= Rails.application.credentials.dig(:database, :password) %>
-  host: <%= Rails.application.credentials.dig(:database, :host) %>
+  host: zerorie-database-1.c24h1oi6hhez.ap-northeast-1.rds.amazonaws.com
   pool: 5
   timeout: 5000
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
