@@ -25,3 +25,12 @@ ja:
         genre_name: ジャンル名
         calorie: カロリー
         calorie_theory: カロリー理論
+    errors:
+      models:
+        food:
+          attributes:
+            name:
+              format: '%{message}'
+              taken: '%{attribute}は既に存在しています。'
+            calorie:
+              format: この食べ物のカロリーは0kcalです。0と入力してください。

@@ -21,6 +21,7 @@ module ZeroCalorie
     config.i18n.default_locale = :ja
     # ロケールファイルの探索パスを設定
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.active_model.i18n_customize_full_message = true
 
     # generateコマンド時に生成されるファイルに制限をかける
     config.generators do |g|

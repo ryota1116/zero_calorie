@@ -3,7 +3,7 @@
 # Table name: foods
 #
 #  id             :bigint           not null, primary key
-#  calorie        :integer          not null
+#  calorie        :integer          default(0), not null
 #  calorie_theory :text(65535)
 #  labels         :json
 #  name           :string(255)      not null
@@ -20,7 +20,8 @@ class Food < ApplicationRecord
   has_many :food_genres, through: :food_food_genres
 
   validates :name, presence: true, uniqueness: { case_sensitive: true }
-  validates :calorie, presence: true, numericality: { only_integer: true, equal_to: 0 }
+  # TODO: 0に固定してるから、presence: trueは削除した
+  validates :calorie, numericality: { only_integer: true, equal_to: 0 }
 
   scope :search_by_form, ->(food_name) { where('name like ?', "%#{food_name}%") }
   scope :search_by_label, ->(label) { where('labels like ?', "%#{label}%") }
