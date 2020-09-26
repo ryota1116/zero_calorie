@@ -54,7 +54,7 @@ production:
   <<: *default
   database: zero_calorie_production
   username: <%= Rails.application.credentials.dig(:database, :username) %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.credentials.dig(:database, :password) %>
   host: zerorie-database-1.c24h1oi6hhez.ap-northeast-1.rds.amazonaws.com
   pool: 5
   timeout: 5000
