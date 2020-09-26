@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_141400) do
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.json "labels"
-    t.integer "calorie", null: false
+    t.integer "calorie", default: 0, null: false
     t.text "calorie_theory"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

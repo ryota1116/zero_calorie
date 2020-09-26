@@ -3,7 +3,7 @@
 # Table name: foods
 #
 #  id             :bigint           not null, primary key
-#  calorie        :integer          not null
+#  calorie        :integer          default(0), not null
 #  calorie_theory :text(65535)
 #  labels         :json
 #  name           :string(255)      not null
