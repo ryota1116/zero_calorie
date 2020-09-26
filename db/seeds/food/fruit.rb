@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "フルーツ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "フルーツは野菜の一種。野菜にカロリーは無い。",
   },
 ])
 
