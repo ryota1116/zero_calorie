@@ -39,6 +39,7 @@ class MealRecordsController < ApplicationController
 
         session[:meal_picture_id] = nil
       end
+      # TODO: meal_record_new失敗でrenderして、そのあとnew成功した時に404エラー
       redirect_to @meal_record, success: t('defaults.message.created', item: MealRecord.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: MealRecord.model_name.human)

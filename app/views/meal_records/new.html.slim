@@ -41,7 +41,7 @@
                 = food_genre.calorie_theory
           tr
             td
-              = f.label :meal_time, class: "ui basic button"
+              = f.label :meal_time
             td
               = f.datetime_field :meal_time
           #item_images
@@ -52,7 +52,8 @@
                   | 写真を追加
                   = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
               .field
-                = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
+                // TODO: no permission parameterになる。そもそも不要かも
+                / = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
               td class="ui fluid image"
                 #image_preview
                   // TODO: 画像サイズを調整
