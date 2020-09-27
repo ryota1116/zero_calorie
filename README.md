@@ -1,3 +1,5 @@
+[![Rails](https://img.shields.io/badge/Rails-v6.0.3.2-%23a72332)](https://rubygems.org/gems/rails/versions/6.0.3.2)
+[![CircleCI](https://circleci.com/gh/ryota1116/zero_calorie/tree/teesloane-patch-5.svg?style=svg)](https://circleci.com/gh/ryota1116/zero_calorie)
 [![codecov](https://codecov.io/gh/ryota1116/zero_calorie/branch/develop/graph/badge.svg)](https://codecov.io/gh/ryota1116/zero_calorie)
 
 # カロリーゼロ(アプリ名未定)
