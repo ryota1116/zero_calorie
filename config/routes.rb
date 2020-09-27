@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'top_pages#top'
+  root to: 'static_pages#top'
+
   post 'oauth/callback' => 'oauths#callback'
   get 'oauth/callback' => 'oauths#callback' # for use with Github, Facebook
   get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
@@ -17,6 +18,10 @@ Rails.application.routes.draw do
       post 'search_picture_result'
     end
   end
+
   resources :meal_records, only: %i[index]
   resources :food_genres
+
+  # ゲストユーザーでログイン
+  post 'guest_login', to: 'user_sessions#guest_login'
 end

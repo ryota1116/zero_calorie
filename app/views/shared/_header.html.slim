@@ -9,7 +9,7 @@ header
       /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
       = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
       .right.menu
-        = link_to t('defaults.profile'), meal_records_path, class: 'item'
+        = link_to t('defaults.my_record'), meal_records_path, class: 'item'
         = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
 
 
