@@ -2,6 +2,7 @@
   .ui.item
     .ui.icon.input
       = f.text_field :name, class: 'prompt', placeholder: '食べ物を検索する'
-      i.search.link.icon
-          / = f.button type: 'submit' do
-          /   i class='search.icon'
+      / i.search.link.icon
+      = f.button type: 'submit' do
+        i class='search.icon'
+        | 検索する
