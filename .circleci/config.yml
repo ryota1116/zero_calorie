@@ -54,7 +54,7 @@ jobs:
           name: bundler install
           command: |
             gem install bundler
-      - run: bundle install
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
       - save_cache:
           paths:
