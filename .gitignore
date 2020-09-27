@@ -51,3 +51,5 @@ config/environments/*.local.yml
 coverage
 
 /config/credentials/production.key
+
+/config/credentials/environment.key

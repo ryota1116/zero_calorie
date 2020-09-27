@@ -66,7 +66,8 @@ class MealRecordsController < ApplicationController
   private
 
   def set_meal_record
-    @meal_record = MealRecord.find(params[:id])
+    # @meal_record = MealRecord.find(params[:id])
+    @meal_record = current_user.meal_records.find(params[:id])
   end
 
   def meal_record_params
