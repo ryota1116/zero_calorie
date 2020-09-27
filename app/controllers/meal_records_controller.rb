@@ -15,15 +15,6 @@ class MealRecordsController < ApplicationController
   def new
     @meal_record = MealRecord.new(food_id: params[:food_id])
     @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
-
-    # if session[:meal_picture_id]
-    #   MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
-    #     @meal_record.meal_record_pictures = file
-    #   end
-    # end
-
-    # TODO: gazoを配列で消す
-    # @meal_record.meal_record_pictures[0] = nil
   end
 
   def create
@@ -66,7 +57,6 @@ class MealRecordsController < ApplicationController
   private
 
   def set_meal_record
-    # @meal_record = MealRecord.find(params[:id])
     @meal_record = current_user.meal_records.find(params[:id])
   end
 
@@ -78,7 +68,5 @@ class MealRecordsController < ApplicationController
   #   MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
   #     meal_record_pictures.attach(io: file, filename: "#{SecureRandom.hex(8)}.jpg")
   #   end
-
-  #   session[:meal_picture_id] = nil
   # end
 end

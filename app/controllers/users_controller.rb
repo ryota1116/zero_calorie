@@ -13,7 +13,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to login_path, success: t('.success') }
+        auto_login(@user)
+        format.html { redirect_to meal_records_path, success: t('.success') }
         format.json { render :show, status: :created, location: @user }
       else
         flash.now[:danger] = t('.failed')

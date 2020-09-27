@@ -5,7 +5,7 @@ ja:
     login: ログイン
     logout: ログアウト
     please_login: ログインしてください
-    profile: プロフィール
+    my_record: My記録
     search_word: 検索ワード
     search: 検索する
     edit: 編集
@@ -46,10 +46,12 @@ ja:
       sign_up: 登録ページへ
       forgot_password?: パスワードをお忘れの方はこちら
     create:
-      succcess: ログインしました
+      success: ログインしました
       failed: ログインに失敗しました
     destroy:
-      succcess: ログアウトしました
+      success: ログアウトしました
+    guest_login:
+      success: ゲストユーザーでログインしました
   meal_records:
     index:
       title: 食事記録の一覧

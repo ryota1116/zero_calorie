@@ -9,7 +9,7 @@ RSpec.describe 'Users', type: :system do
       fill_in 'パスワード', with: '12345678'
       fill_in 'パスワード確認', with: '12345678'
       click_button '登録'
-      expect(page).to have_current_path login_path, ignore_query: true
+      expect(page).to have_current_path meal_records_path, ignore_query: true
       expect(page).to have_content('ユーザー登録が完了しました'), 'フラッシュメッセージ「ユーザー登録が完了しました」が表示されていません'
     end
 
