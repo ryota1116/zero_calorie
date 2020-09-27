@@ -1,4 +1,4 @@
-![badge](https://img.shields.io/badge/thank-you-brightgreen)
+![badge](https://img.shields.io/badge/thank%20you-for%20visiting-brightgreen)
 <br>
 [![Rails](https://img.shields.io/badge/Rails-v6.0.3.2-%23a72332)](https://rubygems.org/gems/rails/versions/6.0.3.2)
 [![CircleCI](https://circleci.com/gh/ryota1116/zero_calorie/tree/teesloane-patch-5.svg?style=svg)](https://circleci.com/gh/ryota1116/zero_calorie)
