@@ -8,8 +8,12 @@ class MealRecordsController < ApplicationController
   def show; end
 
   def index
-    @search_params = MealRecord.search_params(params)
-    @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :asc).page(params[:page]).per(10)
+    if params[:date].present?
+      @search_params = MealRecord.search_params(params)
+      @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :asc).page(params[:page]).per(10)
+    else
+      current_user.meal_records.meal_time_date(Date.current)
+    end
   end
 
   def new

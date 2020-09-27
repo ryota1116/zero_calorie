@@ -46,7 +46,8 @@ class MealRecord < ApplicationRecord
       where('? <= meal_time and meal_time <= ?',  day.beginning_of_month, day.end_of_month) if day.present?
     end
 
-    # 検索フォームに入力されたパラメータを取得
+    # 検索フォームに入力されたパラメータを取得する
+    # date,week,monthのフォームごとに、取得するパラメータを変更している
     def search_params(params)
       search_form_params = if params.keys.include?('date')
                              params[:date][:meal_time]
@@ -59,7 +60,7 @@ class MealRecord < ApplicationRecord
       search_form_params
     end
 
-    # 検索結果を返す
+    # meal_recordの検索結果を返す
     # Metrics/PerceivedComplexity: Perceived complexity for search_meal_records is too high. [8/7]
     def search_meal_records(params, search_params)
       search_meal_record = if params.keys.include?('date') && params[:date][:meal_time].present?
