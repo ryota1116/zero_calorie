@@ -1,4 +1,18 @@
 header
+  .ui.secondary.menu
+    .ui.container
+      = link_to 'Zerorie', root_path, class: 'item'
+      / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
+      / 画像検索ボタン
+      = render template: 'foods/_search_form'
+      / .item id="search_by_picture"
+      /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+      .right.menu
+        = link_to t('defaults.profile'), meal_records_path, class: 'item'
+        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+
   / .ui.inverted.segment.olive
   /   .ui.inverted.secondary.olive.menu
   / .ui.inverted.segment.olive
@@ -32,17 +46,6 @@ header
       = link_to t('defaults.profile'), meal_records_path, class: 'item'
       = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
 
-  .ui.secondary.menu
-    .ui.container
-      = link_to 'サービス名', meal_records_path, class: 'item'
-      / 画像検索ボタン
-      = render template: 'foods/_search_form'
-      / .item id="search_by_picture"
-      /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-      .right.menu
-        = link_to t('defaults.profile'), meal_records_path, class: 'item'
-        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
 
 / .ui.inverted.large.borderless.fixed.fluid.menu.column.olive
   = link_to 'サービス名', meal_records_path, class:"header item"

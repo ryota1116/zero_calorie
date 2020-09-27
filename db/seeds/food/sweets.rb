@@ -28,7 +28,7 @@ Food.create!([
   {
     name: "サンドイッチ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ゼロカロリー理論の提唱者が由来にする食べ物。当然カロリーゼロ。",
     labels: ["Sandwich"]
   },
   {

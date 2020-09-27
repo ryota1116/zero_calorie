@@ -10,7 +10,7 @@ Food.create!([
   {
     name: "炒飯",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "カロリーもパラパラになるから、カロリーゼロ。",
     labels: ["Spiced rice", "rice", "Steamed rice", "Thai fried rice", "Pilaf", "Brown rice"]
   },
   {
@@ -46,7 +46,7 @@ Food.create!([
   {
     name: "餃子",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "丸い皮で包んでいるからカロリーゼロ。",
     labels: ["Jiaozi"]
   },
   {
