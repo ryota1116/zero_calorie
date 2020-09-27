@@ -16,4 +16,9 @@ table class="ui fixed single line table"
         td
           = food.calorie
         td
-          = food.calorie_theory
+          - if food.calorie_theory.present?
+            = food.calorie_theory
+          - else
+            - if food.food_genres.present?
+              - food.food_genres.each do |food_genre|
+                = food_genre.calorie_theory

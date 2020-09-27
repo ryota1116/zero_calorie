@@ -90,17 +90,17 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bcrypt_pbkdf'
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-bundler'
+  gem 'capistrano-nginx'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-yarn'
+  gem 'ed25519'
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
-  gem 'capistrano'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-puma'
-  gem 'capistrano-nginx'
-  gem 'capistrano-yarn'
 end
 
 group :test do

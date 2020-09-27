@@ -26,6 +26,8 @@ AllCops:
     - 'tmp/**/*'
     - 'node_modules/**/*'
     - "config/initializers/*"
+    - "config/deploy/*"
+    - "config/puma/*"
 
 Rails:
   Enabled: true

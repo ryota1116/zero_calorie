@@ -1,11 +1,13 @@
 / Semantic_UI_DatePicker
 / https://github.com/jonatandahora/semantic-datepicker-rails
 .ui.container
-  .ui.center.aligned.basic.segment
+  // TODO: 週間フォームも表示できるようになったら、コメントアウト外す
+  / .ui.center.aligned.basic.segment
     .ui.calendar id="chalendar-1"
       .ui.input.left.icon
 
-    .ui.large.buttons id='meal-time-buttons'
+    // TODO: 週間フォームも表示できるようになったら、コメントアウト外す
+    / .ui.large.buttons id='meal-time-buttons'
       .day
         button type='button' class='meal-time-button ui button basic secondary' id='check-day'
           | 日
@@ -23,17 +25,15 @@
         .container
         = form_with scope: :date, url: meal_records_path, method: :get, local: true do |f|
           .row
-            .col-sm-6
-              .form-group
-                .input-group.date id="datetimepicker4" data-target-input="nearest"
-                  = f.text_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
-                    / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
-                  .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
-                    .input-group-text
-                      i class="calendar alternate icon"
-          .form-group
+            .input-group.date id="datetimepicker4" data-target-input="nearest"
+              = f.text_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+                / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+              .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+                .input-group-text
+                  i class="calendar alternate icon"
+
             = f.submit t('defaults.search'), class: 'ui basic button'
-      #week style="display: none"
+      / #week style="display: none"
         .container
         = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
           .row
@@ -47,7 +47,7 @@
                       i class="calendar alternate icon"
           .form-group
             = f.submit t('defaults.search'), class: 'ui basic button'
-      #month style="display: none"
+      / #month style="display: none"
         .container
         = form_with scope: :month, url: meal_records_path, method: :get, local: true do |f|
           .row
@@ -62,17 +62,18 @@
           .form-group
             = f.submit t('defaults.search'), class: 'ui basic button'
 
-javascript:
-  // ボタンのアクティブを切り替え
-  // id='meal-time-buttons'レベルのコンテナを取得
-  var header = document.getElementById('meal-time-buttons');
-  // headerコンテナ内のclass='meal-time-button'を持つ要素を取得
-  var btns = header.getElementsByClassName("meal-time-button");
 
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("meal-time-button ui button secondary");
-    current[0].className = current[0].className.replace(" secondary", "");
-    this.className += " secondary";
-    });
-  }
+/ javascript:
+/   // ボタンのアクティブを切り替え
+/   // id='meal-time-buttons'レベルのコンテナを取得
+/   var header = document.getElementById('meal-time-buttons');
+/   // headerコンテナ内のclass='meal-time-button'を持つ要素を取得
+/   var btns = header.getElementsByClassName("meal-time-button");
+
+/   for (var i = 0; i < btns.length; i++) {
+/     btns[i].addEventListener("click", function() {
+/     var current = document.getElementsByClassName("meal-time-button ui button secondary");
+/     current[0].className = current[0].className.replace(" secondary", "");
+/     this.className += " secondary";
+/     });
+/   }

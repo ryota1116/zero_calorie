@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "アイス",
     calorie: 0,
-    calorie_theory: "アイスはカロリーゼロ。冷たくすることでカロリーが全部飛ぶ。むしろ0度を下回っているから、食べれば食べるほどカロリーが消費される。",
+    calorie_theory: "冷たくすることでカロリーが全部飛ぶ。むしろ0度を下回っているから、食べれば食べるほどカロリーが消費される。",
   },
 ])
 
@@ -16,7 +16,7 @@ Food.create!([
   {
     name: "ソフトクリーム",
     calorie: 0,
-    calorie_theory: "ソフトクリームはカロリーゼロ。ソフトをゼロを描くようにグルグルと盛り付けてるが、アレはゼロカロリーを表している",
+    calorie_theory: "ソフトをゼロを描くようにグルグルと盛り付けてるが、アレはゼロカロリーを表している",
     labels: ["Ice cream cone", "Ice cream", "Soft Serve Ice Creams"]
   },
   {
