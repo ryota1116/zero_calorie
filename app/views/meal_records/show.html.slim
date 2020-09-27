@@ -53,6 +53,9 @@
               p
                 = t('.no_picture')
 
+    .mb-0.5
+      == render 'shared/tweet_share', meal_recod: @meal_record
+    br
     = link_to edit_meal_record_path(@meal_record) do
       .ui.olive.button
         = t('defaults.edit')
@@ -62,5 +65,3 @@
     = link_to meal_records_path do
       .ui.basic.button
         = t('.back_to_meal_records')
-    // TODO: textをfoodとfood_genreで切り替える
-    == render 'shared/tweet_share', meal_recod: @meal_record
