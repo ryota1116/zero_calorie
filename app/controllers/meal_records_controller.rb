@@ -21,9 +21,6 @@ class MealRecordsController < ApplicationController
     #     @meal_record.meal_record_pictures = file
     #   end
     # end
-
-    # TODO: gazoを配列で消す
-    # @meal_record.meal_record_pictures[0] = nil
   end
 
   def create
@@ -66,7 +63,6 @@ class MealRecordsController < ApplicationController
   private
 
   def set_meal_record
-    # @meal_record = MealRecord.find(params[:id])
     @meal_record = current_user.meal_records.find(params[:id])
   end
 
