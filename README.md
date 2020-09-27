@@ -1,9 +1,8 @@
-![badge](https://img.shields.io/badge/thank-you-brightgreen)
+![badge](https://img.shields.io/badge/thank%20you-for%20visiting-brightgreen)
 <br>
 [![Rails](https://img.shields.io/badge/Rails-v6.0.3.2-%23a72332)](https://rubygems.org/gems/rails/versions/6.0.3.2)
-[![CircleCI](https://circleci.com/gh/ryota1116/zero_calorie/tree/teesloane-patch-5.svg?style=svg)](https://circleci.com/gh/ryota1116/zero_calorie)
 [![codecov](https://codecov.io/gh/ryota1116/zero_calorie/branch/develop/graph/badge.svg)](https://codecov.io/gh/ryota1116/zero_calorie)
-![codecov](https://img.shields.io/codecov/c/github/ryota1116/zero_carorie/develop?token=63UHLXA60M)
+[![CircleCI](https://circleci.com/gh/ryota1116/zero_carorie.svg?style=svg)](https://circleci.com/gh/ryota1116/zero_carorie)
 
 # Zerorie / ゼロリー
 
@@ -45,12 +44,13 @@ https://xd.adobe.com/view/cc0b2f2f-238d-4ad3-a35f-4c5c76022c18-9958/
 
 ## 使用技術
 <p align="left">
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/ruby/ruby-original-wordmark.svg" alt="ruby" width="40" height="40"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/rails/rails-original-wordmark.svg" alt="rails" width="40" height="40"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> 
-  <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/>
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="70" height="70"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="70" height="70"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="70" height="70"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/ruby/ruby-original-wordmark.svg" alt="ruby" width="70" height="70"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/rails/rails-original-wordmark.svg" alt="rails" width="70" height="70"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="70" height="70"/> 
+  <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="70" height="70"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="70" height="70"/>
+  <img src="https://img.shields.io/badge/--343434.svg?logo=circleci&style=plastic" width="80" height="60"/>
 </p>
