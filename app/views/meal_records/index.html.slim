@@ -3,15 +3,15 @@
   .ui.center.aligned.basic.segment
     h3
       | #{current_user.name}の#{t('.meal_record')}
-    / h2
-      -
-      | 今日の摂取カロリー(draper？で)
+    h3
+      | #{@search_params}の摂取カロリー
     h3
       | 0 kcal
 
-  - if @meal_records.present?
-    == render 'search_meal_time_form', meal_records: @meal_records
+  / 食事記録検索のカレンダーフォーム
+  == render 'search_meal_time_form', meal_records: @meal_records
 
+  - if @meal_records.present?
     table class="ui padded table"
       thead
         tr
