@@ -34,11 +34,11 @@ Capybara.register_driver :chrome do |app|
   # ブラウザーのサイズを指定する
   options.add_argument('window-size=1280,960')
 
-  # Capybara::Selenium::Driver.new(
-  #   app,
-  #   browser: :chrome,
-  #   options: options
-  # )
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options: options
+  )
 end
 
 # RSpec.configure do |config|
