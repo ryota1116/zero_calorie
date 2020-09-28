@@ -11,67 +11,67 @@ Food.create!([
     name: "日本酒",
     calorie: 0,
     calorie_theory: "",
-    labels: ["sake"]
+    labels: ["Sake", "Japanese whisky"]
   },
   {
     name: "赤ワイン",
     calorie: 0,
     calorie_theory: "",
-    labels: ["wine"]
+    labels: ["Red wine", "Glass bottle", "Wine bottle", "Wine glass", "Wine"]
   },
   {
     name: "白ワイン",
     calorie: 0,
     calorie_theory: "",
-    labels: ["wine"]
+    labels: ["White wine", "Glass bottle", "Wine bottle", "Wine glass", "Wine"]
   },
   {
     name: "焼酎",
     calorie: 0,
     calorie_theory: "",
-    labels: ["shochu"]
+    labels: ["Japanese whisky", "Glass bottle"]
   },
   {
     name: "芋焼酎",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Japanese whisky", "Glass bottle"]
   },
   {
     name: "麦焼酎",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Japanese whisky", "Glass bottle"]
   },
   {
     name: "ビール",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Beer glass", "Beer", "Pint glass", "Wheat beer", "Alcoholic beverage", "Beer cocktail"]
   },
   {
     name: "ハイボール",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Distilled beverage", "Gin and tonic", "Liqueur", "Mizuwari", "Rock"]
   },
   {
     name: "レモンサワー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Distilled beverage", "Gin and tonic"]
   },
   {
     name: "スパークリングワイン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Glass bottle", "Wine bottle", "Wine glass", "Wine"]
   },
   {
     name: "ホッピー",
     calorie: 0,
     calorie_theory: "ホッピーハッピーカロリーゼロ",
-    labels: [],
+    labels: ["Beer bottle", "Distilled beverage", "Beer glass", "Beer", "Pint glass", "Wheat beer", "Alcoholic beverage", "Beer cocktail"],
   },
 ])
 

@@ -12,13 +12,13 @@ Food.create!([
     name: "えのき",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mushroom"]
   },
   {
     name: "エリンギ",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Pleurotus eryngii"]
+    labels: ["Mushroom", "Pleurotus eryngii"]
   },
   {
     name: "きくらげ",
@@ -36,31 +36,31 @@ Food.create!([
     name: "しめじ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mushroom"]
   },
   {
     name: "なめこ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mushroom"]
   },
   {
     name: "舞茸",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mushroom"]
   },
   {
     name: "マッシュルーム",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mushroom"]
   },
   {
     name: "松茸",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mushroom"]
   },
 ])
 

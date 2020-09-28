@@ -17,7 +17,7 @@ Food.create!([
     name: "紫芋タルト",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Baked goods"]
   },
   {
     name: "海ぶどう",
@@ -41,7 +41,7 @@ Food.create!([
     name: "ゴーヤチャンプル",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Momordica charantia", "Luffa"]
   },
   {
     name: "ブルーシール",
@@ -83,13 +83,13 @@ Food.create!([
     name: "沖縄そば",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Okinawa soba", "Noodle soup", "Beef noodle soup", "Lamian"]
   },
   {
     name: "サーターアンダギー",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Sata andagi", "Pommes dauphine",]
+    labels: ["Sata andagi", "Pommes dauphine"]
   },
 ])
 

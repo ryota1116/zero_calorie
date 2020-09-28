@@ -12,127 +12,133 @@ Food.create!([
     name: "そば",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Soba", "Shirataki noodles", "Sōmen"]
   },
   {
     name: "うどん",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Udon", "Shirataki noodles", "Stringozzi"]
   },
   {
     name: "坦々麺",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Ramen", "Noodle", "Noodle soup"]
   },
   {
     name: "ちゃんぽん",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Asian soups", "Yaka mein"]
   },
   {
     name: "冷麺",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Naengmyeon", "Canh chua"]
   },
   {
     name: "冷やし中華",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle soup", "Fried noodles"]
   },
   {
     name: "油そば",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Yaki udon", "Ramen", "Carbonara"]
   },
   {
     name: "焼きそば",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Yakisoba", "Carbonara", "Noodle", "Yaki udon"]
   },
   {
     name: "焼うどん",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Yaki udon", "Yakisoba"]
   },
   {
     name: "ラーメン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "醤油ラーメン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "とんこつラーメン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "みそラーメン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "塩ラーメン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "中華そば",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
-    name: "二郎系ラーメン",
+    name: "二郎（二郎系ラーメン）",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Ramen", "Opor ayam", "Bubur ayam", "Comfort food", "Noodle", "Lamian", "Noodle soup"]
   },
   {
     name: "つけ麺",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle"]
   },
   {
     name: "素麺(そうめん)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Shirataki noodles", "Sōmen", "Rice noodles"]
   },
   {
     name: "サンラータンメン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle", "Ramen"]
   },
   {
     name: "カレーうどん",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Noodle soup", "Udon"]
   },
   {
     name: "ざるそば",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Soba", "Fried noodles", "Chow mein", "Yi mein", "Sōmen"]
+  },
+  {
+    name: "鍋焼きうどん",
+    calorie: 0,
+    calorie_theory: "",
+    labels: ["Yaki udon", "Udon"]
   },
 ])
 
@@ -217,5 +223,9 @@ FoodFoodGenre.create!([
   {
     food_genre_id: FoodGenre.find_by(genre_name: "麺類").id,
     food_id: Food.find_by(name: "ざるそば").id
+  },
+  {
+    food_genre_id: FoodGenre.find_by(genre_name: "麺類").id,
+    food_id: Food.find_by(name: "鍋焼きうどん").id
   },
 ])

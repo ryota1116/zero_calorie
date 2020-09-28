@@ -17,7 +17,7 @@ Food.create!([
     name: "チンジャオロース",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Phat si io", "Karedok"]
   },
   {
     name: "酢豚",
@@ -26,16 +26,16 @@ Food.create!([
     labels: ["Sweet and sour chicken", "Sweet and sour pork", "Sweet and sour"]
   },
   {
-    name: "ホイコーロー",
+    name: "回鍋肉(ホイコーロー)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Phat si io", "Moo goo gai pan"]
   },
   {
     name: "八宝菜",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Asian soups", "Champon", "Chinese food", "Cap cai"]
   },
   {
     name: "坦々麺",
@@ -89,13 +89,7 @@ Food.create!([
     name: "エビマヨ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
-  },
-  {
-    name: "海老天",
-    calorie: 0,
-    calorie_theory: "",
-    labels: []
+    labels: ["Shrimp"]
   },
   {
     name: "肉団子",
@@ -107,7 +101,7 @@ Food.create!([
     name: "かに玉",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Tianjin rice", "Egg drop soup"]
   },
   {
     name: "麻婆豆腐",
@@ -143,19 +137,19 @@ Food.create!([
     name: "ごま団子",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bánh rán", "Jin deui", "Sesame"]
   },
   {
     name: "マンゴープリン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Posset", "Zabaione", "Natillas", "Lassi", "Pudding"]
   },
   {
     name: "杏仁豆腐",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Filmjölk", "Yogurt", "Almond jelly"]
   },
 ])
 

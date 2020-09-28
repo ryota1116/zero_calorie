@@ -17,13 +17,13 @@ Food.create!([
     name: "いちご",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Strawberry", "Strawberries", "Berry"]
   },
   {
     name: "いちじく",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Fig", "Common fig"]
   },
   {
     name: "梅",
@@ -35,31 +35,31 @@ Food.create!([
     name: "オレンジ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Valencia orange", "Bitter orange", "Rangpur", "Orange", "Clementine", "Tangelo", "Peel", "Tangerine", "Mandarin orange", "Citrus"]
   },
   {
     name: "柿",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Persimmon", "Common persimmon", "Ebony trees and persimmons", "Vegan nutrition"]
   },
   {
     name: "キウイ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Kiwi", "Hardy kiwi", "Kiwifruit"]
   },
   {
     name: "グレープフルーツ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Grapefruit juice", "Citric acid", "Grapefruit", "Citrus", "Orange"]
   },
   {
     name: "さくらんぼ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Cherry", "Currant", "Cranberry", "Berry"]
   },
   {
     name: "ざくろ",
@@ -71,109 +71,109 @@ Food.create!([
     name: "シークワーサー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Key lime", "Persian lime", "Rangpur", "Sweet lemon", "Citrus", "Lime", "Lemon"]
   },
   {
     name: "スイカ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Melon", "Watermelon"]
   },
   {
     name: "ドライフルーツ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Dried fruit"]
   },
   {
     name: "梨(なし)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Pear", "Accessory fruit", "Asian pear", "Apple"]
   },
   {
     name: "パイナップル",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Pineapple", "Ananas", "Poales", "Bromeliaceae"]
   },
   {
     name: "バナナ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Banana family", "Banana", "Saba banana", "Cooking plantain"]
   },
   {
     name: "ぶどう",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Grapevine family", "Grape leaves", "Seedless fruit" "Grape"]
   },
   {
     name: "ブルーベリー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Berry", "Bilberry", "Blueberry", "Juniper berry", "Huckleberry", "Frutti di bosco"]
   },
   {
     name: "マスカット",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Grapevine family", "Grape leaves"]
   },
   {
     name: "マンゴー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mango", "Nectarines", "Mangifera", "Ataulfo"]
   },
   {
     name: "みかん",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Orange", "Clementine", "Tangelo", "Peel", "Tangerine", "Mandarin orange", "Citrus"]
   },
   {
     name: "メロン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Galia", "Muskmelon", "Cantaloupe", "Melon", "Honeydew"]
   },
   {
     name: "桃(もも)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Prunus", "Apricot", "Pink", "Peach"]
   },
   {
     name: "ゆず",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Lemon", "Citron", "Sweet lemon", "Lemon", "Key lime", "Lime", "Persian lime"]
   },
   {
     name: "ラズベリー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Berry", "Raspberry", "Loganberry", "West Indian raspberry"]
   },
   {
     name: "りんご",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Apple", "Pectin"]
   },
   {
     name: "レーズン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Raisin", "Dried fruit", "Sultana", "Grape", "Prune", "Grapevine family", "Zante currant"]
   },
   {
     name: "レモン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Lemon", "Lemon peel", "Meyer lemon", "Citrus", "Lime"]
   },
 ])
 

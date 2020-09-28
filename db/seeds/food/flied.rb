@@ -29,7 +29,7 @@ Food.create!([
     name: "かき揚げ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Tempura", "Fried food", "Deep frying", "Fried prawn", "Panko"]
   },
   {
     name: "春巻き",
@@ -53,7 +53,7 @@ Food.create!([
     name: "天ぷら",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Tempura", "Fried prawn"]
+    labels: ["Tempura", "Fried food", "Deep frying", "Fried prawn", "Panko"]
   },
   {
     name: "フリッター",
@@ -65,13 +65,19 @@ Food.create!([
     name: "チキンナゲット",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Chicken nugget""French fries"]
+    labels: ["Chicken nugget", "French fries"]
   },
   {
     name: "フライドポテト",
     calorie: 0,
     calorie_theory: "",
     labels: ["French fries"],
+  },
+  {
+    name: "海老天",
+    calorie: 0,
+    calorie_theory: "",
+    labels: ["Shrimp", "Tempura", "Fried food", "Deep frying", "Fried prawn", "Panko"]
   },
 ])
 
@@ -116,6 +122,10 @@ FoodFoodGenre.create!([
   {
     food_genre_id: FoodGenre.find_by(genre_name: "揚げ物").id,
     food_id: Food.find_by(name: "フライドポテト").id
+  },
+  {
+    food_genre_id: FoodGenre.find_by(genre_name: "揚げ物").id,
+    food_id: Food.find_by(name: "海老天").id
   },
 ])
 

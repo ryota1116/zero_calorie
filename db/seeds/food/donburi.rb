@@ -17,13 +17,13 @@ Food.create!([
     name: "牛丼",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Gyūdon"]
+    labels: ["Gyūdon", "Donburi"]
   },
   {
     name: "豚丼",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bubur ayam", "Gyūdon", "Donburi"]
   },
   {
     name: "天丼",
@@ -35,19 +35,19 @@ Food.create!([
     name: "カツ丼",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Donburi", "Oyakodon", "Katsudon" ]
+    labels: ["Donburi", "Oyakodon", "Katsudon", "Donburi"]
   },
   {
     name: "しらす丼",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Donburi"]
   },
   {
     name: "穴子丼",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Eel", "Unagi", "Unadon", "Kabayaki"]
   },
   {
     name: "うな重",

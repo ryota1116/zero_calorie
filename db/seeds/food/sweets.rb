@@ -23,7 +23,7 @@ Food.create!([
     name: "タピオカ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Taho", "Dessert", "Grass jelly"]
   },
   {
     name: "サンドイッチ",
@@ -35,7 +35,7 @@ Food.create!([
     name: "ベーグル",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bagel", "Baked goods", "Bread", "Pandebono", "Bialy", "Anpan"]
   },
   {
     name: "フルーツサンド",
@@ -83,7 +83,7 @@ Food.create!([
     name: "クッキー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bizcochito", "Dessert"]
   },
   {
     name: "ドーナツ",
@@ -113,13 +113,13 @@ Food.create!([
     name: "カステラ",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Castella",]
+    labels: ["Castella"]
   },
   {
     name: "パンケーキ",
     calorie: 0,
     calorie_theory: "上から見ると丸いからカロリーゼロ。",
-    labels: []
+    labels: ["Bisquick", "Pancake", "Breakfast"]
   },
   {
     name: "ホットケーキ",
@@ -131,7 +131,7 @@ Food.create!([
     name: "クレープ",
     calorie: 0,
     calorie_theory: "クレープは元々丸い形で焼いてるからカロリーゼロ。",
-    labels: []
+    labels: ["Palatschinke", "Dessert", "Cannoli"]
   },
 ])
 

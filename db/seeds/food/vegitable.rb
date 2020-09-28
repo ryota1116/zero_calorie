@@ -11,7 +11,7 @@ Food.create!([
     name: "ナス",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Vegetable", "Violet", "Purple", "Eggplant", "Fried aubergine"]
   },
   {
     name: "トマト",
@@ -29,19 +29,19 @@ Food.create!([
     name: "パプリカ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bell pepper", "Pimiento", "Red bell pepper", "Capsicum", "Bell peppers and chili peppers", "Yellow pepper"]
   },
   {
     name: "トウガラシ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Serrano pepper", "Chili pepper", "Tabasco pepper", "Bell peppers and chili peppers", "Bird's eye chili"]
   },
   {
     name: "かぼちゃ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Squash", "Acorn squash", "Pumpkin", "Calabaza", "Winter squash"]
   },
   {
     name: "きゅうり",
@@ -53,13 +53,13 @@ Food.create!([
     name: "ゴーヤ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Momordica charantia", "Luffa"]
   },
   {
     name: "ズッキーニ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Fried aubergine", "Zucchini"]
   },
   {
     name: "ヘチマ",
@@ -71,7 +71,7 @@ Food.create!([
     name: "オクラ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Leaf vegetable", "Vegetarian food", "Vegetable"]
   },
   {
     name: "キャベツ",
@@ -80,16 +80,16 @@ Food.create!([
     labels: ["Cabbage", "Iceburg lettuce", "Savoy cabbage", "wild cabbage"]
   },
   {
-    name: "シュンギク",
+    name: "春菊(しゅんぎく)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Herb", "Flowering plant", "Mizuna"]
   },
   {
     name: "セロリ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Herb", "Parsley", "Mizuna", "Celery"]
   },
   {
     name: "高菜",
@@ -173,7 +173,7 @@ Food.create!([
     name: "ニンニク",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Onion", "Garlic", "Elephant garlic"]
   },
   {
     name: "ネギ",
@@ -226,7 +226,7 @@ Food.create!([
   {
     name: "蓮根",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "蓮根の断面図の丸い穴はカロリーゼロのゼロ。",
     labels: []
   },
   {
@@ -350,7 +350,7 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,
-    food_id: Food.find_by(name: "シュンギク").id
+    food_id: Food.find_by(name: "春菊(しゅんぎく)").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,

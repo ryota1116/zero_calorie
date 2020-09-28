@@ -77,13 +77,13 @@ Food.create!([
     name: "いちご大福",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Daifuku"]
   },
   {
     name: "フルーツ大福",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Daifuku"]
   },
   {
     name: "抹茶アイス",

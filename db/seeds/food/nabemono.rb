@@ -12,19 +12,13 @@ Food.create!([
     name: "中国鍋",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Jeongol", "Korean food"]
   },
   {
     name: "参鶏湯(サムゲタン)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
-  },
-  {
-    name: "鍋焼きうどん",
-    calorie: 0,
-    calorie_theory: "",
-    labels: []
+    labels: ["Ginseng chicken soup", "Korean food", "Sinigang"]
   },
   {
     name: "すき焼き",
@@ -36,25 +30,25 @@ Food.create!([
     name: "しゃぶしゃぶ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Shabu-shabu", "Hot pot", "Chinese food"]
   },
   {
     name: "もつ鍋",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Motsunabe", "Nabemono", "Chankonabe"]
   },
   {
     name: "土手鍋",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Nabemono", "Chankonabe", "Kamameshi"]
   },
   {
     name: "ちゃんこ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Chankonabe", "Jeongol", "Nabemono"]
   },
   {
     name: "おでん",
@@ -66,13 +60,13 @@ Food.create!([
     name: "寄せ鍋",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Nabemono"]
   },
   {
     name: "水炊き",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Chankonabe", "Jeongol", "Nabemono"]
   },
 ])
 

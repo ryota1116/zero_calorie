@@ -11,19 +11,19 @@ Food.create!([
     name: "マグロ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sashimi", "Tataki", "Fish"]
   },
   {
     name: "いわし",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sardine", "Pacific saury", "Mackerel", "Fish"]
   },
   {
     name: "さんま",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sardine", "Pacific saury", "Mackerel", "Fish"]
   },
   {
     name: "鮎(あゆ)",
@@ -35,13 +35,13 @@ Food.create!([
     name: "鮭(さけ)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Smoked salmon", "Fish slice", "Kasuzuke", "Sashimi", "Salmon", "Sockeye salmon"]
   },
   {
     name: "サーモン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Fish slice", "Sashimi", "Smoked salmon", "Fish slice", "Kasuzuke", "Sockeye salmon"]
   },{
     name: "ハマチ",
     calorie: 0,
@@ -81,7 +81,7 @@ Food.create!([
     name: "鯛(たい)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Fish", "Fish products", "Red seabream", "Seabream"]
   },
   {
     name: "カツオ",
@@ -99,7 +99,7 @@ Food.create!([
     name: "うなぎ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Unadon", "Kabayaki", "Unagi", "Eel"]
   },
   {
     name: "穴子(あなご)",
@@ -130,7 +130,7 @@ Food.create!([
     name: "蟹(かに)",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Crab", "King crab", "Seafood", "Crab meat", "Botan shrimp", "Horsehair crab", "Crustacean"]
   },
   {
     name: "イカ",
@@ -148,19 +148,19 @@ Food.create!([
     name: "さざえ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Sea snail", "Shankha", "Shell", "Conch", "Snails and slugs"]
   },
   {
     name: "あわび",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Abalone", "Mussel", "Clam", "Seafood"]
   },
   {
     name: "ほたて",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Mussel", "Clam", "Seafood" "Shellfish", "Oyster", "Scallop", "Invertebrate", "Bivalve"]
   },
   {
     name: "うに",
@@ -172,7 +172,13 @@ Food.create!([
     name: "いくら",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Caviar", "Orange"]
+  },
+  {
+    name: "鯖(さば)",
+    calorie: 0,
+    calorie_theory: "",
+    labels: ["Sardine", "Pacific saury", "Mackerel", "Fish"]
   },
 ])
 
@@ -288,5 +294,9 @@ FoodFoodGenre.create!([
   {
     food_genre_id: FoodGenre.find_by(genre_name: "海鮮").id,
     food_id: Food.find_by(name: "いくら").id
+  },
+  {
+    food_genre_id: FoodGenre.find_by(genre_name: "海鮮").id,
+    food_id: Food.find_by(name: "鯖(さば)").id
   },
 ])

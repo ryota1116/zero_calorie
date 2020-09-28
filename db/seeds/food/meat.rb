@@ -17,7 +17,7 @@ Food.create!([
     name: "豚肉",
     calorie: 0,
     calorie_theory: "",
-    labels: ["Red meat", "Pork steak",]
+    labels: ["Red meat", "Pork steak"]
   },
   {
     name: "鶏肉",
@@ -71,49 +71,49 @@ Food.create!([
     name: "ジンギスカン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Jingisukan", "Instant-boiled mutton", "Yakiniku"]
   },
   {
     name: "ホルモン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Horumonyaki", "Horumon", "Grilling"]
   },
   {
     name: "チーズタッカルビ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: "Dak galbi"]
   },
   {
     name: "ステーキ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Flat iron steak", "Beef tenderloin", "Sirloin steak", "Beef"]
   },
   {
     name: "ベーコン",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Bacon", "Animal fat", "Veal", "Samgyeopsal"]
   },
   {
     name: "ハム",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Ham", "Gammon", "Fish slice", "Samgyeopsal", "Animal fat"]
   },
   {
     name: "ソーセージ",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Frankfurter würstchen", "Sausage", "Cumberland sausage", "Thuringian sausage", "Cervelat", "Vienna sausage", "Italian sausage"]
   },
   {
     name: "ウインナー",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Frankfurter würstchen", "Sausage", "Cumberland sausage", "Thuringian sausage", "Cervelat", "Vienna sausage", "Italian sausage"]
   },
 ])
 

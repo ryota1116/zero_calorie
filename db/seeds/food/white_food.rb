@@ -17,25 +17,25 @@ Food.create!([
     name: "ヨーグルト",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Filmjölk"]
   },
   {
     name: "牛乳",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Milk", "Lactose", "Soy milk", "Raw milk", "Grain milk", "Hemp milk", "Buttermilk"]
   },
   {
     name: "豆乳",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Milk", "Lactose", "Soy milk", "Raw milk", "Grain milk", "Hemp milk", "Buttermilk"]
   },
   {
     name: "生クリーム",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Buttercream", "Whipped cream", "Meringue", "Cream"]
   },
   {
     name: "砂糖",
@@ -47,7 +47,7 @@ Food.create!([
     name: "カルピス",
     calorie: 0,
     calorie_theory: "",
-    labels: []
+    labels: ["Calpis"]
   },
 ])
 
