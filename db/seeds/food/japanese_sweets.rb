@@ -88,7 +88,7 @@ Food.create!([
   {
     name: "抹茶アイス",
     calorie: 0,
-    calorie_theory: "抹茶が入っている食べ物は食べ物をクルクル回せばカロリーがゼロになる。そのためのお作法。",
+    calorie_theory: "抹茶の入った容器をクルクルと回せばカロリーゼロになる。アレはそのためのお作法。",
     labels: ["Pistachio ice cream"]
   },
 ])

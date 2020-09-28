@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "スイーツ",
     calorie: 0,
-    calorie_theory: "甘いものは、しょっぱいものを食べればカロリーが中和されてゼロカロリーになる。",
+    calorie_theory: "スイーツは糖分のカタマリ。糖分というのはすぐにエネルギーに変わるから、実質カロリーゼロ。",
   },
 ])
 
@@ -112,7 +112,7 @@ Food.create!([
   {
     name: "カステラ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "カステラは潰したらカロリーゼロ。",
     labels: ["Castella"]
   },
   {
@@ -131,6 +131,12 @@ Food.create!([
     name: "クレープ",
     calorie: 0,
     calorie_theory: "クレープは元々丸い形で焼いてるからカロリーゼロ。",
+    labels: ["Palatschinke", "Dessert", "Cannoli"]
+  },
+  {
+    name: "バウムクーヘン",
+    calorie: 0,
+    calorie_theory: "真ん中のカロリーのあるところを全部くり抜いてるのでカロリーゼロ。カロリーは真ん中に集まりがち。",
     labels: ["Palatschinke", "Dessert", "Cannoli"]
   },
 ])

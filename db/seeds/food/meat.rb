@@ -70,7 +70,7 @@ Food.create!([
   {
     name: "ジンギスカン",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ラム肉はカロリーゼロ。食べれば食べるほど痩せる。",
     labels: ["Jingisukan", "Instant-boiled mutton", "Yakiniku"]
   },
   {

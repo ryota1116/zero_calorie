@@ -41,4 +41,10 @@ Food.create!([
     calorie_theory: "",
     labels: ["Tamagoyaki", "Japanese cuisine"]
   },
+  {
+    name: "寿司(すし)",
+    calorie: 0,
+    calorie_theory: "寿司は握ることでカロリーが潰されるから、カロリーゼロ。",
+    labels: ["Tamagoyaki", "Japanese cuisine"]
+  },
 ])

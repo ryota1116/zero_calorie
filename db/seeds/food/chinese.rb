@@ -10,7 +10,7 @@ Food.create!([
   {
     name: "炒飯",
     calorie: 0,
-    calorie_theory: "カロリーもパラパラになるから、カロリーゼロ。",
+    calorie_theory: "チャーハンは何度もフライパンの上で熱によって痛めつけられることで、カロリーが全て消える。ちょうどカロリーがなくなった時がチャーハンの完成である。加えてカロリーもパラパラになるから、カロリーゼロに違いない。",
     labels: ["Spiced rice", "rice", "Steamed rice", "Thai fried rice", "Pilaf", "Brown rice"]
   },
   {
@@ -76,7 +76,7 @@ Food.create!([
   {
     name: "麻婆丼",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "辛いからカロリーを自然と消費する。よってカロリーゼロ。",
     labels: ["Mapo doufu"]
   },
   {
@@ -106,7 +106,7 @@ Food.create!([
   {
     name: "麻婆豆腐",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "辛いからカロリーを自然と消費する。よってカロリーゼロ。",
     labels: ["Mapo doufu"]
   },
   {

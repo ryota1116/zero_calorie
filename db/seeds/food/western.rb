@@ -67,6 +67,12 @@ Food.create!([
     calorie_theory: "",
     labels: ["Boeuf à la mode", "Boiled beef", "Brown sauce", "Stew"]
   },
+  {
+    name: "カツカレー",
+    calorie: 0,
+    calorie_theory: "カレーのカロリーと、とんかつのカロリーが一緒になることで、カロリー同士がぶつかり合って喧嘩するのでカロリーゼロ。",
+    labels: ["Rice and curry", "Curry", "Japanese curry", "Hayashi rice", "Gumbo", "Stew"]
+  },
 ])
 
 FoodFoodGenre.create!([

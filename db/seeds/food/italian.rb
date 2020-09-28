@@ -35,13 +35,19 @@ Food.create!([
   {
     name: "カルボナーラ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "白いからカロリーゼロ。カロリーが白紙に戻る。",
     labels: ["Pasta", "Noodle", "Spaghetti", "Carbonara"]
   },
   {
     name: "ペペロンチーノ",
     calorie: 0,
     calorie_theory: "",
+    labels: ["Pasta", "Noodle", "Spaghetti"]
+  },
+  {
+    name: "ナポリタン",
+    calorie: 0,
+    calorie_theory: "野菜であるトマトでコーティングされてるから、カロリーゼロ。",
     labels: ["Pasta", "Noodle", "Spaghetti"]
   },
   {

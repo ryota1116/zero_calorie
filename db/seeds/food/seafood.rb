@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "海鮮",
     calorie: 0,
-    calorie_theory: "海鮮はカロリーゼロ。カロリーは水溶性だから、全て海水に溶け出している。",
+    calorie_theory: "海鮮はカロリーゼロ。カロリーは水溶性だから、海水に溶け出している。",
   },
 ])
 

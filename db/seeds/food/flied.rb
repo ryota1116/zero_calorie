@@ -10,7 +10,7 @@ Food.create!([
   {
     name: "コロッケ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "じゃがいもは野菜。パン粉に包んで油で揚げる事で、若干あるカロリーが油に逃げてしまう。",
     labels: ["Menchi-katsu", "Korokke", "Cutlet"]
   },
   {

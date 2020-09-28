@@ -29,7 +29,7 @@ Food.create!([
   {
     name: "しゃぶしゃぶ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "カロリーをしゃぶしゃぶすることでカロリーゼロになる。",
     labels: ["Shabu-shabu", "Hot pot", "Chinese food"]
   },
   {
