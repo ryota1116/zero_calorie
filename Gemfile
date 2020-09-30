@@ -23,7 +23,7 @@ gem 'mini_racer', platforms: :ruby
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'active_decorator'
+# gem 'active_decorator'
 
 # Authentication
 gem 'sorcery'
@@ -33,8 +33,8 @@ gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 # GCP
-# ggsいらないのでは？
-gem 'google-cloud-storage', '~> 1.8', require: false
+# ggsいらないのでは
+# gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'google-cloud-vision'
 
 # UI/UX
@@ -54,6 +54,8 @@ gem 'config'
 # slack通知
 gem 'exception_notification'
 gem 'slack-notifier'
+# ひらがな、カタカナ、漢字、ローマ字を相互変換するgem
+gem 'miyabi'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -82,6 +84,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
+
   # Table/Schema
   # 各モデルのスキーマ情報をファイルの先頭もしくは末尾にコメントとして書き出してくれるGem
   gem 'annotate'

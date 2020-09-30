@@ -1,3 +1,4 @@
+// 現状使わない
 // $(function () {
 //   $("#search_by_picture form input[type=file]").on('change', function (e) {
 //     console.log(e.target.files);

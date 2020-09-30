@@ -28,9 +28,24 @@ class Food < ApplicationRecord
 
   # 文字列でFoodテーブルを検索
   def self.search_form(food_name)
-    return Food.all unless food_name
+    # return Food.all unless food_name
+    return nil unless food_name
 
     Food.search_by_form(food_name)
+  end
+
+  # Foodの検索を行う
+  def self.fetch_food_lists(search_word)
+    case search_word # 検索ワードが
+    when /\A[ぁ-んー－]+\z/ # 平仮名のみの場合
+      food_lists = Food.search_form(search_word.to_kana) # カタカナに変換して検索
+    when /\A[ァ-ヶー－]+\z/ # カタカナのみの場合
+      food_lists = Food.search_form(search_word.to_hira) # 平仮名に変換して検索
+    when /[一-龠々]/ # 漢字が含まれる場合
+      food_lists = Food.search_form(search_word.to_kanhira) # 平仮名に変換して検索
+    end
+
+    food_lists
   end
 
   # def select_food_genre(genre)

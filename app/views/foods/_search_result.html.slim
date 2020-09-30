@@ -14,7 +14,7 @@ table class="ui fixed single line table"
         td
           = link_to food.name, new_food_meal_record_path(food)
         td
-          = food.calorie
+          | #{food.calorie} kcal
         td
           - if food.calorie_theory.present?
             = food.calorie_theory

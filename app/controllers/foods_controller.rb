@@ -19,8 +19,13 @@ class FoodsController < ApplicationController
   end
 
   def search_form_result
+    # 検索ワードとしてviewに表示
     @search_word = params[:name]
-    @food_lists = Food.search_form(params[:name])
+
+    # 変換した値でDB検索
+    food_lists = Food.fetch_food_lists(@search_word)
+    # # ユーザが入力した元の値で検索をかけて、orメソッドでActiveRecord_Relationを結合
+    @food_lists = food_lists.or(Food.search_form(params[:name])).page(params[:page]).per(10)
   end
 
   # vision apiのレスポンスを返す

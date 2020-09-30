@@ -14,10 +14,10 @@
           = f.text_field :email, placeholder: 'メールアドレス'
         .field
           = f.label :password, User.human_attribute_name(:password)
-          = f.password_field :password, placeholder: '3文字以上'
+          = f.password_field :password, placeholder: '8文字以上'
         .field
           = f.label :password_confirmation, User.human_attribute_name(:password_confirmation)
-          = f.password_field :password_confirmation, placeholder: '3文字以上'
+          = f.password_field :password_confirmation, placeholder: '8文字以上'
         .actions
           = f.submit t('defaults.register'), class: 'ui button'
       .field
