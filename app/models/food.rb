@@ -45,7 +45,7 @@ class Food < ApplicationRecord
       food_lists = Food.search_form(search_word.to_kanhira) # 平仮名に変換して検索
     end
 
-    return food_lists
+    food_lists
   end
 
   # def select_food_genre(genre)
