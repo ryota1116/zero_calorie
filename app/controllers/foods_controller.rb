@@ -21,19 +21,10 @@ class FoodsController < ApplicationController
   def search_form_result
     # 検索ワードとしてviewに表示
     @search_word = params[:name]
-    # 検索データ
 
-    # @search_word.match?(/\A[ぁ-んー－]+\z/)
-    case @search_word # 検索ワードが
-    when /\A[ぁ-んー－]+\z/ # 平仮名のみの場合
-      food_lists = Food.search_form(@search_word.to_kana) # カタカナに変換して検索
-    when /\A[ァ-ヶー－]+\z/ # カタカナのみの場合
-      food_lists = Food.search_form(@search_word.to_hira) # 平仮名に変換して検索
-    when /[一-龠々]/ # 漢字が含まれる場合
-      food_lists = Food.search_form(@search_word.to_kanhira) # 平仮名に変換して検索
-    end
-
-    # ユーザが入力した元データで検索をかけて、ActiveRecord_Relationをorメソッドで結合させる
+    # 変換した値でDB検索
+    food_lists = Food.fetch_food_lists(@search_word)
+    # # ユーザが入力した元の値で検索をかけて、orメソッドでActiveRecord_Relationを結合
     @food_lists = food_lists.or(Food.search_form(params[:name])).page(params[:page]).per(10)
   end
 

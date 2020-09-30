@@ -1,3 +1,5 @@
+// 現状使わない
+
 // $('#chalendar-1').calendar({
 //   type: 'date'
 // })
