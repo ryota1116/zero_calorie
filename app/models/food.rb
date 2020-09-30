@@ -28,7 +28,8 @@ class Food < ApplicationRecord
 
   # 文字列でFoodテーブルを検索
   def self.search_form(food_name)
-    return Food.all unless food_name
+    # return Food.all unless food_name
+    return nil unless food_name
 
     Food.search_by_form(food_name)
   end
