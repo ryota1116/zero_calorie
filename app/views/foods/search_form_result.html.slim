@@ -5,6 +5,7 @@
         | 「#{@search_word}」の#{t('.title')}
       - if @food_lists.present?
         == render 'search_result', food_lists: @food_lists
+        = paginate(@food_lists)
       - else
         p
           = t('.no_search_result_message')

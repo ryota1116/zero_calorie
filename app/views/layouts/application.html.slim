@@ -4,7 +4,7 @@ html
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
     title
       = page_title(yield(:title))
-    / TODO: metaタグは別ファイルに切り出す
+    // TODO: metaタグは別ファイルに切り出す
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
