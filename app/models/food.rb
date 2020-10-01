@@ -48,6 +48,14 @@ class Food < ApplicationRecord
     food_lists
   end
 
+  def self.merge_food_lists(food_lists, search_word)
+    if food_lists.present?
+      food_lists.or(Food.search_form(search_word))
+    else
+      Food.search_form(search_word)
+    end
+  end
+
   # def select_food_genre(genre)
   #   food_genres << genre
   # end
