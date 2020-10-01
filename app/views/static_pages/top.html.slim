@@ -5,4 +5,28 @@
       |その食べ物、ゼロカロリーです。
     = image_pack_tag('media/images/undraw_barbecue_3x93.png', size: '400x400')
 
-= link_to 'ゲストとしてログイン', guest_login_path, method: :post
+.ui.center.aligned.grid
+  = link_to 'ゲストとしてログイン', guest_login_path, method: :post, class: 'ui orange button'
+
+/ .ui.placeholder.segment
+/   .ui.two.column.stackable.center.aligned.grid
+/     .ui.vertical.divider
+/       | Or
+/     .middle.aligned.row
+/       .column
+/         .ui.icon.header
+/           i class="search icon"
+/             | 食べ物を検索する
+
+/         .field
+/           .ui.search
+/             .ui.icon.input
+/               input class="prompt" type="text" placeholder="Search countries..."
+/               i class="search icon"
+/             .results
+/       .column
+/         .ui.icon.header
+/           i class="image outline icon"
+/             | 食べ物を画像検索する
+/         .ui.primary.button
+/           | 検索する

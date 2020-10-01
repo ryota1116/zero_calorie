@@ -1,8 +1,9 @@
 = form_with url: search_form_result_foods_path, method: :get, local: true do |f|
-  .ui.item
-    .ui.icon.input
+  .item
+    .ui.action.input
       = f.text_field :name, class: 'prompt', placeholder: '食べ物を検索する'
-      / i.search.link.icon
-      = f.button type: 'submit' do
-        i class='search.icon'
-        | 検索する
+      = f.button type: 'submit', class: "ui icon button" do
+        i.search.icon
+      / = button_tag type: 'submit' do
+      /   i class='search.icon'
+      /   | 検索する
