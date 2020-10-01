@@ -12,8 +12,6 @@ require 'capistrano/rails/migrations'
 require 'capistrano/puma'
 require 'capistrano/nginx'
 
-require 'capistrano/ssh_doctor'
-
 install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Nginx
