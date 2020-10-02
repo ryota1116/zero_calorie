@@ -2,7 +2,6 @@
 <br>
 [![Rails](https://img.shields.io/badge/Rails-v6.0.3.2-%23a72332)](https://rubygems.org/gems/rails/versions/6.0.3.2)
 [![codecov](https://codecov.io/gh/ryota1116/zero_calorie/branch/develop/graph/badge.svg)](https://codecov.io/gh/ryota1116/zero_calorie)
-[![CircleCI](https://circleci.com/gh/ryota1116/zero_carorie.svg?style=svg)](https://circleci.com/gh/ryota1116/zero_carorie)
 
 # Zerorie / ゼロリー
 
@@ -41,6 +40,9 @@ https://xd.adobe.com/view/cc0b2f2f-238d-4ad3-a35f-4c5c76022c18-9958/
 
 ## ER図
 ![](https://user-images.githubusercontent.com/60560627/90597809-bae17e80-e22c-11ea-846c-0e4849e6a685.png)
+
+## インフラ構成図
+<img width="100%" alt="スクリーンショット 2020-10-03 2 40 56" src="https://user-images.githubusercontent.com/60560627/94953154-053f6600-0522-11eb-84df-22ae70957df7.png">
 
 ## 使用技術
 <p align="left">
