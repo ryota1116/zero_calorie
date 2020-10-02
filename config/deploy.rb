@@ -15,6 +15,10 @@ set :deploy_to, '/var/www/zero_calorie'
 set :linked_files, %w[config/master.key config/credentials/production.key config/database.yml]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle]
 # append :linked_files, 'config/credentials/production.key'
+# 追記
+# https://www.cotegg.com/blog/?p=1850
+# 以下でheader (https://zerorie.com) didn't match request.base_url (http://zerorie.com)に対応
+set :nginx_downstream_uses_ssl, true
 
 # rubyのバージョン
 set :rbenv_ruby, File.read('.ruby-version').strip
