@@ -1,12 +1,3 @@
-# ジュース
-FoodGenre.create!([
-  {
-    genre_name: "イタリアン",
-    calorie: 0,
-    calorie_theory: "",
-  },
-])
-
 Food.create!([
   {
     name: "ピザ",
@@ -15,21 +6,15 @@ Food.create!([
     labels: ["Pizza", "Pizza cheese", "California-style pizza"]
   },
   {
-    name: "パスタ",
-    calorie: 0,
-    calorie_theory: "",
-    labels: ["Pasta", "Noodle", "Spaghetti", "Carbonara"]
-  },
-  {
     name: "ピラフ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ピラフとは炒めた米を炊いた料理。一度パラパラにする時点でカロリーもパラパラになる。",
     labels: []
   },
   {
     name: "マルゲリータ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ピザの丸い形はカロリーゼロの0を表している。",
     labels: ["Pizza", "Pizza cheese", "California-style pizza"]
   },
   {
@@ -41,19 +26,19 @@ Food.create!([
   {
     name: "ペペロンチーノ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ペペロンチーノに必要な乳化とは、カロリーゼロにするための料理工程である。",
     labels: ["Pasta", "Noodle", "Spaghetti"]
   },
   {
     name: "ナポリタン",
     calorie: 0,
-    calorie_theory: "野菜であるトマトでコーティングされてるから、カロリーゼロ。",
+    calorie_theory: "野菜のトマトでコーティングされているから、カロリーゼロ。",
     labels: ["Pasta", "Noodle", "Spaghetti"]
   },
   {
     name: "チーズ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "牛乳は白いからカロリーゼロ。牛乳から作られるチーズもカロリーゼロである。",
     labels: ["Limburger cheese", "Processed cheese", "Cheese"]
   },
 ])

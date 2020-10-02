@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "肉",
     calorie: 0,
-    calorie_theory: "肉にはL-カルニチンという脂肪の燃焼を助けてくれる成分が多く含まれている。つまり食べれば食べるだけ脂肪が燃焼されるから、カロリーはゼロ。むしろマイナス。",
+    calorie_theory: "肉にはL-カルニチンという脂肪の燃焼を助けてくれる成分が多く含まれている。つまり食べれば食べるだけ脂肪が燃焼されるから、カロリーゼロ。むしろマイナス。",
   },
 ])
 
@@ -83,7 +83,7 @@ Food.create!([
     name: "チーズタッカルビ",
     calorie: 0,
     calorie_theory: "",
-    labels: "Dak galbi"]
+    labels: ["Dak galbi"]
   },
   {
     name: "ステーキ",

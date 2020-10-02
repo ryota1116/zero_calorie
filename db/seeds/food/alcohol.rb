@@ -10,7 +10,7 @@ Food.create!([
   {
     name: "日本酒",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "お米は白いからカロリーが白紙に戻る。日本酒はお米を発酵させて作るものだから、日本酒もカロリーゼロ。",
     labels: ["Sake", "Japanese whisky"]
   },
   {

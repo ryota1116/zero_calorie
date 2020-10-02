@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "洋食",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "幕末から明治期にかけて日本で洋食が発展した理由はカロリーゼロだったから。文明開花の音がする。",
   },
 ])
 

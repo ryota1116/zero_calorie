@@ -81,10 +81,6 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "鍋物").id,
-    food_id: Food.find_by(name: "鍋焼きうどん").id
-  },
-  {
-    food_genre_id: FoodGenre.find_by(genre_name: "鍋物").id,
     food_id: Food.find_by(name: "すき焼き").id
   },
   {

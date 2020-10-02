@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "中華",
     calorie: 0,
-    calorie_theory: "中国共産党の手にかかればカロリーを隠蔽することくらい容易いもの。（中国4000年の歴史は伊達ではない）",
+    calorie_theory: "中国共産党の手にかかればカロリーを隠蔽することくらい容易いもの。",
   },
 ])
 
@@ -10,7 +10,7 @@ Food.create!([
   {
     name: "炒飯",
     calorie: 0,
-    calorie_theory: "チャーハンは何度もフライパンの上で熱によって痛めつけられることで、カロリーが全て消える。ちょうどカロリーがなくなった時がチャーハンの完成である。加えてカロリーもパラパラになるから、カロリーゼロに違いない。",
+    calorie_theory: "チャーハンは何度もフライパンの上で熱によって痛めつけられることで、カロリーが全て消える。加えてカロリーがパラパラになる理論からも、カロリーゼロに違いない。",
     labels: ["Spiced rice", "rice", "Steamed rice", "Thai fried rice", "Pilaf", "Brown rice"]
   },
   {
@@ -36,12 +36,6 @@ Food.create!([
     calorie: 0,
     calorie_theory: "",
     labels: ["Asian soups", "Champon", "Chinese food", "Cap cai"]
-  },
-  {
-    name: "坦々麺",
-    calorie: 0,
-    calorie_theory: "",
-    labels: ["Noodle", "Noodle soup", "Ramen", "Tantan noodles"]
   },
   {
     name: "餃子",
@@ -168,16 +162,11 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
-    food_id: Food.find_by(name: "ホイコーロー").id
+    food_id: Food.find_by(name: "回鍋肉(ホイコーロー)").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
     food_id: Food.find_by(name: "八宝菜").id
-  },
-
-  {
-    food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
-    food_id: Food.find_by(name: "坦々麺").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
@@ -185,7 +174,7 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
-    food_id: Food.find_by(name: "ムーシーロー").id
+    food_id: Food.find_by(name: "ムーシーロ").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
@@ -210,10 +199,6 @@ FoodFoodGenre.create!([
   {
     food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
     food_id: Food.find_by(name: "エビマヨ").id
-  },
-  {
-    food_genre_id: FoodGenre.find_by(genre_name: "中華").id,
-    food_id: Food.find_by(name: "海老天").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "中華").id,

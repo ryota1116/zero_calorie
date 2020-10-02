@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "野菜",
     calorie: 0,
-    calorie_theory: "野菜を食べれば全てのカロリーが無効化される。当然野菜自体のカロリーもゼロ。",
+    calorie_theory: "野菜を食べれば全てのカロリーが無効化される。当然、野菜自体もカロリーゼロ。",
   },
 ])
 
@@ -236,8 +236,7 @@ Food.create!([
     labels: ["Broccoli", "Broccoflower"]
   },
   {
-    name: "カリフラワー、
-    ",
+    name: "カリフラワー",
     calorie: 0,
     calorie_theory: "",
     labels: []
@@ -403,11 +402,11 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,
-    food_id: Food.find_by(name: " タマネギ").id
+    food_id: Food.find_by(name: "タマネギ").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,
-    food_id: Food.find_by(name: "にら").id
+    food_id: Food.find_by(name: "ニラ").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "野菜").id,

@@ -62,7 +62,7 @@ Food.create!([
     labels: ["Cherry", "Currant", "Cranberry", "Berry"]
   },
   {
-    name: "ざくろ",
+    name: "ザクロ",
     calorie: 0,
     calorie_theory: "",
     labels: []

@@ -3,7 +3,7 @@ FoodGenre.create!([
   {
     genre_name: "麺類",
     calorie: 0,
-    calorie_theory: "鍋ものはカロリーゼロ。お鍋が沸騰している間にカロリーが蒸発している。",
+    calorie_theory: "麺の丁度良い茹で具合とは、丁度カロリーがゼロになるタイミングのこと。美味しく感じれば間違いなくカロリーゼロになっている。",
   },
 ])
 
@@ -17,7 +17,7 @@ Food.create!([
   {
     name: "うどん",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "カロリーもこねられているから、カロリーゼロになる。",
     labels: ["Udon", "Shirataki noodles", "Stringozzi"]
   },
   {
@@ -65,31 +65,31 @@ Food.create!([
   {
     name: "ラーメン",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ラーメンは高カロリーの具材の集まり。つまりカロリーが喧嘩し合って相殺されるため、カロリーゼロ。",
     labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "醤油ラーメン",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ラーメンは高カロリーの具材の集まり。つまりカロリーが喧嘩し合って相殺されるため、カロリーゼロ。",
     labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "とんこつラーメン",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ラーメンは高カロリーの具材の集まり。つまりカロリーが喧嘩し合って相殺されるため、カロリーゼロ。",
     labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "みそラーメン",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ラーメンは高カロリーの具材の集まり。つまりカロリーが喧嘩し合って相殺されるため、カロリーゼロ。",
     labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
     name: "塩ラーメン",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ラーメンは高カロリーの具材の集まり。つまりカロリーが喧嘩し合って相殺されるため、カロリーゼロ。",
     labels: ["Noodle", "Lamian", "Naengmyeon", "Noodle soup"]
   },
   {
@@ -101,7 +101,7 @@ Food.create!([
   {
     name: "二郎（二郎系ラーメン）",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "野菜がカロリーを無効化してくれる。常連が野菜増し増しを注文する訳はコレである。",
     labels: ["Ramen", "Opor ayam", "Bubur ayam", "Comfort food", "Noodle", "Lamian", "Noodle soup"]
   },
   {
@@ -139,6 +139,12 @@ Food.create!([
     calorie: 0,
     calorie_theory: "",
     labels: ["Yaki udon", "Udon"]
+  },
+  {
+    name: "パスタ",
+    calorie: 0,
+    calorie_theory: "",
+    labels: ["Pasta", "Noodle", "Spaghetti", "Carbonara"]
   },
 ])
 
@@ -181,7 +187,7 @@ FoodFoodGenre.create!([
     food_id: Food.find_by(name: "焼うどん").id
   },
   {
-    food_genre_id: FoodGenre.find_by(genre_name: "ラーメン").id,
+    food_genre_id: FoodGenre.find_by(genre_name: "麺類").id,
     food_id: Food.find_by(name: "醤油ラーメン").id
   },
   {
@@ -202,7 +208,7 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "麺類").id,
-    food_id: Food.find_by(name: "二郎系ラーメン").id
+    food_id: Food.find_by(name: "二郎（二郎系ラーメン）").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "麺類").id,
@@ -227,5 +233,9 @@ FoodFoodGenre.create!([
   {
     food_genre_id: FoodGenre.find_by(genre_name: "麺類").id,
     food_id: Food.find_by(name: "鍋焼きうどん").id
+  },
+  {
+    food_genre_id: FoodGenre.find_by(genre_name: "麺類").id,
+    food_id: Food.find_by(name: "パスタ").id
   },
 ])

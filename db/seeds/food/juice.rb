@@ -35,37 +35,37 @@ Food.create!([
   {
     name: "コーラ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "炭酸のシュワシュワからカロリーが弾け飛ぶ。",
     labels: ["Cola", "Coca-cola"]
   },
   {
     name: "ジンジャーエール",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "炭酸のシュワシュワからカロリーが弾け飛ぶ。",
     labels: []
   },
   {
     name: "サイダー",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "炭酸のシュワシュワからカロリーが弾け飛ぶ。",
     labels: ["Water"]
   },
   {
     name: "ソーダ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "炭酸のシュワシュワからカロリーが弾け飛ぶ。",
     labels: []
   },
   {
     name: "ラムネ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "ラムネに入ったビー玉が、カロリーを吸収するからカロリーゼロ。",
     labels: []
   },
   {
     name: "ペプシ",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "炭酸のシュワシュワからカロリーが弾け飛ぶ。",
     labels: []
   },
   {
@@ -130,7 +130,7 @@ FoodFoodGenre.create!([
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "ジュース").id,
-    food_id: Food.find_by(name: "ジンジャー").id
+    food_id: Food.find_by(name: "ジンジャーエール").id
   },
   {
     food_genre_id: FoodGenre.find_by(genre_name: "ジュース").id,

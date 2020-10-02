@@ -2,7 +2,7 @@ FoodGenre.create!([
   {
     genre_name: "和菓子",
     calorie: 0,
-    calorie_theory: "和菓子はわびさびを体現した食べ物。わびさびの心にカロリーの話を持ち出すのは言語道断。",
+    calorie_theory: "和菓子はわびさびを体現した食べ物。わびさびの心にカロリーの話を持ち出すのは言語道断である。",
   },
 ])
 
@@ -40,19 +40,19 @@ Food.create!([
   {
     name: "団子",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "丸いからカロリーゼロ。",
     labels: ["Dango"]
   },
   {
     name: "3色団子",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "丸いからカロリーゼロ。",
     labels: ["Dango"]
   },
   {
     name: "みたらし団子",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "丸いからカロリーゼロ。",
     labels: ["Dango"]
   },
   {
@@ -70,7 +70,7 @@ Food.create!([
   {
     name: "大福",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "白いからカロリーゼロ。",
     labels: ["Manjū", "Mochi", "Daifuku", "Mantou"]
   },
   {

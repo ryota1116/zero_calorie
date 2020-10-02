@@ -3,7 +3,7 @@ FoodGenre.create!([
   {
     genre_name: "きのこ類",
     calorie: 0,
-    calorie_theory: "",
+    calorie_theory: "きのこは水分と食物繊維のカタマリ。こんな体に良いものゼロカロリーに決まっている。ただし毒キノコ、テメーはダメだ。",
   },
 ])
 
