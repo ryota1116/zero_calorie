@@ -1,12 +1,14 @@
 - if @meal_record.food.calorie_theory.present?
-  = link_to '食事記録をTwitterにシェアする',
-            "https://twitter.com/share?url=https://zerorie.com&text=【食事した食べ物】#{@meal_record.food.name}【摂取カロリー】0kcal【カロリー理論】#{@meal_record.food.calorie_theory}&hashtags=zerorie,ゼロリー,ゼロカロリー理論&lang=ja",
+  = link_to "https://twitter.com/share?url=https://zerorie.com&text=【食事した食べ物】#{@meal_record.food.name}【摂取カロリー】0kcal【カロリー理論】#{@meal_record.food.calorie_theory}&hashtags=zerorie,ゼロリー,ゼロカロリー理論&lang=ja",
             title: 'Twitter',
             target: '_blank,',
-            class: 'ui twitter button'
+            class: 'ui twitter button' do
+    i class="twitter icon"
+    | 食事記録をTwitterにシェアする
 - elsif @meal_record.food.food_genres.present?
-  = link_to '食事記録をTwitterにシェアする',
-          "https://twitter.com/share?url=https://zerorie.com&text=【食事した食べ物】#{@meal_record.food.name}【摂取カロリー】0kcal【カロリー理論】#{@meal_record.food.food_genres[0].calorie_theory}&hashtags=zerorie,ゼロリー,ゼロカロリー,ゼロカロリー理論&lang=ja",
+  = link_to "https://twitter.com/share?url=https://zerorie.com&text=【食事した食べ物】#{@meal_record.food.name}【摂取カロリー】0kcal【カロリー理論】#{@meal_record.food.food_genres[0].calorie_theory}&hashtags=zerorie,ゼロリー,ゼロカロリー理論&lang=ja",
           title: 'Twitter',
           target: '_blank,',
-          class: 'ui twitter button'
+          class: 'ui twitter button' do
+    i class="twitter icon"
+    | 食事記録をTwitterにシェアする

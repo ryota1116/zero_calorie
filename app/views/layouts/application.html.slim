@@ -1,6 +1,7 @@
 doctype html
 html
   head
+    == render 'layouts/google_tag_manager' if Rails.env.production?
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
     title
       = page_title(yield(:title))
@@ -13,21 +14,22 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-    meta property="og:title" content="Zerorie / ゼロカロリーで食事を記録するアプリ" /
-    meta property="og:description" content="ゼロカロリーで食事を記録するアプリ。その食べ物もゼロカロリーです。" /
+    meta property="og:title" content="Zerorie / ゼロリー" /
+    meta property="og:description" content="ゼロカロリーで食事を記録するアプリ。その食べ物、ゼロカロリーです。" /
     meta property="og:url" content="https://zerorie.com/" /
-    meta property="og:image" content="https://zerorie.com/javascript/images/zerorie_logo/zerorie_under_bar.png" /
+    meta property="og:image" content="https://zerorie.com/app/javascript/images/zerorie_logo/zerorie_ogp.jpg" /
 
     meta name="twitter:card" content="summary_large_image" /
     meta name="twitter:site" content="@ryota_chocolat" /
-    meta name="twitter:title" content="Zerorie / ゼロカロリーで食事を記録するアプリ" /
-    meta name="twitter:description" content="ゼロカロリーで食事を記録するアプリ。その食べ物もゼロカロリーです。" /
+    meta name="twitter:title" content="Zerorie / ゼロリー" /
+    meta name="twitter:description" content="ゼロカロリーで食事を記録するアプリ。その食べ物、ゼロカロリーです。" /
     meta property="twitter:url" content="https://zerorie.com/" /
-    meta name="twitter:image" content="https://zerorie.com/javascript/images/zerorie_logo/zerorie_under_bar.png" /
+    meta name="twitter:image" content="https://zerorie.com/app/javascript/images/zerorie_logo/zerorie_ogp.jpg" /
 
     = favicon_pack_tag "zerorie_logo/favicon.png"
 
   body
+    == render 'layouts/google_tag_manager_noscript' if Rails.env.production?
 
     - if logged_in?
       == render 'shared/header'
