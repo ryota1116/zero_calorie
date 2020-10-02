@@ -117,7 +117,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.twitter.key = Rails.application.credentials.dig(:twitter_key)
   config.twitter.secret = Rails.application.credentials.dig(:twitter_secret_key)
-  config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  # config.twitter.callback_url = "https://localhost:3000/oauth/callback?provider=twitter"
   case Rails.env
   when "production"
       config.twitter.callback_url = Settings.TWITTER_CALLBACK
@@ -131,12 +131,12 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.facebook.key = Rails.application.credentials.dig(:facebook_key)
   config.facebook.secret = Rails.application.credentials.dig(:facebook_secret)
-  config.facebook.callback_url = 'https://localhost:3000/oauth/callback?provider=facebook'
+  # config.facebook.callback_url = 'https://localhost:3000/oauth/callback?provider=facebook'
   case Rails.env
   when "production"
-      config.twitter.callback_url = Settings.FACEBOOK_CALLBACK
+      config.facebook.callback_url = Settings.FACEBOOK_CALLBACK
   when "development"
-      config.twitter.callback_url = Settings.FACEBOOK_CALLBACK_DEVELOPMENT
+      config.facebook.callback_url = Settings.FACEBOOK_CALLBACK_DEVELOPMENT
   end
   config.facebook.user_info_path = 'me?fields=email,first_name'
   config.facebook.user_info_mapping = {
