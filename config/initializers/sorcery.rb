@@ -117,13 +117,13 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.twitter.key = Rails.application.credentials.dig(:twitter_key)
   config.twitter.secret = Rails.application.credentials.dig(:twitter_secret_key)
-  config.twitter.callback_url = Settings.TWITTER_CALLBACK
-  # case Rails.env
-  # when "production"
-  #   config.twitter.callback_url = Settings.TWITTER_CALLBACK
-  # when "development"
-  #   config.twitter.callback_url = Settings.TWITTER_CALLBACK_DEVELOPMENT
-  # end
+  # config.twitter.callback_url = Settings.TWITTER_CALLBACK
+  case Rails.env
+  when "production"
+    config.twitter.callback_url = Settings.TWITTER_CALLBACK
+  when "development"
+    config.twitter.callback_url = Settings.TWITTER_CALLBACK_DEVELOPMENT
+  end
   config.twitter.user_info_mapping = {
     email: 'screen_name',
     name: 'name',
