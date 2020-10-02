@@ -1,4 +1,53 @@
 header
+  .ui.grid
+    .computer.only.sixteen.wide.column
+      .ui.secondary.menu
+        .item
+          = link_to 'Zerorie', root_path
+          / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
+        .item
+          = render template: 'foods/_search_form'
+        / .item id="search_by_picture"
+        /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+        .item
+          = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+        .right.menu
+          = link_to t('defaults.my_record'), meal_records_path, class: 'item'
+          = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+  .ui.grid
+    .tablet.only.mobile.only.sixteen.wide.column
+      .ui.secondary.menu
+        .four.wide.column.item
+          = link_to 'Zerorie', root_path
+        .four.wide.column.item
+            = render template: 'foods/_search_form'
+        .four.wide.column.item
+            = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+        .four.wide.column.ui.dropdown.item
+          .text
+            | メニュー
+          i class="dropdown icon"
+          .menu
+            = link_to t('defaults.my_record'), meal_records_path, class: 'item'
+            = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+    / .ui.tablet.only.mobile.only
+      .ui.secondary.menu
+        = link_to 'Zerorie', root_path, class: 'ui item'
+          / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
+        .ui.item
+          = render template: 'foods/_search_form'
+        / .item id="search_by_picture"
+        /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+        .ui.item
+          = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+        .right.menu
+          = link_to t('defaults.my_record'), meal_records_path, class: 'ui item'
+          = link_to t('defaults.logout'), logout_path, method: :delete, class: 'ui item'
+
+
+/ header
   .ui.secondary.menu
     .ui.container
       = link_to 'Zerorie', root_path, class: 'item'
@@ -11,6 +60,8 @@ header
       .right.menu
         = link_to t('defaults.my_record'), meal_records_path, class: 'item'
         = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+
 
 
   / .ui.inverted.segment.olive

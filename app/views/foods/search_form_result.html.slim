@@ -1,7 +1,7 @@
 - content_for(:title, "「#{@search_word}」の#{t('.title')}")
 .ui.container.mt-2
     .ui.centered
-      h3
+      h3.ui.header
         | 「#{@search_word}」の#{t('.title')}
       - if @food_lists.present?
         == render 'search_result', food_lists: @food_lists
