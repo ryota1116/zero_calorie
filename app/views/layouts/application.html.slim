@@ -1,7 +1,8 @@
 doctype html
 html
   head
-    == render 'layouts/google_tag_manager' if Rails.env.production?
+    = if Rails.env.production?
+      == render 'layouts/google_tag_manager'
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
     title
       = page_title(yield(:title))
@@ -29,7 +30,8 @@ html
     = favicon_pack_tag "zerorie_logo/favicon.png"
 
   body
-    == render 'layouts/google_tag_manager_noscript' if Rails.env.production?
+    - if Rails.env.production?
+      == render 'layouts/google_tag_manager_noscript'
 
     - if logged_in?
       == render 'shared/header'
