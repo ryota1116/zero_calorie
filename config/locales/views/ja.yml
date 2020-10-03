@@ -59,6 +59,7 @@ ja:
       meal_time: 食事時間
       food_name: 食べたもの
       calorie: カロリー
+      calorie_theory: カロリー理論
       search: 検索する
     new:
       title: 食事記録の登録

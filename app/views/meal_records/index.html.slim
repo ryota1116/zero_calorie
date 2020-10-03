@@ -23,22 +23,35 @@
           th
             = t('.calorie')
           th
+            = t('.calorie_theory')
+          th
             = t('.meal_time')
           th
           th
       - @meal_records.each do |meal_record|
         tbody
           tr
-            td
+            td class='three wide'
               = link_to meal_record.food.name, meal_record_path(meal_record), class: 'ui olive'
-            td
+            td class='two wide'
               = "#{meal_record.food.calorie} kcal"
-            td
+            td class='four wide'
+              // TODO: ビューから切り離す
+              - if meal_record.food.calorie_theory.present?
+                = meal_record.food.calorie_theory
+              - elsif meal_record.food.food_genres.present?
+                = meal_record.food.food_genres[0].calorie_theory
+            td class='five wide'
               = l meal_record.meal_time
-            td
-              = link_to t('defaults.edit'), edit_meal_record_path(meal_record)
-            td
-              = link_to t('defaults.destroy'), meal_record_path(meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
+            td class='one wide'
+              = link_to edit_meal_record_path(meal_record) do
+                .ui.olive.small.button
+                  = t('defaults.edit')
+            td class='one wide'
+              = link_to meal_record_path(meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') } do
+                .ui.red.small.button
+                  = t('defaults.destroy')
+
     = paginate(@meal_records)
 
   - else
