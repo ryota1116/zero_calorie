@@ -2,49 +2,113 @@ header
   .ui.grid
     .computer.only.sixteen.wide.column
       .ui.secondary.menu
-        .item
-          = link_to 'Zerorie', root_path
-          / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
-        .item
+        .item.column
+          / = link_to 'Zerorie', root_path
+          = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+        .item.column
           = render template: 'foods/_search_form'
         / .item id="search_by_picture"
         /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-        .item
+        .item.column
           = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
         .right.menu
           = link_to t('defaults.my_record'), meal_records_path, class: 'item'
           = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
 
-  .ui.grid
-    .tablet.only.mobile.only.sixteen.wide.column
-      .ui.secondary.menu
-        .four.wide.column.item
-          = link_to 'Zerorie', root_path
-        .four.wide.column.item
-            = render template: 'foods/_search_form'
-        .four.wide.column.item
-            = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-        .four.wide.column.ui.dropdown.item
-          .text
-            | メニュー
-          i class="dropdown icon"
-          .menu
-            = link_to t('defaults.my_record'), meal_records_path, class: 'item'
-            = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+  .tablet.only.mobile.only.ui.grid
+    .tablet.only.mobile.only.four.wide.column.linkbox
+      / = link_to 'Zerorie', root_path
+      = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+    .tablet.only.mobile.only.eight.wide.column
+      = render template: 'foods/_search_form'
+    .tablet.only.mobile.only.four.wide.column.ui.dropdown.item
+      .text
+        | メニュー
+      i class="dropdown icon"
+      .menu
+        = link_to t('defaults.my_record'), meal_records_path, class: 'item'
+        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
 
-    / .ui.tablet.only.mobile.only
-      .ui.secondary.menu
-        = link_to 'Zerorie', root_path, class: 'ui item'
-          / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
-        .ui.item
-          = render template: 'foods/_search_form'
-        / .item id="search_by_picture"
-        /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-        .ui.item
-          = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-        .right.menu
-          = link_to t('defaults.my_record'), meal_records_path, class: 'ui item'
-          = link_to t('defaults.logout'), logout_path, method: :delete, class: 'ui item'
+
+/ .tablet.only.mobile.only.four.column.row
+  / .ui.secondary.menu.column
+  .column
+    = link_to 'Zerorie', root_path
+    / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
+  .column
+    = render template: 'foods/_search_form'
+  / .item id="search_by_picture"
+  /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+  .column
+    = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+  .column
+    .right.menu
+      = link_to t('defaults.my_record'), meal_records_path, class: 'item'
+      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+
+
+/ .tablet.only.mobile.only.column
+  .right.menu
+    = link_to t('defaults.my_record'), meal_records_path, class: 'item'
+    = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+/ .ui.grid id='computer-header'
+/ .computer.only.sixteen.wide.column
+  .ui.secondary.menu
+    .item
+      = link_to 'Zerorie', root_path
+      / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
+    .item
+      = render template: 'foods/_search_form'
+    / .item id="search_by_picture"
+    /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+    .item
+      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+    .right.menu
+      = link_to t('defaults.my_record'), meal_records_path, class: 'item'
+      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+
+
+/ .ui.grid id='mobile-header'
+/ .tablet.only.mobile.only.sixteen.wide.column
+  .ui.secondary.menu
+    .four.wide.column.item
+      = link_to 'Zerorie', root_path
+    .four.wide.column.item
+        = render template: 'foods/_search_form'
+    .four.wide.column.item
+        = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+    .four.wide.column.ui.dropdown.item
+      .text
+        | メニュー
+      i class="dropdown icon"
+      .menu
+        = link_to t('defaults.my_record'), meal_records_path, class: 'item'
+        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+
+/ css:
+/   #computer-header {
+/     width: 100%;
+/   }
+/   #mobile-header {
+/     width: 100%;
+/   }
+
+/ .ui.tablet.only.mobile.only
+  .ui.secondary.menu
+    = link_to 'Zerorie', root_path, class: 'ui item'
+      / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
+    .ui.item
+      = render template: 'foods/_search_form'
+    / .item id="search_by_picture"
+    /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+    .ui.item
+      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+    .right.menu
+      = link_to t('defaults.my_record'), meal_records_path, class: 'ui item'
+      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'ui item'
 
 
 / header

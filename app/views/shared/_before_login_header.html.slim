@@ -8,7 +8,7 @@ header
   /       = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
   /     = link_to t('defaults.sign_up'), new_user_path, class: 'item'
   /     = link_to t('defaults.login'), login_path, class: 'item'
-  .ui.secondary.menu
+  / .ui.secondary.menu
     .ui.container
       = link_to 'サービス名', root_path, class: 'item'
       / 画像検索ボタン
@@ -17,4 +17,36 @@ header
       .right.menu
         = link_to t('defaults.sign_up'), new_user_path, class: 'item'
         = link_to t('defaults.login'), login_path, class: 'item'
+
+  .ui.grid
+    .computer.only.sixteen.wide.column
+      .ui.secondary.menu
+        .item.column
+          / = link_to 'Zerorie', root_path
+          = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+        .item.column
+          = render template: 'foods/_search_form'
+        / .item id="search_by_picture"
+        /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+        .item.column
+          = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+        .right.menu
+          = link_to t('defaults.sign_up'), new_user_path, class: 'item'
+          = link_to t('defaults.login'), login_path, class: 'item'
+
+
+  .tablet.only.mobile.only.ui.grid
+    .tablet.only.mobile.only.four.wide.column.linkbox
+      / = link_to 'Zerorie', root_path
+      = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+    .tablet.only.mobile.only.eight.wide.column
+      = render template: 'foods/_search_form'
+    .tablet.only.mobile.only.four.wide.column.ui.dropdown.item
+      .text
+        | メニュー
+      i class="dropdown icon"
+      .menu
+        = link_to t('defaults.sign_up'), new_user_path, class: 'item'
+        = link_to t('defaults.login'), login_path, class: 'item'
+
 

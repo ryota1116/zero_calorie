@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
   background-color: #F7B134;
+  // top: 0; /* 上部から配置の基準位置を決める */
+  // left: 0; /* 左から配置の基準位置を決める */
+  position: relative;
+  width: 100%;
 }
 
 footer {
