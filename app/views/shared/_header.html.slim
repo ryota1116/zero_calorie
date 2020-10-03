@@ -26,8 +26,10 @@ header
         | メニュー
       i class="dropdown icon"
       .menu
-        = link_to t('defaults.my_record'), meal_records_path, class: 'item'
-        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
+        .item
+          = link_to t('defaults.my_record'), meal_records_path
+        .item
+          = link_to t('defaults.logout'), logout_path, method: :delete
 
 
 / .tablet.only.mobile.only.four.column.row
