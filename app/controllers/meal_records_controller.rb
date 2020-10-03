@@ -10,9 +10,10 @@ class MealRecordsController < ApplicationController
   def index
     if params[:date].present?
       @search_params = MealRecord.search_params(params)
-      @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :asc).page(params[:page]).per(10)
+      @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :desc).page(params[:page]).per(10)
     else
-      current_user.meal_records.meal_time_date(Date.current)
+      @search_params = Date.current.strftime("%Y/%m/%d")
+      @meal_records = current_user.meal_records.meal_time_date(Date.current).order(meal_time: :desc).page(params[:page]).per(10)
     end
   end
 
@@ -26,12 +27,11 @@ class MealRecordsController < ApplicationController
     @meal_record.food_id = params[:food_id]
 
     if @meal_record.save
-      # TODO: 以下name検索でエラーになる
       if session[:meal_picture_id].present?
-        MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
+        # MealPicture.find(session[:meal_picture_id]).search_pictureではバグになる
+        ActiveStorage::Blob.find(session[:meal_picture_id]).open do |file|
           @meal_record.meal_record_pictures.attach(io: file, filename: "#{SecureRandom.hex(8)}.jpg")
         end
-
         session[:meal_picture_id] = nil
       end
       # TODO: meal_record_new失敗でrenderして、そのあとnew成功した時に404エラー
