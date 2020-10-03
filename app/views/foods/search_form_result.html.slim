@@ -1,12 +1,15 @@
 - content_for(:title, "「#{@search_word}」の#{t('.title')}")
 .ui.container.mt-2
     .ui.centered
-      h3.ui.header
+      h2.ui.header
         | 「#{@search_word}」の#{t('.title')}
       - if @food_lists.present?
         == render 'search_result', food_lists: @food_lists
         = paginate(@food_lists)
       - else
+        h3
+          | ちょっと何言ってるか分かりません。
+        br
         p
           = t('.no_search_result_message')
         = link_to t('.register'), new_food_path(food_name: @search_word)

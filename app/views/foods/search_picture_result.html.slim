@@ -1,11 +1,14 @@
 - content_for(:title, t('.title'))
 .ui.container.mt-2
     .ui.centered
-      h3
+      h2
         = t('.title')
       - if @food_lists.present?
         == render 'search_result', food_lists: @food_lists
       - else
+        h3
+          | ちょっと何言ってるか分かりません。
+        br
         p
           = t('.no_search_result_message')
         = link_to t('.register'), new_food_path
