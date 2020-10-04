@@ -31,5 +31,10 @@
           | （任意）
         .field
           = f.text_field :calorie_theory
+        - if session[:meal_picture_id].present?
+          .label
+            | 検索に使用した画像
+          .field
+            = image_tag ActiveStorage::Blob.find(session[:meal_picture_id])
         .actions
           = f.button t('.submit'), class: 'ui button'
