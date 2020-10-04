@@ -123,12 +123,10 @@ RSpec.describe Food, type: :model do
       end
 
       describe 'self.merge_food_lists(food_lists, search_word)' do
-        before do
-          @food_lists = Food.fetch_food_lists('めん')
-        end
-        context "「めん」で検索した場合" do
+        context '「めん」で検索した場合' do
           it '素麺(そうめん)とメンチカツを返す' do
-            expect(Food.merge_food_lists(@food_lists, 'めん')).to contain_exactly(somen)
+            food_lists = described_class.fetch_food_lists('めん')
+            expect(described_class.merge_food_lists(food_lists, 'めん')).to contain_exactly(somen)
             # TODO: メンチカツ取得できないの何故？
             # expect(Food.merge_food_lists(@food_lists, 'めん')).to contain_exactly(menchi_katsu)
           end
