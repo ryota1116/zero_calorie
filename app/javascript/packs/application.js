@@ -16,6 +16,7 @@ require("jquery/submit_food_image")
 require("packs/close_message")
 require("packs/search_meal_time_form")
 require("packs/meal_record_pictures_preview")
+require("packs/search_picture_preview")
 // datetimepicker用
 require("moment/locale/ja")
 require("tempusdominus-bootstrap-4")

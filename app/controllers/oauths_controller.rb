@@ -6,32 +6,31 @@ class OauthsController < ApplicationController
   end
 
   def callback
-    provider = params[:provider]
+    provider = auth_params[:provider]
 
+    # 認証前のキャンセル後にリダイレクト処理を行う
     if auth_params[:denied].present?
       redirect_to root_path, notice: 'ログインをキャンセルしました'
       return
     end
 
-    if @user = login_from(provider)
-      redirect_to root_path, success: "#{provider.titleize}でログインしました"
-    else
-      begin
-        @user = create_from(provider)
-        # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
-
-        reset_session # protect from session fixation attack
-        auto_login(@user)
-        redirect_to root_path, success: "#{provider.titleize}でログインしました"
-      rescue StandardError
-        redirect_to root_path, danger: "#{provider.titleize}でのログインに失敗しました"
-      end
-    end
+    create_user_from(provider) unless (@user = login_from(provider))
+    redirect_to root_path, success: "#{provider.titleize}でログインしました"
   end
 
   private
 
   def auth_params
     params.permit(:code, :provider, :denied)
+  end
+
+  def create_user_from(provider)
+    @user = create_from(provider)
+    # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
+
+    reset_session # protect from session fixation attack
+    auto_login(@user)
+  rescue StandardError
+    redirect_to root_path, alert: "#{provider.titleize}でのログインに失敗しました"
   end
 end

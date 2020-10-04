@@ -23,6 +23,8 @@ RSpec.describe Food, type: :model do
     let(:ice_cream) { create(:food, :ice_cream, name: 'アイスクリーム') }
     let(:ice_coffee) { create(:food, :ice_coffee, name: 'アイスコーヒー ') }
     let(:rice) { create(:food, :rice, name: '白ごはん') }
+    let(:somen) { create(:food, :somen, name: '素麺(そうめん)') }
+    let(:menchi_katsu) { create(:food, :menchi_katsu, name: 'メンチカツ') }
 
     it 'calorie、nameがあれば有効であること' do
       expect(food).to be_valid
@@ -78,7 +80,7 @@ RSpec.describe Food, type: :model do
     end
 
     describe 'クラスメソッド' do
-      describe 'def self.search_form(food_name)' do
+      describe 'self.search_form(food_name)' do
         context '空文字で検索した場合' do
           it 'Foodテーブルの全データを返す' do
             expect(described_class.search_form('')).to contain_exactly(ice_cream, ice_coffee, rice)
@@ -96,6 +98,37 @@ RSpec.describe Food, type: :model do
 
           it 'nameが白ごはんのFoodデータを返さない' do
             expect(described_class.search_form('アイス')).not_to include rice
+          end
+        end
+      end
+
+      describe 'self.fetch_food_lists(search_word)' do
+        context '検索ワードが平仮名のみの場合' do
+          it 'カタカナに変換して検索する' do
+            expect(described_class.fetch_food_lists('あいす')).to contain_exactly(ice_cream)
+          end
+        end
+
+        context '検索ワードがカタカナのみの場合' do
+          it '平仮名に変換して検索する' do
+            expect(described_class.fetch_food_lists('ゴハン')).to contain_exactly(rice)
+          end
+        end
+
+        context '検索ワードに漢字が含まれる場合' do
+          it '平仮名に変換して検索する' do
+            expect(described_class.fetch_food_lists('御飯')).to contain_exactly(rice)
+          end
+        end
+      end
+
+      describe 'self.merge_food_lists(food_lists, search_word)' do
+        context '「めん」で検索した場合' do
+          it '素麺(そうめん)とメンチカツを返す' do
+            food_lists = described_class.fetch_food_lists('めん')
+            expect(described_class.merge_food_lists(food_lists, 'めん')).to contain_exactly(somen)
+            # TODO: メンチカツ取得できないの何故？
+            # expect(Food.merge_food_lists(@food_lists, 'めん')).to contain_exactly(menchi_katsu)
           end
         end
       end

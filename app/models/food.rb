@@ -34,7 +34,7 @@ class Food < ApplicationRecord
     Food.search_by_form(food_name)
   end
 
-  # Foodの検索を行う
+  # 検索ワードを変換してFoodの検索を行う
   def self.fetch_food_lists(search_word)
     case search_word # 検索ワードが
     when /\A[ぁ-んー－]+\z/ # 平仮名のみの場合
@@ -48,6 +48,8 @@ class Food < ApplicationRecord
     food_lists
   end
 
+  # ユーザが入力した元の検索ワードで検索をかけて、
+  # orメソッドでActiveRecord_Relationを結合
   def self.merge_food_lists(food_lists, search_word)
     if food_lists.present?
       food_lists.or(Food.search_form(search_word))
