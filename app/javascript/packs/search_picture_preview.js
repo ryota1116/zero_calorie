@@ -1,7 +1,6 @@
-// 画像検索用モーダルの表示
 $(function () {
-  $("#search-by-picture-form-modal").on("click", () => {
-    $('.ui.modal.search-by-picture').modal('show');
+  $("#search-by-picture-modal-button").on("click", () => {
+    $('#search-by-picture-modal').modal('show');
     // モーダル内のプレビュー画像を削除(指定したDOM要素の”子要素のみ”を削除する。)
     $("#search-picture-preview").empty();
   });
@@ -37,3 +36,35 @@ $(document).on("turbolinks:load", function () {
     return def.promise();
   };
 });
+
+// // ディスプレイ
+// let width = $(window).width();
+// let height = $(window).height();
+// // フード追加モーダル
+// let foodWeight = $("#search-by-picture-modal").outerWidth();
+// let foodHeight = $("#search-by-picture-modal").outerHeight();
+// //取得した値をcssに追加する
+// $("#search-by-picture-modal").css({
+//   "left": ((width- foodWeight)/2) + "px",
+//   "top": ((height - foodHeight)/2) + "px"
+// });
+
+// 画像検索用モーダルの表示
+// クリックイベントの判定
+// https://to-benefit7.com/outofrange-popup-close/
+// $(document).on('click', function(e) {
+// 	// クリックされた場所の判定
+// 	if(!$(e.target).closest('#search-by-picture-modal').length && !$(e.target).closest('#search-by-picture-modal-button').length){
+//     $('#search-by-picture-modal').fadeOut();
+//     $("#search-picture-preview").empty(); // モーダル内のプレビュー画像を削除(指定したDOM要素の”子要素のみ”を削除する。)
+// 	} else if($(e.target).closest('#search-by-picture-modal-button').length){
+// 		// ３．ポップアップの表示状態の判定
+// 		if($('#search-by-picture-modal').is(':hidden')){
+//       $('#search-by-picture-modal').fadeIn();
+//       $("#search-picture-preview").empty(); // モーダル内のプレビュー画像を削除(指定したDOM要素の”子要素のみ”を削除する。)
+// 		}else{
+//       $('#search-by-picture-modal').fadeOut();
+//       $("#search-picture-preview").empty(); // モーダル内のプレビュー画像を削除(指定したDOM要素の”子要素のみ”を削除する。)
+// 		}
+// 	}
+// });

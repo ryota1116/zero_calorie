@@ -1,7 +1,8 @@
 // Webpackを使う
 @import '~bootstrap/scss/bootstrap';
 @import '~tempusdominus-bootstrap-4/src/sass/tempusdominus-bootstrap-4';
-@import 'top';
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+@import 'top';
 @import 'body';
+@import 'header';
 @import 'meal_record';

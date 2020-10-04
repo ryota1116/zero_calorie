@@ -1,0 +1,27 @@
+#search-camera-icon {
+  margin-left: 1em;
+}
+#search-by-picture-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  text-align: center;
+  transform: translateY(-50%);
+  transform:translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+}
+#search-by-picture-select-button {
+  margin-top: 1em;
+}
+#search-by-picture-submit-button {
+  margin-top: 1em;
+}
+#search-picture-preview img {
+  margin-top: 1em;
+  width: 80%;
+  height: 80%;
+}
