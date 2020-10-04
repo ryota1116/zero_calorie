@@ -1,8 +1,10 @@
-$(function () {
-  $("#search-by-picture-modal-button").on("click", () => {
-    $('#search-by-picture-modal').modal('show');
-    // モーダル内のプレビュー画像を削除(指定したDOM要素の”子要素のみ”を削除する。)
-    $("#search-picture-preview").empty();
+$(document).on("turbolinks:load", function () {
+  $(function () {
+    $("#search-by-picture-modal-button").on("click", () => {
+      $('#search-by-picture-modal').modal('show');
+      // モーダル内のプレビュー画像を削除(指定したDOM要素の”子要素のみ”を削除する。)
+      $("#search-picture-preview").empty();
+    });
   });
 });
 
