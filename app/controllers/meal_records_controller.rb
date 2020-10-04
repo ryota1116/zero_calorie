@@ -72,7 +72,7 @@ class MealRecordsController < ApplicationController
       search_params = Date.current.strftime('%Y/%m/%d')
       meal_records = current_user.meal_records.meal_time_date(Date.current)
     end
-    return search_params, meal_records
+    [search_params, meal_records]
   end
 
   # def attach_meal_picture

@@ -106,11 +106,13 @@ RSpec.describe Food, type: :model do
             expect(described_class.fetch_food_lists('あいす')).to contain_exactly(ice_cream)
           end
         end
+
         context '検索ワードがカタカナのみの場合' do
           it '平仮名に変換して検索する' do
             expect(described_class.fetch_food_lists('ゴハン')).to contain_exactly(rice)
           end
         end
+
         context '検索ワードに漢字が含まれる場合' do
           it '平仮名に変換して検索する' do
             expect(described_class.fetch_food_lists('御飯')).to contain_exactly(rice)
