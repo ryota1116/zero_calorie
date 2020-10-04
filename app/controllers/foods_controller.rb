@@ -30,7 +30,7 @@ class FoodsController < ApplicationController
   # vision apiの解析結果を元にFoodデータを返すアクション
   def search_picture_result
     # 画像が添付されていない場合
-    return unless params[:meal_picture].present?
+    return if params[:meal_picture].blank?
 
     @meal_picture = MealPicture.new(meal_picture_params)
 

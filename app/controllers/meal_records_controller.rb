@@ -12,7 +12,7 @@ class MealRecordsController < ApplicationController
       @search_params = MealRecord.search_params(params)
       @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :desc).page(params[:page]).per(10)
     else
-      @search_params = Date.current.strftime("%Y/%m/%d")
+      @search_params = Date.current.strftime('%Y/%m/%d')
       @meal_records = current_user.meal_records.meal_time_date(Date.current).order(meal_time: :desc).page(params[:page]).per(10)
     end
   end
