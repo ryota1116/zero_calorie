@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  # require "google/cloud/vision"
+  skip_before_action :require_login, only: %i[search_form_result search_picture_result]
 
   before_action :set_empty_session_of_meal_picture_id, only: %i[search_form_result search_picture_result]
 
