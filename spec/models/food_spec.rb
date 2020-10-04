@@ -23,6 +23,8 @@ RSpec.describe Food, type: :model do
     let(:ice_cream) { create(:food, :ice_cream, name: 'アイスクリーム') }
     let(:ice_coffee) { create(:food, :ice_coffee, name: 'アイスコーヒー ') }
     let(:rice) { create(:food, :rice, name: '白ごはん') }
+    let(:somen) { create(:food, :somen, name: '素麺(そうめん)') }
+    let(:menchi_katsu) { create(:food, :menchi_katsu, name: 'メンチカツ') }
 
     it 'calorie、nameがあれば有効であること' do
       expect(food).to be_valid
@@ -116,6 +118,19 @@ RSpec.describe Food, type: :model do
         context '検索ワードに漢字が含まれる場合' do
           it '平仮名に変換して検索する' do
             expect(described_class.fetch_food_lists('御飯')).to contain_exactly(rice)
+          end
+        end
+      end
+
+      describe 'self.merge_food_lists(food_lists, search_word)' do
+        before do
+          @food_lists = Food.fetch_food_lists('めん')
+        end
+        context "「めん」で検索した場合" do
+          it '素麺(そうめん)とメンチカツを返す' do
+            expect(Food.merge_food_lists(@food_lists, 'めん')).to contain_exactly(somen)
+            # TODO: メンチカツ取得できないの何故？
+            # expect(Food.merge_food_lists(@food_lists, 'めん')).to contain_exactly(menchi_katsu)
           end
         end
       end

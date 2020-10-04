@@ -41,5 +41,17 @@ FactoryBot.define do
       calorie_theory { 'コーヒーを抽出している時、実はゼロカロリーの成分だけが抽出されている。' }
       labels { [''] }
     end
+
+    trait :somen do
+      name { '素麺(そうめん)' }
+      calorie { 0 }
+      labels { [''] }
+    end
+
+    trait :menchi_katsu do
+      name { 'メンチカツ' }
+      calorie { 0 }
+      labels { [''] }
+    end
   end
 end
