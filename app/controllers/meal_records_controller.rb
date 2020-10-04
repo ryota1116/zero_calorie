@@ -8,13 +8,9 @@ class MealRecordsController < ApplicationController
   def show; end
 
   def index
-    if params[:date].present?
-      @search_params = MealRecord.search_params(params)
-      @meal_records = current_user.meal_records.search_meal_records(params, @search_params).order(meal_time: :desc).page(params[:page]).per(10)
-    else
-      @search_params = Date.current.strftime('%Y/%m/%d')
-      @meal_records = current_user.meal_records.meal_time_date(Date.current).order(meal_time: :desc).page(params[:page]).per(10)
-    end
+    # 検索ワードと検索で取得したデータを変数に格納する
+    @search_params, meal_records = get_meal_records_index(params, params[:date])
+    @meal_records = meal_records.order(meal_time: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -66,6 +62,17 @@ class MealRecordsController < ApplicationController
 
   def meal_record_params
     params.require(:meal_record).permit(:meal_time, meal_record_pictures: [])
+  end
+
+  def get_meal_records_index(params, params_date)
+    if params_date.present? # 検索したい日時が指定されている場合
+      search_params = MealRecord.search_params(params)
+      meal_records = current_user.meal_records.search_meal_records(params, search_params)
+    else
+      search_params = Date.current.strftime('%Y/%m/%d')
+      meal_records = current_user.meal_records.meal_time_date(Date.current)
+    end
+    return search_params, meal_records
   end
 
   # def attach_meal_picture
