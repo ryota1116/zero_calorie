@@ -15,28 +15,24 @@
             = @meal_record.food.name
         tr
           td
+            = t('.food_genre_name')
+          td
+            - @meal_record.food.food_genres.each do |food_genre|
+              = food_genre.genre_name
+          tr
+        tr
+          td
             = t('.calorie')
           td
             = "#{@meal_record.food.calorie} kcal"
-        tr
+        tr class='calorie_theory'
           td
             | #{@meal_record.food.name}の#{t('.calorie_theory')}
           td
             - if @meal_record.food.calorie_theory.present?
               = "#{@meal_record.food.calorie_theory}"
             - else
-              | #{@meal_record.food.name}のカロリー理論は登録されていません
-        - @meal_record.food.food_genres.each do |food_genre|
-          tr
-            td
-              = t('.food_genre_name')
-            td
-              = food_genre.genre_name
-          tr
-            td
-              | #{food_genre.genre_name}の#{t('.calorie_theory')}
-            td
-              = food_genre.calorie_theory
+              = "#{@meal_record.food.food_genres[0].calorie_theory}"
         tr
           td
             = t('.meal_time')
