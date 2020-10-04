@@ -41,7 +41,7 @@ header
     | 食べ物を画像で検索する
   = form_with url: search_picture_result_foods_path, method: :post, model: MealPicture.new, local: true, id: 'search-by-picture-form'  do |f|
     td
-      = f.label :search_picture, class: 'image outline icon', id: 'search-by-picture-select-button' do
+      = f.label :search_picture, class: 'ui button orange', id: 'search-by-picture-select-button' do
         i.circular.camera.retro.icon
         | 画像を選択する
       = f.file_field :search_picture, style: 'display: none;'
