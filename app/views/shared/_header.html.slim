@@ -10,7 +10,10 @@ header
         / .item id="search_by_picture"
         /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
         .item.column
-          = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
+          / ボタンクリックでモーダル表示
+          button type="button" class="ui orange button" id="search-by-picture-form-modal"
+            | 食べ物を画像で検索する
+            i.camera.icon
         .right.menu
           = link_to t('defaults.my_record'), meal_records_path, class: 'item'
           = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
@@ -30,6 +33,48 @@ header
           = link_to t('defaults.my_record'), meal_records_path
         .item
           = link_to t('defaults.logout'), logout_path, method: :delete
+
+/ モーダルを表示
+.ui.modal.search-by-picture
+  i class="close icon"
+  .header
+    | 食べ物を画像で検索する
+  = form_with url: search_picture_result_foods_path, method: :post, model: MealPicture.new, local: true  do |f|
+    td
+      = f.label :search_picture, class: 'image outline icon' do
+        i.circular.camera.retro.icon
+        / i.image.outline.icon
+        | 画像を選択する
+      = f.file_field :search_picture, style: 'display: none;'
+
+    / 画像プレビューの表示
+    td class="ui fluid image"
+      #search-picture-preview
+
+    .actions
+      = f.button type: 'submit', class: "ui orange right labeld icon button" do
+        | 検索する
+        i.search.icon
+
+  / i class="close icon"
+  / .header
+  /   | Profile Picture
+  / .image.content
+  /   .ui.medium.image
+  /     img src="/images/avatar/large/chris.jpg"
+  /   .description
+  /     .ui.header
+  /       | We've auto-chosen a profile image for you.
+  /     p
+  /       | We've grabbed the following image from the image associated with your registered e-mail address.
+  /     p
+  /       | Is it okay to use this photo?
+  / .actions
+  /   .ui.black.deny.button
+  /     | Nope
+  /   .ui.positive.right.labeled.icon.button
+  /     | Yep, that's me
+  /     i class="checkmark icon"
 
 
 / .tablet.only.mobile.only.four.column.row
@@ -180,3 +225,4 @@ header
           = link_to t('defaults.profile'), meal_records_path
         .item
           = link_to t('defaults.logout'), logout_path, method: :delete
+
