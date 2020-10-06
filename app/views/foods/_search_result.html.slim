@@ -2,12 +2,13 @@
   table class="ui fixed single line table"
     thead
       tr
-        th
+        th class='three wide'
           = t(Food.human_attribute_name(:name))
-        th
+        th class='two wide'
           = t(Food.human_attribute_name(:calorie))
-        th
-          = t(Food.human_attribute_name(:calorie_theory))
+        th class='eleven wide calorie_theory'
+          strong
+            = t(Food.human_attribute_name(:calorie_theory))
     - food_lists.each do |food|
       tbody
         tr
@@ -15,7 +16,7 @@
             = link_to food.name, new_food_meal_record_path(food)
           td
             | #{food.calorie} kcal
-          td
+          td class='calorie_theory'
             - if food.calorie_theory.present?
               = food.calorie_theory
             - else

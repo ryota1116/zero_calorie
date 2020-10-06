@@ -18,21 +18,75 @@ header
           = link_to t('defaults.my_record'), meal_records_path, class: 'item'
           = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
 
-  .tablet.only.mobile.only.ui.grid
-    .tablet.only.mobile.only.four.wide.column.linkbox
-      / = link_to 'Zerorie', root_path
-      = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
-    .tablet.only.mobile.only.eight.wide.column
-      = render template: 'foods/_search_form'
-    .tablet.only.mobile.only.four.wide.column.ui.dropdown.item
-      .text
-        | メニュー
-      i class="dropdown icon"
-      .menu
-        .item
-          = link_to t('defaults.my_record'), meal_records_path
-        .item
-          = link_to t('defaults.logout'), logout_path, method: :delete
+  / 初期段階
+  / .tablet.only.mobile.only.ui.grid
+  /   .tablet.only.mobile.only.four.wide.column.linkbox
+  /     / = link_to 'Zerorie', root_path
+  /     = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+  /   .tablet.only.mobile.only.eight.wide.column
+  /     = render template: 'foods/_search_form'
+  /   .tablet.only.mobile.only.four.wide.column.ui.dropdown.item
+  /     .text
+  /       | メニュー
+  /     i class="dropdown icon"
+  /     .menu
+  /       .item
+  /         button type="button" class="ui orange button" id="search-by-picture-modal-button"
+  /           | 食べ物を画像で検索する
+  /           i.camera.icon id='search-camera-icon'
+  /       .item
+  /         = link_to t('defaults.my_record'), meal_records_path
+  /       .item
+  /         = link_to t('defaults.logout'), logout_path, method: :delete
+  
+  .ui.grid
+    .tablet.only.mobile.only.sixteen.wide.column
+      .ui.secondary.menu.grid
+        .item.four.wide.column
+          / = link_to 'Zerorie', root_path
+          = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+        .item.eight.wide.column
+          / = render template: 'foods/_search_form'
+          = form_with url: search_form_result_foods_path, method: :get, local: true do |f|
+            .ui.search
+              .ui.icon.input
+                = f.text_field :name, placeholder: '食べ物を検索する'
+                = f.button type: 'submit', class: "ui icon button orange" do
+                  i.search.link.icon
+        .item.four.wide.column
+          .ui.dropdown
+            | メニュー
+            i class="dropdown icon"
+            .menu
+              .item id="search-by-picture-modal-button"
+                | 食べ物を画像で検索する
+                i.camera.icon id='search-camera-icon'
+              .item
+                = link_to t('defaults.my_record'), meal_records_path
+              .item
+                = link_to t('defaults.logout'), logout_path, method: :delete
+
+
+  / 良い感じにレスポンシブ
+  / .ui.three.column.grid
+  /   .tablet.only.mobile.column
+  /     .ui.secondary.menu
+  /       .item.four.wide.column
+  /         / = link_to 'Zerorie', root_path
+  /         = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+  /       .item.eight.wide.column
+  /         = render template: 'foods/_search_form'
+  /       .item.ui.dropdown.four.wide.column
+  /         | メニュー
+  /         i class="dropdown icon"
+  /         .menu
+  /           .item id="search-by-picture-modal-button"
+  /             | 食べ物を画像で検索する
+  /             i.camera.icon id='search-camera-icon'
+  /           .item
+  /             = link_to t('defaults.my_record'), meal_records_path
+  /           .item
+  /             = link_to t('defaults.logout'), logout_path, method: :delete
 
 / モーダルを表示
 .ui.modal id="search-by-picture-modal"
@@ -41,7 +95,7 @@ header
     | 食べ物を画像で検索する
   = form_with url: search_picture_result_foods_path, method: :post, model: MealPicture.new, local: true, id: 'search-by-picture-form'  do |f|
     td
-      = f.label :search_picture, class: 'image outline icon', id: 'search-by-picture-select-button' do
+      = f.label :search_picture, class: 'ui button orange', id: 'search-by-picture-select-button' do
         i.circular.camera.retro.icon
         | 画像を選択する
       = f.file_field :search_picture, style: 'display: none;'
