@@ -1,3 +1,12 @@
+
+header {
+  background-color: #F7B134;
+  // top: 0; /* 上部から配置の基準位置を決める */
+  // left: 0; /* 左から配置の基準位置を決める */
+  position: relative;
+  width: 100%;
+}
+
 #search-camera-icon {
   margin-left: 1em;
 }
@@ -15,6 +24,8 @@
   -ms-transform: translateY(-50%) translateX(-50%);
   overflow: scroll;
 }
+
+// ボタンの装飾
 // #search-by-picture-select-button {
 //   margin-top: 1em;
 //   display: inline-block;
@@ -25,7 +36,6 @@
 //   border-bottom: solid 4px #627295;
 //   border-radius: 3px;
 // }
-
 // #search-by-picture-select-button:active {
 //   /*ボタンを押したとき*/
 //   -webkit-transform: translateY(4px);
@@ -44,3 +54,11 @@
   width: 80%;
   height: 80%;
 }
+
+// .item.eight.wide.column.ui.search {
+//   box-sizing: border-box;
+// }
+
+// .ui.icon.input {
+//   width: 8em;
+// }
