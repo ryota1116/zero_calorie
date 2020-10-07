@@ -29,41 +29,29 @@ header
           = link_to t('defaults.logout'), logout_path, method: :delete, class: 'nav-link'
           / = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
 
-  / nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-  /   .container
-  /     a.navbar-brand
-  /     button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
-  /       span.navbar-toggler-icon
-
-  /     #navbarNavDropdown.collapse.navbar-collapse
-
-  /       / <!-- この下の行に mr-auto クラスを付与するだけ -->
-  /       ul.navbar-nav.mr-auto
-  /         li.nav-item
-  /           a.nav-link href="#"
-  /         li.nav-item
-  /           a.nav-link href="#"
-
-  /       ul class="navbar-nav"
-  /         li class="nav-item dropdown"
-  /           a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-  /             | Dropdown
-  /           .dropdown-menu.dropdown-menu-right aria-labelledby="navbarDropdown"
-  /             a.dropdown-item href="#"
-  /               | Action
-  /             a.dropdown-item href="#"
-  /               | Another action
-  /             div.dropdown-divider
-  /             a.dropdown-item href="#"
-  /               | Something else here
-
-  /         li.nav-item
-  /           a.nav-link href="#"
-  /             | Register
-  /         li.nav-item
-  /           a.nav-link href="#"
-  /             | Login
-
+/ モーダルを表示
+.ui.modal id="search-by-picture-modal"
+  / i.close.icon id='modal-close-button'
+  .header
+    | 食べ物を画像で検索する
+  = form_with url: search_picture_result_foods_path, method: :post, model: MealPicture.new, local: true, id: 'search-by-picture-form'  do |f|
+    td
+      = f.label :search_picture, class: 'ui button orange', id: 'search-by-picture-select-button' do
+        i.circular.camera.retro.icon
+        | 画像を選択する
+      = f.file_field :search_picture, style: 'display: none;'
+      .actions
+      = f.button type: 'submit', class: "ui orange right labeld icon button", id: 'search-by-picture-submit-button' do
+        | 検索する
+        i.search.icon
+      / 画像プレビューの表示
+      td class="ui fluid image"
+        #search-picture-preview
+    // TODO: 画像のheightを指定できなくて、モーダルから画像が下にはみ出る事象が発生したため、検索ボタンを上に持ってきた
+    / .actions
+    /   = f.button type: 'submit', class: "ui orange right labeld icon button" do
+    /     | 検索する
+    /     i.search.icon
 
 
   / 最優先/PC部分
@@ -106,7 +94,7 @@ header
   /         = link_to t('defaults.my_record'), meal_records_path
   /       .item
   /         = link_to t('defaults.logout'), logout_path, method: :delete
-  
+
   / 最優先/スマホ部分
   / .ui.grid
     .tablet.only.mobile.only.sixteen.wide.column
@@ -156,178 +144,3 @@ header
   /             = link_to t('defaults.my_record'), meal_records_path
   /           .item
   /             = link_to t('defaults.logout'), logout_path, method: :delete
-
-/ モーダルを表示
-.ui.modal id="search-by-picture-modal"
-  / i.close.icon id='modal-close-button'
-  .header
-    | 食べ物を画像で検索する
-  = form_with url: search_picture_result_foods_path, method: :post, model: MealPicture.new, local: true, id: 'search-by-picture-form'  do |f|
-    td
-      = f.label :search_picture, class: 'ui button orange', id: 'search-by-picture-select-button' do
-        i.circular.camera.retro.icon
-        | 画像を選択する
-      = f.file_field :search_picture, style: 'display: none;'
-      .actions
-      = f.button type: 'submit', class: "ui orange right labeld icon button", id: 'search-by-picture-submit-button' do
-        | 検索する
-        i.search.icon
-      / 画像プレビューの表示
-      td class="ui fluid image"
-        #search-picture-preview
-    // TODO: 画像のheightを指定できなくて、モーダルから画像が下にはみ出る事象が発生したため、検索ボタンを上に持ってきた
-    / .actions
-    /   = f.button type: 'submit', class: "ui orange right labeld icon button" do
-    /     | 検索する
-    /     i.search.icon
-
-
-
-
-  / i class="close icon"
-  / .header
-  /   | Profile Picture
-  / .image.content
-  /   .ui.medium.image
-  /     img src="/images/avatar/large/chris.jpg"
-  /   .description
-  /     .ui.header
-  /       | We've auto-chosen a profile image for you.
-  /     p
-  /       | We've grabbed the following image from the image associated with your registered e-mail address.
-  /     p
-  /       | Is it okay to use this photo?
-  / .actions
-  /   .ui.black.deny.button
-  /     | Nope
-  /   .ui.positive.right.labeled.icon.button
-  /     | Yep, that's me
-  /     i class="checkmark icon"
-
-
-/ .tablet.only.mobile.only.four.column.row
-  / .ui.secondary.menu.column
-  .column
-    = link_to 'Zerorie', root_path
-    / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
-  .column
-    = render template: 'foods/_search_form'
-  / .item id="search_by_picture"
-  /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-  .column
-    = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-  .column
-    .right.menu
-      = link_to t('defaults.my_record'), meal_records_path, class: 'item'
-      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
-
-
-
-/ .tablet.only.mobile.only.column
-  .right.menu
-    = link_to t('defaults.my_record'), meal_records_path, class: 'item'
-    = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
-
-/ .ui.grid id='computer-header'
-/ .computer.only.sixteen.wide.column
-  .ui.secondary.menu
-    .item
-      = link_to 'Zerorie', root_path
-      / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
-    .item
-      = render template: 'foods/_search_form'
-    / .item id="search_by_picture"
-    /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-    .item
-      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-    .right.menu
-      = link_to t('defaults.my_record'), meal_records_path, class: 'item'
-      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
-
-
-
-/ .ui.grid id='mobile-header'
-/ .tablet.only.mobile.only.sixteen.wide.column
-  .ui.secondary.menu
-    .four.wide.column.item
-      = link_to 'Zerorie', root_path
-    .four.wide.column.item
-        = render template: 'foods/_search_form'
-    .four.wide.column.item
-        = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-    .four.wide.column.ui.dropdown.item
-      .text
-        | メニュー
-      i class="dropdown icon"
-      .menu
-        = link_to t('defaults.my_record'), meal_records_path, class: 'item'
-        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
-
-
-
-
-
-/ header
-  .ui.secondary.menu
-    .ui.container
-      = link_to 'Zerorie', root_path, class: 'item'
-      / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png"), root_path, class: 'item'
-      / 画像検索ボタン
-      = render template: 'foods/_search_form'
-      / .item id="search_by_picture"
-      /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-      .right.menu
-        = link_to t('defaults.my_record'), meal_records_path, class: 'item'
-        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
-
-  / .ui.inverted.segment.olive
-  /   .ui.inverted.secondary.olive.menu
-  / .ui.inverted.segment.olive
-  /   .ui.inverted.five.item.secondary.olive.menu
-
-  / .ui.fixed.secondary.menu.pointing.siteHeader
-  /   .ui.container
-  /     .left.menu
-  /       .item
-  /         = link_to 'サービス名', meal_records_path
-  /     / 画像検索ボタン
-  /     .right.menu
-  /       .item
-  /         = render template: 'foods/_search_form', class:"ui centered"
-  /       #search_by_picture class='item'
-  /         = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-  /       .item
-  /         = link_to t('defaults.profile'), meal_records_path
-  /       .item
-  /         = link_to t('defaults.logout'), logout_path, method: :delete
-
-
-  / .ui.inverted.secondary.menu
-  / nav.navbar.navbar-expand-lg.navigation.navbar-dark
-    = link_to 'サービス名', meal_records_path, class: 'item'
-    / 画像検索ボタン
-    = render template: 'foods/_search_form', class: 'item'
-    .item id="search_by_picture"
-      = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }, class:'vertical-middle'
-    .right.menu
-      = link_to t('defaults.profile'), meal_records_path, class: 'item'
-      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'item'
-
-
-/ .ui.inverted.large.borderless.fixed.fluid.menu.column.olive
-  = link_to 'サービス名', meal_records_path, class:"header item"
-  .item
-    = render template: 'foods/_search_form', class:"ui centered"
-  .item id="search_by_picture"
-    = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-  .right.menu
-    .ui.dropdown.item
-      .header
-        h4
-          | MENU
-      .menu
-        .item
-          = link_to t('defaults.profile'), meal_records_path
-        .item
-          = link_to t('defaults.logout'), logout_path, method: :delete
