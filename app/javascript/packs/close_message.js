@@ -1,5 +1,5 @@
 $(function () {
-  $(".flash_message .close.icon").on("click", () => {
+  $(".message.flash_message .close.icon").on("click", () => {
     $('.flash_message').fadeOut("slow");
   });
 });
