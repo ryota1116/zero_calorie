@@ -3,8 +3,8 @@
 header
   nav.navbar.navbar-expand-lg.navigation.navbar-dark
     li.nav-item.nav-link
-      = link_to 'Zerorie', root_path
-      / = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
+      / = link_to 'Zerorie', root_path, id: 'header-logo'
+      = link_to image_pack_tag("media/images/zerorie_logo/zerorie_header_under_bar_transparent.png", size: '70x40'), root_path
 
     button.navbar-toggler[data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon

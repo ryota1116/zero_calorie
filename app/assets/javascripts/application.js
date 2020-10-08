@@ -1,5 +1,5 @@
 // Loads all Semantic javascripts
-//= require semantic-ui
+// = require semantic-ui
 
 // ドロップダウンを使用するためのコード
 // $(function(){
