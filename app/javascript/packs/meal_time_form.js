@@ -4,7 +4,7 @@
 //   type: 'date'
 // })
 
-// $(function () {
-//   $('#chalendar-1').calendar();
-// });
+$(function () {
+  $('#chalendar-1').calendar();
+});
 

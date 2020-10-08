@@ -20,19 +20,37 @@
         button type='button' class='meal-time-button ui button basic' id='check-month'
           | 月
 
+  / .ui.grid
+    .tablet.only.mobile.only.sixteen.wide.column
+    .computer.only.sixteen.wide.column
+
   .ui.center.aligned.basic.segment
       #day
-        .container
-        = form_with scope: :date, url: meal_records_path, method: :get, local: true do |f|
-          .row
-            .input-group.date id="datetimepicker4" data-target-input="nearest"
-              = f.text_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
-                / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
-              .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
-                .input-group-text
-                  i class="calendar alternate icon"
+        / .container
+        .ui.grid
+          .tablet.only.mobile.only.sixteen.wide.column
+            = form_with scope: :date, url: meal_records_path, method: :get, local: true do |f|
+              .row
+                .input-group.date.sixteen.wide.column id="datetimepicker4" data-target-input="nearest"
+                  = f.text_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+                    / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+                  .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+                    .input-group-text
+                      i class="calendar alternate icon"
 
-            = f.submit t('defaults.search'), class: 'ui basic button'
+                = f.submit t('defaults.search'), class: 'ui basic button'
+
+          .computer.only.sixteen.wide.column
+            = form_with scope: :date, url: meal_records_path, method: :get, local: true do |f|
+              .row
+                .input-group.date.computer-calendar id="datetimepicker4" data-target-input="nearest"
+                  = f.text_field :meal_time, value: @search_params, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+                    / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+                  .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+                    .input-group-text
+                      i class="calendar alternate icon"
+
+                = f.submit t('defaults.search'), class: 'ui basic button'
       / #week style="display: none"
         .container
         = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
@@ -79,7 +97,15 @@
 /   }
 
 css:
-  .input-group.date {
-    width: 40%;
+  .computer-calendar {
+    width: 50%;
     height: 50%
+  }
+
+  i.custom-button-previous:before {
+        content: "<<";
+    }
+
+  i.custom-button-next:before {
+      content: ">>";
   }

@@ -6,7 +6,6 @@ header {
   position: relative;
   width: 100%;
 }
-
 #search-camera-icon {
   margin-left: 1em;
 }
@@ -24,28 +23,9 @@ header {
   -ms-transform: translateY(-50%) translateX(-50%);
   overflow: scroll;
 }
-
-// ボタンの装飾
-// #search-by-picture-select-button {
+// #search-by-picture-submit-button {
 //   margin-top: 1em;
-//   display: inline-block;
-//   padding: 0.5em 1em;
-//   text-decoration: none;
-//   background: #668ad8;/*ボタン色*/
-//   color: #FFF;
-//   border-bottom: solid 4px #627295;
-//   border-radius: 3px;
 // }
-// #search-by-picture-select-button:active {
-//   /*ボタンを押したとき*/
-//   -webkit-transform: translateY(4px);
-//   transform: translateY(4px);/*下に動く*/
-//   border-bottom: none;/*線を消す*/
-// }
-
-#search-by-picture-submit-button {
-  margin-top: 1em;
-}
 #search-picture-preview {
   height: 40em;
 }
@@ -54,11 +34,18 @@ header {
   width: 80%;
   height: 80%;
 }
+.navbar-light .navbar-toggler {
+    border-color: #F7B134;
+}
 
-// .item.eight.wide.column.ui.search {
-//   box-sizing: border-box;
-// }
+#search-form {
+  width: 60%;
+}
 
-// .ui.icon.input {
-//   width: 8em;
-// }
+.yubi {
+  cursor : pointer;
+}
+// placeholderの設定
+.form-control::placeholder {
+  color: #aaa;
+}
