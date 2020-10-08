@@ -3,7 +3,6 @@
 header
   nav.navbar.navbar-expand-lg.navigation.navbar-dark
     li.nav-item.nav-link
-      / = link_to 'Zerorie', root_path, id: 'header-logo'
       = link_to image_pack_tag("media/images/zerorie_logo/zerorie_header_under_bar_transparent.png", size: '70x40'), root_path
 
     button.navbar-toggler[data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
@@ -11,21 +10,9 @@ header
     #navbarSupportedContent.collapse.navbar-collapse
       = form_with url: search_form_result_foods_path, class:'form-inline my-2 my-lg-0 aaa', method: :get, local: true do |f|
         = f.text_field :name, placeholder: '食べ物を検索する', class: 'form-control', id: 'search-form'
-        = f.button type: 'submit', class: "ui icon button orange my-2 my-sm-0" do
+        = f.button type: 'submit', class: "ui icon tiny button orange my-2 my-sm-0" do
           i.search.link.icon
       ul.navbar-nav.ml-auto.main-nav.align-items-rigiht
-
-        / li.nav-item.search-by-picture-modal-button
-          a href='' class='nav-link search-by-picture-modal-button'
-            | 画像検索する
-            i.camera.icon id='search-camera-icon'
-
-        / li.nav-item
-          #search-by-picture-modal-button
-            button.ui.orange.button
-              | 画像検索
-              i.camera.icon id='search-camera-icon'
-
         li.nav-item.yubi
           #search-by-picture-modal-button.nav-link
             | 画像検索
