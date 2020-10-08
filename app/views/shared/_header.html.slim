@@ -45,16 +45,16 @@ header
 / モーダルを表示
 .ui.modal id="search-by-picture-modal"
   / i.close.icon id='modal-close-button'
-  .header
+  .header.mb-2
     | 食べ物を画像で検索する
   = form_with url: search_picture_result_foods_path, method: :post, model: MealPicture.new, local: true, id: 'search-by-picture-form'  do |f|
     td
-      = f.label :search_picture, class: 'ui button orange', id: 'search-by-picture-select-button' do
+      = f.label :search_picture, class: 'ui tiny button orange mb-2', id: 'search-by-picture-select-button' do
         i.circular.camera.retro.icon
         | 画像を選択する
       = f.file_field :search_picture, style: 'display: none;'
       .actions
-      = f.button type: 'submit', class: "ui orange right labeld icon button", id: 'search-by-picture-submit-button' do
+      = f.button type: 'submit', class: "small ui button orange right labeld icon", id: 'search-by-picture-submit-button' do
         | 検索する
         i.search.icon
       / 画像プレビューの表示

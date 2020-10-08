@@ -3,12 +3,12 @@
   .ui.center.aligned.basic.segment
     h3
       | #{current_user.name}の#{t('.meal_record')}
-    h3
+    h4
       - if @search_params.present?
         | #{@search_params}の摂取カロリー
       - else
-        | 今日の摂取カロリー
-    h3
+        | 今までの合計摂取カロリー
+    h4
       | 0 kcal
 
   / 食事記録検索のカレンダーフォーム

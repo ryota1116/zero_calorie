@@ -8,7 +8,7 @@ class MealRecordsController < ApplicationController
   def show; end
 
   def index
-    # 検索ワードと検索で取得したデータを変数に格納する
+    # 検索ワードと、検索で取得したデータを変数に格納する
     @search_params, meal_records = get_meal_records_index(params, params[:date])
     @meal_records = meal_records.order(meal_time: :desc).page(params[:page]).per(10)
   end
@@ -24,13 +24,12 @@ class MealRecordsController < ApplicationController
 
     if @meal_record.save
       if session[:meal_picture_id].present?
-        # MealPicture.find(session[:meal_picture_id]).search_pictureではバグになる
+        # MealPicture.find(session[:meal_picture_id]).search_pictureは間違い
         ActiveStorage::Blob.find(session[:meal_picture_id]).open do |file|
           @meal_record.meal_record_pictures.attach(io: file, filename: "#{SecureRandom.hex(8)}.jpg")
         end
         session[:meal_picture_id] = nil
       end
-      # TODO: meal_record_new失敗でrenderして、そのあとnew成功した時に404エラー
       redirect_to @meal_record, success: t('defaults.message.created', item: MealRecord.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_created', item: MealRecord.model_name.human)
@@ -69,15 +68,11 @@ class MealRecordsController < ApplicationController
       search_params = MealRecord.search_params(params)
       meal_records = current_user.meal_records.search_meal_records(params, search_params)
     else
-      search_params = Date.current.strftime('%Y/%m/%d')
-      meal_records = current_user.meal_records.meal_time_date(Date.current)
+      # search_params = Date.current.strftime('%Y/%m/%d')
+      search_params = nil
+      # 全部取得する
+      meal_records = current_user.meal_records.all.includes(food: :food_genres)
     end
     [search_params, meal_records]
   end
-
-  # def attach_meal_picture
-  #   MealPicture.find(session[:meal_picture_id]).search_picture.open do |file|
-  #     meal_record_pictures.attach(io: file, filename: "#{SecureRandom.hex(8)}.jpg")
-  #   end
-  # end
 end
