@@ -12,11 +12,14 @@ header
         = f.text_field :name, placeholder: '食べ物を検索する', class: 'form-control', id: 'search-form'
         = f.button type: 'submit', class: "ui icon tiny button orange my-2 my-sm-0" do
           i.search.link.icon
+      #search-by-picture-modal-button.nav-link.yubi.ui.orange.small.button
+        | 画像検索
+        i.camera.icon id='search-camera-icon'
       ul.navbar-nav.ml-auto.main-nav.align-items-rigiht
-        li.nav-item.yubi
-          #search-by-picture-modal-button.nav-link
-            | 画像検索
-            i.camera.icon id='search-camera-icon'
+        / li.nav-item.yubi
+        /   #search-by-picture-modal-button.nav-link
+        /     | 画像検索
+        /     i.camera.icon id='search-camera-icon'
 
           / button type="button" class="nav-link ui orange button" id="search-by-picture-modal-button"
           /   | 食べ物を画像で検索する

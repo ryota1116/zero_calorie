@@ -11,16 +11,18 @@
         .field
           = f.label :password, User.human_attribute_name(:password)
           = f.password_field :password, placeholder: 'パスワード'
-        .actions
-          = f.submit t('defaults.login'), class: 'ui button'
-      .field
-        = link_to auth_at_provider_path(provider: :facebook), class: 'ui facebook button' do
+        .actions.mb-2
+          = f.submit t('defaults.login'), class: 'ui button mr-2'
+          = link_to guest_login_path, method: :post, class: 'ui orange button mb-2 mr-2' do
+            | ゲストとしてログイン
+      .field.mb-2
+        = link_to auth_at_provider_path(provider: :facebook), class: 'ui facebook button mb-2 mr-2' do
           i class='facebook icon'
           = t 'defaults.facebook.login'
-        = link_to auth_at_provider_path(provider: :twitter), class: 'ui twitter button' do
+        = link_to auth_at_provider_path(provider: :twitter), class: 'ui twitter button mb-2 mr-2' do
           i class='twitter icon'
           = t 'defaults.twitter.login'
-        = link_to guest_login_path, method: :post, class: 'ui button' do
-          | ゲストとしてログイン
-
+      .field
+        = link_to new_user_path do
+          | ユーザー登録がまだの方はこちらへ
 
