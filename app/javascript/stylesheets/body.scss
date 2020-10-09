@@ -6,6 +6,7 @@ body {
 }
 #app {
   flex: 1;
+  background-color: whitesmoke;
 }
 * {
   font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -17,8 +18,4 @@ h1, h2, h3, h4, h5, h6 {
 
 footer {
   background-color: #F7B134;
-}
-
-.ui.button {
-  // background-color: white;
 }

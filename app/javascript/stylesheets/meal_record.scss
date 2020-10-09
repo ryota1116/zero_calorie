@@ -1,19 +1,3 @@
-// 共通＋スマホ
-// p {
-//   color: red;
-// }
-  #meal_record_show {
-    // width: 30%;
-  }
-// タブレット+横向きスマホ
-@media (min-width: 481px) {
-  // p {
-  //   color: blue;
-  // }
-}
-// デスクトップ＋大型タブレット
-@media (min-width: 769px) {
-  // p {
-  //   color: green;
-  // }
+.input-time {
+  height: 95%;
 }

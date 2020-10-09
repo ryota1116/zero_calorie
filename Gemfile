@@ -28,7 +28,7 @@ gem 'mini_racer', platforms: :ruby
 # Authentication
 gem 'sorcery'
 # Storage
-gem 'aws-sdk-s3', require: false
+# gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -86,7 +86,7 @@ group :development, :test do
   gem 'pry-rails'
 
   # Table/Schema
-  # 各モデルのスキーマ情報をファイルの先頭もしくは末尾にコメントとして書き出してくれるGem
+  # 各モデルのスキーマ情報をファイルにコメントとして書き出してくれる
   gem 'annotate'
   # resetしても、スキーマファイルのコメントを残してくれる
   gem 'migration_comments'
