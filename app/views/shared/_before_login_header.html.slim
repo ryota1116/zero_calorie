@@ -16,10 +16,6 @@ header
         | 画像検索
         i.camera.icon id='search-camera-icon'
       ul.navbar-nav.ml-auto.main-nav.align-items-rigiht
-        / li.nav-item.yubi
-        /   #search-by-picture-modal-button.nav-link
-        /     | 画像検索
-        /     i.camera.icon id='search-camera-icon'
         li.nav-item
           = link_to t('defaults.sign_up'), new_user_path, class: 'nav-link'
         li.nav-item
@@ -43,33 +39,3 @@ header
       / 画像プレビューの表示
       td class="ui fluid image"
         #search-picture-preview
-
-  / .ui.grid
-  /   .computer.only.sixteen.wide.column
-  /     .ui.secondary.menu
-  /       .item.column
-  /         / = link_to 'Zerorie', root_path
-  /         = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
-  /       .item.column
-  /         = render template: 'foods/_search_form'
-  /       / .item id="search_by_picture"
-  /       /   = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-  /       .item.column
-  /         = render template: 'foods/_search_by_picture', locals: { meal_picture: MealPicture.new }
-  /       .right.menu
-  /         = link_to t('defaults.sign_up'), new_user_path, class: 'item'
-  /         = link_to t('defaults.login'), login_path, class: 'item'
-
-  / .tablet.only.mobile.only.ui.grid
-  /   .tablet.only.mobile.only.four.wide.column.linkbox
-  /     / = link_to 'Zerorie', root_path
-  /     = link_to image_pack_tag("media/images/zerorie_logo/logo_transparent.png", size: '60x40'), root_path
-  /   .tablet.only.mobile.only.eight.wide.column
-  /     = render template: 'foods/_search_form'
-  /   .tablet.only.mobile.only.four.wide.column.ui.dropdown.item
-  /     .text
-  /       | メニュー
-  /     i class="dropdown icon"
-  /     .menu
-  /       = link_to t('defaults.sign_up'), new_user_path, class: 'item'
-  /       = link_to t('defaults.login'), login_path, class: 'item'
