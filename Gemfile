@@ -29,14 +29,12 @@ gem 'mini_racer', platforms: :ruby
 gem 'sorcery'
 # S3に必要
 gem 'aws-sdk-s3', require: false
-
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 # GCP
 # ggsいらないのでは
 # gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'google-cloud-vision'
-
 # UI/UX
 gem 'bootstrap-sass'
 # semantic UI Framework
@@ -59,6 +57,11 @@ gem 'miyabi'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+
+group :production do
+  gem 'asset_sync'
+  gem 'fog-aws'
+end
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

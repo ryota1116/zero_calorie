@@ -63,6 +63,11 @@ GEM
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
+    asset_sync (2.12.1)
+      activemodel (>= 4.1.0)
+      fog-core
+      mime-types (>= 2.99)
+      unf
     ast (2.4.1)
     autoprefixer-rails (9.8.6.2)
       execjs
@@ -193,6 +198,7 @@ GEM
     exception_notification (4.4.3)
       actionmailer (>= 4.0, < 7)
       activesupport (>= 4.0, < 7)
+    excon (0.76.0)
     execjs (2.7.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -202,6 +208,23 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
+    fog-aws (3.6.7)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (2.2.3)
+      builder
+      excon (~> 0.71)
+      formatador (~> 0.2)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    fog-xml (0.1.3)
+      fog-core
+      nokogiri (>= 1.5.11, < 2.0.0)
+    formatador (0.2.5)
     gapic-common (0.3.2)
       google-protobuf (~> 3.12, >= 3.12.2)
       googleapis-common-protos (>= 1.3.9, < 2.0)
@@ -253,6 +276,7 @@ GEM
     image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
+    ipaddress (0.8.3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
@@ -541,6 +565,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  asset_sync
   aws-sdk-s3
   bcrypt_pbkdf
   better_errors
@@ -563,6 +588,7 @@ DEPENDENCIES
   ed25519
   exception_notification
   factory_bot_rails
+  fog-aws
   google-cloud-vision
   html2slim
   image_processing (~> 1.2)
