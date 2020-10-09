@@ -27,8 +27,8 @@ gem 'mini_racer', platforms: :ruby
 
 # Authentication
 gem 'sorcery'
-# Storage
-# gem 'aws-sdk-s3', require: false
+# S3に必要
+gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
