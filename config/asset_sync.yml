@@ -1,7 +1,7 @@
 defaults: &defaults
   fog_provider: 'AWS'
-  aws_access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-  aws_secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
+  aws_access_key_id: <%= Rails.application.credentials.dig(:aws, :zerorie_cloud_front, :access_key_id) %>
+  aws_secret_access_key: <%= Rails.application.credentials.dig(:aws, :zerorie_cloud_front, :secret_access_key) %>
   # To use AWS reduced redundancy storage.
   # aws_reduced_redundancy: true
   fog_directory: "zerorie" # バケット名を指定
