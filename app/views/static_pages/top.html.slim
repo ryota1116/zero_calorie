@@ -1,32 +1,152 @@
 - content_for(:title, '')
-.top-wrapper
-  .top-inner-text
-    h1
-      |その食べ物、ゼロカロリーです。
-    = image_pack_tag('media/images/undraw_barbecue_3x93.png', size: '300x300')
+//////////////////////////////////////
+///////////////  PC  /////////////////
+//////////////////////////////////////
+.ui.grid.computer.only.tablet.only.sixteen.wide#computer-top-page
+  ///// ロゴ /////
+  .ui.stackable.very.relaxed.two.column.grid.container
+    .two.wide.column
+    .left.aligned.ten.wide.column
+      = image_pack_tag "media/images/zerorie_logo/zerorie_header_under_bar_transparent.png", id: 'top-image-1'
+    .four.wide.column
+  ///// 見出し /////
+  .ui.stackable.very.relaxed.two.column.grid.container
+    .two.wide.column
+    .left.aligned.fourteen.wide.column
+      h1
+        | その食べ物、ゼロカロリーです
+      h4
+        | 全ての食べ物を
+      h4
+        | ゼロカロリーにする
+      h4
+        | カロリー管理アプリ
+      br
+      .ui.buttons.mb-4
+        = link_to t('.to_sign_up_page'), new_user_path, class: 'ui orange small button'
+        .or
+        = link_to t('.to_login_page'), login_path, method: :get, class: 'ui orange small button'
 
-.ui.center.aligned.grid
-  = link_to 'ゲストとしてログイン', guest_login_path, method: :post, class: 'ui orange button'
+      br
+      = link_to t('defaults.guest_login'), guest_login_path, method: :post, class: 'ui yellow button'
+  ///// 1つ目のブロック /////
+  .ui.stackable.very.relaxed.two.column.grid.container
+    .two.wide.column
+    .left.aligned.six.wide.column
+      h2
+        | 好きな食べ物を
+        br
+          | 好きなだけ食べる
+      p
+        | Zerorieの世界では
+        br
+          | カロリーを気にして
+          br
+            | 食事を我慢する必要はありません
+    .six.wide.column
+      = image_pack_tag "media/images/top_page/zerorie_top_1.png", id: 'top-image-1'
+    .two.wide.column
+  ///// 2つ目のブロック /////
+  .ui.stackable.very.relaxed.two.column.grid.container
+    .two.wide.column
+    .six.wide.column
+      = image_pack_tag "media/images/top_page/zerorie_top_2.png", id: 'top-image-2'
+    .left.aligned.six.wide.column
+      h2
+        | 日々のカロリー
+        br
+          | 管理が不要
+      p
+        | 1日の摂取カロリーを
+        br
+          | 計算する必要はありません
+          br
+            | そう、Zerorieならね
+    .two.wide.column
+  ///// 3つ目のブロック /////
+  .ui.stackable.very.relaxed.two.column.grid.container
+    .two.wide.column
+    .left.aligned.six.wide.column
+      h2
+        | 好きな食べ物を
+        br
+          | 好きなだけ食べる
+      p
+        | Zerorieの世界では
+        br
+          | カロリーを気にして
+          br
+            | 食事を我慢する必要なんてありません
+    .six.wide.column
+      = image_pack_tag "media/images/top_page/zerorie_top_3.png", id: 'top-image-3'
+    .two.wide.column
 
-/ .ui.placeholder.segment
-/   .ui.two.column.stackable.center.aligned.grid
-/     .ui.vertical.divider
-/       | Or
-/     .middle.aligned.row
-/       .column
-/         .ui.icon.header
-/           i class="search icon"
-/             | 食べ物を検索する
-
-/         .field
-/           .ui.search
-/             .ui.icon.input
-/               input class="prompt" type="text" placeholder="Search countries..."
-/               i class="search icon"
-/             .results
-/       .column
-/         .ui.icon.header
-/           i class="image outline icon"
-/             | 食べ物を画像検索する
-/         .ui.primary.button
-/           | 検索する
+//////////////////////////////////////
+/////// モバイルとタブレット /////////
+//////////////////////////////////////
+.ui.center.grid.mobile.only#tablet-mobile-top-page
+  ///// ロゴ /////
+  .sixteen.wide.column
+    = image_pack_tag "media/images/zerorie_logo/zerorie_header_under_bar_transparent.png", id: 'top-image-1'
+  ///// 見出し /////
+  .sixteen.wide.column
+    .ui.center.aligned.basic.segment
+      h1
+        | その食べ物
+        br
+          | ゼロカロリーです
+      h4
+        | 全ての食べ物を
+      h4
+        | ゼロカロリーにする
+      h4
+        | カロリー管理アプリ
+      br
+        .ui.buttons.mb-2
+          = link_to t('.to_sign_up_page'), new_user_path, class: 'ui orange small button'
+          .or
+          = link_to t('.to_login_page'), login_path, method: :get, class: 'ui orange small button'
+      br
+        = link_to t('defaults.guest_login'), guest_login_path, method: :post, class: 'ui yellow button'
+  ///// 1つ目のブロック /////
+  .sixteen.wide.column
+    .ui.center.aligned.basic.segment
+      h2
+        | 好きな食べ物を
+        br
+          | 好きなだけ食べる
+      p
+        | Zerorieの世界では
+        br
+          | カロリーを気にして
+          br
+            | 食事を我慢する必要はありません
+    = image_pack_tag "media/images/top_page/zerorie_top_1.png", id: 'top-image-1'
+  ///// 2つ目のブロック /////
+  .sixteen.wide.column
+    .ui.center.aligned.basic.segment
+      h2
+        | 日々のカロリー
+        br
+          | 管理が不要
+      p
+        | 1日の摂取カロリーを
+        br
+          | 計算する必要はありません
+          br
+            | そう、Zerorieならね
+    = image_pack_tag "media/images/top_page/zerorie_top_2.png", id: 'top-image-2'
+  ///// 3つ目のブロック /////
+  .sixteen.wide.column
+    .ui.center.aligned.basic.segment
+      h2
+        | 好きな食べ物を
+        br
+          | 好きなだけ食べる
+      p
+        | Zerorieの世界では
+        br
+          | カロリーを気にして
+          br
+            | 食事を我慢する必要なんてありません
+    = image_pack_tag "media/images/top_page/zerorie_top_3.png", id: 'top-image-3'
