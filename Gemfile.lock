@@ -66,22 +66,6 @@ GEM
     ast (2.4.1)
     autoprefixer-rails (9.8.6.2)
       execjs
-    aws-eventstream (1.1.0)
-    aws-partitions (1.353.0)
-    aws-sdk-core (3.104.3)
-      aws-eventstream (~> 1, >= 1.0.2)
-      aws-partitions (~> 1, >= 1.239.0)
-      aws-sigv4 (~> 1.1)
-      jmespath (~> 1.0)
-    aws-sdk-kms (1.36.0)
-      aws-sdk-core (~> 3, >= 3.99.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.76.0)
-      aws-sdk-core (~> 3, >= 3.104.1)
-      aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.1)
-    aws-sigv4 (1.2.1)
-      aws-eventstream (~> 1, >= 1.0.2)
     bcrypt (3.1.15)
     bcrypt_pbkdf (1.0.1)
     better_errors (2.7.1)
@@ -255,7 +239,6 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    jmespath (1.4.0)
     json (2.3.1)
     jwt (2.2.1)
     kaminari (1.2.1)
@@ -541,7 +524,6 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  aws-sdk-s3
   bcrypt_pbkdf
   better_errors
   binding_of_caller
