@@ -1,8 +1,6 @@
 
 header {
   background-color: #F7B134;
-  // top: 0; /* 上部から配置の基準位置を決める */
-  // left: 0; /* 左から配置の基準位置を決める */
   position: relative;
   width: 100%;
 }
@@ -23,9 +21,6 @@ header {
   -ms-transform: translateY(-50%) translateX(-50%);
   overflow: scroll;
 }
-// #search-by-picture-submit-button {
-//   margin-top: 1em;
-// }
 #search-picture-preview {
   height: 40em;
 }
@@ -37,11 +32,9 @@ header {
 .navbar-light .navbar-toggler {
     border-color: #F7B134;
 }
-
 #search-form {
   width: 60%;
 }
-
 .yubi {
   cursor : pointer;
 }

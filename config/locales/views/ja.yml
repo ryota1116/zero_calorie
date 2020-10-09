@@ -14,6 +14,7 @@ ja:
     back: 戻る
     unspecified: 指定なし
     email: メールアドレス
+    guest_login: ゲストとしてログイン
     message: # defaults.message
       created: '%{item}を作成しました'
       not_created: '%{item}を作成できませんでした'
@@ -30,6 +31,10 @@ ja:
       login: Twitterでログイン
       success: Twitterでログインしました
       failed: Twitterでログインできませんでした
+  static_pages:
+    top:
+      to_sign_up_page: 新規登録する
+      to_login_page: ログインページへ
   users: # 以下、特定のviewに関するもの
     new:
       title: ユーザー登録
