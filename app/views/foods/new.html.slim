@@ -35,6 +35,6 @@
           .label
             | 検索に使用した画像
           .field
-            = image_tag ActiveStorage::Blob.find(session[:meal_picture_id])
+            = image_tag ActiveStorage::Blob.find(session[:meal_picture_id]), class: 'food-new-picture'
         .actions
           = f.button t('.submit'), class: 'ui button'
