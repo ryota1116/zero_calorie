@@ -8,18 +8,18 @@ header
     button.navbar-toggler[data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
       span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
-      = form_with url: search_form_result_foods_path, class:'form-inline my-2 my-lg-0 aaa', method: :get, local: true do |f|
+      = form_with url: search_form_result_foods_path, class:'form-inline my-2 my-lg-0', method: :get, local: true do |f|
         = f.text_field :name, placeholder: '食べ物を検索する', class: 'form-control', id: 'search-form'
-        = f.button type: 'submit', class: "ui icon tiny button orange my-2 my-sm-0" do
+        = f.button type: 'submit', class: "ui icon button orange my-2 my-sm-0" do
           i.search.link.icon
-      #search-by-picture-modal-button.nav-link.yubi.ui.orange.tiny.button
+      #search-by-picture-modal-button.nav-link.yubi.ui.orange.button
         | 画像検索
         i.camera.icon id='search-camera-icon'
       ul.navbar-nav.ml-auto.main-nav.align-items-rigiht
         li.nav-item
-          = link_to t('defaults.sign_up'), new_user_path, class: 'nav-link'
+          = link_to t('defaults.sign_up'), new_user_path, class: 'nav-link text-white'
         li.nav-item
-          = link_to t('defaults.login'), login_path, class: 'nav-link'
+          = link_to t('defaults.login'), login_path, class: 'nav-link text-white'
 
 / モーダルを表示
 .ui.modal id="search-by-picture-modal"
