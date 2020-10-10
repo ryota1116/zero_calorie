@@ -31,23 +31,22 @@
       - @meal_records.each do |meal_record|
         tbody
           tr
-            td class='two wide'
+            td class='three wide'
               = link_to meal_record.food.name, meal_record_path(meal_record), class: 'ui olive'
             td class='two wide'
               = "#{meal_record.food.calorie} kcal"
-            td class='five wide calorie_theory'
+            td class='six wide calorie_theory'
               // TODO: ビューから切り離す
               - if meal_record.food.calorie_theory.present?
                 = meal_record.food.calorie_theory
               - elsif meal_record.food.food_genres.present?
                 = meal_record.food.food_genres[0].calorie_theory
-            td class='four wide'
+            td class='three wide'
               = l meal_record.meal_time
-            td class='one wide'
+            td class='two wide'
               = link_to edit_meal_record_path(meal_record) do
-                .ui.olive.small.button
+                .ui.olive.small.button.mb-2
                   = t('defaults.edit')
-            td class='one wide'
               = link_to meal_record_path(meal_record), method: :delete, data: { confirm: t('defaults.message.delete_confirm') } do
                 .ui.red.small.button
                   = t('defaults.destroy')
