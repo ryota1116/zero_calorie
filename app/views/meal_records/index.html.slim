@@ -1,14 +1,14 @@
 - content_for(:title, t('.title'))
 .ui.container
   .ui.center.aligned.basic.segment
-    h3
-      | #{current_user.name}の#{t('.meal_record')}
     h4
+      | #{current_user.name}の#{t('.meal_record')}
+    h2
       - if @search_params.present?
         | #{@search_params}の摂取カロリー
       - else
         | 今までの合計摂取カロリー
-    h4
+    h2
       | 0 kcal
 
   / 食事記録検索のカレンダーフォーム
