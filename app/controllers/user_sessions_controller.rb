@@ -21,6 +21,6 @@ class UserSessionsController < ApplicationController
   def guest_login
     user = User.find_by!(role: :guest)
     auto_login(user)
-    redirect_to meal_records_path, success: t('.success')
+    redirect_back_or_to meal_records_path, success: t('.success')
   end
 end
