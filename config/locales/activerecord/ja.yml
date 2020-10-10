@@ -31,6 +31,7 @@ ja:
           attributes:
             name:
               format: '%{message}'
+              blank: "%{attribute}を入力してください"
               taken: '%{attribute}は既に存在しています。'
             calorie:
               format: この食べ物のカロリーは0kcalです。0と入力してください。

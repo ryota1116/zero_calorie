@@ -201,7 +201,9 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分"
+      # TODO: datetime_filedがスマホ対応してなかったため、一時的にdate_fieldを使用している
+      # default: "%Y年%m月%d日(%a) %H時%M分"
+      default: "%Y年%m月%d日(%a)"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
