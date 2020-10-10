@@ -7,7 +7,8 @@
           = t('.title')
         - if @food_lists.present?
           == render 'search_result', food_lists: @food_lists
-          = paginate(@food_lists)
+          // TODO: POSTメソッドだからoagenationできない
+          / = paginate(@food_lists)
         - else
           h3
             | ちょっと何言ってるか分かりません。

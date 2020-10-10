@@ -20,11 +20,20 @@
         button type='button' class='meal-time-button ui button basic' id='check-month'
           | 月
 
-  / .ui.grid
-    .tablet.only.mobile.only.sixteen.wide.column
-    .computer.only.sixteen.wide.column
+  // TODO: 一旦コレで
+  .ui.center.aligned.form
+    = form_with scope: :date, url: meal_records_path, method: :get, local: true, class: 'field' do |f|
+      .ui.grid.computer.only.tablet.only.sixteen.wide.two.column
+        .twelve.wide.column
+          = f.date_field :meal_time, value: @search_params, placeholder: '年/月/日', class: 'ui basic button'
+        .four.wide.column
+          = f.submit t('defaults.search'), class: 'ui basic large button'
+      .ui.center.grid.mobile.only
+        .sixteen.wide.column
+          = f.date_field :meal_time, value: @search_params, placeholder: '年/月/日', class: 'ui basic button mb-2'
+          = f.submit t('defaults.search'), class: 'ui basic large button'
 
-  .ui.center.aligned.basic.segment
+  / .ui.center.aligned.basic.segment
       #day
         / .container
         .ui.grid
@@ -37,10 +46,9 @@
                   .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
                     .input-group-text
                       i class="calendar alternate icon"
+                / = f.submit t('defaults.search'), class: 'ui basic button'
 
-                = f.submit t('defaults.search'), class: 'ui basic button'
-
-          .computer.only.sixteen.wide.column
+          / .computer.only.sixteen.wide.column
             = form_with scope: :date, url: meal_records_path, method: :get, local: true do |f|
               .row
                 .input-group.date.computer-calendar id="datetimepicker4" data-target-input="nearest"
@@ -49,8 +57,8 @@
                   .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
                     .input-group-text
                       i class="calendar alternate icon"
-
                 = f.submit t('defaults.search'), class: 'ui basic button'
+
       / #week style="display: none"
         .container
         = form_with scope: :week, url: meal_records_path, method: :get, local: true do |f|
