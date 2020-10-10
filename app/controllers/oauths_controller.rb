@@ -15,7 +15,7 @@ class OauthsController < ApplicationController
     end
 
     create_user_from(provider) unless (@user = login_from(provider))
-    redirect_to root_path, success: "#{provider.titleize}でログインしました"
+    redirect_to meal_records_path, success: "#{provider.titleize}でログインしました"
   end
 
   private
