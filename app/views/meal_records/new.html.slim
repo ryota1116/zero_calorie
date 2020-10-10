@@ -39,7 +39,7 @@
             td
               = f.label :meal_time
             td
-              = f.date_field :meal_time
+              = f.date_field :meal_time, value: Date.current
 
               / .ui.grid
                 .ten.wide.column
