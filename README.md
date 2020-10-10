@@ -42,7 +42,7 @@ https://xd.adobe.com/view/cc0b2f2f-238d-4ad3-a35f-4c5c76022c18-9958/
 ![](https://user-images.githubusercontent.com/60560627/90597809-bae17e80-e22c-11ea-846c-0e4849e6a685.png)
 
 ## インフラ構成図
-<img width="100%" alt="スクリーンショット 2020-10-03 7 54 13" src="https://user-images.githubusercontent.com/60560627/94975901-1605d100-054e-11eb-8c0e-4019afa52b6c.png">
+<img width="100%" alt="インフラ構成図 2020-10-10 11 23 58" src="https://user-images.githubusercontent.com/60560627/95643652-79ae7200-0aeb-11eb-9920-35565d45b64a.png">
 
 ## 使用技術
 <p align="left">
