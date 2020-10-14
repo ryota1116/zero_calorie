@@ -45,7 +45,6 @@ gem 'rails-i18n'
 gem 'kaminari'
 # RailsでSEOの設定を行うGem
 # gem 'meta-tags'
-gem 'html2slim'
 gem 'slim-rails'
 # 定数管理
 gem 'config'
