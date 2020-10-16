@@ -39,6 +39,7 @@ class FoodsController < ApplicationController
     session[:meal_picture_id] = @meal_picture.search_picture.id
 
     food_labels = @meal_picture.fetch_food_labels
+
     @food_lists = []
 
     # labelでFoodを検索
