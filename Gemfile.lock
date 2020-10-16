@@ -243,9 +243,6 @@ GEM
     grpc (1.30.2)
       google-protobuf (~> 3.12)
       googleapis-common-protos-types (~> 1.0)
-    hpricot (0.8.6)
-    html2slim (0.2.0)
-      hpricot
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.8.5)
@@ -564,7 +561,6 @@ DEPENDENCIES
   exception_notification
   factory_bot_rails
   google-cloud-vision
-  html2slim
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kaminari
