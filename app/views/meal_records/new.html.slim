@@ -33,9 +33,9 @@
             td
               / - binding.pry
               - if @meal_record.food.calorie_theory.present?
-                = "#{@meal_record.food.calorie_theory}"
+                = @meal_record.food.calorie_theory
               - elsif @meal_record.food.food_genres.present?
-                = "#{@meal_record.food.food_genres[0].calorie_theory}"
+                = @meal_record.food.food_genres[0].calorie_theory
               - else
                 p
                   | カロリー理論が登録されていません
