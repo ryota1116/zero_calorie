@@ -22,6 +22,9 @@ require("packs/search_picture_preview")
 require("moment/locale/ja")
 require("tempusdominus-bootstrap-4")
 
+// administrate用
+require("packs/administrate")
+
 import 'bootstrap';
 import '../stylesheets/application';
 

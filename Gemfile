@@ -46,6 +46,7 @@ gem 'kaminari'
 # RailsでSEOの設定を行うGem
 # gem 'meta-tags'
 gem 'slim-rails'
+gem 'html2slim'
 # 定数管理
 gem 'config'
 # slack通知
@@ -53,6 +54,8 @@ gem 'exception_notification'
 gem 'slack-notifier'
 # ひらがな、カタカナ、漢字、ローマ字を相互変換するgem
 gem 'miyabi'
+# 管理者画面
+gem 'administrate'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

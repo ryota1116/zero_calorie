@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :meal_pictures
+    resources :foods
+    resources :food_genres
+    resources :meal_records
+    resources :authentications
+    resources :food_food_genres
+    resources :users
+
+    root to: "users#index"
+  end
+
   root to: 'static_pages#top'
 
   post 'oauth/callback' => 'oauths#callback'
