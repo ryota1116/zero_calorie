@@ -19,7 +19,6 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :meal_records, dependent: :destroy
-  has_many :food_genres, dependent: :destroy
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
