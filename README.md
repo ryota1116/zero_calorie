@@ -29,7 +29,7 @@
 
 ### **https://zerorie.com/**
 
-## Qiita記事
+## <img src="https://img.shields.io/badge/-Qiita-55C500.svg?logo=&style=flat-square">Qiita記事
 
 ### [【個人開発】全ての食べ物を0kcalにするカロリー管理アプリ「Zerorie」をリリースしました](https://qiita.com/ryota21/items/2d3015bf40414b232b3e)
 
