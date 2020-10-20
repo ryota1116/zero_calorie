@@ -10,15 +10,15 @@
 </div>
 
 <p align="center">
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="70" height="70"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="70" height="70"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="70" height="70"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/ruby/ruby-original-wordmark.svg" alt="ruby" width="70" height="70"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/rails/rails-original-wordmark.svg" alt="rails" width="70" height="70"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="70" height="70"/> 
-  <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="70" height="70"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="70" height="70"/>
-  <img src="https://img.shields.io/badge/--343434.svg?logo=circleci&style=plastic" width="80" height="60"/>
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="60" height="60"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="60" height="60"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="60" height="60"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/ruby/ruby-original-wordmark.svg" alt="ruby" width="60" height="60"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/rails/rails-original-wordmark.svg" alt="rails" width="60" height="60"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="60" height="60"/> 
+  <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="60" height="60"/> 
+  <img src="https://devicons.github.io/devicon/devicon.git/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="60" height="60"/>
+  <img src="https://img.shields.io/badge/--343434.svg?logo=circleci&style=plastic" width="70" height="50"/>
 </p>
 
 ## 🎉 プロダクト
@@ -28,6 +28,14 @@
 ## 🌐 アプリURL
 
 ### **https://zerorie.com/**
+
+## Qiita記事
+
+### [【個人開発】全ての食べ物を0kcalにするカロリー管理アプリ「Zerorie」をリリースしました](https://qiita.com/ryota21/items/2d3015bf40414b232b3e)
+
+### 🆕 Qiitaデイリートレンド1位を獲得
+
+### 🆕 400LGTM突破
 
 ## 📦 プロダクト概要
 
