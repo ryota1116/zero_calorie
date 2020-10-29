@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class FoodGenreDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -15,7 +15,7 @@ class FoodGenreDashboard < Administrate::BaseDashboard
     calorie: Field::Number,
     calorie_theory: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,34 +24,34 @@ class FoodGenreDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  food_food_genres
-  foods
-  id
-  genre_name
+    food_food_genres
+    foods
+    id
+    genre_name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  food_food_genres
-  foods
-  id
-  genre_name
-  calorie
-  calorie_theory
-  created_at
-  updated_at
+    food_food_genres
+    foods
+    id
+    genre_name
+    calorie
+    calorie_theory
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  food_food_genres
-  foods
-  genre_name
-  calorie
-  calorie_theory
+    food_food_genres
+    foods
+    genre_name
+    calorie
+    calorie_theory
   ].freeze
 
   # COLLECTION_FILTERS

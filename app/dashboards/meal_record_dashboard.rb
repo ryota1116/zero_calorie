@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class MealRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -10,12 +10,12 @@ class MealRecordDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
     food: Field::BelongsTo,
-    meal_record_pictures_attachments: Field::HasMany.with_options(class_name: "ActiveStorage::Attachment"),
-    meal_record_pictures_blobs: Field::HasMany.with_options(class_name: "ActiveStorage::Blob"),
+    meal_record_pictures_attachments: Field::HasMany.with_options(class_name: 'ActiveStorage::Attachment'),
+    meal_record_pictures_blobs: Field::HasMany.with_options(class_name: 'ActiveStorage::Blob'),
     id: Field::Number,
     meal_time: Field::DateTime,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,34 +24,34 @@ class MealRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  user
-  food
-  meal_record_pictures_attachments
-  meal_record_pictures_blobs
+    user
+    food
+    meal_record_pictures_attachments
+    meal_record_pictures_blobs
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  user
-  food
-  meal_record_pictures_attachments
-  meal_record_pictures_blobs
-  id
-  meal_time
-  created_at
-  updated_at
+    user
+    food
+    meal_record_pictures_attachments
+    meal_record_pictures_blobs
+    id
+    meal_time
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  user
-  food
-  meal_record_pictures_attachments
-  meal_record_pictures_blobs
-  meal_time
+    user
+    food
+    meal_record_pictures_attachments
+    meal_record_pictures_blobs
+    meal_time
   ].freeze
 
   # COLLECTION_FILTERS
