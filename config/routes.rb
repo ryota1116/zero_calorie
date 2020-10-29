@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :food_food_genres
     resources :users
 
-    root to: "users#index"
+    root to: 'users#index'
   end
 
   root to: 'static_pages#top'
