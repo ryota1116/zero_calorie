@@ -15,8 +15,13 @@
 #
 FactoryBot.define do
   factory :food_genre do
-    genre_name { 'MyString' }
-    calorie { 1 }
-    calorie_theory { 'MyText' }
+    sequence(:genre_name) { |n| "genre_name-#{n}" }
+    calorie { 0 }
+    sequence(:calorie_theory) { |n| "calorie_theory-#{n}" }
+
+    # trait :noodle do
+    #   genre_name { "麺類" }
+    #   calorie_theory { "麺の丁度良い茹で具合とは、丁度カロリーがゼロになるタイミングのこと。美味しく感じれば間違いなくカロリーゼロになっている。" }
+    # end
   end
 end

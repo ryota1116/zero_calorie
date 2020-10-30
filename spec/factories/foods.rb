@@ -53,5 +53,25 @@ FactoryBot.define do
       calorie { 0 }
       labels { [''] }
     end
+
+    trait :menchi_katsu do
+      name { 'メンチカツ' }
+      calorie { 0 }
+      labels { [''] }
+    end
+
+    # 多対多
+    trait :with_food_genre do
+      transient do
+        sequence(:genre_name) { |n| "genre_name-#{n}" }
+        sequence(:calorie_theory) { |n| "calorie_theory-#{n}" }
+        # calorie { 0 }
+      end
+
+      # 中間テーブルを作成する定義を内部で統合
+      after(:build) do |food, evaluator|
+        food.food_genres << build(:food_genre, genre_name: evaluator.genre_name, calorie_theory: evaluator.calorie_theory)
+      end
+    end
   end
 end
