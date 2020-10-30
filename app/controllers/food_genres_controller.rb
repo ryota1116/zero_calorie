@@ -1,5 +1,5 @@
 class FoodGenresController < ApplicationController
-  before_action :set_my_food_genre, only: %i[edit update destroy]
+  before_action :set_my_food_genre, only: %i[edit update destroy index show]
 
   def index
     @food_genres = FoodGenre.all
