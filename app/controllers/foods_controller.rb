@@ -41,7 +41,7 @@ class FoodsController < ApplicationController
     food_labels = @meal_picture.fetch_food_labels
 
     food_lists.reject(&:blank?).flatten = food_labels.map do |food_label|
-      Food.search_by_label(food_label)
+      Food.with_label(food_label)
     end
 
     # 空配列を削除し、多次元配列を一次元配列にする

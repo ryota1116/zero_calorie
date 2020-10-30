@@ -23,15 +23,15 @@ class Food < ApplicationRecord
   # TODO: 0に固定してるから、presence: trueは削除した
   validates :calorie, numericality: { only_integer: true, equal_to: 0 }
 
-  scope :search_by_form, ->(food_name) { where('name like ?', "%#{food_name}%") }
-  scope :search_by_label, ->(label) { where('labels like ?', "%#{label}%") }
+  scope :with_name, ->(food_name) { where('name like ?', "%#{food_name}%") }
+  scope :with_label, ->(label) { where('labels like ?', "%#{label}%") }
 
   # 文字列でFoodテーブルを検索
   def self.search_form(food_name)
     # return Food.all unless food_name
     return nil unless food_name
 
-    Food.search_by_form(food_name)
+    Food.with_name(food_name)
   end
 
   # 検索ワードを変換してFoodの検索を行う

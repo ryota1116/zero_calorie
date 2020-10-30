@@ -62,18 +62,18 @@ RSpec.describe Food, type: :model do
     end
 
     describe 'scope' do
-      describe ':search_by_form' do
+      describe ':with_name' do
         context 'アイスと検索した場合' do
           it 'アイスという文字列を含むFoodのデータを返す' do
-            expect(described_class.search_by_form('アイス')).to contain_exactly(ice_cream, ice_coffee)
+            expect(described_class.with_name('アイス')).to contain_exactly(ice_cream, ice_coffee)
           end
         end
       end
 
-      describe ':search_by_label' do
+      describe ':with_label' do
         context 'ice creamというラベルを引数に設定した場合' do
           it 'ice creamというラベルを持つFoodのデータを返す' do
-            expect(described_class.search_by_label('Ice cream')).to contain_exactly(ice_cream)
+            expect(described_class.with_label('Ice cream')).to contain_exactly(ice_cream)
           end
         end
       end
