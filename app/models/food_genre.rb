@@ -19,5 +19,5 @@ class FoodGenre < ApplicationRecord
 
   validates :genre_name, presence: true, uniqueness: { case_sensitive: true }
   validates :calorie, presence: true, numericality: { only_integer: true, equal_to: 0 }
-  validates :calorie_theory, presence: true
+  validates :calorie_theory, presence: true, length: { maximum: 100 }
 end

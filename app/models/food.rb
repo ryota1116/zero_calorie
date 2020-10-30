@@ -22,6 +22,7 @@ class Food < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: true }
   # TODO: 0に固定してるから、presence: trueは削除した
   validates :calorie, numericality: { only_integer: true, equal_to: 0 }
+  validates :calorie_theory, length: { maximum: 100 }
 
   scope :with_name, ->(food_name) { where('name like ?', "%#{food_name}%") }
   scope :with_label, ->(label) { where('labels like ?', "%#{label}%") }
