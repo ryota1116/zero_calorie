@@ -29,11 +29,9 @@ class MealPicture < ApplicationRecord
     end
 
     food_labels = response.responses.map do |res|
-      res.label_annotations.map do |label|
-        label.description
-      end
+      res.label_annotations.map(&:description)
     end
 
-    return food_labels.flatten
+    food_labels.flatten
   end
 end
