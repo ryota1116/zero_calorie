@@ -1,0 +1,40 @@
+- content_for(:title, t('.title'))
+.ui.container.mt-2
+  .ui.text.container
+    h1
+      = t('.title')
+  .ui.text.container
+    .ui.form
+      = form_with model: @food, url: foods_path, class: 'ui form', local: true do |f|
+        = render 'shared/error_messages', object: f.object
+        .label
+          = f.label :name
+        .field
+          = f.text_field :name
+        / .label
+        /   = f.label :food_genre_id
+        / .field
+        /   // TODO:ページネーション付きのセレクトボックスにしたい
+        /   // TODO:選択したらajaxでカロリー理論表示とか
+        /   = f.collection_check_boxes :food_genre_ids, FoodGenre.all, :id, :genre_name, include_hidden: false do |genre|
+        /     = genre.label { genre.check_box + genre.text }
+
+        /   = f.collection_select :food_genre_id, FoodGenre.all, :id, :genre_name, { include_blank: "----"}, multiple: true, include_hidden: false do |genre|
+        /     = genre.label { genre.check_box + genre.text }
+        .label
+          = f.label :calorie
+        //TODO : 全角入力を半角に変換する
+        .field
+          = f.text_field :calorie, placeholder: 'kcal'
+        .label
+          = f.label :calorie_theory
+          | （任意）
+        .field
+          = f.text_field :calorie_theory
+        - if session[:meal_picture_id].present?
+          .label
+            | 検索に使用した画像
+          .field
+            = image_tag ActiveStorage::Blob.find(session[:meal_picture_id]), class: 'food-new-picture'
+        .actions
+          = f.button t('.submit'), class: 'ui button'

@@ -1,0 +1,37 @@
+#モデル名や各モデルの属性に関する日本語訳をこのファイルにまとめて記述
+ja:
+  activerecord:
+    models: # Model.model_name.human
+      user: ユーザー
+      meal_record: 食事記録
+      food: 食べ物
+    attributes: # t(Model.human_attribute_name(:attribute))
+      user:
+        id: ID
+        name: 名前
+        role: 権限
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        created_at: 作成日時
+      meal_record:
+        meal_time: 食事時間
+        meal_record_pictures: 写真
+      food:
+        name: 食べ物の名前
+        calorie: カロリー
+        calorie_theory: カロリー理論
+      food_genre:
+        genre_name: ジャンル名
+        calorie: カロリー
+        calorie_theory: カロリー理論
+    errors:
+      models:
+        food:
+          attributes:
+            name:
+              format: '%{message}'
+              blank: "%{attribute}を入力してください"
+              taken: '%{attribute}は既に存在しています。'
+            calorie:
+              format: この食べ物のカロリーは0kcalです。0と入力してください。

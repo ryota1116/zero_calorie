@@ -1,0 +1,28 @@
+- content_for(:title, t('.title'))
+.ui.container
+  .ui.row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t '.title'
+      = form_with url: login_path, method: :post, class: 'ui form', local: true do |f|
+        .field
+          = f.label :email, User.human_attribute_name(:email)
+          = f.text_field :email, placeholder: 'メールアドレス'
+        .field
+          = f.label :password, User.human_attribute_name(:password)
+          = f.password_field :password, placeholder: 'パスワード'
+        .actions.mb-2
+          = f.submit t('defaults.login'), class: 'ui button mr-2'
+          = link_to guest_login_path, method: :post, class: 'ui orange button mb-2 mr-2' do
+            | ゲストとしてログイン
+      .field.mb-2
+        = link_to auth_at_provider_path(provider: :facebook), class: 'ui facebook button mb-2 mr-2' do
+          i class='facebook icon'
+          = t 'defaults.facebook.login'
+        = link_to auth_at_provider_path(provider: :twitter), class: 'ui twitter button mb-2 mr-2' do
+          i class='twitter icon'
+          = t 'defaults.twitter.login'
+      .field
+        = link_to new_user_path do
+          | ユーザー登録がまだの方はこちらへ
+

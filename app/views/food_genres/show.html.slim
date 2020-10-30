@@ -1,0 +1,24 @@
+- content_for(:title, t('.title'))
+h1
+  = t('.title')
+.ui.container
+  .ui.segment
+    .ui.centered.grid
+      .sixteen.wide.column
+        .ui.text.container
+          = @food_genre.genre_name
+      .sixteen.wide.column
+        .ui.text.container
+          = "#{@food_genre.calorie} kcal"
+      .sixteen.wide.column
+        .ui.text.container
+          = @food_genre.calorie_theory
+      .sixteen.wide.column
+        .ui.text.container
+          = link_to t('defaults.edit'), edit_food_genre_path(@food_genre)
+      .sixteen.wide.column
+        .ui.text.container
+          = link_to t('defaults.destroy'), food_genre_path(@food_genre), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
+      .sixteen.wide.column
+        .ui.text.container
+          = link_to t('defaults.back'), food_genres_path, class: 'ui large button'

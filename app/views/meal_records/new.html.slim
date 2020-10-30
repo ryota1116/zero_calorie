@@ -1,0 +1,104 @@
+- content_for(:title, t('.title'))
+.ui.container.mt-2
+  .ui.basic.segment
+    = form_with url: food_meal_records_path, model: @meal_record, class: 'ui form', local: true do |f|
+      = render 'shared/error_messages', object: f.object
+      table class="ui table"
+        thead
+          tr
+            th colspan="8"
+              h4
+                = t('.title')
+        tbody
+          tr
+            td class='six wide'
+              = t('.food_name')
+            td class='ten wide'
+              = @meal_record.food.name
+          tr
+            td
+              = t('.food_genre_name')
+            td
+              - @meal_record.food.food_genres.each do |food_genre|
+                = food_genre.genre_name
+            tr
+          tr
+            td
+              = t('.calorie')
+            td
+              = "#{@meal_record.food.calorie} kcal"
+          tr class='calorie_theory'
+            td
+              | #{@meal_record.food.name}の#{t('.calorie_theory')}
+            td
+              = @meal_record.drawing_calorie_theory
+          tr
+            td
+              = f.label :meal_time
+            td
+              = f.date_field :meal_time, value: Date.current
+
+              / .ui.grid
+                .ten.wide.column
+                  .input-group.sixteen.wide.column data-target-input="nearest"
+                    = f.text_field :meal_time, id: 'meal_time', class: "form-control datepicker", data: { target: "#meal_time" }, placeholder: '年/月/日'
+                      / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+                .six.wide.column
+                  .input-group-append data-target="#meal_time" data-toggle="datetimepicker"
+                    .input-group-text
+                      i.fa.fa-calendar
+
+              / .ui.grid
+                .ten.wide.column
+                  .input-group.date.sixteen.wide.column data-target-input="nearest" id="datetimepicker4"
+                    = f.text_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+                      / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+                .six.wide.column
+                  .input-group-append.input-time data-target="#datetimepicker4" data-toggle="datetimepicker"
+                    .input-group-text
+                      i class="calendar alternate icon"
+
+              / .ui.center.aligned.basic.segment
+                .ui.grid
+                  .tablet.only.mobile.only.sixteen.wide.column
+                    .container
+                      .row
+                        .col-sm-6
+                          .form-group
+                            .input-group.date id="datetimepicker4" data-target-input="nearest"
+                              = f.text_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+                              .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+                                .input-group-text
+                                  i class="fa fa-calendar"
+
+                  / .computer.only.sixteen.wide.column
+                    .container
+                      .row
+                        .col-sm-6
+                          .form-group
+                            .input-group.date id="datetimepicker4" data-target-input="nearest"
+                              = f.text_field :meal_time, class: "form-control datetimepicker-input", data: { target: "#datetimepicker4" }, placeholder: '年/月/日'
+                                / input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4"
+                              .input-group-append data-target="#datetimepicker4" data-toggle="datetimepicker"
+                                .input-group-text
+                                  i class="fa fa-calendar"
+
+          #item_images
+            tr
+              td
+                = f.label :meal_record_pictures, class: "ui basic button"
+                  i class='images icon'
+                  | 写真を追加
+                  = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
+              .field
+                // TODO: no permission parameterになる。そもそも不要かも
+                / = f.hidden_field :session_meal_record_picture_id, value: session[:meal_picture_id]
+              td class="ui fluid image"
+                #image_preview
+                  - if @meal_record.meal_record_pictures.attached?
+                    - @meal_record.meal_record_pictures.each do |picture|
+                      div id="meal-record-picture-#{picture.blob_id}"
+                        = image_tag picture, id: "picpic-#{picture.blob_id}"
+                        / = link_to '削除', picture_attachment_path(picture.blob_id), class: 'btn btn-danger', id: picture.blob_id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
+      .actions
+        = f.button t('.submit'), class: 'ui basic button'

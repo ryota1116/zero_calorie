@@ -1,0 +1,25 @@
+.ui.container
+  table class="ui fixed single line table"
+    thead
+      tr
+        th class='three wide'
+          = t(Food.human_attribute_name(:name))
+        th class='two wide'
+          = t(Food.human_attribute_name(:calorie))
+        th class='eleven wide calorie_theory'
+          strong
+            = t(Food.human_attribute_name(:calorie_theory))
+    - food_lists.each do |food|
+      tbody
+        tr
+          td
+            = link_to food.name, new_food_meal_record_path(food)
+          td
+            | #{food.calorie} kcal
+          td class='calorie_theory'
+            - if food.calorie_theory.present?
+              = food.calorie_theory
+            - else
+              - if food.food_genres.present?
+                - food.food_genres.each do |food_genre|
+                  = food_genre.calorie_theory

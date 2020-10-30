@@ -1,0 +1,44 @@
+
+header {
+  background-color: #F7B134;
+  position: relative;
+  width: 100%;
+}
+#search-camera-icon {
+  margin-left: 1em;
+}
+#search-by-picture-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  text-align: center;
+  transform: translateY(-50%);
+  transform:translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  overflow: scroll;
+}
+#search-picture-preview {
+  height: 40em;
+}
+#search-picture-preview img {
+  margin-top: 1em;
+  width: 80%;
+  height: 80%;
+}
+.navbar-light .navbar-toggler {
+    border-color: #F7B134;
+}
+#search-form {
+  width: 60%;
+}
+.yubi {
+  cursor : pointer;
+}
+// placeholderの設定
+.form-control::placeholder {
+  color: #aaa;
+}

@@ -1,0 +1,204 @@
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
+jobs:
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers-legacy
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+      - image: circleci/mysql:5.7.29
+        environment:
+          MYSQL_USER: root
+          MYSQL_DB: zero_calorie_test
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      # Rubocop
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+  rspec:
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers-legacy
+        environment:
+          RAILS_ENV: 'test'
+          DB_HOST: 127.0.0.1
+      - image: circleci/mysql:5.7.29
+        environment:
+          MYSQL_USER: root
+          MYSQL_DATABASE: zero_calorie_test
+    working_directory: ~/zero_calorie
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      # Could not find 'bundler' (2.1.4) required by your /home/circleci/zero_calorie/Gemfile.lock. (Gem::GemNotFoundException) To update to the latest version installed on your system, run `bundle update --bundler`. To install the missing version, run `gem install bundler:2.1.4` に対処
+      - run:
+          name: bundler install
+          command: |
+            gem install bundler
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+      # Rspec
+      - run:
+          name: # RSpecを並列実行
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - store_test_results:
+          path: test_results
+      - codecov/upload:
+          file: test_results/rspec.xml
+
+workflows:
+  version: 2
+  rubocop_rspec:
+    jobs:
+      - rubocop
+      - rspec:
+          requires:
+            - rubocop
+
+
+# version: 2.1
+# orbs:
+#   ruby: circleci/ruby@0.1.2
+# jobs:
+#   build:
+#     rubocop:
+#       docker:
+#         - image: circleci/ruby:2.7.1-node-browsers-legacy
+#           environment:
+#             BUNDLER_VERSION: 2.1
+#             # test環境で立ち上げる
+#             RAILS_ENV: 'test'
+#             DB_HOST: 127.0.0.1
+#         - image: circleci/mysql:5.7.29
+#           environment:
+#             MYSQL_USER: root
+#             MYSQL_DB: zero_calorie_test
+
+#       # 実行ディレクトリを設定する。デフォルトは ~/project
+#       working_directory: ~/zero_calorie
+
+#       steps:
+#         # CI環境上のworking_directoryの値の場所にGitリポジトリをコピーする
+#         - checkout
+
+#         - run:
+#           name: Which bundler?
+#           command: bundle -v
+
+#         # Restore bundle cache(キャッシュが save_cache されていればリストアする(あれば速くなる))
+#         - restore_cache:
+#           # リストアするキャッシュを複数指定する
+#           keys:
+#             # {{ checksum "<ファイル名>" }}: ファイルのハッシュ値
+#             - v1-dependencies-{{ checksum "Gemfile.lock" }}
+#             # fallback to using the latest cache if no exact match is found
+#             - v1-dependencies-
+
+#         # - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+#         - run: bundle install
+#         - run: yarn install
+
+#         # パッケージなどのファイルをキャッシュする
+#         - save_cache:
+#           # キャッシュするファイルを指定する
+#           paths:
+#             - ./vendor/bundle
+#           # キャッシュの名前を設定する
+#           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+#         # Rubocop
+#         - run:
+#           name: Rubocop
+#           command: bundle exec rubocop
+
+#     rspec:
+#       docker:
+#         - image: circleci/ruby:2.7.1-node-browsers-legacy
+#           environment:
+#             # BUNDLER_VERSION: 2.1
+#             # test環境で立ち上げる
+#             RAILS_ENV: 'test'
+#             MYSQL_ROOT_HOST: 127.0.0.1
+#         - image: circleci/mysql:5.7.29
+#           environment:
+#             MYSQL_USER: root
+#             MYSQL_DATABASE: zero_calorie_test
+
+#       # 実行ディレクトリを設定する。デフォルトは ~/project
+#       working_directory: ~/zero_calorie
+
+#       steps:
+#         # CI環境上のworking_directoryの値の場所にGitリポジトリをコピーする
+#         - checkout
+
+#         - run:
+#           name: Which bundler?
+#           command: bundle -v
+
+#         # Restore bundle cache(キャッシュが save_cache されていればリストアする(あれば速くなる))
+#         - restore_cache:
+#           # リストアするキャッシュを複数指定する
+#           keys:
+#             # {{ checksum "<ファイル名>" }}: ファイルのハッシュ値
+#             - v1-dependencies-{{ checksum "Gemfile.lock" }}
+#             # fallback to using the latest cache if no exact match is found
+#             - v1-dependencies-
+
+#         - run: bundle install
+#         - run: yarn install
+
+#         # パッケージなどのファイルをキャッシュする
+#         - save_cache:
+#           # キャッシュするファイルを指定する
+#           paths:
+#             - ./vendor/bundle
+#           # キャッシュの名前を設定する
+#           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+#         - run: bundle exec rails db:create
+#         - run: bundle exec rails db:schema:load
+
+#         # Rspec
+#         - run:
+#           name: Rspec
+#           command: bundle exec rspec
+
+# # rubocopがfailした場合、rspecを実行しない
+# workflows:
+#   version: 2
+#   rubocop_rspec:
+#     jobs:
+#       - rubocop
+#       - rspec:
+#         requires:
+#           - rubocop

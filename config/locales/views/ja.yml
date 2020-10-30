@@ -1,0 +1,124 @@
+ja:
+  defaults: # defaults
+    register: 登録
+    sign_up: 新規登録
+    login: ログイン
+    logout: ログアウト
+    please_login: ログインしてください
+    my_record: マイページ
+    search_word: 検索ワード
+    search: 検索する
+    edit: 編集
+    destroy: 削除
+    update: 更新する
+    back: 戻る
+    unspecified: 指定なし
+    email: メールアドレス
+    guest_login: ゲストとしてログイン
+    message: # defaults.message
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
+      updated: '%{item}を更新しました'
+      not_updated: '%{item}を更新できませんでした'
+      deleted: '%{item}を削除しました'
+      delete_confirm: 削除しますか？
+      not_admin: 権限がありません
+    facebook:
+      login: Facebookでログイン
+      success: Facebookでログインしました
+      failed: Facebookでログインできませんでした
+    twitter:
+      login: Twitterでログイン
+      success: Twitterでログインしました
+      failed: Twitterでログインできませんでした
+  static_pages:
+    top:
+      to_sign_up_page: 新規登録する
+      to_login_page: ログインページへ
+  users: # 以下、特定のviewに関するもの
+    new:
+      title: ユーザー登録
+      submit: 登録する
+      login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました
+      failed: ユーザー登録に失敗しました
+  user_sessions:
+    new:
+      title: ログイン
+      password: パスワード
+      email: メールアドレス
+      sign_up: 登録ページへ
+      forgot_password?: パスワードをお忘れの方はこちら
+    create:
+      success: ログインしました
+      failed: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
+    guest_login:
+      success: ゲストユーザーでログインしました
+  meal_records:
+    index:
+      title: 食事記録の一覧
+      meal_record: 食事記録
+      meal_time: 食事時間
+      food_name: 食べたもの
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      search: 検索する
+    new:
+      title: 食事記録の登録
+      submit: 登録する
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
+    edit:
+      title: 食事記録の編集
+      meal_time: 食事時間
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
+      no_picture: 画像がありません
+      post_picture: 画像を登録する
+    show:
+      title: 食事記録の詳細
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      meal_time: 食事時間
+      food_genre_name: ジャンル
+      no_picture: 画像がありません
+      back_to_meal_records: 食事記録一覧に戻る
+  foods:
+    new:
+      title: 食べ物のデータ登録
+      submit: 登録する
+    search_form_result:
+      title: 検索結果
+      no_search_result_message: 該当する検索結果が見つかりませんでした。検索条件を変更するか、新しく食べ物の登録をお願いします。
+      register: 食べ物を登録する
+    search_by_picture:
+      search_by_picture: 画像で検索
+    search_picture_result:
+      title: 検索結果
+      no_search_result_message: 該当する検索結果が見つかりませんでした。検索条件を変更するか、新しく食べ物の登録をお願いします。
+      register: 食べ物を登録する
+  food_genres:
+    index:
+      title: 食べ物のジャンル一覧
+      genre_name: ジャンル名
+      calorie: カロリー
+      search: 検索する
+    new:
+      title: 食べ物のジャンル作成
+      submit: 登録する
+      food_name: 食べ物
+      calorie: カロリー
+      calorie_theory: カロリー理論
+      food_genre_name: ジャンル
+    edit:
+      title: 食べ物のジャンル編集
+    show:
+      title: 食べ物のジャンル詳細

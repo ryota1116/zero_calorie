@@ -1,0 +1,13 @@
+= form_with url: search_form_result_foods_path, method: :get, local: true do |f|
+  .ui.search
+    .ui.icon.input
+      = f.text_field :name, placeholder: '食べ物を検索する'
+      = f.button type: 'submit', class: "ui icon button orange" do
+        i.search.link.icon
+
+  / = form_with url: search_form_result_foods_path, method: :get, local: true do |f|
+  /   .ui.action.input
+  /     = f.text_field :name, placeholder: '食べ物を検索する'
+  /     = f.button type: 'submit', class: "ui icon button orange" do
+  /       i.search.icon
+
