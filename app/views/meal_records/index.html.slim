@@ -12,7 +12,7 @@
       | 0 kcal
 
   / 食事記録検索のカレンダーフォーム
-  == render 'search_meal_time_form', meal_records: @meal_records
+  = render 'search_meal_time_form', meal_records: @meal_records
 
   - if @meal_records.present?
     table class="ui padded table"

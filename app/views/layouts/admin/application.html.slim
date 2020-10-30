@@ -12,15 +12,15 @@ html lang="#{I18n.locale}"
     = csp_meta_tag
     = stylesheet_link_tag 'administrate/application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'administrate', 'data-turbolinks-track': 'reload'
-    == render "stylesheet"
+    = render "stylesheet"
 
     meta name="turbolinks-root" content="/admin"
   body
     .app-container
-      == render "navigation"
+      = render "navigation"
       main.main-content[role="main"]
-        == render "flashes"
-        == yield
+        = render "flashes"
+        = yield
     div style="display: none; width: 0; height: 0; overflow: hidden; position: absolute"
-      == render "icons"
-    == render "javascript"
+      = render "icons"
+    = render "javascript"

@@ -2,7 +2,7 @@ doctype html
 html
   head
     = if Rails.env.production?
-      == render 'layouts/google_tag_manager'
+      = render 'layouts/google_tag_manager'
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
     title
       = page_title(yield(:title))
@@ -34,16 +34,16 @@ html
     /////////////////////////////////////////////////////
 
     - if Rails.env.production?
-      == render 'layouts/google_tag_manager_noscript'
+      = render 'layouts/google_tag_manager_noscript'
 
     - if logged_in?
-      == render 'shared/header'
+      = render 'shared/header'
     - else
-      == render 'shared/before_login_header'
+      = render 'shared/before_login_header'
 
-    == render "shared/flash_message"
+    = render "shared/flash_message"
 
     #app
-      == yield
+      = yield
 
-    == render 'shared/footer'
+    = render 'shared/footer'
