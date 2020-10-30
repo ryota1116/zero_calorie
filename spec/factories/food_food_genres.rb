@@ -21,7 +21,12 @@
 #
 FactoryBot.define do
   factory :food_food_genre do
-    food { nil }
-    food_genre { nil }
+    # food { nil }
+    # food_genre { nil }
+
+    # trait :noodle do
+    #   food_genre_id { FoodGenre.find_by(genre_name: "麺類").id }
+    #   food_id { Food.find_by(name: "醤油ラーメン") }
+    # end
   end
 end

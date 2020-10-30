@@ -36,5 +36,9 @@ FactoryBot.define do
     trait :one_month_ago do
       meal_time { Date.current.ago(1.month) }
     end
+
+    trait :with_food_genre do
+      association :food, factory: %i[food with_food_genre]
+    end
   end
 end

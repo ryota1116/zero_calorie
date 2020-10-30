@@ -37,6 +37,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_decorator (1.3.3)
+      activesupport
     activejob (6.0.3.2)
       activesupport (= 6.0.3.2)
       globalid (>= 0.3.6)
@@ -58,6 +60,17 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    administrate (0.14.0)
+      actionpack (>= 4.2)
+      actionview (>= 4.2)
+      activerecord (>= 4.2)
+      autoprefixer-rails (>= 6.0)
+      datetime_picker_rails (~> 0.0.7)
+      jquery-rails (>= 4.0)
+      kaminari (>= 1.0)
+      momentjs-rails (~> 2.8)
+      sassc-rails (~> 2.1)
+      selectize-rails (~> 0.6)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
     annotate (3.1.1)
@@ -143,6 +156,8 @@ GEM
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     crass (1.0.6)
+    datetime_picker_rails (0.0.7)
+      momentjs-rails (>= 2.8.1)
     debug_inspector (0.0.3)
     deep_merge (1.2.1)
     diff-lcs (1.4.4)
@@ -243,6 +258,9 @@ GEM
     grpc (1.30.2)
       google-protobuf (~> 3.12)
       googleapis-common-protos-types (~> 1.0)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.8.5)
@@ -253,6 +271,10 @@ GEM
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
+    jquery-rails (4.4.0)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     json (2.3.1)
     jwt (2.2.1)
     kaminari (1.2.1)
@@ -304,6 +326,8 @@ GEM
     minitest (5.14.1)
     miyabi (0.1.1)
       mechanize (= 2.7.5)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     msgpack (1.3.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -454,6 +478,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selectize-rails (0.12.6)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -537,6 +562,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_decorator
+  administrate
   annotate
   aws-sdk-s3
   bcrypt_pbkdf
@@ -561,6 +588,7 @@ DEPENDENCIES
   exception_notification
   factory_bot_rails
   google-cloud-vision
+  html2slim
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   kaminari

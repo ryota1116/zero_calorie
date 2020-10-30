@@ -43,8 +43,11 @@ gem 'semantic-ui-sass'
 gem 'rails-i18n'
 # ページネーション
 gem 'kaminari'
+# Decorator
+gem 'active_decorator'
 # RailsでSEOの設定を行うGem
 # gem 'meta-tags'
+gem 'html2slim'
 gem 'slim-rails'
 # 定数管理
 gem 'config'
@@ -53,6 +56,8 @@ gem 'exception_notification'
 gem 'slack-notifier'
 # ひらがな、カタカナ、漢字、ローマ字を相互変換するgem
 gem 'miyabi'
+# 管理者画面
+gem 'administrate'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
