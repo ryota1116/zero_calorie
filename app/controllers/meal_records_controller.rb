@@ -14,13 +14,13 @@ class MealRecordsController < ApplicationController
   end
 
   def new
-    @meal_record = MealRecord.new(food_id: params[:food_id])
-    @meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
+    @meal_record = MealRecord.new(food_id: params[:food_id]) do |meal_record|
+      meal_record.meal_record_pictures = ActiveStorage::Blob.find(session[:meal_picture_id]) if session[:meal_picture_id]
+    end
   end
 
   def create
-    @meal_record = current_user.meal_records.build(meal_record_params)
-    @meal_record.food_id = params[:food_id]
+    @meal_record = current_user.meal_records.build(meal_record_params.merge(food_id: params[:food_id]))
 
     if @meal_record.save
       if session[:meal_picture_id].present?
