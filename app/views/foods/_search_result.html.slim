@@ -9,8 +9,8 @@
         th class='eleven wide calorie_theory'
           strong
             = t(Food.human_attribute_name(:calorie_theory))
-    - food_lists.each do |food|
-      tbody
+    tbody
+      - food_lists.each do |food|
         tr
           td
             = link_to food.name, new_food_meal_record_path(food)

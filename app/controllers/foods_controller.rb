@@ -40,13 +40,12 @@ class FoodsController < ApplicationController
 
     food_labels = @meal_picture.fetch_food_labels
 
-    @food_lists = []
-
-    # labelでFoodを検索
-    # TODO: メソッドにしたい
-    food_labels.each do |food_label|
-      @food_lists = Food.search_by_label(food_label)
+    food_lists.reject(&:blank?).flatten = food_labels.map do |food_label|
+      Food.search_by_label(food_label)
     end
+
+    # 空配列を削除し、多次元配列を一次元配列にする
+    @food_lists = food_lists.reject(&:blank?).flatten
   end
 
   private
