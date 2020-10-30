@@ -28,13 +28,12 @@ class MealPicture < ApplicationRecord
       )
     end
 
-    food_labels = []
-
-    # レスポンスからラベルだけ取得する
-    response.responses.each do |res|
-      res.label_annotations.each { |label| food_labels << label.description }
+    food_labels = response.responses.map do |res|
+      res.label_annotations.map do |label|
+        label.description
+      end
     end
 
-    food_labels
+    return food_labels.flatten
   end
 end

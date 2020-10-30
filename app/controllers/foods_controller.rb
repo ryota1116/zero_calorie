@@ -38,9 +38,10 @@ class FoodsController < ApplicationController
     # セッションにデータを入れる
     session[:meal_picture_id] = @meal_picture.search_picture.id
 
+    # vision APIを叩く
     food_labels = @meal_picture.fetch_food_labels
 
-    food_lists.reject(&:blank?).flatten = food_labels.map do |food_label|
+    food_lists = food_labels.map do |food_label|
       Food.with_label(food_label)
     end
 
