@@ -6,25 +6,3 @@
   = f.file_field :search_picture, id: 'file-input', style: 'display: none;'
   = f.button type: 'submit', class: "ui icon circular small button orange" do
     i.search.icon
-
-    / = f.file_field :search_picture
-    / = f.button type: 'submit' do
-    /   i class='search.icon'
-
-/ = form_with url: search_picture_foods_path, model: meal_picture, local: true  do |f|
-  / = f.file_field :meal_pictures, multiple: true
-  / = f.file_field :search_picture
-
-/ .ui.item id="search_by_picture"
-  label
-    = form_with url: search_picture_result_foods_path, model: meal_picture, local: true  do |f|
-      suppan
-        = t('.search_by_picture')
-        = f.file_field :search_picture, style: 'display:none'
-
-
-/ label.ui.item id="search_by_picture"
-/   = form_with url: search_picture_result_foods_path, model: meal_picture, local: true  do |f|
-/       suppan
-/         = t('.search_by_picture')
-/         = f.file_field :search_picture, style: 'display:none'

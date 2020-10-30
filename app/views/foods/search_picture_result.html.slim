@@ -7,7 +7,7 @@
           = t('.title')
         - if @food_lists.present?
           == render 'search_result', food_lists: @food_lists
-          // TODO: POSTメソッドだからoagenationできない
+          // TODO: POSTメソッドだからpagenationできない
           / = paginate(@food_lists)
         - else
           h3
