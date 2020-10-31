@@ -13,9 +13,9 @@ class MealPicture < ApplicationRecord
     # 認証して、クライアントを初期化
     # ENV["GOOGLE_APPLICATION_CREDENTIALS"] = Rails.root.join('gcp_key.json').to_s
     # 本番用のパスを設定して、ローカルでは環境変数を読み込むようにしてる(後の修正が必要)
-    Google::Cloud::Vision.configure { |vision| vision.credentials = Rails.root.join('../../shared/gcp_key.json').to_s }
+    # Google::Cloud::Vision.configure { |vision| vision.credentials = Rails.root.join('../../shared/gcp_key.json').to_s }
     # 認証情報を読み込む
-    # Google::Cloud::Vision.configure { |vision| vision.credentials = Rails.root.join('gcp_key.json').to_s }
+    Google::Cloud::Vision.configure { |vision| vision.credentials = Rails.root.join('gcp_key.json').to_s }
 
     # インスタンスを作成
     image_annotator = Google::Cloud::Vision.image_annotator

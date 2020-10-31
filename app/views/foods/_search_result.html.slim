@@ -23,3 +23,7 @@
               - if food.food_genres.present?
                 - food.food_genres.each do |food_genre|
                   = food_genre.calorie_theory
+  h4
+    | 該当する検索結果が見つかりませんでしたか？
+    br
+    | お手数ですが、検索条件を変更するか、新しく#{link_to '食べ物の登録', new_food_path}をお願いします。
