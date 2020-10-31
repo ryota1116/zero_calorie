@@ -1,26 +1,19 @@
 / Semantic_UI_DatePicker
 / https://github.com/jonatandahora/semantic-datepicker-rails
 .ui.container
-  // TODO: 週間フォームも表示できるようになったら、コメントアウト外す
-  / .ui.center.aligned.basic.segment
-    .ui.calendar id="chalendar-1"
-      .ui.input.left.icon
-
-    // TODO: 週間フォームも表示できるようになったら、コメントアウト外す
-    / .ui.large.buttons id='meal-time-buttons'
-      .day
-        button type='button' class='meal-time-button ui button basic secondary' id='check-day'
-          | 日
-      .or
-      .week
-        button type='button' class='meal-time-button ui button basic' id='check-week'
-          | 週
-      .or
-      .month
-        button type='button' class='meal-time-button ui button basic' id='check-month'
-          | 月
-
   // TODO: 一旦コレで
+
+  / .ui.grid.computer.only.tablet.only.sixteen.wide
+  /   .center.aligned.sixteen.wide.column.pb-0
+  /     .sixteen.wide.column.pt-0
+  /       .ui.center.aligned.basic.segment
+
+  / .ui.center.grid.mobile.only
+  /   .center.aligned.sixteen.wide.column.pb-0
+  /     .sixteen.wide.column.pt-0
+  /       .ui.center.aligned.basic.segment
+
+
   .ui.center.aligned.form
     = form_with scope: :date, url: meal_records_path, method: :get, local: true, class: 'field' do |f|
       .ui.grid.computer.only.tablet.only.sixteen.wide.two.column

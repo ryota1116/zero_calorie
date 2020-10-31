@@ -6,7 +6,7 @@
         h2.ui.header
           = t('.title')
         - if @food_lists.present?
-          == render 'search_result', food_lists: @food_lists
+          = render 'search_result', food_lists: @food_lists
           // TODO: POSTメソッドだからpagenationできない
           / = paginate(@food_lists)
         - else

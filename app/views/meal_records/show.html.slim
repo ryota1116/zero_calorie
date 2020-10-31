@@ -47,7 +47,7 @@
                 = t('.no_picture')
 
     .mb-0.5
-      == render 'shared/tweet_share', meal_recod: @meal_record
+      = render 'shared/tweet_share', meal_recod: @meal_record
     br
     = link_to edit_meal_record_path(@meal_record) do
       .ui.olive.button

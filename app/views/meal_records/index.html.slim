@@ -12,7 +12,15 @@
       | 0 kcal
 
   / 食事記録検索のカレンダーフォーム
-  == render 'search_meal_time_form', meal_records: @meal_records
+  = render 'search_meal_time_form'
+  / .ui.container
+    .ui.center.aligned.form
+      = form_with scope: :date, url: meal_records_path, method: :get, local: true, class: 'field' do |f|
+        .ui.grid.computer.only.tablet.only.sixteen.wide.two.column
+          .twelve.wide.column
+            = f.date_field :meal_time, value: @search_params, placeholder: '年/月/日', class: 'ui basic button'
+          .four.wide.column
+            = f.submit t('defaults.search'), class: 'ui basic large button'
 
   - if @meal_records.present?
     table class="ui padded table"
