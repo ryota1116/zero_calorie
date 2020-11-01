@@ -23,7 +23,7 @@ require("moment/locale/ja")
 require("tempusdominus-bootstrap-4")
 
 // administrate用
-require("packs/administrate")
+// require("packs/administrate")
 
 import 'bootstrap';
 import '../stylesheets/application';
