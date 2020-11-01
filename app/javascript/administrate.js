@@ -16,4 +16,4 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 
-require("../administrate/index")
+require("./administrate/index")
