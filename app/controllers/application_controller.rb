@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  rescue_from StandardError, with: :render_500
+  rescue_from StandardError, with: :render_500 if Rails.env.production?
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
   add_flash_types :success, :info, :warning, :danger
