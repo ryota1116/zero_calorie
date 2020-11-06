@@ -1,0 +1,26 @@
+doctype html
+html lang="#{I18n.locale}"
+  head
+    meta charset="utf-8"
+    meta name="robots" content="noodp, noydir, index, follow"
+    meta name="viewport" content="initial-scale=1"
+    title
+      / = page_title(yield(:title))
+      / = Rails.application.class.module_parent_name.titlecase
+
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'administrate/application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'administrate', 'data-turbolinks-track': 'reload'
+    = render "stylesheet"
+
+    meta name="turbolinks-root" content="/admin"
+  body
+    .app-container
+      = render "navigation"
+      main.main-content[role="main"]
+        = render "flashes"
+        = yield
+    div style="display: none; width: 0; height: 0; overflow: hidden; position: absolute"
+      = render "icons"
+    = render "javascript"

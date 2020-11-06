@@ -1,0 +1,32 @@
+- content_for(:title, t('.title'))
+.ui.container
+  .ui.center.aligned.grid
+    .twelve.wide.column
+      h1
+        = t('.title')
+
+  .ui.segment
+    .ui.centered.grid
+      table class="ui large table"
+        thead
+          tr
+            th
+              = t('.genre_name')
+            th
+              = t('.calorie')
+            th
+              / カロリー理論の表示文字数(30文字までとか)
+              = t('.calorie_theory')
+        - @food_genres.each do |food_genre|
+          tbody
+            tr
+              td
+                = link_to food_genre.genre_name, food_genre_path(food_genre)
+              td
+                = "#{food_genre.calorie} kcal"
+              td
+                = food_genre.calorie_theory
+              td
+                = link_to t('defaults.edit'), edit_food_genre_path(food_genre)
+              td
+                = link_to t('defaults.destroy'), food_genre_path(food_genre), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }

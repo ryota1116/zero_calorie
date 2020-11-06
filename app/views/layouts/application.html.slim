@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    = if Rails.env.production?
+      = render 'layouts/google_tag_manager'
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
+    title
+      = page_title(yield(:title))
+    // TODO: metaタグは別ファイルに切り出す
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    / = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    meta property="og:title" content="Zerorie - ゼロカロリーで食事を記録するアプリ。その食べ物、ゼロカロリーです" /
+    meta property="og:description" content="「ゼロカロリー理論」を使ってすべての食べ物を0ckalにしてくれるカロリー管理アプリ" /
+    meta property="og:url" content="https://zerorie.com/" /
+    meta property="og:image" content="https://zerorie.com/img/zerorie_ogp.jpg" /
+
+    meta name="twitter:card" content="summary_large_image" /
+    meta name="twitter:site" content="@ryota_chocolat" /
+    meta property="twitter:url" content="https://zerorie.com/" /
+    meta name="twitter:image" content="https://zerorie.com/img/zerorie_ogp.jpg" /
+
+    = favicon_pack_tag "zerorie_logo/favicon.png"
+
+  body
+    /!      
+            ＿人人人人人人人人人人人人人人人人人＿
+              ＞  その食べ物、ゼロカロリーです。  ＜
+            ￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣
+            
+      
+
+    - if Rails.env.production?
+      = render 'layouts/google_tag_manager_noscript'
+
+    - if logged_in?
+      = render 'shared/header'
+    - else
+      = render 'shared/before_login_header'
+
+    = render "shared/flash_message"
+
+    #app
+      = yield
+
+    = render 'shared/footer'

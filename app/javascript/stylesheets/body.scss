@@ -1,0 +1,21 @@
+// background-color: #E7E7E7;
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+#app {
+  flex: 1;
+  background-color: whitesmoke;
+}
+* {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+p {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}

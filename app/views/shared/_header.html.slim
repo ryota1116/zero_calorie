@@ -1,0 +1,43 @@
+/ ヘッダーだけbootstrapを使用
+/ Semantic UIのMenuとDropDownの挙動に不具合が生じたため
+header
+  nav.navbar.navbar-expand-lg.navigation.navbar-dark
+    li.nav-item.nav-link
+      = link_to image_pack_tag("media/images/zerorie_logo/zerorie_header_under_bar_transparent.png", size: '70x40'), root_path
+
+    button.navbar-toggler[data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      = form_with url: search_form_result_foods_path, class:'form-inline my-2 my-lg-0', method: :get, local: true do |f|
+        = f.text_field :name, placeholder: '食べ物を検索する', class: 'form-control', id: 'search-form'
+        = f.button type: 'submit', class: "ui icon button orange my-2 my-sm-0" do
+          i.search.link.icon
+      #search-by-picture-modal-button.nav-link.yubi.ui.orange.button
+        | 食べ物を画像検索する
+        i.camera.icon id='search-camera-icon'
+      ul.navbar-nav.ml-auto.main-nav.align-items-rigiht
+        li.nav-item
+          = link_to t('defaults.my_record'), meal_records_path, class: 'nav-link text-white'
+          / = link_to '新規投稿', new_post_path, class: 'nav-link'
+        li.nav-item
+          = link_to t('defaults.logout'), logout_path, method: :delete, class: 'nav-link text-white'
+          / = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+
+/ モーダルを表示
+.ui.modal id="search-by-picture-modal"
+  / i.close.icon id='modal-close-button'
+  .header.mb-2
+    | 食べ物を画像で検索する
+  = form_with url: search_picture_result_foods_path, method: :post, model: MealPicture.new, local: true, id: 'search-by-picture-form'  do |f|
+    td
+      = f.label :search_picture, class: 'ui tiny button orange mb-2', id: 'search-by-picture-select-button' do
+        i.circular.camera.retro.icon
+        | 画像を選択する
+      = f.file_field :search_picture, style: 'display: none;'
+      .actions
+      = f.button type: 'submit', class: "small ui button orange right labeld icon", id: 'search-by-picture-submit-button' do
+        | 検索する
+        i.search.icon
+      / 画像プレビューの表示
+      td class="ui fluid image"
+        #search-picture-preview

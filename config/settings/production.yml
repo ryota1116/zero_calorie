@@ -1,0 +1,2 @@
+TWITTER_CALLBACK: https://zerorie.com/oauth/callback?provider=twitter
+FACEBOOK_CALLBACK: https://zerorie.com/oauth/callback?provider=facebook

@@ -1,0 +1,32 @@
+- content_for(:title, t('.title'))
+.ui.container
+  .ui.row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t '.title'
+      = form_with model: @user, class: 'ui form', local: true do |f|
+        = render 'shared/error_messages', object: f.object
+        .field
+          = f.label :name, User.human_attribute_name(:name)
+          = f.text_field :name, placeholder: '名前'
+        .field
+          = f.label :email, User.human_attribute_name(:email)
+          = f.text_field :email, placeholder: 'メールアドレス'
+        .field
+          = f.label :password, User.human_attribute_name(:password)
+          = f.password_field :password, placeholder: '8文字以上'
+        .field
+          = f.label :password_confirmation, User.human_attribute_name(:password_confirmation)
+          = f.password_field :password_confirmation, placeholder: '8文字以上'
+        .actions.mb-2
+          = f.submit t('defaults.register'), class: 'ui button'
+      .field.mb-2
+        = link_to auth_at_provider_path(provider: :facebook), class: 'ui facebook button mb-2' do
+          i class='facebook icon'
+          = t 'defaults.facebook.login'
+        = link_to auth_at_provider_path(provider: :twitter), class: 'ui twitter button mb-2' do
+          i class='twitter icon'
+          = t 'defaults.twitter.login'
+      .field
+        = link_to login_path do
+          | ログインページへ

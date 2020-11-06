@@ -1,0 +1,8 @@
+- if object.errors.any?
+  div class="alert alert-danger error_message" id="error_messages"
+    i class="close icon"
+    ul class="mb-0"
+      - object.errors.full_messages.each do |msg|
+        li
+          = msg
+

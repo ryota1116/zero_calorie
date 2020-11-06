@@ -1,0 +1,60 @@
+- content_for(:title, t('.title'))
+.ui.container.mt-2
+  .ui.basic.segment
+    = form_with model: @meal_record, class: 'ui form', local: true do |f|
+      = render 'shared/error_messages', object: f.object
+      table class="ui table"
+        thead
+          tr
+            th colspan="8"
+              h4
+                = t('.title')
+        tbody
+          tr
+            td class='six wide'
+              = t('.food_name')
+            td class='six wide'
+              = @meal_record.food.name
+          tr
+            td
+              = t('.food_genre_name')
+            td
+              - @meal_record.food.food_genres.each do |food_genre|
+                = food_genre.genre_name
+            tr
+          tr
+            td
+              = t('.calorie')
+            td
+              = "#{@meal_record.food.calorie} kcal"
+          tr class='calorie_theory'
+            td
+              | #{@meal_record.food.name}の#{t('.calorie_theory')}
+            td
+              = @meal_record.drawing_calorie_theory
+          tr
+            td
+              = f.label :meal_time
+            td
+              = f.date_field :meal_time
+          tr
+            td
+              = f.label :meal_record_pictures
+                | 写真を選択
+                br
+                i class='images icon'
+                = f.file_field :meal_record_pictures, multiple: true, style: "display: none"
+            td
+              - if @meal_record.meal_record_pictures.attached?
+                //TODO : パーシャルにしたいかも
+                //TODO : 画像のプレビュー表示
+                - @meal_record.meal_record_pictures.each do |picture|
+                  div id="meal-record-picture-#{picture.id}"
+                    = image_tag picture, class: "ui fluid image"
+                    = link_to '削除', picture_attachment_path(picture.id), class: 'btn btn-danger', id: picture.id, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, remote: true
+              - else
+                = t('.no_picture')
+
+      .actions
+        = f.button t('defaults.update'), class: 'ui button'
+        = link_to t('defaults.back'), meal_record_path(@meal_record), class: 'ui button'

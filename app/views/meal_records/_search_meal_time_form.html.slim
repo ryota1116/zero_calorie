@@ -1,0 +1,27 @@
+/ Semantic_UI_DatePicker
+/ https://github.com/jonatandahora/semantic-datepicker-rails
+.ui.container
+  // TODO: 一旦コレで
+
+  / .ui.grid.computer.only.tablet.only.sixteen.wide
+  /   .center.aligned.sixteen.wide.column.pb-0
+  /     .sixteen.wide.column.pt-0
+  /       .ui.center.aligned.basic.segment
+
+  / .ui.center.grid.mobile.only
+  /   .center.aligned.sixteen.wide.column.pb-0
+  /     .sixteen.wide.column.pt-0
+  /       .ui.center.aligned.basic.segment
+
+
+  .ui.center.aligned.form
+    = form_with scope: :date, url: meal_records_path, method: :get, local: true, class: 'field' do |f|
+      .ui.grid.computer.only.tablet.only.sixteen.wide.two.column
+        .twelve.wide.column
+          = f.date_field :meal_time, value: @search_params, placeholder: '年/月/日', class: 'ui basic button'
+        .four.wide.column
+          = f.submit t('defaults.search'), class: 'ui basic large button'
+      .ui.center.grid.mobile.only
+        .sixteen.wide.column
+          = f.date_field :meal_time, value: @search_params, placeholder: '年/月/日', class: 'ui basic button mb-2'
+          = f.submit t('defaults.search'), class: 'ui basic large button'
