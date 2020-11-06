@@ -35,7 +35,9 @@
 
   - ### Qiitaデイリートレンド1位、週間トレンド4位を獲得！
 
-  - ### 500LGTM突破！
+  - ### 600LGTM突破！
+  
+  - ### 累計ユーザー数1,500突破！
 
 ## 📦 プロダクト概要
 
@@ -98,12 +100,15 @@
 - GitGuardian
 - Capistrano
 - Nginx
+  - 1.12.2
 - Puma
+  - 4.3.6
 - AWS
   - VPC
   - EC2
+    - Amazon Linux2(t2.micro)
   - RDS
-    - MySQL
+    - MySQL 5.7.22
   - S3
   - ALB
   - Route53
