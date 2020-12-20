@@ -53,3 +53,6 @@ coverage
 /config/credentials/production.key
 
 /config/credentials/environment.key
+
+/localhost-key.pem
+/localhost.pem

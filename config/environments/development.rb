@@ -59,4 +59,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # ホワイトリストに許可したいhostを追加
+  # config.hosts << '.ngrok.io'
+  # ホワイトリスト全体をクリア
+  config.hosts.clear
 end
