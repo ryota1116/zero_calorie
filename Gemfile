@@ -24,6 +24,7 @@ gem 'mini_racer', platforms: :ruby
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'active_decorator'
+gem 'actionview', '>= 6.0.3.3'
 
 # Authentication
 gem 'sorcery'

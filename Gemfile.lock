@@ -568,6 +568,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
+  actionview (>= 6.0.3.3)
   active_decorator
   administrate
   annotate

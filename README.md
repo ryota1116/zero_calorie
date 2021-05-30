@@ -10,14 +10,22 @@
 </div>
 
 <p align="center">
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="60" height="60"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="60" height="60"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="60" height="60"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/ruby/ruby-original-wordmark.svg" alt="ruby" width="60" height="60"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/rails/rails-original-wordmark.svg" alt="rails" width="60" height="60"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="60" height="60"/> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="60" height="60"/> 
+  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="60" height="60"/> 
+  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="60" height="60"/> 
+  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="60" height="60"/> 
+  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg" alt="rails" width="60" height="60"/> 
+  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="60" height="60"/> 
+  
   <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="60" height="60"/> 
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="60" height="60"/>
+  
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="60" height="60"/>
+  
   <img src="https://img.shields.io/badge/--343434.svg?logo=circleci&style=plastic" width="70" height="50"/>
 </p>
 
@@ -33,9 +41,18 @@
 
 - ### [【個人開発】全ての食べ物を0kcalにするカロリー管理アプリ「Zerorie」をリリースしました](https://qiita.com/ryota21/items/2d3015bf40414b232b3e)
 
-  - ### Qiitaデイリートレンド1位、週間トレンド4位を獲得！
+  - #### Qiitaデイリートレンド1位、週間トレンド4位を獲得
 
-  - ### 500LGTM突破！
+  - #### 600LGTM突破
+  
+  - #### 累計ユーザー数1,500突破
+
+## 🗣 ポートフォリオコンテスト「editch」に出場！
+- ### [プログラミングスクール合同コンテスト「editch」に出場しました - note](https://note.com/ryota21/n/n0c87f2268aa5)
+
+- ### [プログラミングスクール合同コンテストeditchの概要](https://editch.org/)
+
+- ### [editchのYouTube Live映像](https://youtu.be/qleJXuitJ-M?t=2928)
 
 ## 📦 プロダクト概要
 
@@ -98,12 +115,15 @@
 - GitGuardian
 - Capistrano
 - Nginx
+  - 1.12.2
 - Puma
+  - 4.3.6
 - AWS
   - VPC
   - EC2
+    - Amazon Linux2(t2.micro)
   - RDS
-    - MySQL
+    - MySQL 5.7.22
   - S3
   - ALB
   - Route53
