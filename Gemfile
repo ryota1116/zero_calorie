@@ -18,7 +18,7 @@ gem 'turbolinks', '~> 5'
 # JSON形式のデータを簡単に作成する事が出来るgem
 gem 'jbuilder', '~> 2.7'
 # capistranoでdeployのエラーに対応
-gem 'mini_racer', '>= 0', platforms: :ruby
+# gem 'mini_racer', '>= 0', platforms: :ruby
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

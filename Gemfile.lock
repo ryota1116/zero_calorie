@@ -304,8 +304,6 @@ GEM
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
     kwalify (0.7.2)
-    libv8-node (15.14.0.1-x86_64-darwin-19)
-    libv8-node (15.14.0.1-x86_64-linux)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -333,8 +331,6 @@ GEM
     mime-types-data (3.2021.0225)
     mini_magick (4.11.0)
     mini_mime (1.0.3)
-    mini_racer (0.4.0)
-      libv8-node (~> 15.14.0.0)
     minitest (5.14.4)
     miyabi (0.1.1)
       mechanize (= 2.7.5)
@@ -609,7 +605,6 @@ DEPENDENCIES
   kaminari
   listen (~> 3.2)
   migration_comments
-  mini_racer
   miyabi
   mysql2 (>= 0.4.4)
   pry
