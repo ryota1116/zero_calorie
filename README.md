@@ -39,7 +39,7 @@
 
 ## <img src="https://img.shields.io/badge/-Qiita-55C500.svg?logo=&style=flat-square"> Qiita記事
 
-- ### [【個人開発】全ての食べ物を0kcalにするカロリー管理アプリ「Zerorie」をリリースしました](https://qiita.com/ryota21/items/2d3015bf40414b232b3e)
+- #### [【個人開発】全ての食べ物を0kcalにするカロリー管理アプリ「Zerorie」をリリースしました](https://qiita.com/ryota21/items/2d3015bf40414b232b3e)
 
   - #### Qiitaデイリートレンド1位、週間トレンド4位を獲得
 
@@ -48,11 +48,11 @@
   - #### 累計ユーザー数1,500突破
 
 ## 🗣 ポートフォリオコンテスト「editch」に出場！
-- ### [プログラミングスクール合同コンテスト「editch」に出場しました - note](https://note.com/ryota21/n/n0c87f2268aa5)
+- #### [プログラミングスクール合同コンテスト「editch」に出場しました - note](https://note.com/ryota21/n/n0c87f2268aa5)
 
-- ### [プログラミングスクール合同コンテストeditchの概要](https://editch.org/)
+- #### [プログラミングスクール合同コンテストeditchの概要](https://editch.org/)
 
-- ### [editchのYouTube Live映像](https://youtu.be/qleJXuitJ-M?t=2928)
+- #### [editchのYouTube Live映像](https://youtu.be/qleJXuitJ-M?t=2928)
 
 ## 📦 プロダクト概要
 
