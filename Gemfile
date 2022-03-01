@@ -31,7 +31,7 @@ gem 'sorcery'
 # S3に必要
 gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 # GCP
 # ggsいらないのでは
 # gem 'google-cloud-storage', '~> 1.8', require: false
