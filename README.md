@@ -35,7 +35,7 @@
 
 ## 🌐 アプリURL
 
-### **https://zerorie.com/**
+### 現在当サービスは非公開にしています。
 
 ## <img src="https://img.shields.io/badge/-Qiita-55C500.svg?logo=&style=flat-square"> Qiita記事
 
